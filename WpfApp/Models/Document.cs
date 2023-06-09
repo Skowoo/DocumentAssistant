@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Models
 {
-    public class Documents
+    public class Document
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DocumentID { get; set; }
 
         [Required]
@@ -21,23 +22,23 @@ namespace WpfApp.Models
         public string Name { get; set; }
 
         //Foreign keys
-        [Display(Name = "Users")]
+        [Display(Name = "User")]
         public virtual int UserID { get; set; }
 
         [ForeignKey("UserID")]
-        public virtual Users User { get; set; }
+        public virtual User Users { get; set; }
 
 
-        [Display(Name = "DocumentTypes")]
+        [Display(Name = "DocumentType")]
         public virtual int TypeID { get; set; }
 
         [ForeignKey("TypeID")]
-        public virtual DocumentTypes DocumentType { get; set; }
+        public virtual DocumentType DocumentTypes { get; set; }
 
-        [Display(Name = "Customers")]
+        [Display(Name = "Customer")]
         public virtual int CustomerID { get; set; }
 
         [ForeignKey("CustomerID")]
-        public virtual Customers Customer { get; set; }
+        public virtual Customer Customers { get; set; }
     }
 }

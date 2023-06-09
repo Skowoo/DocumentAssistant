@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfApp.Models;
+using WpfApp.Classes;
+using Microsoft.EntityFrameworkCore;
 
 namespace WpfApp
 {
@@ -23,6 +25,30 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            InitializeDb();
+        }
+
+        public void InitializeDb()
+        {
+            using (var db = new MainContext())
+            {
+                var salt = PassGenerator.GenerateSalt();
+                var adminRole = new Role { 
+                    RoleID = 1,
+                    RoleName = "Admin" };
+                var adminUser = new User {
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    Login = "Admin",
+                    Password = PassGenerator.ComputeHash("Admin", salt),
+                    Salt = salt,
+                    IsActive = true,
+                    RoleID = 1 };
+                
+                db.Roles.Add(adminRole);
+                db.Users.Add(adminUser);
+                db.SaveChanges();
+            }
         }
     }
 }

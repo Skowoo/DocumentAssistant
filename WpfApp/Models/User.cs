@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp.Models
 {
-    public class Users
+    public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userID { get; set; }
 
         [Required]
@@ -21,16 +22,16 @@ namespace WpfApp.Models
         public string Password { get; set; }
 
         [Required]
-        public string UserSalt { get; set; }
+        public string Salt { get; set; }
 
         [Required]
         public bool IsActive { get; set; }
 
         //Foreign keys
-        [Display(Name = "Roles")]
+        [Display(Name = "Role")]
         public virtual int RoleID { get; set; }
 
         [ForeignKey("RoleID")]
-        public virtual Roles Role { get; set; }
+        public virtual Role Roles { get; set; }
     }
 }
