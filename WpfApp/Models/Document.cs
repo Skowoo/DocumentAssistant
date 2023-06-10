@@ -21,6 +21,9 @@ namespace WpfApp.Models
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        public int signsSize { get; set; }
+
         //Foreign keys
         [Display(Name = "User")]
         public virtual int UserID { get; set; }

@@ -7,6 +7,8 @@ namespace WpfApp
 {
     public class MainContext : DbContext
     {
+        public MainContext(DbContextOptions<MainContext> options) : base(options) { }
+
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Document> Documents { get; set; }

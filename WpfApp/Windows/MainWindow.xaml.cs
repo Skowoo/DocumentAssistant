@@ -30,23 +30,38 @@ namespace WpfApp
 
         public void InitializeDb()
         {
-            using (var db = new MainContext())
+            var contextOptions = new DbContextOptionsBuilder<MainContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
+                options => options.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null)
+                    )
+                .Options;
+
+            using (var db = new MainContext(contextOptions))
             {
                 var salt = PassGenerator.GenerateSalt();
                 var adminRole = new Role { 
-                    RoleID = 1,
-                    RoleName = "Admin" };
+                    RoleName = "Admin" 
+                };
                 var adminUser = new User {
                     FirstName = "Admin",
                     LastName = "Admin",
                     Login = "Admin",
                     Password = PassGenerator.ComputeHash("Admin", salt),
                     Salt = salt,
-                    IsActive = true,
-                    RoleID = 1 };
-                
+                    IsActive = true
+                };
+
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
+
                 db.Roles.Add(adminRole);
-                db.Users.Add(adminUser);
+                db.SaveChanges();
+
+                adminUser.RoleID = db.Roles.Single().RoleID;
+                db.Users.Add(adminUser);   
                 db.SaveChanges();
             }
         }
