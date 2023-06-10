@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,30 @@ namespace WpfApp.Windows
         public LoginWindow()
         {
             InitializeComponent();
+            CheckDb();
+        }
+
+        private void CheckDb()
+        {
+            var contextOptions = new DbContextOptionsBuilder<MainContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
+                options => options.EnableRetryOnFailure(
+            maxRetryCount: 3,
+            maxRetryDelay: System.TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null))
+            .Options;
+
+            try
+            {
+                context = new MainContext(contextOptions);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (!context.Database.CanConnect())
+                MessageBox.Show("Baza danych nie istnieje!");
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
