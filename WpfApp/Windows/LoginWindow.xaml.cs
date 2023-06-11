@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp.Classes;
 using WpfApp.Models;
+using System.Windows.Annotations;
 
 namespace WpfApp.Windows
 {
@@ -28,29 +29,6 @@ namespace WpfApp.Windows
         {
             InitializeComponent();
             CheckDb();
-        }
-
-        private void CheckDb()
-        {
-            var contextOptions = new DbContextOptionsBuilder<MainContext>()
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
-                options => options.EnableRetryOnFailure(
-            maxRetryCount: 3,
-            maxRetryDelay: System.TimeSpan.FromSeconds(30),
-            errorNumbersToAdd: null))
-            .Options;
-
-            try
-            {
-                context = new MainContext(contextOptions);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (!context.Database.CanConnect())
-                MessageBox.Show("Baza danych nie istnieje!");
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -85,6 +63,77 @@ namespace WpfApp.Windows
             catch
             {
                 MessageBox.Show("Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia");
+            }
+        }
+
+
+        private void CheckDb()
+        {
+            var contextOptions = new DbContextOptionsBuilder<MainContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
+                options => options.EnableRetryOnFailure(
+            maxRetryCount: 3,
+            maxRetryDelay: System.TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null))
+            .Options;
+
+            try
+            {
+                context = new MainContext(contextOptions);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
+            if (!context.Database.CanConnect())
+                newDbCreateWindowDecision = MessageBox.Show("Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'tak' aby utworzyć nową bazę danych.",
+                                                            "Brak połączenia z bazą danych!", MessageBoxButton.YesNo);
+
+            if (newDbCreateWindowDecision == MessageBoxResult.OK)
+            {
+                CreateNewDb();
+            }
+            else return;
+        }
+
+        public void CreateNewDb()
+        {
+            var contextOptions = new DbContextOptionsBuilder<MainContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
+                options => options.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null)
+                    )
+                .Options;
+
+            using (var db = new MainContext(contextOptions))
+            {
+                var salt = PassGenerator.GenerateSalt();
+                var adminRole = new Role
+                {
+                    RoleName = "Admin"
+                };
+                var adminUser = new User
+                {
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    Login = "Admin",
+                    Password = PassGenerator.ComputeHash("Admin", salt),
+                    Salt = salt,
+                    IsActive = true
+                };
+
+                db.Database.EnsureCreated();
+
+                db.Roles.Add(adminRole);
+                db.SaveChanges();
+
+                adminUser.RoleID = db.Roles.Single().RoleID;
+                db.Users.Add(adminUser);
+                db.SaveChanges();
             }
         }
     }
