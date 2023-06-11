@@ -54,7 +54,7 @@ namespace WpfApp.Windows
 
         private void GrantAccess(object sender, RoutedEventArgs e, int userLevel)
         {
-            var main = new MainWindow(/*userLevel*/);
+            var main = new MainWindow(userLevel);
             try
             {
                 main.Show();
@@ -65,7 +65,6 @@ namespace WpfApp.Windows
                 MessageBox.Show("Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia");
             }
         }
-
 
         private void CheckDb()
         {
@@ -89,13 +88,10 @@ namespace WpfApp.Windows
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
             if (!context.Database.CanConnect())
                 newDbCreateWindowDecision = MessageBox.Show("Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'tak' aby utworzyć nową bazę danych.",
-                                                            "Brak połączenia z bazą danych!", MessageBoxButton.YesNo);
+                                                            "Brak połączenia z bazą danych!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-            if (newDbCreateWindowDecision == MessageBoxResult.OK)
-            {
+            if (newDbCreateWindowDecision == MessageBoxResult.Yes)
                 CreateNewDb();
-            }
-            else return;
         }
 
         public void CreateNewDb()
@@ -123,7 +119,8 @@ namespace WpfApp.Windows
                     Login = "Admin",
                     Password = PassGenerator.ComputeHash("Admin", salt),
                     Salt = salt,
-                    IsActive = true
+                    IsActive = true,
+                    RoleID = 1
                 };
 
                 db.Database.EnsureCreated();
@@ -131,9 +128,10 @@ namespace WpfApp.Windows
                 db.Roles.Add(adminRole);
                 db.SaveChanges();
 
-                adminUser.RoleID = db.Roles.Single().RoleID;
                 db.Users.Add(adminUser);
                 db.SaveChanges();
+
+                MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
             }
         }
     }
