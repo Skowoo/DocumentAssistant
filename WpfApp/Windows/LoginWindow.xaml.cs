@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfApp.Classes;
 using WpfApp.Models;
 using System.Windows.Annotations;
+using System.Windows.Navigation;
 
 namespace WpfApp.Windows
 {
@@ -57,8 +58,8 @@ namespace WpfApp.Windows
             var main = new MainWindow();
             try
             {
-                main.Show();
                 this.Close();
+                main.Show();
             }
             catch
             {
@@ -116,6 +117,12 @@ namespace WpfApp.Windows
 
                 MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
             }
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                LoginButton_Click(sender, e);
         }
     }
 }

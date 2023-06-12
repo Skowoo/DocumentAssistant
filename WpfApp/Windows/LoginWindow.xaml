@@ -6,12 +6,20 @@
         xmlns:local="clr-namespace:WpfApp.Windows"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="LoginWindow" Height="250" Width="250">
-    <Grid>
-        <Button x:Name="LoginButton" Content="Zaloguj" HorizontalAlignment="Center" Margin="0,140,0,0" VerticalAlignment="Top" Height="40" Width="160" Click="LoginButton_Click"/>
-        <TextBox x:Name="LoginTextBox" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Hasło:"/></TextBlock>
-        <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Login"/><Run Text=":"/></TextBlock>
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="160" Height="30"/>
+        WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" Height="330" Width="350">
+    <Grid Background="BlanchedAlmond">
+        <Grid HorizontalAlignment="Center" Height="210" VerticalAlignment="Top" Margin="0,55,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LoginButton" Content="Zaloguj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="220" Click="LoginButton_Click" FontWeight="Bold" FontSize="16" Margin="0,159,0,0" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="LoginTextBox" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Height="40" Margin="0,30,0,0" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="0,75,0,0" Height="24" Width="220" FontSize="18" Grid.ColumnSpan="2"><Run Language="pl-pl" Text="Hasło:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="2.028,5.804" Height="25" Width="220" FontSize="18" Grid.ColumnSpan="2"><Run Language="pl-pl" Text="Login"/><Run Text=":"/></TextBlock>
+            <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalContentAlignment="Center" KeyDown="PasswordBox_KeyDown" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="220" Height="40" Grid.ColumnSpan="2"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="DocumentAssistant" VerticalAlignment="Top" Width="330" Height="40" FontSize="24" FontWeight="Bold" FontStyle="Italic" Foreground="#FF796953"/>
     </Grid>
 </Window>
