@@ -7,7 +7,15 @@ namespace WpfApp
 {
     public class MainContext : DbContext
     {
-        public MainContext(DbContextOptions<MainContext> options) : base(options) { }
+        private static DbContextOptionsBuilder<MainContext> defaultOptions => new DbContextOptionsBuilder<MainContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
+                options => options.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null)
+                    );
+
+        public MainContext() : base(defaultOptions.Options) { }
 
         public DbSet<Customer> Customers { get; set; }
 

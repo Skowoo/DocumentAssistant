@@ -68,17 +68,9 @@ namespace WpfApp.Windows
 
         private void CheckDb()
         {
-            var contextOptions = new DbContextOptionsBuilder<MainContext>()
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
-                options => options.EnableRetryOnFailure(
-            maxRetryCount: 3,
-            maxRetryDelay: System.TimeSpan.FromSeconds(30),
-            errorNumbersToAdd: null))
-            .Options;
-
             try
             {
-                context = new MainContext(contextOptions);
+                context = new MainContext();
             }
             catch (Exception ex)
             {
@@ -96,16 +88,7 @@ namespace WpfApp.Windows
 
         public void CreateNewDb()
         {
-            var contextOptions = new DbContextOptionsBuilder<MainContext>()
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
-                options => options.EnableRetryOnFailure(
-                    maxRetryCount: 3,
-                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null)
-                    )
-                .Options;
-
-            using (var db = new MainContext(contextOptions))
+            using (var db = new MainContext())
             {
                 var salt = PassGenerator.GenerateSalt();
                 var adminRole = new Role
