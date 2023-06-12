@@ -27,7 +27,7 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
-            DocGrid.ItemsSource = mainContext.Documents.ToList();
+            DocGrid.ItemsSource = mainContext.Documents.ToList();            
         }
     }
 }

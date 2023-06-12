@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
 
-    <Grid>
+    <Grid Background="BlanchedAlmond">
         <DataGrid Name="DocGrid" Margin="0,200,0,0" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="Auto"/>
