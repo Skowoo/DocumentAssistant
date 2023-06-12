@@ -54,7 +54,7 @@ namespace WpfApp.Windows
 
         private void GrantAccess(object sender, RoutedEventArgs e, int userLevel)
         {
-            var main = new MainWindow(userLevel);
+            var main = new MainWindow();
             try
             {
                 main.Show();

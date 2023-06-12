@@ -22,15 +22,12 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        CollectionViewSource documentView;
-
         MainContext mainContext = new MainContext();
 
-        public MainWindow(int userLevel)
+        public MainWindow()
         {
             InitializeComponent();
-            documentView = (CollectionViewSource)FindResource("documentView");
-            documentView.Source = mainContext.Documents.Local.ToObservableCollection();
+            DocGrid.ItemsSource = mainContext.Documents.ToList();
         }
     }
 }
