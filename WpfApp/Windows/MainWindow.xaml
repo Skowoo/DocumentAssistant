@@ -4,9 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
+        xmlns:models="clr-namespace:WpfApp.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <CollectionViewSource x:Key="documentView" d:DesignSource="{d:DesignInstance {x:Type models:Document}}"/>
+    </Window.Resources>
+    
     <Grid>
-
+        <DataGrid d:ItemsSource="{Binding Source={StaticResource documentView}}" Margin="0,200,0,0" Width="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar dokumentu" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerID}" Header="Zleceniodawca" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeID}" Header="Typ dokumentu" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Dodany" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserID}" Header="Odpowiedzialny" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
+        
     </Grid>
 </Window>
