@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using WpfApp.Models;
 using WpfApp.Classes;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
+using WpfApp.Models.ViewModels;
 
 namespace WpfApp
 {
@@ -24,10 +26,23 @@ namespace WpfApp
     {
         MainContext mainContext = new MainContext();
 
+        List<Document> objectsList = new();
+
+        ObservableCollection<DocumentViewModel> viewList = new();
+
         public MainWindow()
         {
             InitializeComponent();
-            DocGrid.ItemsSource = mainContext.Documents.ToList();            
+            UpdateDocumentsList();
+            DocGrid.ItemsSource = viewList;
+        }
+
+        private void UpdateDocumentsList()
+        {
+            objectsList = mainContext.Documents.ToList();
+            viewList.Clear();
+            foreach (var document in objectsList)
+                viewList.Add(new DocumentViewModel(document));
         }
     }
 }
