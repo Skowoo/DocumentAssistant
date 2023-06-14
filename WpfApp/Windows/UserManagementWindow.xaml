@@ -9,14 +9,15 @@
         ResizeMode="NoResize"
         Title="Zarządzaj użytkownikami" Height="450" Width="800">
     <Grid Background="BlanchedAlmond" >
-        <DataGrid Name="UsersDataGrid" Margin="0,0,400,0" AutoGenerateColumns="False" IsReadOnly="True" >
+        <DataGrid Name="UsersDataGrid" Margin="0,0,300,0" SelectionChanged="UsersDataGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="userLoginColumn" Binding="{Binding Login}" Header="Login" Width="*"/>
-                <DataGridTextColumn x:Name="userRankColumn" Binding="{Binding RoleName}" Header="Ranga" Width="*"/>
+                <DataGridTextColumn x:Name="userLoginColumn" Binding="{Binding Login}" Header="Login" Width="60"/>
+                <DataGridTextColumn x:Name="userRankColumn" Binding="{Binding RoleName}" Header="Ranga" Width="100"/>
                 <DataGridTextColumn x:Name="userFirstNameColumn" Binding="{Binding RoleName}" Header="Imię" Width="*"/>
                 <DataGridTextColumn x:Name="userSecondNameColumn" Binding="{Binding RoleName}" Header="Nazwisko" Width="*"/>
-                <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding IsActive}" Header="Status" Width="*"/>
+                <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding IsActive}" Header="Status" Width="60"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="EditUserButton" Content="Edytuj użytkownika" HorizontalAlignment="Left" Margin="550,10,0,0" VerticalAlignment="Top" Height="40" Width="200"/>
     </Grid>
 </Window>

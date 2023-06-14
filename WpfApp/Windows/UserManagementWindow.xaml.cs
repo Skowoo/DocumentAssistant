@@ -26,11 +26,14 @@ namespace WpfApp.Windows
 
         private ObservableCollection<UserViewModel> usersViews = new();
 
+        private int SelectedUserID;
+
         public UserManagementWindow()
         {
             InitializeComponent();
             UpdateUsersList();
             UsersDataGrid.ItemsSource = usersViews;
+            EditUserButton.IsEnabled = false;
         }
 
         private void UpdateUsersList()
@@ -43,6 +46,16 @@ namespace WpfApp.Windows
             usersViews.Clear();
             foreach (var user in usersList)
                 usersViews.Add(new UserViewModel(user));
+        }
+
+        private void UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UsersDataGrid.SelectedItem != null)
+            {
+                EditUserButton.IsEnabled = true;
+                UserViewModel temp = UsersDataGrid.SelectedItem as UserViewModel;
+                SelectedUserID = temp.UserID;
+            }
         }
     }
 }
