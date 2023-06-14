@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp.Classes;
 using WpfApp.Models;
 using WpfApp.Models.ViewModels;
 
@@ -57,6 +58,7 @@ namespace WpfApp.Windows
             UsersDataGrid.SelectedItem = null;
             UserUpdateCommandGrid.Visibility = Visibility.Visible;
             ChangeLoginGrid.Visibility = Visibility.Hidden;
+            ChangePasswordGrid.Visibility = Visibility.Hidden;
         }
 
         private void UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -94,6 +96,37 @@ namespace WpfApp.Windows
         private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+            ChangePasswordGrid.Visibility = Visibility.Visible;
+            PasswordChangeDescription.Text = $"Zmiana hasła użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+        }
+
+        private void ConfirmPasswordChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewPasswordBox.Password != ConfirmPasswordBox.Password)
+            {
+                MessageBox.Show("Hasła nie są jednakowe!");
+                return;
+            }
+            if (NewPasswordBox.Password.Length < 4)
+            {
+                MessageBox.Show("Hasło za krótkie! minimalny rozmiar to 4 znaki");
+                return;
+            }
+
+            string salt = PassGenerator.GenerateSalt();
+
+            try
+            {
+                using (MainContext context = new MainContext())
+                {
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().Salt = salt;
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().Password = PassGenerator.ComputeHash(NewPasswordBox.Password, salt);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            ResetView();
         }
 
         private void ChangeRankButton_Click(object sender, RoutedEventArgs e)
