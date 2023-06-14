@@ -68,6 +68,11 @@ namespace WpfApp.Windows
             {
                 UserUpdateCommandGrid.IsEnabled = true;
                 selectedUserView = UsersDataGrid.SelectedItem as UserViewModel;
+
+                if (selectedUserView.IsActive)
+                    ActivateUserButton.Content = "Zdezaktywuj użytkownika";
+                else
+                    ActivateUserButton.Content = "Aktywuj użytkownika";
             }
         }
 
@@ -165,7 +170,21 @@ namespace WpfApp.Windows
 
         private void ActivateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            using (MainContext context = new MainContext())
+            {
+                try
+                {
+                    if (selectedUserView.IsActive)
+                        context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().IsActive = false;
+                    else
+                        context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().IsActive = true;
+
+                    context.SaveChanges();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+                ResetView();
+            }
         }
     }
 }

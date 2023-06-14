@@ -17,8 +17,9 @@ namespace WpfApp.Models.ViewModels
             LastName = input.LastName;
             Login = input.Login;
             if (input.IsActive)
-                IsActive = "Aktywny";
-            else IsActive = "Nieaktywny";
+                Status = "Aktywny";
+            else Status = "Nieaktywny";
+            IsActive = input.IsActive;
 
             using MainContext context = new MainContext();
             RoleID = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleID;
@@ -29,13 +30,15 @@ namespace WpfApp.Models.ViewModels
 
         public int RoleID { get; init; }
 
+        public bool IsActive { get; init; }
+
         public string FirstName { get; init; }
 
         public string LastName { get; init; }
 
         public string Login { get; init; }
 
-        public string IsActive { get; init; }
+        public string Status { get; init; }
 
         public string RoleName { get; init; }
     }

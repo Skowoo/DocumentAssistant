@@ -15,7 +15,7 @@
                 <DataGridTextColumn x:Name="userRankColumn" Binding="{Binding RoleName}" Header="Ranga" Width="100"/>
                 <DataGridTextColumn x:Name="userFirstNameColumn" Binding="{Binding RoleName}" Header="Imię" Width="*"/>
                 <DataGridTextColumn x:Name="userSecondNameColumn" Binding="{Binding RoleName}" Header="Nazwisko" Width="*"/>
-                <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding IsActive}" Header="Status" Width="60"/>
+                <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding Status}" Header="Status" Width="75"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Visibility="Hidden" Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="210" VerticalAlignment="Center" Margin="550,0,0,0">
