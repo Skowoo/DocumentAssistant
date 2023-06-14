@@ -16,6 +16,7 @@ using WpfApp.Classes;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using WpfApp.Models.ViewModels;
+using WpfApp.Windows;
 
 namespace WpfApp
 {
@@ -24,8 +25,6 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainContext mainContext = new MainContext();
-
         List<Document> objectsList = new();
 
         ObservableCollection<DocumentViewModel> viewList = new();
@@ -39,12 +38,22 @@ namespace WpfApp
 
         private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                DocumentViewModel doc = DocGrid.SelectedItem as DocumentViewModel;
+            DocumentViewModel doc = DocGrid.SelectedItem as DocumentViewModel;
+        }
+
+        private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UserManagementWindow();
+            window.Show();
         }
 
         private void UpdateDocumentsList()
         {
-            objectsList = mainContext.Documents.ToList();
+            objectsList.Clear();
+            using (MainContext context = new MainContext())
+            {
+                objectsList = context.Documents.ToList();
+            }
             viewList.Clear();
             foreach (var document in objectsList)
                 viewList.Add(new DocumentViewModel(document));
