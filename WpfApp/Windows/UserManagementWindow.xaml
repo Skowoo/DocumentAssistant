@@ -13,18 +13,19 @@
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="userLoginColumn" Binding="{Binding Login}" Header="Login" Width="60"/>
                 <DataGridTextColumn x:Name="userRankColumn" Binding="{Binding RoleName}" Header="Ranga" Width="100"/>
-                <DataGridTextColumn x:Name="userFirstNameColumn" Binding="{Binding RoleName}" Header="Imię" Width="*"/>
-                <DataGridTextColumn x:Name="userSecondNameColumn" Binding="{Binding RoleName}" Header="Nazwisko" Width="*"/>
+                <DataGridTextColumn x:Name="userFirstNameColumn" Binding="{Binding FirstName}" Header="Imię" Width="*"/>
+                <DataGridTextColumn x:Name="userSecondNameColumn" Binding="{Binding LastName}" Header="Nazwisko" Width="*"/>
                 <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding Status}" Header="Status" Width="75"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="210" VerticalAlignment="Center" Margin="550,0,0,0">
+        <Grid Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Margin="550,64,0,0">
             <TextBlock Text="Zarządzaj użytkownikiem:" Height="30" TextAlignment="Center" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
             <Button Name="ChangeLoginButton" Content="Zmień login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,35,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangeLoginButton_Click"/>
             <Button Name="ChangePasswordButton" Content="Zmień hasło" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,80,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangePasswordButton_Click"/>
-            <Button Name="ChangeRankButton" Content="Zmień rangę" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,125,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangeRankButton_Click"/>
-            <Button Name="ActivateUserButton" Content="Aktywuj użytkownika" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,170,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ActivateUserButton_Click"/>
+            <Button Name="ChangeNamesButton" Content="Zmień dane osobowe" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,125,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangeNamesButton_Click"/>
+            <Button Name="ChangeRankButton" Content="Zmień rangę" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,170,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangeRankButton_Click"/>
+            <Button Name="ActivateUserButton" Content="Aktywuj użytkownika" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,215,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ActivateUserButton_Click"/>
         </Grid>
 
         <Grid Visibility="Hidden" Name="ChangeLoginGrid" HorizontalAlignment="Left" Height="151" VerticalAlignment="Center" Margin="525,0,0,0">
@@ -32,6 +33,15 @@
             <TextBlock HorizontalAlignment="Left" Margin="0,61,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Podaj nowy login:"/></TextBlock>
             <TextBox x:Name="NewLoginTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
             <Button x:Name="ConfirmLoginChangeButton" Content="Zatwierdź" HorizontalAlignment="Left" Margin="75,126,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmLoginChangeButton_Click"/>
+        </Grid>
+
+        <Grid Visibility="Hidden" Name="ChangeNamesGrid" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Center" Margin="525,0,0,0">
+            <TextBlock x:Name="NamesChangeDescription" HorizontalAlignment="Left" Width="250" TextAlignment="Center" Height="50" TextWrapping="Wrap" Text="Zmiana danych osobowych: &#xA;Login - Imie Nazwisko (ID: 0)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Imię:"/></TextBlock>
+            <TextBox x:Name="NewFirstNameTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
+            <TextBox x:Name="NewLastNameTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
+            <Button x:Name="ConfirmNamesChangeButton" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,187,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmNamesChangeButton_Click"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,111,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Nazwisko"/><Run Text=":"/></TextBlock>
         </Grid>
 
         <Grid Visibility="Hidden" Name="ChangePasswordGrid" HorizontalAlignment="Left" Height="191" VerticalAlignment="Center" Margin="525,0,0,0">

@@ -77,6 +77,37 @@ namespace WpfApp.Windows
             ResetView();
         }
 
+        private void ChangeNamesButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+            ChangeNamesGrid.Visibility = Visibility.Visible;
+            NamesChangeDescription.Text = $"Zmiana danych osobowych: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            NewFirstNameTextBox.Text = selectedUserView.FirstName;
+            NewLastNameTextBox.Text = selectedUserView.LastName;
+        }
+
+        private void ConfirmNamesChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewFirstNameTextBox.Text.Length < 2 || NewLastNameTextBox.Text.Length < 2)
+            {
+                MessageBox.Show("Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!");
+                return;
+            }
+
+            try
+            {
+                using (MainContext context = new MainContext())
+                {
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().FirstName = NewFirstNameTextBox.Text;
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().LastName = NewLastNameTextBox.Text;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            ResetView();
+        }
+
         private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
@@ -191,6 +222,7 @@ namespace WpfApp.Windows
             CancelButton.Visibility = Visibility.Hidden;
             UserUpdateCommandGrid.Visibility = Visibility.Visible;
             ChangeLoginGrid.Visibility = Visibility.Hidden;
+            ChangeNamesGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Hidden;
             ChangeRoleGrid.Visibility = Visibility.Hidden;
         }
