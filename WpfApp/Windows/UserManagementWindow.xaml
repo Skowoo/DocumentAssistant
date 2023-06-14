@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.Windows"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="Zarządzaj użytkownikami" Height="450" Width="800">
     <Grid Background="BlanchedAlmond" >
+
         <DataGrid Name="UsersDataGrid" Margin="0,0,300,0" SelectionChanged="UsersDataGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="userLoginColumn" Binding="{Binding Login}" Header="Login" Width="60"/>
@@ -18,7 +18,8 @@
                 <DataGridTextColumn x:Name="userStatusColumn" Binding="{Binding Status}" Header="Status" Width="75"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Visibility="Hidden" Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="210" VerticalAlignment="Center" Margin="550,0,0,0">
+
+        <Grid Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="210" VerticalAlignment="Center" Margin="550,0,0,0">
             <TextBlock Text="Zarządzaj użytkownikiem:" Height="30" TextAlignment="Center" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
             <Button Name="ChangeLoginButton" Content="Zmień login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,35,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangeLoginButton_Click"/>
             <Button Name="ChangePasswordButton" Content="Zmień hasło" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" Margin="0,80,0,0" FontWeight="Bold" FontSize="14" FontFamily="Arial" Click="ChangePasswordButton_Click"/>
@@ -41,12 +42,14 @@
             <Button Name="ConfirmPasswordChangeButton" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmPasswordChangeButton_Click"/>
         </Grid>
 
-        <Grid Name="ChangeRoleGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="525,0,0,0">
+        <Grid Visibility="Hidden" Name="ChangeRoleGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="525,0,0,0">
             <TextBlock x:Name="RoleChangeDescription" HorizontalAlignment="Center" Width="250" TextAlignment="Center" Height="50" TextWrapping="Wrap" Text="Zmiana roli: &#xA;Login - Imie Nazwisko (ID: 0)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,11,0,0"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,60,0,0" Width="100" TextAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Wybierz rolę:"/></TextBlock>
             <ComboBox Name="RoleSelectionComboBox" HorizontalAlignment="Right" Margin="0,60,5,0" VerticalAlignment="Top" Width="130"/>
             <Button Name="ConfirmRoleChangeButton" Content="Zatwierdź" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmRoleChangeButton_Click"/>
-        </Grid>        
+        </Grid>
+
+        <Button Name="CancelButton" Content="Anuluj" HorizontalAlignment="Left" Margin="631,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.101,0.403" Click="CancelButton_Click" Height="25" Width="50" FontWeight="Bold"/>
 
     </Grid>
 </Window>

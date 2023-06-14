@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfApp.Classes;
 using WpfApp.Models;
 using WpfApp.Models.ViewModels;
@@ -25,7 +17,7 @@ namespace WpfApp.Windows
     {
         private UserViewModel? selectedUserView;
 
-        private List<User> usersList = new ();
+        private List<User> usersList = new();
 
         private ObservableCollection<UserViewModel> usersViews = new();
 
@@ -38,29 +30,7 @@ namespace WpfApp.Windows
             ResetView();
         }
 
-        private void UpdateUsersList()
-        {
-            usersList.Clear();
-            using (MainContext context = new MainContext())
-            {
-                usersList = context.Users.ToList();
-            }
-            usersViews.Clear();
-            foreach (var user in usersList)
-                usersViews.Add(new UserViewModel(user));
-        }
-
-        private void ResetView()
-        {
-            selectedUserView = null;
-            UpdateUsersList();
-            UserUpdateCommandGrid.IsEnabled = false;
-            UsersDataGrid.SelectedItem = null;
-            UserUpdateCommandGrid.Visibility = Visibility.Visible;
-            ChangeLoginGrid.Visibility = Visibility.Hidden;
-            ChangePasswordGrid.Visibility = Visibility.Hidden;
-            ChangeRoleGrid.Visibility = Visibility.Hidden;
-        }
+        #region Controls
 
         private void UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -68,6 +38,8 @@ namespace WpfApp.Windows
             {
                 UserUpdateCommandGrid.IsEnabled = true;
                 selectedUserView = UsersDataGrid.SelectedItem as UserViewModel;
+
+                CancelButton.Visibility = Visibility.Visible;
 
                 if (selectedUserView.IsActive)
                     ActivateUserButton.Content = "Zdezaktywuj użytkownika";
@@ -86,6 +58,12 @@ namespace WpfApp.Windows
 
         private void ConfirmLoginChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            if (NewLoginTextBox.Text.Length < 2)
+            {
+                MessageBox.Show("Login musi składać się z conajmniej dwóch znaków!");
+                return;
+            }
+
             try
             {
                 using (MainContext context = new MainContext())
@@ -142,11 +120,11 @@ namespace WpfApp.Windows
             RoleChangeDescription.Text = $"Zmiana roli użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             List<Role> tempRolesList;
             using (MainContext context = new MainContext())
-            {                
+            {
                 tempRolesList = context.Roles.ToList();
             }
             ObservableCollection<RoleViewModel> RolesViewModelsList = new();
-            foreach (var item in  tempRolesList)
+            foreach (var item in tempRolesList)
                 RolesViewModelsList.Add(new RoleViewModel(item));
 
             RoleSelectionComboBox.ItemsSource = RolesViewModelsList;
@@ -162,7 +140,7 @@ namespace WpfApp.Windows
                 {
                     context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().RoleID = selectedRole.RoleID;
                 }
-            } 
+            }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             ResetView();
@@ -186,5 +164,37 @@ namespace WpfApp.Windows
                 ResetView();
             }
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e) => ResetView();
+
+        #endregion
+
+        #region Private methods
+        private void UpdateUsersList()
+        {
+            usersList.Clear();
+            using (MainContext context = new MainContext())
+            {
+                usersList = context.Users.ToList();
+            }
+            usersViews.Clear();
+            foreach (var user in usersList)
+                usersViews.Add(new UserViewModel(user));
+        }
+
+        private void ResetView()
+        {
+            selectedUserView = null;
+            UpdateUsersList();
+            UserUpdateCommandGrid.IsEnabled = false;
+            UsersDataGrid.SelectedItem = null;
+            CancelButton.Visibility = Visibility.Hidden;
+            UserUpdateCommandGrid.Visibility = Visibility.Visible;
+            ChangeLoginGrid.Visibility = Visibility.Hidden;
+            ChangePasswordGrid.Visibility = Visibility.Hidden;
+            ChangeRoleGrid.Visibility = Visibility.Hidden;
+        }
+        #endregion
+
     }
 }
