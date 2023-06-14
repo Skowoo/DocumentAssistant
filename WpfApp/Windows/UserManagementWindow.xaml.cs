@@ -22,18 +22,19 @@ namespace WpfApp.Windows
     /// </summary>
     public partial class UserManagementWindow : Window
     {
+        private UserViewModel? selectedUserView;
+
         private List<User> usersList = new ();
 
         private ObservableCollection<UserViewModel> usersViews = new();
-
-        private int SelectedUserID;
 
         public UserManagementWindow()
         {
             InitializeComponent();
             UpdateUsersList();
             UsersDataGrid.ItemsSource = usersViews;
-            EditUserButton.IsEnabled = false;
+            UserUpdateCommandGrid.IsEnabled = false;
+            ResetView();
         }
 
         private void UpdateUsersList()
@@ -48,14 +49,61 @@ namespace WpfApp.Windows
                 usersViews.Add(new UserViewModel(user));
         }
 
+        private void ResetView()
+        {
+            selectedUserView = null;
+            UpdateUsersList();
+            UserUpdateCommandGrid.IsEnabled = false;
+            UsersDataGrid.SelectedItem = null;
+            UserUpdateCommandGrid.Visibility = Visibility.Visible;
+            ChangeLoginGrid.Visibility = Visibility.Hidden;
+        }
+
         private void UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (UsersDataGrid.SelectedItem != null)
             {
-                EditUserButton.IsEnabled = true;
-                UserViewModel temp = UsersDataGrid.SelectedItem as UserViewModel;
-                SelectedUserID = temp.UserID;
+                UserUpdateCommandGrid.IsEnabled = true;
+                selectedUserView = UsersDataGrid.SelectedItem as UserViewModel;
             }
+        }
+
+        private void ChangeLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+            ChangeLoginGrid.Visibility = Visibility.Visible;
+            LoginChangeDescription.Text = $"Zmiana loginu: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            NewLoginTextBox.Text = selectedUserView.Login;
+        }
+
+        private void ConfirmLoginChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (MainContext context = new MainContext())
+                {
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().Login = NewLoginTextBox.Text;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            ResetView();
+        }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void ChangeRankButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void ActivateUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
