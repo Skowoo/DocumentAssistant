@@ -12,7 +12,7 @@ namespace WpfApp.Models.ViewModels
     {
         public UserViewModel(User input) 
         { 
-            userID = input.userID.ToString();
+            UserID = input.UserID;
             FirstName = input.FirstName;
             LastName = input.LastName;
             Login = input.Login;
@@ -21,19 +21,22 @@ namespace WpfApp.Models.ViewModels
             else IsActive = "Nieaktywny";
 
             using MainContext context = new MainContext();
-            RoleID = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleName;
+            RoleID = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleID;
+            RoleName = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleName;
         }
 
-        public string userID { get; set; }
+        public int UserID { get; init; }
 
-        public string FirstName { get; set; }
+        public int RoleID { get; init; }
 
-        public string LastName { get; set; }
+        public string FirstName { get; init; }
 
-        public string Login { get; set; }
+        public string LastName { get; init; }
 
-        public string IsActive { get; set; }
+        public string Login { get; init; }
 
-        public string RoleID { get; set; }
+        public string IsActive { get; init; }
+
+        public string RoleName { get; init; }
     }
 }

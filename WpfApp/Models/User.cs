@@ -7,7 +7,7 @@ namespace WpfApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int userID { get; set; }
+        public int UserID { get; set; }
 
         [Required]
         public string FirstName { get; set; }

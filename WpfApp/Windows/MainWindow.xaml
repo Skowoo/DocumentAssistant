@@ -6,19 +6,27 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:models="clr-namespace:WpfApp.Models"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="800" Width="1200">
 
-    <Grid Background="BlanchedAlmond">
-        <DataGrid Name="DocGrid" Margin="0,200,0,0" AutoGenerateColumns="False" IsReadOnly="True" >
+    <Grid x:Name="MainGrid" Background="BlanchedAlmond">
+
+        <Menu VerticalAlignment="Top" Background="#FFFFB444">
+            <MenuItem Header="Opcje..." HorizontalAlignment="Left">
+                <MenuItem Header="placeholder"/>
+            </MenuItem>
+        </Menu>
+
+        <DataGrid Name="DocGrid" Margin="0,200,0,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="Auto"/>
-                <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar dokumentu" Width="Auto"/>
-                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerID}" Header="Zleceniodawca" Width="Auto"/>
-                <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeID}" Header="Typ dokumentu" Width="Auto"/>
-                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Dodany" Width="Auto"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="Auto"/>
-                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="Auto"/>
-                <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserID}" Header="Odpowiedzialny" Width="Auto"/>
+                <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
+                <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
+                <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar dokumentu" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>                
+                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Data dodania" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
+                <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

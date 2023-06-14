@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp.Windows;
 
 namespace WpfApp.Models.ViewModels
 {
@@ -12,7 +13,7 @@ namespace WpfApp.Models.ViewModels
     {
         public DocumentViewModel(Document input)
         {
-            DocumentID = input.DocumentID.ToString();
+            DocumentID = input.DocumentID;
             TimeAdded = input.TimeAdded.ToString("dd.MM.yyyy");
             Deadline = input.Deadline.ToString("dd.MM.yyyy");
             TimeDone = input.TimeDone.ToString("dd.MM.yyyy");
@@ -21,28 +22,39 @@ namespace WpfApp.Models.ViewModels
 
             using (MainContext context = new MainContext())
             {
-                UserID = context.Users.Where(x => x.userID == input.UserID).Single().Login;
-                CustomerID = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerName;
-                TypeID = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single().TypeName;
+                UserID = context.Users.Where(x => x.UserID == input.UserID).Single().UserID;
+                UserLogin = context.Users.Where(x => x.UserID == input.UserID).Single().Login;
+
+                CustomerName = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerName;
+                CustomerID = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerID;
+
+                TypeID = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single().TypeID;
+                TypeName = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single().TypeName;
             }
         }
 
-        public string DocumentID { get; set; }
+        public int DocumentID { get; init; }
 
-        public string TimeAdded { get; set; }
+        public int UserID { get; init; }
 
-        public string Deadline { get; set; }
+        public int CustomerID { get; init; }
 
-        public string TimeDone { get; set; }
+        public int TypeID { get; init; }
 
-        public string Name { get; set; }
+        public string TimeAdded { get; init; }
 
-        public string signsSize { get; set; }
+        public string Deadline { get; init; }
 
-        public string UserID { get; set; }
+        public string TimeDone { get; init; }
 
-        public string TypeID { get; set; }
+        public string Name { get; init; }
 
-        public string CustomerID { get; set; }
+        public string signsSize { get; init; }
+        
+        public string UserLogin { get; init; }
+
+        public string TypeName { get; init; }
+
+        public string CustomerName { get; init; }
     }
 }

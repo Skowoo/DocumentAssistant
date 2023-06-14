@@ -37,6 +37,11 @@ namespace WpfApp
             DocGrid.ItemsSource = viewList;
         }
 
+        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+                DocumentViewModel doc = DocGrid.SelectedItem as DocumentViewModel;
+        }
+
         private void UpdateDocumentsList()
         {
             objectsList = mainContext.Documents.ToList();
