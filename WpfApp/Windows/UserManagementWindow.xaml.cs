@@ -59,6 +59,7 @@ namespace WpfApp.Windows
             UserUpdateCommandGrid.Visibility = Visibility.Visible;
             ChangeLoginGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Hidden;
+            ChangeRoleGrid.Visibility = Visibility.Hidden;
         }
 
         private void UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -74,7 +75,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Visible;
-            LoginChangeDescription.Text = $"Zmiana loginu: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            LoginChangeDescription.Text = $"Zmiana loginu użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewLoginTextBox.Text = selectedUserView.Login;
         }
 
@@ -132,6 +133,34 @@ namespace WpfApp.Windows
         private void ChangeRankButton_Click(object sender, RoutedEventArgs e)
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
+            ChangeRoleGrid.Visibility = Visibility.Visible;
+            RoleChangeDescription.Text = $"Zmiana roli użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            List<Role> tempRolesList;
+            using (MainContext context = new MainContext())
+            {                
+                tempRolesList = context.Roles.ToList();
+            }
+            ObservableCollection<RoleViewModel> RolesViewModelsList = new();
+            foreach (var item in  tempRolesList)
+                RolesViewModelsList.Add(new RoleViewModel(item));
+
+            RoleSelectionComboBox.ItemsSource = RolesViewModelsList;
+            RoleSelectionComboBox.SelectedItem = RolesViewModelsList.Where(x => x.RoleID == selectedUserView.RoleID).Single();
+        }
+
+        private void ConfirmRoleChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRole = RoleSelectionComboBox.SelectedItem as RoleViewModel;
+            try
+            {
+                using (MainContext context = new MainContext())
+                {
+                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().RoleID = selectedRole.RoleID;
+                }
+            } 
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            ResetView();
         }
 
         private void ActivateUserButton_Click(object sender, RoutedEventArgs e)

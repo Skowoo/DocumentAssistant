@@ -33,14 +33,20 @@
             <Button x:Name="ConfirmLoginChangeButton" Content="Zatwierdź" HorizontalAlignment="Left" Margin="75,126,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmLoginChangeButton_Click"/>
         </Grid>
 
-        <Grid Name="ChangePasswordGrid" HorizontalAlignment="Left" Height="191" VerticalAlignment="Center" Margin="525,0,0,0">
+        <Grid Visibility="Hidden" Name="ChangePasswordGrid" HorizontalAlignment="Left" Height="191" VerticalAlignment="Center" Margin="525,0,0,0">
             <TextBlock x:Name="PasswordChangeDescription" HorizontalAlignment="Center" Width="250" TextAlignment="Center" Height="50" TextWrapping="Wrap" Text="Zmiana hasła: &#xA;Login - Imie Nazwisko (ID: 0)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,11,0,0"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,61,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Wprowadź nowe hasło:"/></TextBlock>
             <PasswordBox x:Name="NewPasswordBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left"  Margin="0,91,0,0" VerticalAlignment="Top" Width="250" Height="30"/>
             <PasswordBox x:Name="ConfirmPasswordBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,126,0,0"  VerticalAlignment="Top" Width="250" Height="30"/>
-            <Button x:Name="ConfirmPasswordChangeButton" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmPasswordChangeButton_Click"/>
+            <Button Name="ConfirmPasswordChangeButton" Content="Zatwierdź" HorizontalAlignment="Center" Margin="0,161,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmPasswordChangeButton_Click"/>
         </Grid>
 
+        <Grid Name="ChangeRoleGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="525,0,0,0">
+            <TextBlock x:Name="RoleChangeDescription" HorizontalAlignment="Center" Width="250" TextAlignment="Center" Height="50" TextWrapping="Wrap" Text="Zmiana roli: &#xA;Login - Imie Nazwisko (ID: 0)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,11,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,60,0,0" Width="100" TextAlignment="Right" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"><Run Language="pl-pl" Text="Wybierz rolę:"/></TextBlock>
+            <ComboBox Name="RoleSelectionComboBox" HorizontalAlignment="Right" Margin="0,60,5,0" VerticalAlignment="Top" Width="130"/>
+            <Button Name="ConfirmRoleChangeButton" Content="Zatwierdź" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="ConfirmRoleChangeButton_Click"/>
+        </Grid>        
 
     </Grid>
 </Window>
