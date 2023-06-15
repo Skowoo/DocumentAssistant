@@ -68,8 +68,16 @@ namespace WpfApp.Windows
             {
                 using (MainContext context = new MainContext())
                 {
-                    context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().Login = NewLoginTextBox.Text;
-                    context.SaveChanges();
+                    if (context.Users.Where(x => x.Login == NewLoginTextBox.Text.Trim()).Any())
+                    {
+                        MessageBox.Show("Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.");
+                        return;
+                    }
+                    else
+                    {
+                        context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().Login = NewLoginTextBox.Text.Trim();
+                        context.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -253,8 +261,16 @@ namespace WpfApp.Windows
             {
                 using (MainContext context = new())
                 {
-                    context.Users.Add(newUser);
-                    context.SaveChanges();
+                    if (context.Users.Where(x => x.Login == newUser.Login).Any())
+                    {
+                        MessageBox.Show("Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.");
+                        return;
+                    }
+                    else
+                    {
+                        context.Users.Add(newUser);
+                        context.SaveChanges();
+                    }
                 }
             } catch ( Exception ex ) { MessageBox.Show(ex.Message); }
 
