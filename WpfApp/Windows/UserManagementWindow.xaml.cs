@@ -26,7 +26,6 @@ namespace WpfApp.Windows
             InitializeComponent();
             UpdateUsersList();
             UsersDataGrid.ItemsSource = usersViews;
-            UserUpdateCommandGrid.IsEnabled = false;
             ResetView();
         }
 
@@ -36,10 +35,11 @@ namespace WpfApp.Windows
         {
             if (UsersDataGrid.SelectedItem != null)
             {
-                UserUpdateCommandGrid.IsEnabled = true;
+                UserUpdateCommandGrid.Visibility = Visibility.Visible;
                 selectedUserView = UsersDataGrid.SelectedItem as UserViewModel;
 
                 CancelButton.Visibility = Visibility.Visible;
+                AddUserButton.Visibility = Visibility.Hidden;
 
                 if (selectedUserView.IsActive)
                     ActivateUserButton.Content = "Zdezaktywuj użytkownika";
@@ -196,6 +196,71 @@ namespace WpfApp.Windows
             }
         }
 
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserButton.Visibility = Visibility.Hidden;
+            CancelButton.Visibility = Visibility.Visible;
+            AddNewUserGrid.Visibility = Visibility.Visible;
+
+            List<Role> tempRolesList;
+            using (MainContext context = new MainContext())
+            {
+                tempRolesList = context.Roles.ToList();
+            }
+            ObservableCollection<RoleViewModel> RolesViewModelsList = new();
+            foreach (var item in tempRolesList)
+                RolesViewModelsList.Add(new RoleViewModel(item));
+
+            RoleComboBox.ItemsSource = RolesViewModelsList;
+        }
+
+        private void ConfirmNewUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FirstPasswordBox.Password != SecondPasswordBox.Password) {
+                MessageBox.Show("Hasła w okienkach nie są jednakowe!");
+                return; }
+
+            if (FirstPasswordBox.Password.Length < 4) {
+                MessageBox.Show("Hasło za krótkie! minimalny rozmiar to 4 znaki");
+                return; }
+
+            if (RoleComboBox.SelectedItem == null) {
+                MessageBox.Show("Nie wybrano roli dla nowego użytkownika!");
+                return; }
+
+            if (LoginTextBox.Text.Trim().Length < 2) {
+                MessageBox.Show("Login musi składać się z conajmniej dwóch znaków!");
+                return; }
+
+            if (FirstNameTextBox.Text.Trim().Length < 2 || LastNameTextBox.Text.Length < 2) {
+                MessageBox.Show("Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!");
+                return; }
+
+            var selectedRole = RoleComboBox.SelectedItem as RoleViewModel;
+            string salt = PassGenerator.GenerateSalt();
+            User newUser = new User
+            {
+                Login = LoginTextBox.Text.Trim(),
+                FirstName = FirstNameTextBox.Text.Trim(),
+                LastName = LastNameTextBox.Text.Trim(),
+                Salt = salt,
+                Password = PassGenerator.ComputeHash(FirstPasswordBox.Password, salt),
+                RoleID = selectedRole.RoleID,
+                IsActive = true
+            };
+
+            try
+            {
+                using (MainContext context = new())
+                {
+                    context.Users.Add(newUser);
+                    context.SaveChanges();
+                }
+            } catch ( Exception ex ) { MessageBox.Show(ex.Message); }
+
+            ResetView();
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e) => ResetView();
 
         #endregion
@@ -217,15 +282,17 @@ namespace WpfApp.Windows
         {
             selectedUserView = null;
             UpdateUsersList();
-            UserUpdateCommandGrid.IsEnabled = false;
             UsersDataGrid.SelectedItem = null;
-            CancelButton.Visibility = Visibility.Hidden;
-            UserUpdateCommandGrid.Visibility = Visibility.Visible;
+            AddUserButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Hidden;            
+            UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Hidden;
             ChangeNamesGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Hidden;
             ChangeRoleGrid.Visibility = Visibility.Hidden;
+            AddNewUserGrid.Visibility = Visibility.Hidden;
         }
+
         #endregion
 
     }
