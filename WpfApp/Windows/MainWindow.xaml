@@ -11,13 +11,15 @@
 
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
 
-        <Menu VerticalAlignment="Top" Background="#FFFFB444">
-            <MenuItem Header="Opcje..." HorizontalAlignment="Left">
-                <MenuItem Name="Menu_ManageUsers" Header="Zarządzaj użytkownikami" Click="Menu_ManageUsers_Click"/>
+        <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
+            <MenuItem Header="Opcje..." Height="20">
+                <MenuItem Name="Menu_ManageUsers" Header="Zarządzaj użytkownikami" Click="Menu_ManageUsers_Click" />
             </MenuItem>
         </Menu>
 
-        <DataGrid Name="DocGrid" Margin="0,250,0,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
+        
+        
+        <DataGrid Name="DocGrid" Margin="0,20,300,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
