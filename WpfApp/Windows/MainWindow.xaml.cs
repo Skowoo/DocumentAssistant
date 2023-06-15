@@ -58,5 +58,25 @@ namespace WpfApp
             foreach (var document in objectsList)
                 viewList.Add(new DocumentViewModel(document));
         }
+
+        private void ShrinkDocGrid()
+        {
+            DocGrid.Margin = new Thickness(2, 20, 900, 0);
+            docUserColumn.Visibility = Visibility.Collapsed;
+            docTimeDoneColumn.Visibility = Visibility.Collapsed;
+            docDeadlineColumn.Visibility = Visibility.Collapsed;
+            docTimeAddedColumn.Visibility = Visibility.Collapsed;
+            docCustomerIDColumn.Visibility = Visibility.Collapsed;
+        }
+
+        private void ExpandDocGrid()
+        {
+            DocGrid.Margin = new Thickness(2, 20, 300, 0);
+            docUserColumn.Visibility = Visibility.Visible;
+            docTimeDoneColumn.Visibility = Visibility.Visible;
+            docDeadlineColumn.Visibility = Visibility.Visible;
+            docTimeAddedColumn.Visibility = Visibility.Visible;
+            docCustomerIDColumn.Visibility = Visibility.Visible;
+        }
     }
 }

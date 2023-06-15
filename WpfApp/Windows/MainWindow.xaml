@@ -17,19 +17,29 @@
             </MenuItem>
         </Menu>
 
-        
-        
+
+
         <DataGrid Name="DocGrid" Margin="0,20,300,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
-                <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar dokumentu" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>                
+                <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>
                 <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Data dodania" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        
+        <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Left" Height="auto" Margin="940,50,0,0" VerticalAlignment="Top">
+            <Button Name="AddDocumentBtn" Content="Dodaj dokument" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="EditDocBtn" Content="Edytuj dokument" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="DeleteDocBtn" Content="Skasuj dokument" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="AssignDocumentBtn" Content="Przydziel dokument" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+        </Grid>
+
     </Grid>
 </Window>
