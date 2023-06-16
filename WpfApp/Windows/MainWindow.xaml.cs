@@ -62,34 +62,14 @@ namespace WpfApp
 
         private void ResetView()
         {
-            ExpandDocGrid();
+            DocGrid.Visibility = Visibility.Visible;
             MainControlButtonsGrid.Visibility = Visibility.Visible;
             AddDocumentGrid.Visibility = Visibility.Hidden;
         }
 
-        private void ShrinkDocGrid()
-        {
-            DocGrid.Margin = new Thickness(0, 20, 900, 0);
-            docUserColumn.Visibility = Visibility.Collapsed;
-            docTimeDoneColumn.Visibility = Visibility.Collapsed;
-            docDeadlineColumn.Visibility = Visibility.Collapsed;
-            docTimeAddedColumn.Visibility = Visibility.Collapsed;
-            docCustomerIDColumn.Visibility = Visibility.Collapsed;
-        }
-
-        private void ExpandDocGrid()
-        {
-            DocGrid.Margin = new Thickness(0, 20, 300, 0);
-            docUserColumn.Visibility = Visibility.Visible;
-            docTimeDoneColumn.Visibility = Visibility.Visible;
-            docDeadlineColumn.Visibility = Visibility.Visible;
-            docTimeAddedColumn.Visibility = Visibility.Visible;
-            docCustomerIDColumn.Visibility = Visibility.Visible;
-        }
-
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
         {
-            ShrinkDocGrid();
+            DocGrid.Visibility = Visibility.Hidden;
             MainControlButtonsGrid.Visibility = Visibility.Hidden;
             AddDocumentGrid.Visibility = Visibility.Visible;
         }

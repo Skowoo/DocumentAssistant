@@ -3,27 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp"
-        xmlns:models="clr-namespace:WpfApp.Models"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="800" Width="1200">
 
     <Window.Resources>
 
-        <Style x:Key="Label" TargetType="{x:Type Label}" BasedOn="{x:Null}">
+        <Style x:Key="Label" TargetType="{x:Type Label}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="3"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="16"/>
         </Style>
 
-        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}" BasedOn="{x:Null}">
+        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}">
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="3"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="300"/>
         </Style>
@@ -31,11 +29,20 @@
         <Style x:Key="CustomBoxStyle" TargetType="{x:Type ComboBox}" >
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="3"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="300"/>
         </Style>
-        
+
+        <Style x:Key="MainMenuButton" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
@@ -46,7 +53,7 @@
             </MenuItem>
         </Menu>
 
-        <DataGrid Name="DocGrid" Margin="0,20,900,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
+        <DataGrid Visibility="Hidden" Name="DocGrid" Margin="0,20,300,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
@@ -59,16 +66,16 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Left" Height="auto" Margin="940,50,0,0" VerticalAlignment="Top">
-            <Button Name="AddDocumentBtn" Content="Dodaj dokument" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16" Click="AddDocumentBtn_Click"/>
-            <Button Name="EditDocBtn" Content="Edytuj dokument" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
-            <Button Name="DeleteDocBtn" Content="Skasuj dokument" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
-            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
-            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
-            <Button Name="AssignDocumentBtn" Content="Przydziel dokument" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+        <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,50,60,0" VerticalAlignment="Top">
+            <Button Name="AddDocumentBtn" Content="Dodaj dokument" Margin="0,0,0,0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click"/>
+            <Button Name="EditDocBtn" Content="Edytuj dokument" Margin="0,60,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="DeleteDocBtn" Content="Skasuj dokument" Margin="0,120,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Margin="0,180,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Margin="0,240,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Margin="0,300,0,0" Style="{StaticResource MainMenuButton}"/>
         </Grid>
 
-        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0">
+        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
@@ -102,7 +109,7 @@
             <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmNewDocButton" Grid.Row="7" Height="40" Width="160" Content="Zatwierdź" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Click="ConfirmNewDocButton_Click"/>
+            <Button Name="ConfirmNewDocButton" Grid.Row="7" Content="Zatwierdź" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
 
         </Grid>
 
