@@ -41,5 +41,7 @@ namespace WpfApp.Models.ViewModels
         public string Status { get; init; }
 
         public string RoleName { get; init; }
+
+        public override string ToString() => $"{FirstName} {LastName}";
     }
 }

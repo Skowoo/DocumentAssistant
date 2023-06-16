@@ -56,5 +56,7 @@ namespace WpfApp.Models.ViewModels
         public string TypeName { get; init; }
 
         public string CustomerName { get; init; }
+
+        public override string ToString() => Name;
     }
 }
