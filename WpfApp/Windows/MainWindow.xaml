@@ -60,7 +60,7 @@
         </DataGrid>
 
         <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Left" Height="auto" Margin="940,50,0,0" VerticalAlignment="Top">
-            <Button Name="AddDocumentBtn" Content="Dodaj dokument" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+            <Button Name="AddDocumentBtn" Content="Dodaj dokument" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16" Click="AddDocumentBtn_Click"/>
             <Button Name="EditDocBtn" Content="Edytuj dokument" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
             <Button Name="DeleteDocBtn" Content="Skasuj dokument" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
             <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
@@ -68,7 +68,7 @@
             <Button Name="AssignDocumentBtn" Content="Przydziel dokument" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
         </Grid>
 
-        <Grid x:Name="buyPricePieceGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0">
+        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
@@ -80,6 +80,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Dodaj nowy dokument:" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
 
@@ -100,8 +101,8 @@
 
             <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
-            
-            
+
+            <Button Name="ConfirmNewDocButton" Grid.Row="7" Height="40" Width="160" Content="Zatwierdź" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Click="ConfirmNewDocButton_Click"/>
 
         </Grid>
 
