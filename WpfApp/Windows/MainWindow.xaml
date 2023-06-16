@@ -9,6 +9,35 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="800" Width="1200">
 
+    <Window.Resources>
+
+        <Style x:Key="Label" TargetType="{x:Type Label}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+
+        <Style x:Key="CustomBoxStyle" TargetType="{x:Type ComboBox}" >
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+        
+    </Window.Resources>
+
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
 
         <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
@@ -17,9 +46,7 @@
             </MenuItem>
         </Menu>
 
-
-
-        <DataGrid Name="DocGrid" Margin="0,20,300,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
+        <DataGrid Name="DocGrid" Margin="0,20,900,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
@@ -31,7 +58,7 @@
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Left" Height="auto" Margin="940,50,0,0" VerticalAlignment="Top">
             <Button Name="AddDocumentBtn" Content="Dodaj dokument" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
             <Button Name="EditDocBtn" Content="Edytuj dokument" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
@@ -39,6 +66,43 @@
             <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
             <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
             <Button Name="AssignDocumentBtn" Content="Przydziel dokument" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Height="50" Width="200" FontWeight="Bold" FontSize="16"/>
+        </Grid>
+
+        <Grid x:Name="buyPricePieceGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Label Content="Dodaj nowy dokument:" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
+
+            <Label Content="Nazwa:"  Grid.Row="1" Style="{StaticResource Label}"/>
+            <TextBox x:Name="NewDocName_TextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"/>
+
+            <Label Content="Rozmiar:"  Grid.Row="2" Style="{StaticResource Label}"/>
+            <TextBox x:Name="NewDocSize_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>
+
+            <Label Content="Typ dokumentu:" Grid.Row="3" Style="{StaticResource Label}" />
+            <ComboBox Name="NewDocType_ComboBox" Grid.Row="3" Style="{StaticResource CustomBoxStyle}"/>
+
+            <Label Content="Zleceniodawca:" Grid.Row="4" Style="{StaticResource Label}" />
+            <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
+
+            <Label Content="Termin wykonania: " Grid.Row="5" Style="{StaticResource Label}" />
+            <Calendar Name="DeadlineCallendar" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+
+            <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
+            <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
+            
+            
+
         </Grid>
 
     </Grid>

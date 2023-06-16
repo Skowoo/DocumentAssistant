@@ -34,6 +34,7 @@ namespace WpfApp
             InitializeComponent();
             UpdateDocumentsList();
             DocGrid.ItemsSource = viewList;
+            //ResetView();
         }
 
         private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,9 +60,15 @@ namespace WpfApp
                 viewList.Add(new DocumentViewModel(document));
         }
 
+        private void ResetView()
+        {
+            ExpandDocGrid();
+            MainControlButtonsGrid.Visibility = Visibility.Visible;
+        }
+
         private void ShrinkDocGrid()
         {
-            DocGrid.Margin = new Thickness(2, 20, 900, 0);
+            DocGrid.Margin = new Thickness(0, 20, 900, 0);
             docUserColumn.Visibility = Visibility.Collapsed;
             docTimeDoneColumn.Visibility = Visibility.Collapsed;
             docDeadlineColumn.Visibility = Visibility.Collapsed;
@@ -71,7 +78,7 @@ namespace WpfApp
 
         private void ExpandDocGrid()
         {
-            DocGrid.Margin = new Thickness(2, 20, 300, 0);
+            DocGrid.Margin = new Thickness(0, 20, 300, 0);
             docUserColumn.Visibility = Visibility.Visible;
             docTimeDoneColumn.Visibility = Visibility.Visible;
             docDeadlineColumn.Visibility = Visibility.Visible;
