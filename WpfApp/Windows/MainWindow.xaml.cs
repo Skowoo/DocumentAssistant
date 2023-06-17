@@ -25,15 +25,31 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Document> objectsList = new();
+        List<Document> documentsList = new();
 
-        ObservableCollection<DocumentViewModel> viewList = new();
+        ObservableCollection<DocumentViewModel> documentViewsList = new();
+
+        List<User> usersList = new();
+
+        ObservableCollection<UserViewModel> userViewModelsList = new();
+
+        List<Customer> customersList = new();
+
+        ObservableCollection<CustomerViewModel> customerViewModelsList = new();
+
+        List<DocumentType> documentTypesList = new();
+
+        ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
 
         public MainWindow()
         {
             InitializeComponent();
-            UpdateDocumentsList();
-            DocGrid.ItemsSource = viewList;
+            UpdateLists();
+            DocGrid.ItemsSource = documentViewsList;
+            NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+            NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+            NewDocUser_ComboBox.ItemsSource = userViewModelsList;
+
             ResetView();
         }
 
@@ -48,16 +64,37 @@ namespace WpfApp
             window.Show();
         }
 
-        private void UpdateDocumentsList()
+        private void UpdateLists()
         {
-            objectsList.Clear();
+            documentsList.Clear();
+            usersList.Clear();
+            customersList.Clear();
+            documentTypesList.Clear();
+
             using (MainContext context = new MainContext())
             {
-                objectsList = context.Documents.ToList();
+                documentsList = context.Documents.ToList();
+                usersList = context.Users.ToList();
+                customersList = context.Customers.ToList();
+                documentTypesList = context.DocumentTypes.ToList();
             }
-            viewList.Clear();
-            foreach (var document in objectsList)
-                viewList.Add(new DocumentViewModel(document));
+
+            documentViewsList.Clear();
+            userViewModelsList.Clear();
+            customerViewModelsList.Clear();
+            documentTypeViewModelsList.Clear();
+
+            foreach (var document in documentsList)
+                documentViewsList.Add(new DocumentViewModel(document));
+
+            foreach (var user in usersList)
+                userViewModelsList.Add(new UserViewModel(user));
+
+            foreach (var customer in customersList)
+                customerViewModelsList.Add(new CustomerViewModel(customer));
+
+            foreach (var documentType in documentTypesList)
+                documentTypeViewModelsList.Add(new DocumentTypeViewModel(documentType));
         }
 
         private void ResetView()
@@ -85,12 +122,12 @@ namespace WpfApp
                 MessageBox.Show("Podano niepoprawny rozmiar dokumentu!");
                 return; }
 
-            if (NewDocCustomer_ComboBox.SelectedItem is null) {
-                MessageBox.Show("Nie przypisano zleceniodawcy do dokumentu!");
-                return; }
-
             if (NewDocType_ComboBox.SelectedItem is null) {
                 MessageBox.Show("Nie wybrano typu dokumentu!");
+                return; }
+
+            if (NewDocCustomer_ComboBox.SelectedItem is null) {
+                MessageBox.Show("Nie przypisano zleceniodawcy do dokumentu!");
                 return; }
 
             if (DeadlineCallendar.SelectedDate is null) {
