@@ -76,7 +76,46 @@ namespace WpfApp
 
         private void ConfirmNewDocButton_Click(object sender, RoutedEventArgs e)
         {
+            if (NewDocName_TextBox.Text.Trim().Length < 3) {
+                MessageBox.Show("Nazwa dokumentu musi mieć conajmniej 3 znaki!");
+                return; }
 
+            bool sizeParsed = Int32.TryParse(NewDocSize_TextBox.Text, out int docSize);
+            if (!sizeParsed) {
+                MessageBox.Show("Podano niepoprawny rozmiar dokumentu!");
+                return; }
+
+            if (NewDocCustomer_ComboBox.SelectedItem is null) {
+                MessageBox.Show("Nie przypisano zleceniodawcy do dokumentu!");
+                return; }
+
+            if (NewDocType_ComboBox.SelectedItem is null) {
+                MessageBox.Show("Nie wybrano typu dokumentu!");
+                return; }
+
+            if (DeadlineCallendar.SelectedDate is null) {
+                MessageBox.Show("Nie wybrano terminu wykonania dokumentu!");
+                return; }
+
+            Document newDocument = new Document
+            {
+                TimeAdded = DateTime.Now,
+                Name = NewDocName_TextBox.Text.Trim(),
+                signsSize = docSize,
+                Deadline = (DateTime)DeadlineCallendar.SelectedDate
+            };
+
+            if (NewDocUser_ComboBox.SelectedItem is not null)
+            {
+                var tempUser = NewDocUser_ComboBox.SelectedItem as UserViewModel;
+                newDocument.UserID = tempUser.UserID;
+            }
+                
+            using (MainContext context = new MainContext())
+            {
+                context.Documents.Add(newDocument);
+                context.SaveChanges();
+            }
 
             ResetView();
         }
