@@ -26,19 +26,15 @@ namespace WpfApp
     public partial class MainWindow : Window
     {
         List<Document> documentsList = new();
-
         ObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();
-
         ObservableCollection<UserViewModel> userViewModelsList = new();
 
         List<Customer> customersList = new();
-
         ObservableCollection<CustomerViewModel> customerViewModelsList = new();
 
         List<DocumentType> documentTypesList = new();
-
         ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
 
         public MainWindow()
@@ -102,6 +98,8 @@ namespace WpfApp
             DocGrid.Visibility = Visibility.Visible;
             MainControlButtonsGrid.Visibility = Visibility.Visible;
             AddDocumentGrid.Visibility = Visibility.Hidden;
+            NewTypeGrid.Visibility = Visibility.Hidden;
+            NewCustomerGrid.Visibility = Visibility.Hidden;
         }
 
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
@@ -139,22 +137,79 @@ namespace WpfApp
                 TimeAdded = DateTime.Now,
                 Name = NewDocName_TextBox.Text.Trim(),
                 signsSize = docSize,
-                Deadline = (DateTime)DeadlineCallendar.SelectedDate
+                Deadline = (DateTime)DeadlineCallendar.SelectedDate,
             };
+
+            var tempCustomer = NewDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
+            newDocument.CustomerID = tempCustomer.CustomerID;
+
+            var tempType = NewDocType_ComboBox.SelectedItem as DocumentTypeViewModel;
+            newDocument.TypeID = tempType.TypeID;
 
             if (NewDocUser_ComboBox.SelectedItem is not null)
             {
                 var tempUser = NewDocUser_ComboBox.SelectedItem as UserViewModel;
                 newDocument.UserID = tempUser.UserID;
             }
-                
+
             using (MainContext context = new MainContext())
             {
                 context.Documents.Add(newDocument);
                 context.SaveChanges();
             }
 
+            UpdateLists();
             ResetView();
+        }
+
+        private void NewTypeDocGrid_Button_Click(object sender, RoutedEventArgs e) => NewTypeGrid.Visibility = Visibility.Visible;
+
+        private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e) => NewCustomerGrid.Visibility = Visibility.Visible;
+
+        private void ConfirmNewType_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewType_TextBox.Text.Trim().Length < 2)
+            {
+                MessageBox.Show("Minimalne długośc typu dokumentu to dwa znaki!");
+                return;
+            }
+
+            DocumentType newType = new DocumentType
+            {
+                TypeName = NewType_TextBox.Text.Trim()
+            };
+
+            using (MainContext context = new MainContext())
+            {
+                context.DocumentTypes.Add(newType);
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+            NewTypeGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void ConfirmNewCustomer_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewCustomer_TextBox.Text.Trim().Length < 2)
+            {
+                MessageBox.Show("Minimalne długośc nazwy klienta to dwa znaki!");
+                return;
+            }
+
+            Customer newCustomer = new Customer
+            {
+                CustomerName = NewCustomer_TextBox.Text.Trim()
+            };
+
+            using (MainContext context = new MainContext())
+            {
+                context.Customers.Add(newCustomer);
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+            NewCustomerGrid.Visibility = Visibility.Hidden;
         }
     }
 }

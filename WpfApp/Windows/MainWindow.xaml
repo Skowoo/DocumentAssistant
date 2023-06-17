@@ -43,6 +43,15 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
+        <Style x:Key="SmallButton" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
@@ -78,6 +87,7 @@
         <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -99,9 +109,11 @@
 
             <Label Content="Typ dokumentu:" Grid.Row="3" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocType_ComboBox" Grid.Row="3" Style="{StaticResource CustomBoxStyle}"/>
+            <Button Name="NewTypeDocGrid_Button" Content="Dodaj" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewTypeDocGrid_Button_Click"/>
 
             <Label Content="Zleceniodawca:" Grid.Row="4" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
+            <Button Name="NewCustomerDocGrid_Button" Content="Dodaj" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
 
             <Label Content="Termin wykonania: " Grid.Row="5" Style="{StaticResource Label}" />
             <Calendar Name="DeadlineCallendar" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
@@ -109,8 +121,20 @@
             <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmNewDocButton" Grid.Row="7" Content="Zatwierdź" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
+            <Button Name="ConfirmNewDocButton" Grid.Row="7" Grid.ColumnSpan="2" Content="Zatwierdź" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
 
+        </Grid>
+        
+        <Grid Name="NewTypeGrid" Margin="925,208,25,486">
+            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="250" Margin="0,0,0,70" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button x:Name="ConfirmNewType_Button" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Name="NewCustomerGrid" Margin="924,248,26,446">
+            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="250" Margin="0,0,0,70" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 
     </Grid>
