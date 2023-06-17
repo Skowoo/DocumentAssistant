@@ -90,7 +90,7 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -124,16 +124,16 @@
             <Button Name="ConfirmNewDocButton" Grid.Row="7" Grid.ColumnSpan="2" Content="Zatwierdź" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
 
         </Grid>
-        
-        <Grid Name="NewTypeGrid" Margin="925,208,25,486">
-            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="250" Margin="0,0,0,70" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Grid Name="NewTypeGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,210,0,0">
+            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
             <Button x:Name="ConfirmNewType_Button" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 
-        <Grid Name="NewCustomerGrid" Margin="924,248,26,446">
-            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="250" Margin="0,0,0,70" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Grid Name="NewCustomerGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,250,0,0" >
+            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
             <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 

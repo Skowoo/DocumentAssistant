@@ -162,9 +162,17 @@ namespace WpfApp
             ResetView();
         }
 
-        private void NewTypeDocGrid_Button_Click(object sender, RoutedEventArgs e) => NewTypeGrid.Visibility = Visibility.Visible;
+        private void NewTypeDocGrid_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewCustomerGrid.Visibility = Visibility.Hidden;
+            NewTypeGrid.Visibility = Visibility.Visible;
+        }
 
-        private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e) => NewCustomerGrid.Visibility = Visibility.Visible;
+        private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewTypeGrid.Visibility = Visibility.Hidden;
+            NewCustomerGrid.Visibility = Visibility.Visible;
+        }
 
         private void ConfirmNewType_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -186,6 +194,7 @@ namespace WpfApp
             }
 
             UpdateLists();
+            NewDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeName == newType.TypeName).Single();
             NewTypeGrid.Visibility = Visibility.Hidden;
         }
 
@@ -209,6 +218,7 @@ namespace WpfApp
             }
 
             UpdateLists();
+            NewDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerName == newCustomer.CustomerName).Single();
             NewCustomerGrid.Visibility = Visibility.Hidden;
         }
     }
