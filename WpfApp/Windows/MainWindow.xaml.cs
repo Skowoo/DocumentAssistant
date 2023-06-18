@@ -290,5 +290,36 @@ namespace WpfApp
             UpdateLists();
             ResetView();
         }
+
+        private void DeleteDocBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            using (MainContext context = new MainContext())
+            {
+                context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).ExecuteDelete();
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+        }
+
+        private void MarkAsDoneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            using (MainContext context = new MainContext())
+            {
+                var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
+
+                if (editedDocument.TimeDone is not null)
+                    return;
+
+                editedDocument.TimeDone = DateTime.Now;
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+        }
     }
 }

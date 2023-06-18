@@ -75,11 +75,11 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,50,60,0" VerticalAlignment="Top">
+        <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,50,60,0" VerticalAlignment="Top">
             <Button Name="AddDocumentBtn" Content="Dodaj dokument" Margin="0,0,0,0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click"/>
             <Button Name="EditDocBtn" Content="Edytuj dokument" Margin="0,60,0,0" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click"/>
-            <Button Name="DeleteDocBtn" Content="Skasuj dokument" Margin="0,120,0,0" Style="{StaticResource MainMenuButton}"/>
-            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Margin="0,180,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="DeleteDocBtn" Content="Skasuj dokument" Margin="0,120,0,0" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click"/>
+            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Margin="0,180,0,0" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click"/>
             <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Margin="0,240,0,0" Style="{StaticResource MainMenuButton}"/>
             <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Margin="0,300,0,0" Style="{StaticResource MainMenuButton}"/>
         </Grid>
@@ -137,7 +137,7 @@
             <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         </Grid>
 
-        <Grid Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Visibility="Hidden" Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
@@ -177,7 +177,7 @@
             <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
 
             <Label Content="Dokument zatwierdzony:" Grid.Row="9" Style="{StaticResource Label}" />
-            <CheckBox Name="Confirmed" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+            <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
 
             <Button Name="ConfirmEditDocButton" Grid.Row="10" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Height="30" Click="ConfirmEditDocButton_Click"/>
         </Grid>
