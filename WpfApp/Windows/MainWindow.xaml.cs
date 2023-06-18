@@ -1,20 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using WpfApp.Models;
-using WpfApp.Classes;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.ObjectModel;
 using WpfApp.Models.ViewModels;
 using WpfApp.Windows;
 
@@ -25,6 +16,8 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Properties
+
         List<Document> documentsList = new();
         ObservableCollection<DocumentViewModel> documentViewsList = new();
 
@@ -39,13 +32,17 @@ namespace WpfApp
 
         DocumentViewModel? selectedDocument;
 
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
-            UpdateLists();
+            UpdateAllLists();
             AssignItemSources();
             ResetView();
         }
+
+        #region Private methods
 
         private void AssignItemSources()
         {
@@ -64,52 +61,68 @@ namespace WpfApp
             EditDocUser_ComboBox.ItemsSource = userViewModelsList;
         }
 
-        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UpdateAllLists()
         {
-            selectedDocument = DocGrid.SelectedItem as DocumentViewModel;
-            if (selectedDocument is not null) 
-            {
-                if (selectedDocument.IsConfirmed)
-                    ConfirmDoneBtn.Content = "Anuluj zatwierdzenie";
-                else 
-                    ConfirmDoneBtn.Content = "Zatwierdź dokument";
-            }
+            UpdateDocumentsList();
+            UpdateUsersList();
+            UpdateCustomersList();
+            UpdateDocTypesList();
         }
 
-        private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new UserManagementWindow();
-            window.Show();
-        }
-
-        private void UpdateLists()
+        private void UpdateDocumentsList()
         {
             documentsList.Clear();
-            usersList.Clear();
-            customersList.Clear();
-            documentTypesList.Clear();
 
             using (MainContext context = new MainContext())
             {
                 documentsList = context.Documents.ToList();
-                usersList = context.Users.ToList();
-                customersList = context.Customers.ToList();
-                documentTypesList = context.DocumentTypes.ToList();
             }
 
             documentViewsList.Clear();
-            userViewModelsList.Clear();
-            customerViewModelsList.Clear();
-            documentTypeViewModelsList.Clear();
 
             foreach (var document in documentsList)
                 documentViewsList.Add(new DocumentViewModel(document));
+        }
+
+        private void UpdateUsersList()
+        {
+            usersList.Clear();
+
+            using (MainContext context = new MainContext())
+            {
+                usersList = context.Users.ToList();
+            }
+            userViewModelsList.Clear();
 
             foreach (var user in usersList)
                 userViewModelsList.Add(new UserViewModel(user));
+        }
+
+        private void UpdateCustomersList()
+        {
+            customersList.Clear();
+
+            using (MainContext context = new MainContext())
+            {
+                customersList = context.Customers.ToList();
+            }
+
+            customerViewModelsList.Clear();
 
             foreach (var customer in customersList)
                 customerViewModelsList.Add(new CustomerViewModel(customer));
+        }
+
+        private void UpdateDocTypesList()
+        {
+            documentTypesList.Clear();
+
+            using (MainContext context = new MainContext())
+            {
+                documentTypesList = context.DocumentTypes.ToList();
+            }
+
+            documentTypeViewModelsList.Clear();
 
             foreach (var documentType in documentTypesList)
                 documentTypeViewModelsList.Add(new DocumentTypeViewModel(documentType));
@@ -129,6 +142,28 @@ namespace WpfApp
             EditDocGrid.Visibility = Visibility.Hidden;
         }
 
+        #endregion
+
+        #region Controls
+
+        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedDocument = DocGrid.SelectedItem as DocumentViewModel;
+            if (selectedDocument is not null)
+            {
+                if (selectedDocument.IsConfirmed)
+                    ConfirmDoneBtn.Content = "Anuluj zatwierdzenie";
+                else
+                    ConfirmDoneBtn.Content = "Zatwierdź dokument";
+            }
+        }
+
+        private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UserManagementWindow();
+            window.Show();
+        }
+
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
         {
             DocGrid.Visibility = Visibility.Hidden;
@@ -138,26 +173,36 @@ namespace WpfApp
 
         private void ConfirmNewDocButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NewDocName_TextBox.Text.Trim().Length < 3) {
+            if (NewDocName_TextBox.Text.Trim().Length < 3)
+            {
                 MessageBox.Show("Nazwa dokumentu musi mieć conajmniej 3 znaki!");
-                return; }
+                return;
+            }
 
             bool sizeParsed = Int32.TryParse(NewDocSize_TextBox.Text, out int docSize);
-            if (!sizeParsed) {
+            if (!sizeParsed)
+            {
                 MessageBox.Show("Podano niepoprawny rozmiar dokumentu!");
-                return; }
+                return;
+            }
 
-            if (NewDocType_ComboBox.SelectedItem is null) {
+            if (NewDocType_ComboBox.SelectedItem is null)
+            {
                 MessageBox.Show("Nie wybrano typu dokumentu!");
-                return; }
+                return;
+            }
 
-            if (NewDocCustomer_ComboBox.SelectedItem is null) {
+            if (NewDocCustomer_ComboBox.SelectedItem is null)
+            {
                 MessageBox.Show("Nie przypisano zleceniodawcy do dokumentu!");
-                return; }
+                return;
+            }
 
-            if (DeadlineCallendar.SelectedDate is null) {
+            if (DeadlineCallendar.SelectedDate is null)
+            {
                 MessageBox.Show("Nie wybrano terminu wykonania dokumentu!");
-                return; }
+                return;
+            }
 
             Document newDocument = new Document
             {
@@ -186,7 +231,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
             ResetView();
         }
 
@@ -221,7 +266,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocTypesList();
             NewDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeName == newType.TypeName).Single();
             NewTypeGrid.Visibility = Visibility.Hidden;
         }
@@ -245,7 +290,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateCustomersList();
             NewDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerName == newCustomer.CustomerName).Single();
             NewCustomerGrid.Visibility = Visibility.Hidden;
         }
@@ -306,7 +351,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
             ResetView();
         }
 
@@ -320,7 +365,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
         }
 
         private void MarkAsDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -338,7 +383,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
         }
 
         private void AssignDocumentBtn_Click(object sender, RoutedEventArgs e)
@@ -354,7 +399,7 @@ namespace WpfApp
             AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
             AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
 
-            if (selectedDocument is null || AssignUserMainMenu_ComboBox.SelectedItem is null) 
+            if (selectedDocument is null || AssignUserMainMenu_ComboBox.SelectedItem is null)
                 return;
 
             using (MainContext context = new MainContext())
@@ -365,14 +410,14 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
         }
 
         private void ConfirmDoneBtn_Click(object sender, RoutedEventArgs e)
         {
             if (selectedDocument is null) return;
 
-            using(MainContext context = new MainContext())
+            using (MainContext context = new MainContext())
             {
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
 
@@ -384,7 +429,9 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateLists();
+            UpdateDocumentsList();
         }
+
+        #endregion
     }
 }
