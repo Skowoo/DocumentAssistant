@@ -155,6 +155,7 @@ namespace WpfApp
                 Name = NewDocName_TextBox.Text.Trim(),
                 signsSize = docSize,
                 Deadline = (DateTime)DeadlineCallendar.SelectedDate,
+                IsConfirmed = false
             };
 
             var tempCustomer = NewDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
@@ -259,6 +260,8 @@ namespace WpfApp
 
             if (selectedDocument.TimeDone is not null)
                 EditDocTimeDoneCallendar.SelectedDate = DateTime.Parse(selectedDocument.TimeDone);
+
+            EditDocGridConfirmed_CheckBox.IsChecked = selectedDocument.IsConfirmed;
         }
 
         private void ConfirmEditDocButton_Click(object sender, RoutedEventArgs e)
@@ -279,6 +282,7 @@ namespace WpfApp
                 editedDocument.signsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
                 editedDocument.CustomerID = tempSelectedDocCustomer.CustomerID;
                 editedDocument.TypeID = tempSelectedDocType.TypeID;
+                editedDocument.IsConfirmed = (bool)EditDocGridConfirmed_CheckBox.IsChecked;
 
                 if (EditDocDeadlineCallendar.SelectedDate is not null)
                     editedDocument.Deadline = (DateTime)EditDocDeadlineCallendar.SelectedDate;

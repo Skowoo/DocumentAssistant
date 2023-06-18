@@ -18,6 +18,7 @@ namespace WpfApp.Models.ViewModels
             Deadline = input.Deadline.ToString("dd.MM.yyyy");           
             Name = input.Name;
             signsSize = input.signsSize.ToString();
+            IsConfirmed = input.IsConfirmed;
 
             if (input.TimeDone is not null)
             {
@@ -47,6 +48,8 @@ namespace WpfApp.Models.ViewModels
         public int CustomerID { get; init; }
 
         public int TypeID { get; init; }
+
+        public bool IsConfirmed { get; init; }
 
         public string TimeAdded { get; init; }
 

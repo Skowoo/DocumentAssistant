@@ -72,6 +72,7 @@
                 <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
+                <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
 

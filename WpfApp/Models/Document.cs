@@ -24,6 +24,9 @@ namespace WpfApp.Models
         [Required]
         public int signsSize { get; set; }
 
+        [Required]
+        public bool IsConfirmed { get; set; }
+
         //Foreign keys
         [Display(Name = "User")]
         public virtual int? UserID { get; set; }
