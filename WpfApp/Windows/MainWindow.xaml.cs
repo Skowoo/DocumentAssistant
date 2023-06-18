@@ -51,6 +51,7 @@ namespace WpfApp
         {
             //Main view
             DocGrid.ItemsSource = documentViewsList;
+            AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
 
             //New document grid
             NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
@@ -108,6 +109,10 @@ namespace WpfApp
         {
             DocGrid.Visibility = Visibility.Visible;
             MainControlButtonsGrid.Visibility = Visibility.Visible;
+
+            AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
+            AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
+
             AddDocumentGrid.Visibility = Visibility.Hidden;
             NewTypeGrid.Visibility = Visibility.Hidden;
             NewCustomerGrid.Visibility = Visibility.Hidden;
@@ -316,6 +321,33 @@ namespace WpfApp
                     return;
 
                 editedDocument.TimeDone = DateTime.Now;
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+        }
+
+        private void AssignDocumentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            AssignUserMainMenu_ComboBox.Visibility = Visibility.Visible;
+            AssignUserMainMenuConfirm_Button.Visibility = Visibility.Visible;
+        }
+
+        private void AssignUserMainMenuConfirm_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
+            AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
+
+            if (selectedDocument is null || AssignUserMainMenu_ComboBox.SelectedItem is null) 
+                return;
+
+            using (MainContext context = new MainContext())
+            {
+                var selectedUser = AssignUserMainMenu_ComboBox.SelectedItem as UserViewModel;
+                var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
+                editedDocument.UserID = selectedUser.UserID;
                 context.SaveChanges();
             }
 
