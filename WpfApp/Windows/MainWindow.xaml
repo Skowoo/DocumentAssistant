@@ -84,7 +84,7 @@
             <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Margin="0,300,0,0" Style="{StaticResource MainMenuButton}"/>
         </Grid>
 
-        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
+        <Grid Visibility="Hidden" x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="100"/>
@@ -125,16 +125,58 @@
 
         </Grid>
 
-        <Grid Name="NewTypeGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,210,0,0">
-            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
-            <Button x:Name="ConfirmNewType_Button" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
+        <Grid Name="NewTypeGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,210,0,0" Visibility="Hidden">
+            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold" Visibility="Hidden"/>
+            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190" Visibility="Hidden"/>
+            <Button x:Name="ConfirmNewType_Button" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         </Grid>
 
-        <Grid Name="NewCustomerGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,250,0,0" >
-            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
-            <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
+        <Grid Name="NewCustomerGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,250,0,0" Visibility="Hidden" >
+            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold" Visibility="Hidden"/>
+            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190" Visibility="Hidden"/>
+            <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        </Grid>
+
+        <Grid Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Edytuj dokument:" Grid.Row="0" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28"/>
+            <Label Content="ID: 0, NazwaDokumentu" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+
+            <Label Content="Nazwa:"  Grid.Row="2" Style="{StaticResource Label}"/>
+            <TextBox x:Name="EditDocName_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>
+
+            <Label Content="Rozmiar:"  Grid.Row="3" Style="{StaticResource Label}"/>
+            <TextBox x:Name="EditDocSize_TextBox" Grid.Row="3" Style="{StaticResource CustTextBox}"/>
+
+            <Label Content="Typ dokumentu:" Grid.Row="4" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocType_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
+
+            <Label Content="Zleceniodawca:" Grid.Row="5" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocCustomer_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
+
+            <Label Content="Termin wykonania: " Grid.Row="6" Style="{StaticResource Label}" />
+            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+
+            <Label Content="Odpowiedzialny:" Grid.Row="7" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocUser_ComboBox" Grid.Row="7" Style="{StaticResource CustomBoxStyle}"/>
+
+            <Label Content="Data wykonania: " Grid.Row="8" Style="{StaticResource Label}" />
+            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+
+            <Label Content="Dokument zatwierdzony:" Grid.Row="9" Style="{StaticResource Label}" />
+            <CheckBox Name="Confirmed" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
         </Grid>
 
     </Grid>
