@@ -62,7 +62,7 @@
             </MenuItem>
         </Menu>
 
-        <DataGrid Visibility="Hidden" Name="DocGrid" Margin="0,20,300,0" SelectionChanged="DocGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" >
+        <DataGrid Visibility="Hidden" Name="DocGrid" Margin="0,20,300,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DocGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
@@ -77,7 +77,7 @@
 
         <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,50,60,0" VerticalAlignment="Top">
             <Button Name="AddDocumentBtn" Content="Dodaj dokument" Margin="0,0,0,0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click"/>
-            <Button Name="EditDocBtn" Content="Edytuj dokument" Margin="0,60,0,0" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="EditDocBtn" Content="Edytuj dokument" Margin="0,60,0,0" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click"/>
             <Button Name="DeleteDocBtn" Content="Skasuj dokument" Margin="0,120,0,0" Style="{StaticResource MainMenuButton}"/>
             <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Margin="0,180,0,0" Style="{StaticResource MainMenuButton}"/>
             <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Margin="0,240,0,0" Style="{StaticResource MainMenuButton}"/>
@@ -121,7 +121,7 @@
             <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmNewDocButton" Grid.Row="7" Grid.ColumnSpan="2" Content="Zatwierdź" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
+            <Button Name="ConfirmNewDocButton" Grid.Row="7" Grid.ColumnSpan="2" Content="Dodaj dokument" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
 
         </Grid>
 
@@ -149,10 +149,11 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label Content="Edytuj dokument:" Grid.Row="0" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28"/>
-            <Label Content="ID: 0, NazwaDokumentu" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <Label Name="EditDocTitleLabel" Content="ID: 0, NazwaDokumentu" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
             <Label Content="Nazwa:"  Grid.Row="2" Style="{StaticResource Label}"/>
             <TextBox x:Name="EditDocName_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>
@@ -177,6 +178,8 @@
 
             <Label Content="Dokument zatwierdzony:" Grid.Row="9" Style="{StaticResource Label}" />
             <CheckBox Name="Confirmed" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+
+            <Button Name="ConfirmEditDocButton" Grid.Row="10" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Height="30" Click="ConfirmEditDocButton_Click"/>
         </Grid>
 
     </Grid>

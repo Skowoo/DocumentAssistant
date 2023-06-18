@@ -42,7 +42,7 @@ namespace WpfApp.Models.ViewModels
 
         public int DocumentID { get; init; }
 
-        public int UserID { get; init; }
+        public int? UserID { get; init; }
 
         public int CustomerID { get; init; }
 

@@ -37,22 +37,33 @@ namespace WpfApp
         List<DocumentType> documentTypesList = new();
         ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
 
+        DocumentViewModel? selectedDocument;
+
         public MainWindow()
         {
             InitializeComponent();
             UpdateLists();
+            AssignItemSources();
+            ResetView();
+        }
+
+        private void AssignItemSources()
+        {
+            //Main view
             DocGrid.ItemsSource = documentViewsList;
+
+            //New document grid
             NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
             NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
             NewDocUser_ComboBox.ItemsSource = userViewModelsList;
 
-            ResetView();
+            //Edit document grid
+            EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+            EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+            EditDocUser_ComboBox.ItemsSource = userViewModelsList;
         }
 
-        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DocumentViewModel doc = DocGrid.SelectedItem as DocumentViewModel;
-        }
+        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) => selectedDocument = DocGrid.SelectedItem as DocumentViewModel;
 
         private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
         {
@@ -100,6 +111,7 @@ namespace WpfApp
             AddDocumentGrid.Visibility = Visibility.Hidden;
             NewTypeGrid.Visibility = Visibility.Hidden;
             NewCustomerGrid.Visibility = Visibility.Hidden;
+            EditDocGrid.Visibility = Visibility.Hidden;
         }
 
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
@@ -220,6 +232,63 @@ namespace WpfApp
             UpdateLists();
             NewDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerName == newCustomer.CustomerName).Single();
             NewCustomerGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void EditDocBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            DocGrid.Visibility = Visibility.Hidden;
+            MainControlButtonsGrid.Visibility = Visibility.Hidden;
+            EditDocGrid.Visibility = Visibility.Visible;
+
+            EditDocTitleLabel.Content = $"ID: {selectedDocument.DocumentID}, {selectedDocument.Name}";
+            EditDocName_TextBox.Text = selectedDocument.Name;
+            EditDocSize_TextBox.Text = selectedDocument.signsSize.ToString();
+            EditDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeID == selectedDocument.TypeID).Single();
+            EditDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerID == selectedDocument.CustomerID).Single();
+            EditDocDeadlineCallendar.SelectedDate = DateTime.Parse(selectedDocument.Deadline);
+
+            if (selectedDocument.UserID is not null)
+                EditDocUser_ComboBox.SelectedItem = userViewModelsList.Where(x => x.UserID == selectedDocument.UserID).Single();
+
+            if (selectedDocument.TimeDone is not null)
+                EditDocTimeDoneCallendar.SelectedDate = DateTime.Parse(selectedDocument.TimeDone);
+        }
+
+        private void ConfirmEditDocButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            var tempSelectedDocType = EditDocType_ComboBox.SelectedItem as DocumentTypeViewModel;
+            var tempSelectedDocCustomer = EditDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
+            UserViewModel? tempSelectedUser = null;
+
+            if (EditDocUser_ComboBox.SelectedItem is not null)
+                tempSelectedUser = EditDocUser_ComboBox.SelectedItem as UserViewModel;
+
+            using (MainContext context = new MainContext())
+            {
+                var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
+                editedDocument.Name = EditDocName_TextBox.Text.Trim();
+                editedDocument.signsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
+                editedDocument.CustomerID = tempSelectedDocCustomer.CustomerID;
+                editedDocument.TypeID = tempSelectedDocType.TypeID;
+
+                if (EditDocDeadlineCallendar.SelectedDate is not null)
+                    editedDocument.Deadline = (DateTime)EditDocDeadlineCallendar.SelectedDate;
+
+                if (tempSelectedUser is not null)
+                    editedDocument.UserID = tempSelectedUser.UserID;
+
+                if (EditDocTimeDoneCallendar.SelectedDate is not null)
+                    editedDocument.TimeDone = EditDocTimeDoneCallendar.SelectedDate;
+
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+            ResetView();
         }
     }
 }
