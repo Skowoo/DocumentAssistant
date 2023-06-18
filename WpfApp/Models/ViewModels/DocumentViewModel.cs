@@ -15,15 +15,22 @@ namespace WpfApp.Models.ViewModels
         {
             DocumentID = input.DocumentID;
             TimeAdded = input.TimeAdded.ToString("dd.MM.yyyy");
-            Deadline = input.Deadline.ToString("dd.MM.yyyy");
-            TimeDone = input.TimeDone.ToString("dd.MM.yyyy");
+            Deadline = input.Deadline.ToString("dd.MM.yyyy");           
             Name = input.Name;
             signsSize = input.signsSize.ToString();
 
+            if (input.TimeDone is not null)
+            {
+                TimeDone = input.TimeDone.ToString();
+            }
+
             using (MainContext context = new MainContext())
             {
-                UserID = context.Users.Where(x => x.UserID == input.UserID).Single().UserID;
-                UserLogin = context.Users.Where(x => x.UserID == input.UserID).Single().Login;
+                if (input.UserID is not null)
+                {
+                    UserID = context.Users.Where(x => x.UserID == input.UserID).Single().UserID;
+                    UserLogin = context.Users.Where(x => x.UserID == input.UserID).Single().Login;
+                }
 
                 CustomerName = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerName;
                 CustomerID = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerID;

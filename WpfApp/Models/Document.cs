@@ -16,7 +16,7 @@ namespace WpfApp.Models
         [Required]
         public DateTime Deadline { get; set; }
 
-        public DateTime TimeDone { get; set; }
+        public DateTime? TimeDone { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -26,10 +26,10 @@ namespace WpfApp.Models
 
         //Foreign keys
         [Display(Name = "User")]
-        public virtual int UserID { get; set; }
+        public virtual int? UserID { get; set; }
 
         [ForeignKey("UserID")]
-        public virtual User Users { get; set; }
+        public virtual User? Users { get; set; }
 
 
         [Display(Name = "DocumentType")]
