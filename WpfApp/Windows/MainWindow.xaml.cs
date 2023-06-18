@@ -64,7 +64,17 @@ namespace WpfApp
             EditDocUser_ComboBox.ItemsSource = userViewModelsList;
         }
 
-        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) => selectedDocument = DocGrid.SelectedItem as DocumentViewModel;
+        private void DocGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedDocument = DocGrid.SelectedItem as DocumentViewModel;
+            if (selectedDocument is not null) 
+            {
+                if (selectedDocument.IsConfirmed)
+                    ConfirmDoneBtn.Content = "Anuluj zatwierdzenie";
+                else 
+                    ConfirmDoneBtn.Content = "Zatwierdź dokument";
+            }
+        }
 
         private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
         {
@@ -352,6 +362,25 @@ namespace WpfApp
                 var selectedUser = AssignUserMainMenu_ComboBox.SelectedItem as UserViewModel;
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
                 editedDocument.UserID = selectedUser.UserID;
+                context.SaveChanges();
+            }
+
+            UpdateLists();
+        }
+
+        private void ConfirmDoneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedDocument is null) return;
+
+            using(MainContext context = new MainContext())
+            {
+                var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
+
+                if (editedDocument.IsConfirmed)
+                    editedDocument.IsConfirmed = false;
+                else
+                    editedDocument.IsConfirmed = true;
+
                 context.SaveChanges();
             }
 

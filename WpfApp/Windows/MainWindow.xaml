@@ -91,7 +91,7 @@
             <Button Name="EditDocBtn" Content="Edytuj dokument" Grid.Row="1" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click"/>
             <Button Name="DeleteDocBtn" Content="Skasuj dokument" Grid.Row="2" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click"/>
             <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Grid.Row="3" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click"/>
-            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Grid.Row="4" Style="{StaticResource MainMenuButton}"/>
+            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click"/>
             <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click"/>
             <ComboBox Name="AssignUserMainMenu_ComboBox" Grid.Row="6" Height="30" Margin="0,0,0,10"/>
             <Button Name="AssignUserMainMenuConfirm_Button" Content="Przypisz" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
