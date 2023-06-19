@@ -308,13 +308,13 @@ namespace WpfApp
             EditDocSize_TextBox.Text = selectedDocument.signsSize.ToString();
             EditDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeID == selectedDocument.TypeID).Single();
             EditDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerID == selectedDocument.CustomerID).Single();
-            EditDocDeadlineCallendar.SelectedDate = DateTime.Parse(selectedDocument.Deadline);
+            EditDocDeadlineCallendar.SelectedDate = selectedDocument.Deadline;
 
             if (selectedDocument.UserID is not null)
                 EditDocUser_ComboBox.SelectedItem = userViewModelsList.Where(x => x.UserID == selectedDocument.UserID).Single();
 
             if (selectedDocument.TimeDone is not null)
-                EditDocTimeDoneCallendar.SelectedDate = DateTime.Parse(selectedDocument.TimeDone);
+                EditDocTimeDoneCallendar.SelectedDate = selectedDocument.TimeDone;
 
             EditDocGridConfirmed_CheckBox.IsChecked = selectedDocument.IsConfirmed;
         }

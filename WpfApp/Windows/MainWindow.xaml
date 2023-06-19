@@ -52,6 +52,26 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
+        <Style TargetType="DataGridRow">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding UserLogin}" Value="{x:Null}">
+                    <Setter Property="Background" Value="#FFFBFB80" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsDone}" Value="true">
+                    <Setter Property="Background" Value="#FFC2FB80" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsCloseToDeadline}" Value="true">
+                    <Setter Property="Background" Value="#FFFF7F7F" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsOverdue}" Value="true">
+                    <Setter Property="Background" Value="#FFF92B2B" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsConfirmed}" Value="True">
+                    <Setter Property="Background" Value="#FF2FEC2F" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
@@ -69,9 +89,9 @@
                 <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>
                 <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Data dodania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>                
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
+                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
                 <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>

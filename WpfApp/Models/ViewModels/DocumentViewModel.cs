@@ -14,15 +14,15 @@ namespace WpfApp.Models.ViewModels
         public DocumentViewModel(Document input)
         {
             DocumentID = input.DocumentID;
-            TimeAdded = input.TimeAdded.ToString("dd.MM.yyyy");
-            Deadline = input.Deadline.ToString("dd.MM.yyyy");           
+            TimeAdded = input.TimeAdded;
+            Deadline = input.Deadline;           
             Name = input.Name;
             signsSize = input.signsSize.ToString();
             IsConfirmed = input.IsConfirmed;
 
             if (input.TimeDone is not null)
             {
-                TimeDone = input.TimeDone.ToString();
+                TimeDone = (DateTime)input.TimeDone;
             }
 
             using (MainContext context = new MainContext())
@@ -51,11 +51,11 @@ namespace WpfApp.Models.ViewModels
 
         public bool IsConfirmed { get; init; }
 
-        public string TimeAdded { get; init; }
+        public DateTime TimeAdded { get; init; }
 
-        public string Deadline { get; init; }
+        public DateTime Deadline { get; init; }
 
-        public string TimeDone { get; init; }
+        public DateTime? TimeDone { get; init; }
 
         public string Name { get; init; }
 
@@ -66,6 +66,12 @@ namespace WpfApp.Models.ViewModels
         public string TypeName { get; init; }
 
         public string CustomerName { get; init; }
+
+        public bool IsDone => TimeDone is not null;
+
+        public bool IsOverdue => DateTime.Now > Deadline;
+
+        public bool IsCloseToDeadline => DateTime.Now.AddDays(7) > Deadline;
 
         public override string ToString() => Name;
     }
