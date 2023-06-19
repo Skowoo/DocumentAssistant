@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp.Windows;
 
 namespace WpfApp.Models.ViewModels
 {
@@ -14,10 +8,10 @@ namespace WpfApp.Models.ViewModels
         public DocumentViewModel(Document input)
         {
             DocumentID = input.DocumentID;
-            TimeAdded = input.TimeAdded;
-            Deadline = input.Deadline;           
+            signsSize = input.signsSize;
             Name = input.Name;
-            signsSize = input.signsSize.ToString();
+            TimeAdded = input.TimeAdded;
+            Deadline = input.Deadline;                        
             IsConfirmed = input.IsConfirmed;
 
             if (input.TimeDone is not null)
@@ -29,19 +23,28 @@ namespace WpfApp.Models.ViewModels
             {
                 if (input.UserID is not null)
                 {
-                    UserID = context.Users.Where(x => x.UserID == input.UserID).Single().UserID;
-                    UserLogin = context.Users.Where(x => x.UserID == input.UserID).Single().Login;
+                    var selectedUser = context.Users.Where(x => x.UserID == input.UserID).Single();
+                    UserID = selectedUser.UserID;
+                    UserLogin = selectedUser.Login;
                 }
 
-                CustomerName = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerName;
-                CustomerID = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single().CustomerID;
+                var selectedCustomer = context.Customers.Where(x => x.CustomerID == input.CustomerID).Single();
+                CustomerName = selectedCustomer.CustomerName;
+                CustomerID = selectedCustomer.CustomerID;
 
-                TypeID = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single().TypeID;
-                TypeName = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single().TypeName;
+                var selectedDocumentType = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single();
+                TypeID = selectedDocumentType.TypeID;
+                TypeName = selectedDocumentType.TypeName;
             }
         }
 
+        #region Core properties
+
         public int DocumentID { get; init; }
+
+        public string Name { get; init; }
+
+        public int signsSize { get; init; }
 
         public int? UserID { get; init; }
 
@@ -57,11 +60,11 @@ namespace WpfApp.Models.ViewModels
 
         public DateTime? TimeDone { get; init; }
 
-        public string Name { get; init; }
+        #endregion
 
-        public string signsSize { get; init; }
-        
-        public string UserLogin { get; init; }
+        #region Secondary properties
+
+        public string? UserLogin { get; init; }
 
         public string TypeName { get; init; }
 
@@ -72,6 +75,8 @@ namespace WpfApp.Models.ViewModels
         public bool IsOverdue => DateTime.Now > Deadline;
 
         public bool IsCloseToDeadline => DateTime.Now.AddDays(7) > Deadline;
+
+        #endregion
 
         public override string ToString() => Name;
     }

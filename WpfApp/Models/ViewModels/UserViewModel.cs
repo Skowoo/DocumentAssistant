@@ -1,30 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace WpfApp.Models.ViewModels
 {
     public class UserViewModel
     {
-        public UserViewModel(User input) 
-        { 
+        public UserViewModel(User input)
+        {
             UserID = input.UserID;
             FirstName = input.FirstName;
             LastName = input.LastName;
             Login = input.Login;
-            if (input.IsActive)
-                Status = "Aktywny";
-            else Status = "Nieaktywny";
             IsActive = input.IsActive;
 
-            using MainContext context = new MainContext();
-            RoleID = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleID;
-            RoleName = context.Roles.Where(x => x.RoleID == input.RoleID).Single().RoleName;
+            if (input.IsActive)
+                Status = "Aktywny";
+            else 
+                Status = "Nieaktywny";
+
+            using (MainContext context = new MainContext())
+            {
+                var selectedRole = context.Roles.Where(x => x.RoleID == input.RoleID).Single();
+                RoleID = selectedRole.RoleID;
+                RoleName = selectedRole.RoleName;
+            };
         }
+
+        #region Core properties
 
         public int UserID { get; init; }
 
@@ -38,9 +39,15 @@ namespace WpfApp.Models.ViewModels
 
         public string Login { get; init; }
 
+        #endregion
+
+        #region Secondary properties
+
         public string Status { get; init; }
 
         public string RoleName { get; init; }
+
+        #endregion
 
         public override string ToString() => $"{FirstName} {LastName}";
     }
