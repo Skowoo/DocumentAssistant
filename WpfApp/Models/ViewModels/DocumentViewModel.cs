@@ -35,6 +35,20 @@ namespace WpfApp.Models.ViewModels
                 var selectedDocumentType = context.DocumentTypes.Where(x => x.TypeID == input.TypeID).Single();
                 TypeID = selectedDocumentType.TypeID;
                 TypeName = selectedDocumentType.TypeName;
+
+                if (input.OriginalLanguageID is not null)
+                {
+                    var selectedOriginalLanguage = context.Languages.Where(x => x.LanguageID == input.OriginalLanguageID).Single();
+                    OriginalLanguageID = selectedOriginalLanguage.LanguageID;
+                    OriginalLanguage = selectedOriginalLanguage.LanguageName;
+                }
+
+                if (input.TargetLanguageID is not null)
+                {
+                    var selectedTargetLanguage = context.Languages.Where(x => x.LanguageID == input.TargetLanguageID).Single();
+                    TargetLanguageID = selectedTargetLanguage.LanguageID;
+                    TargetLanguage = selectedTargetLanguage.LanguageName;
+                }
             }
         }
 
@@ -73,6 +87,11 @@ namespace WpfApp.Models.ViewModels
         public string TypeName { get; init; }
 
         public string CustomerName { get; init; }
+
+        public string OriginalLanguage { get; init; }
+
+        public string TargetLanguage { get; init; }
+
 
         public bool IsDone => TimeDone is not null;
 

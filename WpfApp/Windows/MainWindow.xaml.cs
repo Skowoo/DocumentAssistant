@@ -31,6 +31,9 @@ namespace WpfApp
         List<DocumentType> documentTypesList = new();
         ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
 
+        List<Language> languagesList = new();
+        ObservableCollection<LanguageViewModel> languagesViewModelsList = new();
+
         DocumentViewModel? selectedDocument;
 
         #endregion
@@ -83,22 +86,24 @@ namespace WpfApp
         private void ConfigurateControls()
         {
             //Assign item sources
-                //Main view
-                DocGrid.ItemsSource = documentViewsList;
-                AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
+            //Main view
+            DocGrid.ItemsSource = documentViewsList;
+            AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
 
-                //New document grid
-                NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
-                NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
-                NewDocUser_ComboBox.ItemsSource = userViewModelsList;
+            //New document grid
+            NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+            NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+            NewDocUser_ComboBox.ItemsSource = userViewModelsList;
+            NewDocTargetLang_ComboBox.ItemsSource = languagesViewModelsList;
+            NewDocOriginalLang_ComboBox.ItemsSource = languagesViewModelsList;
 
-                //Edit document grid
-                EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
-                EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
-                EditDocUser_ComboBox.ItemsSource = userViewModelsList;
+            //Edit document grid
+            EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+            EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+            EditDocUser_ComboBox.ItemsSource = userViewModelsList;
 
             //Parametrize Calendars
-                DeadlineCallendarBlackout.End = DateTime.Now.AddDays(-1);
+            DeadlineCallendarBlackout.End = DateTime.Now.AddDays(-1);
         }
 
         private void UpdateAllLists()
@@ -107,6 +112,7 @@ namespace WpfApp
             UpdateUsersList();
             UpdateCustomersList();
             UpdateDocTypesList();
+            UpdateLanguagesList();
         }
 
         private void UpdateDocumentsList()
@@ -153,6 +159,21 @@ namespace WpfApp
                 customerViewModelsList.Add(new CustomerViewModel(customer));
         }
 
+        private void UpdateLanguagesList()
+        {
+            languagesList.Clear();
+
+            using (MainContext context = new MainContext())
+            {
+                languagesList = context.Languages.ToList();
+            }
+
+            languagesViewModelsList.Clear();
+
+            foreach (var language in languagesList)
+                languagesViewModelsList.Add(new LanguageViewModel(language));
+        }
+
         private void UpdateDocTypesList()
         {
             documentTypesList.Clear();
@@ -180,6 +201,7 @@ namespace WpfApp
             NewTypeGrid.Visibility = Visibility.Hidden;
             NewCustomerGrid.Visibility = Visibility.Hidden;
             EditDocGrid.Visibility = Visibility.Hidden;
+            NewLanguageGrid.Visibility = Visibility.Hidden;
         }
 
         #endregion
@@ -251,13 +273,31 @@ namespace WpfApp
                 return;
             }
 
+            if (NewDocOriginalLang_ComboBox.SelectedItem is null)
+            {
+                MessageBox.Show("Nie wybrano języka źródłowego dokumentu!");
+                return;
+            }
+
+            if (NewDocTargetLang_ComboBox.SelectedItem is null)
+            {
+                MessageBox.Show("Nie wybrano języka docelowego dokumentu!");
+                return;
+            }
+
+            if (NewDocTargetLang_ComboBox.SelectedItem == NewDocOriginalLang_ComboBox.SelectedItem)
+            {
+                MessageBox.Show("Języki źródłowy i docelowy są takie same!");
+                return;
+            }
+
             Document newDocument = new Document
             {
                 TimeAdded = DateTime.Now,
                 Name = NewDocName_TextBox.Text.Trim(),
                 signsSize = docSize,
                 Deadline = (DateTime)DeadlineCallendar.SelectedDate,
-                IsConfirmed = false
+                IsConfirmed = false                
             };
 
             var tempCustomer = NewDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
@@ -265,6 +305,12 @@ namespace WpfApp
 
             var tempType = NewDocType_ComboBox.SelectedItem as DocumentTypeViewModel;
             newDocument.TypeID = tempType.TypeID;
+
+            var selectedLanguage = NewDocOriginalLang_ComboBox.SelectedItem as LanguageViewModel;
+            newDocument.OriginalLanguageID = selectedLanguage.LanguageID;
+
+            selectedLanguage = NewDocTargetLang_ComboBox.SelectedItem as LanguageViewModel;
+            newDocument.TargetLanguageID = selectedLanguage.LanguageID;
 
             if (NewDocUser_ComboBox.SelectedItem is not null)
             {
@@ -286,12 +332,7 @@ namespace WpfApp
         {
             NewCustomerGrid.Visibility = Visibility.Hidden;
             NewTypeGrid.Visibility = Visibility.Visible;
-        }
-
-        private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e)
-        {
-            NewTypeGrid.Visibility = Visibility.Hidden;
-            NewCustomerGrid.Visibility = Visibility.Visible;
+            NewLanguageGrid.Visibility = Visibility.Hidden;
         }
 
         private void ConfirmNewType_Button_Click(object sender, RoutedEventArgs e)
@@ -318,6 +359,13 @@ namespace WpfApp
             NewTypeGrid.Visibility = Visibility.Hidden;
         }
 
+        private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewTypeGrid.Visibility = Visibility.Hidden;            
+            NewCustomerGrid.Visibility = Visibility.Visible;
+            NewLanguageGrid.Visibility = Visibility.Hidden;
+        }
+
         private void ConfirmNewCustomer_Button_Click(object sender, RoutedEventArgs e)
         {
             if (NewCustomer_TextBox.Text.Trim().Length < 2)
@@ -341,6 +389,38 @@ namespace WpfApp
             NewDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerName == newCustomer.CustomerName).Single();
             NewCustomerGrid.Visibility = Visibility.Hidden;
         }
+
+        private void NewDocAddLanguage_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewTypeGrid.Visibility = Visibility.Hidden;
+            NewCustomerGrid.Visibility = Visibility.Hidden;
+            NewLanguageGrid.Visibility = Visibility.Visible;
+        }
+
+        private void ConfirmNewLanguage_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewLanguage_TextBox.Text.Trim().Length < 2)
+            {
+                MessageBox.Show("Minimalna długość nazwy języka to 3 znaki!");
+                return;
+            }
+
+            Language newLanguage = new Language
+            {
+                LanguageName = NewLanguage_TextBox.Text.Trim()
+            };
+
+            using (MainContext context = new MainContext())
+            {
+                context.Languages.Add(newLanguage);
+                context.SaveChanges();
+            }
+
+            UpdateLanguagesList();
+            NewDocOriginalLang_ComboBox.SelectedItem = languagesViewModelsList.Where(x => x.LanguageName == newLanguage.LanguageName).Single();
+            NewLanguageGrid.Visibility = Visibility.Hidden;
+        }
+
 
         private void EditDocBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -480,6 +560,8 @@ namespace WpfApp
         }
 
         private void Callendars_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) => Mouse.Capture(null);
+
+
 
         #endregion
     }

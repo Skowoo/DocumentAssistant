@@ -114,6 +114,12 @@ namespace WpfApp.Windows
                 db.Roles.Add(new Role { RoleName = "Użytkownik" });
                 db.Roles.Add(new Role { RoleName = "Obserwator" });
 
+                db.Languages.Add(new Language { LanguageName = "Polski" });
+                db.Languages.Add(new Language { LanguageName = "Angielski" });
+                db.Languages.Add(new Language { LanguageName = "Japoński" });
+                db.Languages.Add(new Language { LanguageName = "Wietnamski" });
+                db.Languages.Add(new Language { LanguageName = "Chiński" });
+
                 db.SaveChanges();
 
                 MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
