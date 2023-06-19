@@ -39,6 +39,8 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Height" Value="50"/>
             <Setter Property="Width" Value="200"/>
+            <Setter Property="Background" Value="#FFFFBB56"/>
+            <Setter Property="BorderBrush" Value="#FFFDC97B"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
@@ -48,6 +50,8 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="80"/>
+            <Setter Property="Background" Value="#FFFFBB56"/>
+            <Setter Property="BorderBrush" Value="#FFFDC97B"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
@@ -57,14 +61,14 @@
                 <DataTrigger Binding="{Binding UserLogin}" Value="{x:Null}">
                     <Setter Property="Background" Value="#FFFBFB80" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding IsDone}" Value="true">
-                    <Setter Property="Background" Value="#FFC2FB80" />
-                </DataTrigger>
                 <DataTrigger Binding="{Binding IsCloseToDeadline}" Value="true">
                     <Setter Property="Background" Value="#FFFF7F7F" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsOverdue}" Value="true">
                     <Setter Property="Background" Value="#FFF92B2B" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsDone}" Value="true">
+                    <Setter Property="Background" Value="#FFC2FB80" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsConfirmed}" Value="True">
                     <Setter Property="Background" Value="#FF2FEC2F" />
@@ -82,21 +86,21 @@
             </MenuItem>
         </Menu>
 
-        <DataGrid Visibility="Hidden" Name="DocGrid" Margin="0,20,300,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DocGrid_SelectionChanged" >
+        <DataGrid Name="DocGrid" Margin="0,20,300,0" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
                 <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>
-                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded}" Header="Data dodania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline}" Header="Termin wykonania" Width="SizeToHeader"/>                
+                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd/MM/yyyy hh:mm\}}" Header="Data dodania" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd/MM/yyyy\}}" Header="Termin wykonania" Width="SizeToHeader"/>                
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
-                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone}" Header="Wykonano" Width="*"/>
+                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone, StringFormat={}\{0:dd.MM.yyyy hh:mm\}}" Header="Wykonano" Width="*"/>
                 <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,00,60,0" VerticalAlignment="Center">
+        <Grid Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,0,50,0" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
@@ -149,7 +153,11 @@
             <Button Name="NewCustomerDocGrid_Button" Content="Dodaj" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
 
             <Label Content="Termin wykonania: " Grid.Row="5" Style="{StaticResource Label}" />
-            <Calendar Name="DeadlineCallendar" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+            <Calendar Name="DeadlineCallendar" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged">
+                <Calendar.BlackoutDates>
+                    <CalendarDateRange x:Name="DeadlineCallendarBlackout" Start="01.01.0001"/>
+                </Calendar.BlackoutDates>
+            </Calendar>
 
             <Label Content="Przypisany użytkownik:" Grid.Row="6" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
@@ -201,13 +209,13 @@
             <ComboBox Name="EditDocCustomer_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
 
             <Label Content="Termin wykonania: " Grid.Row="6" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
 
             <Label Content="Odpowiedzialny:" Grid.Row="7" Style="{StaticResource Label}" />
             <ComboBox Name="EditDocUser_ComboBox" Grid.Row="7" Style="{StaticResource CustomBoxStyle}"/>
 
             <Label Content="Data wykonania: " Grid.Row="8" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0"/>
+            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
 
             <Label Content="Dokument zatwierdzony:" Grid.Row="9" Style="{StaticResource Label}" />
             <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>

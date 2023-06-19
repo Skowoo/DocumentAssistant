@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using WpfApp.Models;
 using WpfApp.Models.ViewModels;
 using WpfApp.Windows;
@@ -38,27 +39,31 @@ namespace WpfApp
         {
             InitializeComponent();
             UpdateAllLists();
-            AssignItemSources();
+            ConfigurateControls();
             ResetView();
         }
 
         #region Private methods
 
-        private void AssignItemSources()
+        private void ConfigurateControls()
         {
-            //Main view
-            DocGrid.ItemsSource = documentViewsList;
-            AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
+            //Assign item sources
+                //Main view
+                DocGrid.ItemsSource = documentViewsList;
+                AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
 
-            //New document grid
-            NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
-            NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
-            NewDocUser_ComboBox.ItemsSource = userViewModelsList;
+                //New document grid
+                NewDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+                NewDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+                NewDocUser_ComboBox.ItemsSource = userViewModelsList;
 
-            //Edit document grid
-            EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
-            EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
-            EditDocUser_ComboBox.ItemsSource = userViewModelsList;
+                //Edit document grid
+                EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
+                EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
+                EditDocUser_ComboBox.ItemsSource = userViewModelsList;
+
+            //Parametrize Calendars
+                DeadlineCallendarBlackout.End = DateTime.Now.AddDays(-1);
         }
 
         private void UpdateAllLists()
@@ -431,6 +436,8 @@ namespace WpfApp
 
             UpdateDocumentsList();
         }
+
+        private void Callendars_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) => Mouse.Capture(null);
 
         #endregion
     }
