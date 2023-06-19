@@ -35,15 +35,50 @@ namespace WpfApp
 
         #endregion
 
-        public MainWindow()
+        public MainWindow(int userLevel)
         {
             InitializeComponent();
+            ManageAccessLevel(userLevel);
             UpdateAllLists();
             ConfigurateControls();
             ResetView();
         }
 
         #region Private methods
+
+        private void ManageAccessLevel(int userLevel)
+        {
+            switch (userLevel)
+            {
+                case 1:
+                    AddDocumentBtn.IsEnabled = true;
+                    EditDocBtn.IsEnabled = true;
+                    DeleteDocBtn.IsEnabled = true;
+                    MarkAsDoneBtn.IsEnabled = true;
+                    ConfirmDoneBtn.IsEnabled = true;
+                    AssignDocumentBtn.IsEnabled = true;
+                    Menu_ManageUsers.IsEnabled = true;
+                    return;
+                case 2:
+                    goto case 1;
+                case 3:
+                    AddDocumentBtn.IsEnabled = true;
+                    MarkAsDoneBtn.IsEnabled = true;
+                    ConfirmDoneBtn.IsEnabled = true;
+                    AssignDocumentBtn.IsEnabled = true;
+                    return;
+                case 4:
+                    AddDocumentBtn.IsEnabled = true;
+                    MarkAsDoneBtn.IsEnabled = true;
+                    return;
+                case 5:
+                    return;
+                default:
+                    MessageBox.Show("Nieprawidłowy poziom użytkownika!");
+                    this.Close();
+                    return;
+            }
+        }
 
         private void ConfigurateControls()
         {
@@ -167,6 +202,13 @@ namespace WpfApp
         {
             var window = new UserManagementWindow();
             window.Show();
+        }
+
+        private void Menu_Logout_Click(object sender, RoutedEventArgs e)
+        {            
+            var loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
 
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)

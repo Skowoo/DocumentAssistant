@@ -82,7 +82,8 @@
 
         <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
             <MenuItem Header="Opcje..." Height="20">
-                <MenuItem Name="Menu_ManageUsers" Header="Zarządzaj użytkownikami" Click="Menu_ManageUsers_Click" />
+                <MenuItem Name="Menu_ManageUsers" Header="Zarządzaj użytkownikami" Click="Menu_ManageUsers_Click" IsEnabled="False"/>
+                <MenuItem Name="Menu_Logout" Header="Wyloguj mnie" Click="Menu_Logout_Click" />
             </MenuItem>
         </Menu>
 
@@ -93,7 +94,7 @@
                 <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>
                 <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd/MM/yyyy hh:mm\}}" Header="Data dodania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd/MM/yyyy\}}" Header="Termin wykonania" Width="SizeToHeader"/>                
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd/MM/yyyy\}}" Header="Termin wykonania" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
                 <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone, StringFormat={}\{0:dd.MM.yyyy hh:mm\}}" Header="Wykonano" Width="*"/>
                 <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
@@ -111,12 +112,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Button Name="AddDocumentBtn" Content="Dodaj dokument" Grid.Row="0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click"/>
-            <Button Name="EditDocBtn" Content="Edytuj dokument" Grid.Row="1" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click"/>
-            <Button Name="DeleteDocBtn" Content="Skasuj dokument" Grid.Row="2" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click"/>
-            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Grid.Row="3" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click"/>
-            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click"/>
-            <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click"/>
+            <Button Name="AddDocumentBtn" Content="Dodaj dokument" Grid.Row="0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click" IsEnabled="False"/>
+            <Button Name="EditDocBtn" Content="Edytuj dokument" Grid.Row="1" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click" IsEnabled="False"/>
+            <Button Name="DeleteDocBtn" Content="Skasuj dokument" Grid.Row="2" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click" IsEnabled="False"/>
+            <Button Name="MarkAsDoneBtn" Content="Oznacz jako wykonany" Grid.Row="3" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click" IsEnabled="False"/>
+            <Button Name="ConfirmDoneBtn" Content="Zatwierdź wykonanie" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click" IsEnabled="False"/>
+            <Button Name="AssignDocumentBtn" Content="Przydziel dokument" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click" IsEnabled="False"/>
             <ComboBox Name="AssignUserMainMenu_ComboBox" Grid.Row="6" Height="30" Margin="0,0,0,10"/>
             <Button Name="AssignUserMainMenuConfirm_Button" Content="Przypisz" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
         </Grid>

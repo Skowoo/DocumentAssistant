@@ -1,21 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfApp.Classes;
 using WpfApp.Models;
-using System.Windows.Annotations;
-using System.Windows.Navigation;
 
 namespace WpfApp.Windows
 {
@@ -49,13 +38,13 @@ namespace WpfApp.Windows
             }
             var password = PassGenerator.ComputeHash(PasswordBox.Password, user.Salt);
 
-            if (password == user.Password && user.IsActive == true) GrantAccess(sender, e, user.RoleID);
+            if (password == user.Password && user.IsActive == true) GrantAccess(user.RoleID);
             else MessageBox.Show("Nieprawidłowe dane logowania. Sprawdź login i hasło");
         }
 
-        private void GrantAccess(object sender, RoutedEventArgs e, int userLevel)
+        private void GrantAccess(int userLevel)
         {
-            var main = new MainWindow();
+            var main = new MainWindow(userLevel);
             try
             {
                 this.Close();
@@ -65,6 +54,12 @@ namespace WpfApp.Windows
             {
                 MessageBox.Show("Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia");
             }
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                LoginButton_Click(sender, e);
         }
 
         private void CheckDb()
@@ -91,11 +86,16 @@ namespace WpfApp.Windows
         {
             using (var db = new MainContext())
             {
+                db.Database.EnsureCreated();
+
                 var salt = PassGenerator.GenerateSalt();
                 var adminRole = new Role
                 {
                     RoleName = "Admin"
                 };
+                db.Roles.Add(adminRole);
+                db.SaveChanges();
+
                 var adminUser = new User
                 {
                     FirstName = "Admin",
@@ -106,23 +106,18 @@ namespace WpfApp.Windows
                     IsActive = true,
                     RoleID = 1
                 };
-
-                db.Database.EnsureCreated();
-
-                db.Roles.Add(adminRole);
+                db.Users.Add(adminUser);
                 db.SaveChanges();
 
-                db.Users.Add(adminUser);
+                db.Roles.Add(new Role { RoleName = "Kierownik" });
+                db.Roles.Add(new Role { RoleName = "Koordynator" });
+                db.Roles.Add(new Role { RoleName = "Użytkownik" });
+                db.Roles.Add(new Role { RoleName = "Obserwator" });
+
                 db.SaveChanges();
 
                 MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
             }
-        }
-
-        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-                LoginButton_Click(sender, e);
         }
     }
 }
