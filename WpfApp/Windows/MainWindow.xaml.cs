@@ -101,6 +101,8 @@ namespace WpfApp
             EditDocType_ComboBox.ItemsSource = documentTypeViewModelsList;
             EditDocCustomer_ComboBox.ItemsSource = customerViewModelsList;
             EditDocUser_ComboBox.ItemsSource = userViewModelsList;
+            EditDocOriginalLang_ComboBox.ItemsSource = languagesViewModelsList;
+            EditDocTargetLang_ComboBox.ItemsSource = languagesViewModelsList;
 
             //Parametrize Calendars
             DeadlineCallendarBlackout.End = DateTime.Now.AddDays(-1);
@@ -370,7 +372,7 @@ namespace WpfApp
         {
             if (NewCustomer_TextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show("Minimalne długośc nazwy klienta to dwa znaki!");
+                MessageBox.Show("Minimalna długość nazwy klienta to trzy znaki!");
                 return;
             }
 
@@ -435,6 +437,8 @@ namespace WpfApp
             EditDocSize_TextBox.Text = selectedDocument.signsSize.ToString();
             EditDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeID == selectedDocument.TypeID).Single();
             EditDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerID == selectedDocument.CustomerID).Single();
+            EditDocOriginalLang_ComboBox.SelectedItem = languagesViewModelsList.Where(x => x.LanguageID == selectedDocument.OriginalLanguageID).Single();
+            EditDocTargetLang_ComboBox.SelectedItem = languagesViewModelsList.Where(x => x.LanguageID == selectedDocument.TargetLanguageID).Single();
             EditDocDeadlineCallendar.SelectedDate = selectedDocument.Deadline;
 
             if (selectedDocument.UserID is not null)
@@ -452,6 +456,8 @@ namespace WpfApp
 
             var tempSelectedDocType = EditDocType_ComboBox.SelectedItem as DocumentTypeViewModel;
             var tempSelectedDocCustomer = EditDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
+            var tempSelectedOriginalLang = EditDocOriginalLang_ComboBox.SelectedItem as LanguageViewModel;
+            var tempSelectedTargetLang = EditDocTargetLang_ComboBox.SelectedItem as LanguageViewModel;
             UserViewModel? tempSelectedUser = null;
 
             if (EditDocUser_ComboBox.SelectedItem is not null)
@@ -465,6 +471,8 @@ namespace WpfApp
                 editedDocument.CustomerID = tempSelectedDocCustomer.CustomerID;
                 editedDocument.TypeID = tempSelectedDocType.TypeID;
                 editedDocument.IsConfirmed = (bool)EditDocGridConfirmed_CheckBox.IsChecked;
+                editedDocument.OriginalLanguageID = tempSelectedOriginalLang.LanguageID;
+                editedDocument.TargetLanguageID = tempSelectedTargetLang.LanguageID;
 
                 if (EditDocDeadlineCallendar.SelectedDate is not null)
                     editedDocument.Deadline = (DateTime)EditDocDeadlineCallendar.SelectedDate;

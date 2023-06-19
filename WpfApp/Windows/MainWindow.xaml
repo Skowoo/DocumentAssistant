@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="800" Width="1400">
+        Title="MainWindow" Height="900" Width="1500">
 
     <Window.Resources>
 
@@ -95,8 +95,8 @@
                 <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd.MM.yyyy HH:mm\}}" Header="Data dodania" Width="100"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd.MM.yyyy\}}" Header="Termin wykonania" Width="100"/>
+                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd.MM.yyyy HH:mm\}}" Header="Data dodania" Width="120"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd.MM.yyyy\}}" Header="Termin wykonania" Width="120"/>
                 <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone, StringFormat={}\{0:dd.MM.yyyy HH:mm\}}" Header="Wykonano" Width="100"/>
                 <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
@@ -124,7 +124,7 @@
             <Button Name="AssignUserMainMenuConfirm_Button" Content="Przypisz" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
         </Grid>
 
-        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
+        <Grid Visibility="Hidden" x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="100"/>
@@ -190,15 +190,17 @@
             <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 
-        <Grid Name="NewLanguageGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,290,0,0" >
+        <Grid Visibility="Hidden" Name="NewLanguageGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,290,0,0" >
             <TextBlock Text="Nowy język:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="NewLanguage_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
             <Button x:Name="ConfirmNewLanguage_Button" Content="Potwierdź" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 
-        <Grid Visibility="Hidden" Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -226,19 +228,25 @@
             <Label Content="Zleceniodawca:" Grid.Row="5" Style="{StaticResource Label}" />
             <ComboBox Name="EditDocCustomer_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Label Content="Termin wykonania: " Grid.Row="6" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
+            <Label Content="Język źródłowy:" Grid.Row="6" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocOriginalLang_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Label Content="Odpowiedzialny:" Grid.Row="7" Style="{StaticResource Label}" />
-            <ComboBox Name="EditDocUser_ComboBox" Grid.Row="7" Style="{StaticResource CustomBoxStyle}"/>
+            <Label Content="Język docelowy:" Grid.Row="7" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocTargetLang_ComboBox" Grid.Row="7" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Label Content="Data wykonania: " Grid.Row="8" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
+            <Label Content="Termin wykonania: " Grid.Row="8" Style="{StaticResource Label}" />
+            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
 
-            <Label Content="Dokument zatwierdzony:" Grid.Row="9" Style="{StaticResource Label}" />
-            <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+            <Label Content="Odpowiedzialny:" Grid.Row="9" Style="{StaticResource Label}" />
+            <ComboBox Name="EditDocUser_ComboBox" Grid.Row="9" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmEditDocButton" Grid.Row="10" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Height="30" Click="ConfirmEditDocButton_Click"/>
+            <Label Content="Data wykonania: " Grid.Row="10" Style="{StaticResource Label}" />
+            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
+
+            <Label Content="Dokument zatwierdzony:" Grid.Row="11" Style="{StaticResource Label}" />
+            <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
+
+            <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Height="30" Click="ConfirmEditDocButton_Click"/>
         </Grid>
 
     </Grid>
