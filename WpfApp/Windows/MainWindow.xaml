@@ -90,13 +90,13 @@
         <DataGrid Name="DocGrid" Margin="0,20,300,0" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
-                <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="*"/>
+                <DataGridTextColumn x:Name="docTypeColumn" Binding="{Binding TypeName}" Header="Typ dokumentu" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="docSizeColumn" Binding="{Binding signsSize}" Header="Rozmiar" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="*"/>
-                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd/MM/yyyy hh:mm\}}" Header="Data dodania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd/MM/yyyy\}}" Header="Termin wykonania" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="*"/>
-                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone, StringFormat={}\{0:dd.MM.yyyy hh:mm\}}" Header="Wykonano" Width="*"/>
+                <DataGridTextColumn x:Name="docCustomerIDColumn" Binding="{Binding CustomerName}" Header="Zleceniodawca" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTimeAddedColumn" Binding="{Binding TimeAdded, StringFormat={}\{0:dd.MM.yyyy HH:mm\}}" Header="Data dodania" Width="100"/>
+                <DataGridTextColumn x:Name="docDeadlineColumn" Binding="{Binding Deadline, StringFormat={}\{0:dd.MM.yyyy\}}" Header="Termin wykonania" Width="100"/>
+                <DataGridTextColumn x:Name="docUserColumn" Binding="{Binding UserLogin}" Header="Odpowiedzialny" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="docTimeDoneColumn" Binding="{Binding TimeDone, StringFormat={}\{0:dd.MM.yyyy HH:mm\}}" Header="Wykonano" Width="100"/>
                 <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>

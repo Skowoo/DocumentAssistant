@@ -26,5 +26,7 @@ namespace WpfApp
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Language> Languages { get; set; }
     }
 }

@@ -54,6 +54,10 @@ namespace WpfApp.Models.ViewModels
 
         public bool IsConfirmed { get; init; }
 
+        public int OriginalLanguageID { get; init; }
+
+        public int TargetLanguageID { get; init; }
+
         public DateTime TimeAdded { get; init; }
 
         public DateTime Deadline { get; init; }
