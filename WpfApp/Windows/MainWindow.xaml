@@ -124,7 +124,7 @@
             <Button Name="AssignUserMainMenuConfirm_Button" Content="Przypisz" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
         </Grid>
 
-        <Grid Visibility="Hidden" x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
+        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="100"/>
@@ -157,7 +157,7 @@
             <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
             <Button Name="NewCustomerDocGrid_Button" Content="Dodaj" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
 
-            <Label Content="Język domumentu:" Grid.Row="5" Style="{StaticResource Label}" />
+            <Label Content="Język dokumentu:" Grid.Row="5" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocOriginalLang_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
             <Button Name="NewDocAddLanguage_Button" Content="Dodaj" Grid.Row="5" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewDocAddLanguage_Button_Click" Margin="0,0,0,5" VerticalAlignment="Bottom"/>
 
@@ -174,8 +174,8 @@
             <Label Content="Przypisany użytkownik:" Grid.Row="8" Style="{StaticResource Label}" />
             <ComboBox Name="NewDocUser_ComboBox" Grid.Row="8" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="Dodaj dokument" Style="{StaticResource MainMenuButton}" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
-
+            <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="Dodaj dokument" Style="{StaticResource MainMenuButton}" HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
+            <Button Grid.Row="9" Content="Anuluj" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
         </Grid>
 
         <Grid Name="NewTypeGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,210,0,0" Visibility="Hidden">
@@ -196,7 +196,7 @@
             <Button x:Name="ConfirmNewLanguage_Button" Content="Potwierdź" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
         </Grid>
 
-        <Grid Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Visibility="Hidden" Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
@@ -246,7 +246,8 @@
             <Label Content="Dokument zatwierdzony:" Grid.Row="11" Style="{StaticResource Label}" />
             <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
 
-            <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Height="30" Click="ConfirmEditDocButton_Click"/>
+            <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Click="ConfirmEditDocButton_Click" HorizontalAlignment="Left" />
+            <Button Grid.Row="12" Content="Anuluj" Style="{StaticResource MainMenuButton}" Click="ResetViewButton_Click" HorizontalAlignment="Right"/>
         </Grid>
 
     </Grid>

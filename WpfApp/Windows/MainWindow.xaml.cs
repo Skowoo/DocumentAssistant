@@ -108,6 +108,23 @@ namespace WpfApp
             DeadlineCallendarBlackout.End = DateTime.Now.AddDays(-1);
         }
 
+        private void ResetView()
+        {
+            DocGrid.Visibility = Visibility.Visible;
+            MainControlButtonsGrid.Visibility = Visibility.Visible;
+
+            AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
+            AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
+
+            AddDocumentGrid.Visibility = Visibility.Hidden;
+            NewTypeGrid.Visibility = Visibility.Hidden;
+            NewCustomerGrid.Visibility = Visibility.Hidden;
+            EditDocGrid.Visibility = Visibility.Hidden;
+            NewLanguageGrid.Visibility = Visibility.Hidden;
+        }
+
+        #region Updating of elements lists
+
         private void UpdateAllLists()
         {
             UpdateDocumentsList();
@@ -191,20 +208,7 @@ namespace WpfApp
                 documentTypeViewModelsList.Add(new DocumentTypeViewModel(documentType));
         }
 
-        private void ResetView()
-        {
-            DocGrid.Visibility = Visibility.Visible;
-            MainControlButtonsGrid.Visibility = Visibility.Visible;
-
-            AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
-            AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
-
-            AddDocumentGrid.Visibility = Visibility.Hidden;
-            NewTypeGrid.Visibility = Visibility.Hidden;
-            NewCustomerGrid.Visibility = Visibility.Hidden;
-            EditDocGrid.Visibility = Visibility.Hidden;
-            NewLanguageGrid.Visibility = Visibility.Hidden;
-        }
+        #endregion
 
         #endregion
 
@@ -222,6 +226,8 @@ namespace WpfApp
             }
         }
 
+        #region Menu Bar controls
+
         private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)
         {
             var window = new UserManagementWindow();
@@ -229,11 +235,15 @@ namespace WpfApp
         }
 
         private void Menu_Logout_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             var loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Close();
         }
+
+        #endregion
+
+        #region Add New Document
 
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -299,7 +309,7 @@ namespace WpfApp
                 Name = NewDocName_TextBox.Text.Trim(),
                 signsSize = docSize,
                 Deadline = (DateTime)DeadlineCallendar.SelectedDate,
-                IsConfirmed = false                
+                IsConfirmed = false
             };
 
             var tempCustomer = NewDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
@@ -329,6 +339,8 @@ namespace WpfApp
             UpdateDocumentsList();
             ResetView();
         }
+
+        #region Forms for adding new Language, Customer and DocumentType
 
         private void NewTypeDocGrid_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -363,7 +375,7 @@ namespace WpfApp
 
         private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e)
         {
-            NewTypeGrid.Visibility = Visibility.Hidden;            
+            NewTypeGrid.Visibility = Visibility.Hidden;
             NewCustomerGrid.Visibility = Visibility.Visible;
             NewLanguageGrid.Visibility = Visibility.Hidden;
         }
@@ -422,7 +434,11 @@ namespace WpfApp
             NewDocOriginalLang_ComboBox.SelectedItem = languagesViewModelsList.Where(x => x.LanguageName == newLanguage.LanguageName).Single();
             NewLanguageGrid.Visibility = Visibility.Hidden;
         }
+        #endregion
 
+        #endregion
+
+        #region Edit existing document
 
         private void EditDocBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -490,17 +506,28 @@ namespace WpfApp
             ResetView();
         }
 
+        #endregion
+
+        #region Other controls from MainMenu
+
         private void DeleteDocBtn_Click(object sender, RoutedEventArgs e)
         {
             if (selectedDocument is null) return;
 
-            using (MainContext context = new MainContext())
-            {
-                context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).ExecuteDelete();
-                context.SaveChanges();
-            }
+            MessageBoxResult deleteDocument = MessageBox.Show("Zamierzasz trwale usunąć dokument z bazy danych. Operacja ta jest nieodwracalna i może zaburzyć integralność danych!\nKontynuować?",
+                                                                "Kasowanie dokumentu", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-            UpdateDocumentsList();
+            if (deleteDocument == MessageBoxResult.Yes)
+            {
+                using (MainContext context = new MainContext())
+                {
+                    context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).ExecuteDelete();
+                    context.SaveChanges();
+                }
+
+                UpdateDocumentsList();
+            }
+            else return;
         }
 
         private void MarkAsDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -567,9 +594,11 @@ namespace WpfApp
             UpdateDocumentsList();
         }
 
+        #endregion
+
         private void Callendars_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) => Mouse.Capture(null);
 
-
+        private void ResetViewButton_Click(object sender, RoutedEventArgs e) => ResetView();
 
         #endregion
     }
