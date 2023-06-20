@@ -83,6 +83,7 @@
         <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
             <MenuItem Header="Opcje..." Height="20">
                 <MenuItem Name="Menu_ManageUsers" Header="Zarządzaj użytkownikami" Click="Menu_ManageUsers_Click" IsEnabled="False"/>
+                <MenuItem Name="GenerateRandomDocs" Header="Wygeneruj przykładowe dokumenty" Click="GenerateRandomDocs_Click" Visibility="Hidden" />
                 <MenuItem Name="Menu_Logout" Header="Wyloguj mnie" Click="Menu_Logout_Click" />
             </MenuItem>
         </Menu>

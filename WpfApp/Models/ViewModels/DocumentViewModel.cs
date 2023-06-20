@@ -8,7 +8,7 @@ namespace WpfApp.Models.ViewModels
         public DocumentViewModel(Document input)
         {
             DocumentID = input.DocumentID;
-            signsSize = input.signsSize;
+            signsSize = input.SignsSize;
             Name = input.Name;
             TimeAdded = input.TimeAdded;
             Deadline = input.Deadline;                        

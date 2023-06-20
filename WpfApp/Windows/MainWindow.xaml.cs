@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp.Classes;
 using WpfApp.Models;
 using WpfApp.Models.ViewModels;
 using WpfApp.Windows;
@@ -61,6 +62,7 @@ namespace WpfApp
                     ConfirmDoneBtn.IsEnabled = true;
                     AssignDocumentBtn.IsEnabled = true;
                     Menu_ManageUsers.IsEnabled = true;
+                    GenerateRandomDocs.Visibility = Visibility.Visible;
                     return;
                 case 2:
                     goto case 1;
@@ -241,6 +243,15 @@ namespace WpfApp
             this.Close();
         }
 
+        private void GenerateRandomDocs_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult createExampleDocs = MessageBox.Show("Zamierzasz wygenerować 100 przykładowych dokumentów.\nKontynuować?",
+                                                                "Generowanie losowych dokumentów", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (createExampleDocs == MessageBoxResult.Yes)
+                RandomDocGenerator.GenerateExampleDocuments(100);
+        }
+
         #endregion
 
         #region Add New Document
@@ -307,7 +318,7 @@ namespace WpfApp
             {
                 TimeAdded = DateTime.Now,
                 Name = NewDocName_TextBox.Text.Trim(),
-                signsSize = docSize,
+                SignsSize = docSize,
                 Deadline = (DateTime)DeadlineCallendar.SelectedDate,
                 IsConfirmed = false
             };
@@ -483,7 +494,7 @@ namespace WpfApp
             {
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
                 editedDocument.Name = EditDocName_TextBox.Text.Trim();
-                editedDocument.signsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
+                editedDocument.SignsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
                 editedDocument.CustomerID = tempSelectedDocCustomer.CustomerID;
                 editedDocument.TypeID = tempSelectedDocType.TypeID;
                 editedDocument.IsConfirmed = (bool)EditDocGridConfirmed_CheckBox.IsChecked;

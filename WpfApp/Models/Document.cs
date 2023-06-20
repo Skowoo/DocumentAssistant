@@ -14,7 +14,7 @@ namespace WpfApp.Models
         public string Name { get; set; }
 
         [Required]
-        public int signsSize { get; set; }
+        public int SignsSize { get; set; }
 
         [Required]
         public DateTime TimeAdded { get; set; }
