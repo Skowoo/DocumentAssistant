@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Models
+namespace DocumentAssistantLibrary.Models
 {
     public class DocumentType
     {

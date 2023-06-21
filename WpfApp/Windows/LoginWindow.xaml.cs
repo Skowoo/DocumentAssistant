@@ -4,7 +4,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp.Classes;
-using WpfApp.Models;
+using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
+using DocumentAssistantLibrary.Models;
+using DocumentAssistantLibrary.Models.ViewModels;
 
 namespace WpfApp.Windows
 {

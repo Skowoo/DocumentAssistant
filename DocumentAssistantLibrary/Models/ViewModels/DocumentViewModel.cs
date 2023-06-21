@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace WpfApp.Models.ViewModels
+﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
     public class DocumentViewModel
     {
@@ -11,7 +8,7 @@ namespace WpfApp.Models.ViewModels
             signsSize = input.SignsSize;
             Name = input.Name;
             TimeAdded = input.TimeAdded;
-            Deadline = input.Deadline;                        
+            Deadline = input.Deadline;
             IsConfirmed = input.IsConfirmed;
 
             if (input.TimeDone is not null)

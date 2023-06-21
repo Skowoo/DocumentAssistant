@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System.Security.Policy;
-using WpfApp.Models;
+﻿using DocumentAssistantLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WpfApp
+namespace DocumentAssistantLibrary
 {
     public class MainContext : DbContext
     {

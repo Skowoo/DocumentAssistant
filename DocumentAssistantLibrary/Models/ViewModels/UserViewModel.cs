@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace WpfApp.Models.ViewModels
+﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
     public class UserViewModel
     {
@@ -14,7 +12,7 @@ namespace WpfApp.Models.ViewModels
 
             if (input.IsActive)
                 Status = "Aktywny";
-            else 
+            else
                 Status = "Nieaktywny";
 
             using (MainContext context = new MainContext())

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp.Models.ViewModels
+﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
     public class RoleViewModel
     {
-        public RoleViewModel(Role input) 
-        { 
+        public RoleViewModel(Role input)
+        {
             this.RoleID = input.RoleID;
             this.RoleName = input.RoleName;
         }

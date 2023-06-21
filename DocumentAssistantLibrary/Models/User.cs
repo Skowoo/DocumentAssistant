@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Models
+namespace DocumentAssistantLibrary.Models
 {
     public class User
     {
@@ -12,7 +12,7 @@ namespace WpfApp.Models
         [Required]
         public string FirstName { get; set; }
 
-        [Required] 
+        [Required]
         public string LastName { get; set; }
 
         [Required]

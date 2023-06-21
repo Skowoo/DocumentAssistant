@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp.Models.ViewModels
+﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
-    class CustomerViewModel
+    public class CustomerViewModel
     {
         public CustomerViewModel(Customer input)
         {

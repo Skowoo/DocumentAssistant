@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Models
+namespace DocumentAssistantLibrary.Models
 {
     public class Document
     {
@@ -50,11 +49,11 @@ namespace WpfApp.Models
         //Languages
 
         [ForeignKey("OriginalLanguageID")]
-        public int? OriginalLanguageID { get; set; }        
+        public int? OriginalLanguageID { get; set; }
         public Language OriginalLanguage { get; set; }
 
         [ForeignKey("TargetLanguageID")]
-        public int? TargetLanguageID { get; set; }        
+        public int? TargetLanguageID { get; set; }
         public Language TargetLanguage { get; set; }
     }
 }

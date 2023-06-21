@@ -4,10 +4,9 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using WpfApp.Models;
+using DocumentAssistantLibrary.Models;
 
-namespace WpfApp.Classes
+namespace DocumentAssistantLibrary.Classes
 {
     public static class RandomDocGenerator
     {

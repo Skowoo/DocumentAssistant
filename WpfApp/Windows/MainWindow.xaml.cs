@@ -6,9 +6,10 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WpfApp.Classes;
-using WpfApp.Models;
-using WpfApp.Models.ViewModels;
+using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
+using DocumentAssistantLibrary.Models;
+using DocumentAssistantLibrary.Models.ViewModels;
 using WpfApp.Windows;
 
 namespace WpfApp
@@ -250,6 +251,8 @@ namespace WpfApp
 
             if (createExampleDocs == MessageBoxResult.Yes)
                 RandomDocGenerator.GenerateExampleDocuments(100);
+
+            UpdateAllLists();
         }
 
         #endregion

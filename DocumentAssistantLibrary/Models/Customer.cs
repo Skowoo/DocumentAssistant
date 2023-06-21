@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WpfApp.Models
+namespace DocumentAssistantLibrary.Models
 {
-    public class Role
+    public class Customer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int RoleID { get; set; }
+        public int CustomerID { get; set; }
 
-        [Required] 
-        public string RoleName { get; set; }
+        [Required]
+        public string CustomerName { get; set; }
     }
 }

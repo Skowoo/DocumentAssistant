@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp.Models.ViewModels
+﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
     public class DocumentTypeViewModel
     {
-        public DocumentTypeViewModel(DocumentType input) 
+        public DocumentTypeViewModel(DocumentType input)
         {
             this.TypeID = input.TypeID;
             this.TypeName = input.TypeName;
