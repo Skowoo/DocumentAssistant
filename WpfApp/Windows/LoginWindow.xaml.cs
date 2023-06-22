@@ -1,13 +1,11 @@
-﻿using System;
+﻿using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
+using DocumentAssistantLibrary.Models;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WpfApp.Classes;
-using DocumentAssistantLibrary;
-using DocumentAssistantLibrary.Classes;
-using DocumentAssistantLibrary.Models;
-using DocumentAssistantLibrary.Models.ViewModels;
 
 namespace WpfApp.Windows
 {
@@ -23,6 +21,8 @@ namespace WpfApp.Windows
             InitializeComponent();
             CheckDb();
         }
+
+        #region Controls
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -65,6 +65,10 @@ namespace WpfApp.Windows
                 LoginButton_Click(sender, e);
         }
 
+        #endregion
+
+        #region Methods
+
         private void CheckDb()
         {
             try
@@ -80,53 +84,19 @@ namespace WpfApp.Windows
             if (!context.Database.CanConnect())
                 newDbCreateWindowDecision = MessageBox.Show("Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'tak' aby utworzyć nową bazę danych.",
                                                             "Brak połączenia z bazą danych!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            bool dbCreated = false;
 
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
-                CreateNewDb();
-        }
-
-        public void CreateNewDb()
-        {
-            using (var db = new MainContext())
             {
-                db.Database.EnsureCreated();
+                dbCreated = DbCreator.CreateNewDb();
 
-                var salt = PassGenerator.GenerateSalt();
-                var adminRole = new Role
-                {
-                    RoleName = "Admin"
-                };
-                db.Roles.Add(adminRole);
-                db.SaveChanges();
-
-                var adminUser = new User
-                {
-                    FirstName = "Admin",
-                    LastName = "Admin",
-                    Login = "Admin",
-                    Password = PassGenerator.ComputeHash("Admin", salt),
-                    Salt = salt,
-                    IsActive = true,
-                    RoleID = 1
-                };
-                db.Users.Add(adminUser);
-                db.SaveChanges();
-
-                db.Roles.Add(new Role { RoleName = "Kierownik" });
-                db.Roles.Add(new Role { RoleName = "Koordynator" });
-                db.Roles.Add(new Role { RoleName = "Użytkownik" });
-                db.Roles.Add(new Role { RoleName = "Obserwator" });
-
-                db.Languages.Add(new Language { LanguageName = "Polski" });
-                db.Languages.Add(new Language { LanguageName = "Angielski" });
-                db.Languages.Add(new Language { LanguageName = "Japoński" });
-                db.Languages.Add(new Language { LanguageName = "Wietnamski" });
-                db.Languages.Add(new Language { LanguageName = "Chiński" });
-
-                db.SaveChanges();
-
-                MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
+                if (dbCreated)
+                    MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
+                else
+                    MessageBox.Show("Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!");
             }
         }
+
+        #endregion
     }
 }

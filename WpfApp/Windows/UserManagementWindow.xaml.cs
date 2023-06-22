@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using WpfApp.Classes;
 using DocumentAssistantLibrary;
 using DocumentAssistantLibrary.Classes;
 using DocumentAssistantLibrary.Models;

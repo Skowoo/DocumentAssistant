@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace WpfApp.Classes
+namespace DocumentAssistantLibrary.Classes
 {
-    internal static class PassGenerator
+    public static class PassGenerator
     {
         public static string ComputeHash(string passInput, string salt)
         {
