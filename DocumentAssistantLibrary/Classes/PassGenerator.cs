@@ -20,7 +20,7 @@ namespace DocumentAssistantLibrary.Classes
         public static string GenerateSalt()
         {
             var bytes = new byte[32];
-            var rng = new RNGCryptoServiceProvider();
+            var rng = RandomNumberGenerator.Create();
             rng.GetBytes(bytes);
             return Convert.ToBase64String(bytes);
         }
