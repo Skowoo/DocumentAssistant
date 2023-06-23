@@ -1,7 +1,7 @@
 ﻿namespace DocumentAssistantLibrary.Models.ViewModels
 {
     /// <summary>
-    /// View model for document type
+    /// View model for Document entity in app's database
     /// </summary>
     public class DocumentTypeViewModel
     {
