@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using DocumentAssistantLibrary.Models;
+﻿using DocumentAssistantLibrary.Models;
 
 namespace DocumentAssistantLibrary.Classes
 {
+    /// <summary>
+    /// Method generates random documents to present funcionality of application
+    /// </summary>
     public static class RandomDocGenerator
     {
+        /// <summary>
+        /// Method generates random documents. If there are less than 5 customers or document types in database, method will create additional customers and types to reach this number.
+        /// </summary>
+        /// <param name="numberOfDocs">number of example documents to be created</param>
         public static void GenerateExampleDocuments(int numberOfDocs)
         {
             Random rnd = new Random();
@@ -56,7 +57,7 @@ namespace DocumentAssistantLibrary.Classes
             {
                 using (MainContext context = new MainContext())
                 {
-                    context.Customers.Add(new Customer { CustomerName = $"ExampleCustomer{i}" } );
+                    context.Customers.Add(new Customer { CustomerName = $"ExampleCustomer{i}" });
                     context.SaveChanges();
                 }
             }

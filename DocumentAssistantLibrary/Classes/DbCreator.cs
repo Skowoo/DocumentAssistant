@@ -1,15 +1,16 @@
 ﻿using DocumentAssistantLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DocumentAssistantLibrary;
 
 namespace DocumentAssistantLibrary.Classes
 {
+    /// <summary>
+    /// Class holds methods which create new Database for aplication
+    /// </summary>
     public static class DbCreator
     {
+        /// <summary>
+        /// Methods creates new database for application
+        /// </summary>
+        /// <returns><b>true</b> when new database was created, otherwise <b>false</b> </returns>
         public static bool CreateNewDb()
         {
             try
@@ -55,7 +56,7 @@ namespace DocumentAssistantLibrary.Classes
                     return true;
                 }
             }
-            catch { return false; }            
+            catch { return false; }
         }
     }
 }
