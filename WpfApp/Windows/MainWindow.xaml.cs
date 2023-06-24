@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
+using DocumentAssistantLibrary.Models;
+using DocumentAssistantLibrary.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,10 +10,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using DocumentAssistantLibrary;
-using DocumentAssistantLibrary.Classes;
-using DocumentAssistantLibrary.Models;
-using DocumentAssistantLibrary.Models.ViewModels;
 using WpfApp.Windows;
 
 namespace WpfApp
@@ -38,12 +38,15 @@ namespace WpfApp
 
         DocumentViewModel? selectedDocument;
 
+        int loggedUserLevel;
+
         #endregion
 
         public MainWindow(int userLevel)
         {
             InitializeComponent();
-            ManageAccessLevel(userLevel);
+            loggedUserLevel = userLevel;
+            ManageAccessLevel(loggedUserLevel);
             UpdateAllLists();
             ConfigurateControls();
             ResetView();

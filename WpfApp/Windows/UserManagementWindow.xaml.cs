@@ -1,13 +1,13 @@
-﻿using System;
+﻿using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
+using DocumentAssistantLibrary.Models;
+using DocumentAssistantLibrary.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using DocumentAssistantLibrary;
-using DocumentAssistantLibrary.Classes;
-using DocumentAssistantLibrary.Models;
-using DocumentAssistantLibrary.Models.ViewModels;
 
 namespace WpfApp.Windows
 {
@@ -225,25 +225,35 @@ namespace WpfApp.Windows
 
         private void ConfirmNewUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstPasswordBox.Password != SecondPasswordBox.Password) {
+            if (FirstPasswordBox.Password != SecondPasswordBox.Password)
+            {
                 MessageBox.Show("Hasła w okienkach nie są jednakowe!");
-                return; }
+                return;
+            }
 
-            if (FirstPasswordBox.Password.Length < 4) {
+            if (FirstPasswordBox.Password.Length < 4)
+            {
                 MessageBox.Show("Hasło za krótkie! minimalny rozmiar to 4 znaki");
-                return; }
+                return;
+            }
 
-            if (RoleComboBox.SelectedItem == null) {
+            if (RoleComboBox.SelectedItem == null)
+            {
                 MessageBox.Show("Nie wybrano roli dla nowego użytkownika!");
-                return; }
+                return;
+            }
 
-            if (LoginTextBox.Text.Trim().Length < 2) {
+            if (LoginTextBox.Text.Trim().Length < 2)
+            {
                 MessageBox.Show("Login musi składać się z conajmniej dwóch znaków!");
-                return; }
+                return;
+            }
 
-            if (FirstNameTextBox.Text.Trim().Length < 2 || LastNameTextBox.Text.Length < 2) {
+            if (FirstNameTextBox.Text.Trim().Length < 2 || LastNameTextBox.Text.Length < 2)
+            {
                 MessageBox.Show("Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!");
-                return; }
+                return;
+            }
 
             var selectedRole = RoleComboBox.SelectedItem as RoleViewModel;
             string salt = PassGenerator.GenerateSalt();
@@ -273,7 +283,8 @@ namespace WpfApp.Windows
                         context.SaveChanges();
                     }
                 }
-            } catch ( Exception ex ) { MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             ResetView();
         }
@@ -301,7 +312,7 @@ namespace WpfApp.Windows
             UpdateUsersList();
             UsersDataGrid.SelectedItem = null;
             AddUserButton.Visibility = Visibility.Visible;
-            CancelButton.Visibility = Visibility.Hidden;            
+            CancelButton.Visibility = Visibility.Hidden;
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Hidden;
             ChangeNamesGrid.Visibility = Visibility.Hidden;
