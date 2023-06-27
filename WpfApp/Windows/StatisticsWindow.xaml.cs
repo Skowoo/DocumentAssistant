@@ -27,6 +27,12 @@ namespace WpfApp.Windows
             CustomerCustomBox.ItemsSource = MainWindow.customerViewModelsList;
             DocTypeCustomBox.ItemsSource = MainWindow.documentTypeViewModelsList;
             OriginLangCustomBox.ItemsSource = MainWindow.languagesViewModelsList;
+            TargetLangCustomBox.ItemsSource = MainWindow.languagesViewModelsList;
+        }
+
+        private void ConfirmQueryButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
