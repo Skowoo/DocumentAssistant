@@ -23,6 +23,10 @@ namespace WpfApp.Windows
         public StatisticsWindow(User inputUser)
         {
             InitializeComponent();
+            TranslatorCustomBox.ItemsSource = MainWindow.userViewModelsList;
+            CustomerCustomBox.ItemsSource = MainWindow.customerViewModelsList;
+            DocTypeCustomBox.ItemsSource = MainWindow.documentTypeViewModelsList;
+            OriginLangCustomBox.ItemsSource = MainWindow.languagesViewModelsList;
         }
     }
 }

@@ -22,19 +22,19 @@ namespace WpfApp
         #region Properties
 
         List<Document> documentsList = new();
-        ObservableCollection<DocumentViewModel> documentViewsList = new();
+        public static ObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();
-        ObservableCollection<UserViewModel> userViewModelsList = new();
+        public static ObservableCollection<UserViewModel> userViewModelsList = new();
 
         List<Customer> customersList = new();
-        ObservableCollection<CustomerViewModel> customerViewModelsList = new();
+        public static ObservableCollection<CustomerViewModel> customerViewModelsList = new();
 
         List<DocumentType> documentTypesList = new();
-        ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
+        public static ObservableCollection<DocumentTypeViewModel> documentTypeViewModelsList = new();
 
         List<Language> languagesList = new();
-        ObservableCollection<LanguageViewModel> languagesViewModelsList = new();
+        public static ObservableCollection<LanguageViewModel> languagesViewModelsList = new();
 
         DocumentViewModel? selectedDocument;
 

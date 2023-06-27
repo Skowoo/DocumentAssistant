@@ -6,7 +6,36 @@
         xmlns:local="clr-namespace:WpfApp.Windows"
         mc:Ignorable="d"
         Title="StatisticsWindow" Height="450" Width="800">
+
+    <Window.Resources>
+
+        <Style x:Key="CustomBoxStyle" TargetType="{x:Type ComboBox}" >
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid Name="SelectGrid" Margin="0,20,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <ComboBox Name="TranslatorCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="0" Grid.Row="1"/>
+            <ComboBox Name="CustomerCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="1" Grid.Row="1"/>
+            <ComboBox Name="DocTypeCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="2" Grid.Row="1"/>
+            <ComboBox Name="OriginLangCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="3" Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Window>
