@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="900" Width="1500">
+        Title="MainWindow" Height="800" Width="1500">
 
     <Window.Resources>
 
@@ -126,77 +126,74 @@
             <Button Name="AssignUserMainMenuConfirm_Button" Content="Przypisz" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
         </Grid>
 
-        <Grid x:Name="AddDocumentGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="500"/>
-                <ColumnDefinition Width="100"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="180"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Content="Dodaj nowy dokument:" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
+        <ScrollViewer Name="AddDocumentGrid" Margin="0,20,0,0">
+            <Grid Name="AddDocumentInternaGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Dodaj nowy dokument:" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
 
-            <Label Content="Nazwa:"  Grid.Row="1" Style="{StaticResource Label}"/>
-            <TextBox x:Name="NewDocName_TextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"/>
+                <Label Content="Nazwa:"  Grid.Row="1" Style="{StaticResource Label}"/>
+                <TextBox x:Name="NewDocName_TextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"/>
 
-            <Label Content="Rozmiar:"  Grid.Row="2" Style="{StaticResource Label}"/>
-            <TextBox x:Name="NewDocSize_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>
+                <Label Content="Rozmiar:"  Grid.Row="2" Style="{StaticResource Label}"/>
+                <TextBox x:Name="NewDocSize_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>
 
-            <Label Content="Typ dokumentu:" Grid.Row="3" Style="{StaticResource Label}" />
-            <ComboBox Name="NewDocType_ComboBox" Grid.Row="3" Style="{StaticResource CustomBoxStyle}"/>
-            <Button Name="NewTypeDocGrid_Button" Content="Dodaj" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewTypeDocGrid_Button_Click"/>
+                <Label Content="Typ dokumentu:" Grid.Row="3" Style="{StaticResource Label}" />
+                <ComboBox Name="NewDocType_ComboBox" Grid.Row="3" Style="{StaticResource CustomBoxStyle}"/>
+                <Button Name="NewTypeDocGrid_Button" Content="Dodaj" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewTypeDocGrid_Button_Click"/>
 
-            <Label Content="Zleceniodawca:" Grid.Row="4" Style="{StaticResource Label}" />
-            <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
-            <Button Name="NewCustomerDocGrid_Button" Content="Dodaj" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
+                <Label Content="Zleceniodawca:" Grid.Row="4" Style="{StaticResource Label}" />
+                <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
+                <Button Name="NewCustomerDocGrid_Button" Content="Dodaj" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
 
-            <Label Content="Język dokumentu:" Grid.Row="5" Style="{StaticResource Label}" />
-            <ComboBox Name="NewDocOriginalLang_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
-            <Button Name="NewDocAddLanguage_Button" Content="Dodaj" Grid.Row="5" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewDocAddLanguage_Button_Click" Margin="0,0,0,5" VerticalAlignment="Bottom"/>
+                <Label Content="Język dokumentu:" Grid.Row="5" Style="{StaticResource Label}" />
+                <ComboBox Name="NewDocOriginalLang_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
+                <Button Name="NewDocAddLanguage_Button" Content="Dodaj" Grid.Row="5" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewDocAddLanguage_Button_Click" Margin="0,0,0,5" VerticalAlignment="Bottom"/>
 
-            <Label Content="Język docelowy:" Grid.Row="6" Style="{StaticResource Label}" />
-            <ComboBox Name="NewDocTargetLang_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
+                <Label Content="Język docelowy:" Grid.Row="6" Style="{StaticResource Label}" />
+                <ComboBox Name="NewDocTargetLang_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Label Content="Termin wykonania: " Grid.Row="7" Style="{StaticResource Label}" />
-            <Calendar Name="DeadlineCallendar" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged">
-                <Calendar.BlackoutDates>
-                    <CalendarDateRange x:Name="DeadlineCallendarBlackout" Start="01.01.0001"/>
-                </Calendar.BlackoutDates>
-            </Calendar>
+                <Label Content="Termin wykonania: " Grid.Row="7" Style="{StaticResource Label}" />
+                <Calendar Name="DeadlineCallendar" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged">
+                    <Calendar.BlackoutDates>
+                        <CalendarDateRange x:Name="DeadlineCallendarBlackout" Start="01.01.0001"/>
+                    </Calendar.BlackoutDates>
+                </Calendar>
 
-            <Label Content="Przypisany użytkownik:" Grid.Row="8" Style="{StaticResource Label}" />
-            <ComboBox Name="NewDocUser_ComboBox" Grid.Row="8" Style="{StaticResource CustomBoxStyle}"/>
+                <Label Content="Przypisany użytkownik:" Grid.Row="8" Style="{StaticResource Label}" />
+                <ComboBox Name="NewDocUser_ComboBox" Grid.Row="8" Style="{StaticResource CustomBoxStyle}"/>
 
-            <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="Dodaj dokument" Style="{StaticResource MainMenuButton}" HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
-            <Button Grid.Row="9" Content="Anuluj" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
-        </Grid>
+                <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="Dodaj dokument" Style="{StaticResource MainMenuButton}" HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
+                <Button Grid.Row="9" Content="Anuluj" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
 
-        <Grid Name="NewTypeGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,210,0,0" Visibility="Hidden">
-            <TextBlock Text="Nowy typ dokumentu:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewType_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
-            <Button x:Name="ConfirmNewType_Button" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
-        </Grid>
+                <TextBlock Name="NewDocTypeLabel" Text="Nowy typ dokumentu:" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
+                <TextBox Name="NewType_TextBox" Grid.Column="2" Grid.Row="3" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
+                <Button Name="ConfirmNewType_Button" Grid.Column="2" Grid.Row="4" Content="Potwierdź" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
 
-        <Grid Name="NewCustomerGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,250,0,0" Visibility="Hidden" >
-            <TextBlock Text="Nowy zleceniodawca:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewCustomer_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
-            <Button x:Name="ConfirmNewCustomer_Button" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
-        </Grid>
+                <TextBlock Name="NewCustomerLabel" Text="Nowy zleceniodawca:" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
+                <TextBox Name="NewCustomer_TextBox" Grid.Column="2" Grid.Row="4" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
+                <Button Name="ConfirmNewCustomer_Button" Grid.Column="2" Grid.Row="5" Content="Potwierdź" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
 
-        <Grid Visibility="Hidden" Name="NewLanguageGrid" Width="200" Height="100"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="875,290,0,0" >
-            <TextBlock Text="Nowy język:" Height="20" Width="190" VerticalAlignment="Top" Margin="0,0,0,0" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="NewLanguage_TextBox" Style="{StaticResource CustTextBox}" VerticalAlignment="Top" Margin="0,25,5,0" Width="190"/>
-            <Button x:Name="ConfirmNewLanguage_Button" Content="Potwierdź" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" Margin="0,60,0,0" VerticalAlignment="Top"/>
-        </Grid>
+                <TextBlock Name="NewLanguageLabel"  Text="Nowy język:" Grid.Column="2" Grid.Row="4" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
+                <TextBox Name="NewLanguage_TextBox" Grid.Column="2" Grid.Row="5" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
+                <Button Name="ConfirmNewLanguage_Button" Grid.Column="2" Grid.Row="6" Content="Potwierdź" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
+            </Grid>
+        </ScrollViewer>        
 
         <Grid Visibility="Hidden" Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>

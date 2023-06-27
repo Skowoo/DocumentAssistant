@@ -126,10 +126,52 @@ namespace WpfApp
             AssignUserMainMenuConfirm_Button.Visibility = Visibility.Collapsed;
 
             AddDocumentGrid.Visibility = Visibility.Hidden;
-            NewTypeGrid.Visibility = Visibility.Hidden;
-            NewCustomerGrid.Visibility = Visibility.Hidden;
+            HideNewTypeGrid();
+            HideNewCustomerGrid();
             EditDocGrid.Visibility = Visibility.Hidden;
-            NewLanguageGrid.Visibility = Visibility.Hidden;
+            HideNewLanguageGrid();
+        }
+
+        private void HideNewTypeGrid()
+        {
+            NewDocTypeLabel.Visibility = Visibility.Collapsed;
+            NewType_TextBox.Visibility = Visibility.Collapsed;
+            ConfirmNewType_Button.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowNewTypeGrid()
+        {
+            NewDocTypeLabel.Visibility = Visibility.Visible;
+            NewType_TextBox.Visibility = Visibility.Visible;
+            ConfirmNewType_Button.Visibility = Visibility.Visible;
+        }
+
+        private void HideNewCustomerGrid()
+        {
+            NewCustomerLabel.Visibility = Visibility.Collapsed;
+            NewCustomer_TextBox.Visibility = Visibility.Collapsed;
+            ConfirmNewCustomer_Button.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowNewCustomerGrid()
+        {
+            NewCustomerLabel.Visibility = Visibility.Visible;
+            NewCustomer_TextBox.Visibility = Visibility.Visible;
+            ConfirmNewCustomer_Button.Visibility = Visibility.Visible;
+        }
+
+        private void HideNewLanguageGrid()
+        {
+            NewLanguageLabel.Visibility = Visibility.Collapsed;
+            NewLanguage_TextBox.Visibility = Visibility.Collapsed;
+            ConfirmNewLanguage_Button.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowNewLanguageGrid()
+        {            
+            NewLanguageLabel.Visibility = Visibility.Visible;
+            NewLanguage_TextBox.Visibility = Visibility.Visible;
+            ConfirmNewLanguage_Button.Visibility = Visibility.Visible;
         }
 
         #region Updating of elements lists
@@ -370,9 +412,9 @@ namespace WpfApp
 
         private void NewTypeDocGrid_Button_Click(object sender, RoutedEventArgs e)
         {
-            NewCustomerGrid.Visibility = Visibility.Hidden;
-            NewTypeGrid.Visibility = Visibility.Visible;
-            NewLanguageGrid.Visibility = Visibility.Hidden;
+            HideNewCustomerGrid();
+            ShowNewTypeGrid();
+            HideNewLanguageGrid();
         }
 
         private void ConfirmNewType_Button_Click(object sender, RoutedEventArgs e)
@@ -396,14 +438,14 @@ namespace WpfApp
 
             UpdateDocTypesList();
             NewDocType_ComboBox.SelectedItem = documentTypeViewModelsList.Where(x => x.TypeName == newType.TypeName).Single();
-            NewTypeGrid.Visibility = Visibility.Hidden;
+            HideNewTypeGrid();
         }
 
         private void NewCustomerDocGrid_Button_Click(object sender, RoutedEventArgs e)
         {
-            NewTypeGrid.Visibility = Visibility.Hidden;
-            NewCustomerGrid.Visibility = Visibility.Visible;
-            NewLanguageGrid.Visibility = Visibility.Hidden;
+            HideNewTypeGrid();
+            ShowNewCustomerGrid();
+            HideNewLanguageGrid();
         }
 
         private void ConfirmNewCustomer_Button_Click(object sender, RoutedEventArgs e)
@@ -427,14 +469,14 @@ namespace WpfApp
 
             UpdateCustomersList();
             NewDocCustomer_ComboBox.SelectedItem = customerViewModelsList.Where(x => x.CustomerName == newCustomer.CustomerName).Single();
-            NewCustomerGrid.Visibility = Visibility.Hidden;
+            HideNewCustomerGrid();
         }
 
         private void NewDocAddLanguage_Button_Click(object sender, RoutedEventArgs e)
         {
-            NewTypeGrid.Visibility = Visibility.Hidden;
-            NewCustomerGrid.Visibility = Visibility.Hidden;
-            NewLanguageGrid.Visibility = Visibility.Visible;
+            HideNewTypeGrid();
+            HideNewCustomerGrid();
+            ShowNewLanguageGrid();
         }
 
         private void ConfirmNewLanguage_Button_Click(object sender, RoutedEventArgs e)
@@ -458,7 +500,7 @@ namespace WpfApp
 
             UpdateLanguagesList();
             NewDocOriginalLang_ComboBox.SelectedItem = languagesViewModelsList.Where(x => x.LanguageName == newLanguage.LanguageName).Single();
-            NewLanguageGrid.Visibility = Visibility.Hidden;
+            HideNewLanguageGrid();
         }
         #endregion
 
