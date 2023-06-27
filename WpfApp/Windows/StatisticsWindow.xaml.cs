@@ -23,6 +23,13 @@ namespace WpfApp.Windows
         public StatisticsWindow(User inputUser)
         {
             InitializeComponent();
+            ConfigurateControls();
+        }
+
+        #region Private methods
+
+        private void ConfigurateControls()
+        {
             TranslatorCustomBox.ItemsSource = MainWindow.userViewModelsList;
             CustomerCustomBox.ItemsSource = MainWindow.customerViewModelsList;
             DocTypeCustomBox.ItemsSource = MainWindow.documentTypeViewModelsList;
@@ -30,9 +37,25 @@ namespace WpfApp.Windows
             TargetLangCustomBox.ItemsSource = MainWindow.languagesViewModelsList;
         }
 
+        #endregion
+
+        #region Controls
+
         private void ConfirmQueryButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void ClearTranslatorBtn_Click(object sender, RoutedEventArgs e) => TranslatorCustomBox.SelectedItem = null;
+
+        private void ClearCustomerBtn_Click(object sender, RoutedEventArgs e) => CustomerCustomBox.SelectedItem = null;
+
+        private void ClearDocTypeBtn_Click(object sender, RoutedEventArgs e) => DocTypeCustomBox.SelectedItem = null;
+
+        private void ClearOriginLangBtn_Click(object sender, RoutedEventArgs e) => OriginLangCustomBox.SelectedItem = null;
+
+        private void ClearTargetLangBtn_Click(object sender, RoutedEventArgs e) => TargetLangCustomBox.SelectedItem = null;
+
+        #endregion
     }
 }

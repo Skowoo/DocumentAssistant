@@ -27,7 +27,7 @@
             <Setter Property="FontSize" Value="16"/>
         </Style>
 
-        <Style x:Key="MainMenuButton" TargetType="{x:Type Button}">
+        <Style x:Key="MainButton" TargetType="{x:Type Button}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Height" Value="50"/>
@@ -36,6 +36,14 @@
             <Setter Property="BorderBrush" Value="#FFFDC97B"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="ClearButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFFFBB56"/>
+            <Setter Property="BorderBrush" Value="#FFFDC97B"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="20,1,20,1"/>
+            <Setter Property="Content" Value="Wyczyść zaznaczenie"/>
         </Style>
 
     </Window.Resources>
@@ -50,21 +58,32 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Label Style="{StaticResource Label}" Content="Tłumacz" Grid.Row="0" Grid.Column="0"/>
             <ComboBox Name="TranslatorCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="0" Grid.Row="1"/>
+            <Button Name="ClearTranslatorBtn" Grid.Column="0" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearTranslatorBtn_Click"/>
+            
             <Label Style="{StaticResource Label}" Content="Klient" Grid.Row="0" Grid.Column="1"/>
             <ComboBox Name="CustomerCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="1" Grid.Row="1"/>
+            <Button Name="ClearCustomerBtn" Grid.Column="1" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearCustomerBtn_Click"/>
+            
             <Label Style="{StaticResource Label}" Content="Typ dokumentu" Grid.Row="0" Grid.Column="2"/>
             <ComboBox Name="DocTypeCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="2" Grid.Row="1"/>
+            <Button Name="ClearDocTypeBtn" Grid.Column="2" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearDocTypeBtn_Click"/>
+            
             <Label Style="{StaticResource Label}" Content="Język źródłowy" Grid.Row="0" Grid.Column="3"/>
             <ComboBox Name="OriginLangCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="3" Grid.Row="1"/>
+            <Button Name="ClearOriginLangBtn" Grid.Column="3" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearOriginLangBtn_Click"/>
+            
             <Label Style="{StaticResource Label}" Content="Język docelowy" Grid.Row="0" Grid.Column="4"/>
             <ComboBox Name="TargetLangCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="4" Grid.Row="1"/>
-            <Button Name="ConfirmQueryButton" Content="Wyszukaj" Grid.Row="2" Grid.ColumnSpan="5" Style="{StaticResource MainMenuButton}" VerticalAlignment="Center" Height="30" Click="ConfirmQueryButton_Click" />
+            <Button Name="ClearTargetLangBtn" Grid.Column="4" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearTargetLangBtn_Click"/>
+            
+            <Button Name="ConfirmQueryButton" Content="Wyszukaj" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource MainButton}" VerticalAlignment="Bottom" Height="30" Click="ConfirmQueryButton_Click" />
         </Grid>
     </Grid>
 </Window>
