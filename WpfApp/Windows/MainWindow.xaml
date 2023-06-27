@@ -193,9 +193,10 @@
                 <TextBox Name="NewLanguage_TextBox" Grid.Column="2" Grid.Row="5" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
                 <Button Name="ConfirmNewLanguage_Button" Grid.Column="2" Grid.Row="6" Content="Potwierdź" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
             </Grid>
-        </ScrollViewer>        
+        </ScrollViewer>
 
-        <Grid Visibility="Hidden" Name="EditDocGrid" Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer Visibility="Hidden" Name="EditDocGrid" Margin="0,20,0,0">
+        <Grid Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
@@ -248,6 +249,7 @@
             <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="Zatwierdź zmiany" Style="{StaticResource MainMenuButton}" Click="ConfirmEditDocButton_Click" HorizontalAlignment="Left" />
             <Button Grid.Row="12" Content="Anuluj" Style="{StaticResource MainMenuButton}" Click="ResetViewButton_Click" HorizontalAlignment="Right"/>
         </Grid>
+        </ScrollViewer>
 
     </Grid>
 </Window>
