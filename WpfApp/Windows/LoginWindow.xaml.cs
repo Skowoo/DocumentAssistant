@@ -26,11 +26,11 @@ namespace WpfApp.Windows
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User? user;
+            User? foundUser;
 
             try
             {
-                user = (from c in context.Users where c.Login == LoginTextBox.Text select c).Single();
+                foundUser = (from c in context.Users where c.Login == LoginTextBox.Text select c).Single();
             }
             catch
             {
@@ -39,15 +39,15 @@ namespace WpfApp.Windows
                 PasswordBox.Password = "";
                 return;
             }
-            var password = PassGenerator.ComputeHash(PasswordBox.Password, user.Salt);
+            var password = PassGenerator.ComputeHash(PasswordBox.Password, foundUser.Salt);
 
-            if (password == user.Password && user.IsActive == true) GrantAccess(user.RoleID);
+            if (password == foundUser.Password && foundUser.IsActive == true) GrantAccess(foundUser);
             else MessageBox.Show("Nieprawidłowe dane logowania. Sprawdź login i hasło");
         }
 
-        private void GrantAccess(int userLevel)
+        private void GrantAccess(User loggedUser)
         {
-            var main = new MainWindow(userLevel);
+            var main = new MainWindow(loggedUser);
             try
             {
                 this.Close();

@@ -38,15 +38,15 @@ namespace WpfApp
 
         DocumentViewModel? selectedDocument;
 
-        int loggedUserLevel;
+        User loggedUser;
 
         #endregion
 
-        public MainWindow(int userLevel)
+        public MainWindow(User inputUser)
         {
             InitializeComponent();
-            loggedUserLevel = userLevel;
-            ManageAccessLevel(loggedUserLevel);
+            loggedUser = inputUser;
+            ManageAccessLevel(loggedUser.RoleID);
             UpdateAllLists();
             ConfigurateControls();
             ResetView();
@@ -67,6 +67,7 @@ namespace WpfApp
                     AssignDocumentBtn.IsEnabled = true;
                     Menu_ManageUsers.IsEnabled = true;
                     GenerateRandomDocs.Visibility = Visibility.Visible;
+                    Menu_ShowStatistics.IsEnabled = true;
                     return;
                 case 2:
                     goto case 1;
@@ -75,10 +76,12 @@ namespace WpfApp
                     MarkAsDoneBtn.IsEnabled = true;
                     ConfirmDoneBtn.IsEnabled = true;
                     AssignDocumentBtn.IsEnabled = true;
+                    Menu_ShowStatistics.IsEnabled = true;
                     return;
                 case 4:
                     AddDocumentBtn.IsEnabled = true;
                     MarkAsDoneBtn.IsEnabled = true;
+                    Menu_ShowStatistics.IsEnabled = true;
                     return;
                 case 5:
                     return;
@@ -256,6 +259,12 @@ namespace WpfApp
                 RandomDocGenerator.GenerateExampleDocuments(100);
 
             UpdateAllLists();
+        }
+
+        private void Menu_ShowStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            var statisticsWindow = new StatisticsWindow(loggedUser);
+            statisticsWindow.Show();
         }
 
         #endregion
