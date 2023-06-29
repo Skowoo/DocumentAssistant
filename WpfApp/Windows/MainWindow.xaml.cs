@@ -21,7 +21,7 @@ namespace WpfApp
     {
         #region Properties
 
-        List<Document> documentsList = new();
+        public static List<Document> documentsList = new();
         public static ObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();

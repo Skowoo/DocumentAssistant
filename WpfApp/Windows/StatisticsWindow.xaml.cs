@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DocumentAssistantLibrary.Models;
+using DocumentAssistantLibrary.Models.ViewModels;
 
 namespace WpfApp.Windows
 {
@@ -41,11 +42,6 @@ namespace WpfApp.Windows
 
         #region Controls
 
-        private void ConfirmQueryButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ClearTranslatorBtn_Click(object sender, RoutedEventArgs e) => TranslatorCustomBox.SelectedItem = null;
 
         private void ClearCustomerBtn_Click(object sender, RoutedEventArgs e) => CustomerCustomBox.SelectedItem = null;
@@ -55,6 +51,44 @@ namespace WpfApp.Windows
         private void ClearOriginLangBtn_Click(object sender, RoutedEventArgs e) => OriginLangCustomBox.SelectedItem = null;
 
         private void ClearTargetLangBtn_Click(object sender, RoutedEventArgs e) => TargetLangCustomBox.SelectedItem = null;
+
+        private void ConfirmQueryButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Document> queriedDocuments = new();
+
+            foreach (var doc in MainWindow.documentsList)
+                queriedDocuments.Add(doc);
+
+            if (TranslatorCustomBox.SelectedItem is not null)
+            {
+                var selectedItem = TranslatorCustomBox.SelectedItem as UserViewModel;
+                queriedDocuments = queriedDocuments.Where(x => x.UserID == selectedItem.UserID).ToList();
+            }
+
+            if (CustomerCustomBox.SelectedItem is not null)
+            {
+                var selectedItem = CustomerCustomBox.SelectedItem as CustomerViewModel;
+                queriedDocuments = queriedDocuments.Where(x => x.CustomerID == selectedItem.CustomerID).ToList();
+            }
+
+            if (DocTypeCustomBox.SelectedItem is not null)
+            {
+                var selectedItem = DocTypeCustomBox.SelectedItem as DocumentTypeViewModel;
+                queriedDocuments = queriedDocuments.Where(x => x.TypeID == selectedItem.TypeID).ToList();
+            }
+
+            if (OriginLangCustomBox.SelectedItem is not null)
+            {
+                var selectedItem = OriginLangCustomBox.SelectedItem as LanguageViewModel;
+                queriedDocuments = queriedDocuments.Where(x => x.OriginalLanguageID == selectedItem.LanguageID).ToList();
+            }
+
+            if (TargetLangCustomBox.SelectedItem is not null)
+            {
+                var selectedItem = TargetLangCustomBox.SelectedItem as LanguageViewModel;
+                queriedDocuments = queriedDocuments.Where(x => x.TargetLanguageID == selectedItem.LanguageID).ToList();
+            }                        
+        }
 
         #endregion
     }

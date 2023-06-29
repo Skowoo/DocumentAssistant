@@ -84,5 +84,11 @@
             
             <Button Name="ConfirmQueryButton" Content="Wyszukaj" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource MainButton}" VerticalAlignment="Bottom" Height="30" Click="ConfirmQueryButton_Click" />
         </Grid>
+
+        <ScrollViewer Name="StaticsView" Margin="0,140,0,0">
+            <Grid Name="ResultsGrid" Margin="10,10,10,10" >
+                
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
