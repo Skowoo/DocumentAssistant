@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentAssistantLibrary", 
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DocumentAssistantSetup", "DocumentAssistantSetup\DocumentAssistantSetup.vdproj", "{A29AA2D5-7F52-4655-9937-CA428CE83A3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentAssistant_UnitTests", "DocumentAssistant_UnitTests\DocumentAssistant_UnitTests.csproj", "{E7E993E5-5F7B-4E2E-87E7-13553524E85F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{AFBA2202-675D-4E84-BFCB-2BE547AAA698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A29AA2D5-7F52-4655-9937-CA428CE83A3A}.Debug|Any CPU.ActiveCfg = Debug
 		{A29AA2D5-7F52-4655-9937-CA428CE83A3A}.Release|Any CPU.ActiveCfg = Release
+		{E7E993E5-5F7B-4E2E-87E7-13553524E85F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E993E5-5F7B-4E2E-87E7-13553524E85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E993E5-5F7B-4E2E-87E7-13553524E85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E993E5-5F7B-4E2E-87E7-13553524E85F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
