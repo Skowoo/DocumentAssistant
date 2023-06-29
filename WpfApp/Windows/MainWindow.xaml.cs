@@ -651,10 +651,10 @@ namespace WpfApp
             {
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
 
-                if (editedDocument.IsConfirmed)
-                    editedDocument.IsConfirmed = false;
-                else
+                if (editedDocument.IsConfirmed == false || editedDocument.IsConfirmed is null)
                     editedDocument.IsConfirmed = true;
+                else
+                    editedDocument.IsConfirmed = false;
 
                 context.SaveChanges();
             }

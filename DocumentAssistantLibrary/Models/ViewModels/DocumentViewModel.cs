@@ -12,16 +12,23 @@
         public DocumentViewModel(Document input)
         {
             DocumentID = input.DocumentID;
-            signsSize = input.SignsSize;
+
+            if (input.SignsSize is not null)
+                signsSize = (int)input.SignsSize;
+
             Name = input.Name;
-            TimeAdded = input.TimeAdded;
-            Deadline = input.Deadline;
-            IsConfirmed = input.IsConfirmed;
+
+            if (input.TimeAdded is not null)
+                TimeAdded = (DateTime)input.TimeAdded;
+
+            if (input.Deadline is not null)
+                Deadline = (DateTime)input.Deadline;
+
+            if (input.IsConfirmed is not null)
+                IsConfirmed = (bool)input.IsConfirmed;
 
             if (input.TimeDone is not null)
-            {
                 TimeDone = (DateTime)input.TimeDone;
-            }
 
             using (MainContext context = new MainContext())
             {

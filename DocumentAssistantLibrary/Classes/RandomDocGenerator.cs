@@ -22,7 +22,7 @@ namespace DocumentAssistantLibrary.Classes
             {
                 int langID = rnd.Next(1, 4);
 
-                Models.Document tempDoc = new Models.Document
+                Document tempDoc = new Document
                 {
                     Name = $"ExampleDoc{i + 1}",
                     SignsSize = rnd.Next(100, 10000),
