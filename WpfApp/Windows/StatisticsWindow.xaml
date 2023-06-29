@@ -87,7 +87,7 @@
 
         <ScrollViewer Name="StaticsView" Margin="0,140,0,0">
             <Grid Name="ResultsGrid" Margin="10,10,10,10" >
-                
+                <TextBlock Name="StatisticsTextBlock"/>
             </Grid>
         </ScrollViewer>
     </Grid>

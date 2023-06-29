@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DocumentAssistantLibrary.Models;
 using DocumentAssistantLibrary.Models.ViewModels;
+using DocumentAssistantLibrary.Classes;
 
 namespace WpfApp.Windows
 {
@@ -87,7 +88,9 @@ namespace WpfApp.Windows
             {
                 var selectedItem = TargetLangCustomBox.SelectedItem as LanguageViewModel;
                 queriedDocuments = queriedDocuments.Where(x => x.TargetLanguageID == selectedItem.LanguageID).ToList();
-            }                        
+            }
+
+            StatisticsTextBlock.Text = StatisticsCalculator.GenerateStatsString(queriedDocuments);
         }
 
         #endregion
