@@ -1,4 +1,4 @@
-# DocumentAssistant - simple desktop CRUD app
+# DocumentAssistant - simple WPF CRUD app
 Application created as semester project. Application is designed and created to replace and simplify workflow of small translators team. UI language is Polish.
 
 ## Used technologies:
