@@ -277,6 +277,17 @@ namespace WpfApp
             }
         }
 
+        private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextPageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
         #region Menu Bar controls
 
         private void Menu_ManageUsers_Click(object sender, RoutedEventArgs e)

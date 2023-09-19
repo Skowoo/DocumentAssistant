@@ -89,8 +89,8 @@
             </MenuItem>
         </Menu>
 
-        <Grid Name="DocumentFullGrid">
-            <DataGrid Name="DocGrid" Margin="0,20,300,40" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" >
+        <Grid Name="DocumentFullGrid" Margin="0,20,300,0">
+            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                     <DataGridTextColumn x:Name="docOriginalLangColumn" Binding="{Binding OriginalLanguage}" Header="Język dokumentu" Width="SizeToHeader"/>
@@ -105,6 +105,10 @@
                     <DataGridCheckBoxColumn x:Name="docConfirmedColumn" Binding="{Binding IsConfirmed}" Header="Zatw." Width="SizeToHeader"/>
                 </DataGrid.Columns>
             </DataGrid>
+
+            <Button Style="{StaticResource SmallButton}" Name="PreviousPageButton" Margin="25,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" Content="Poprzednia strona" Click="PreviousPageButton_Click"></Button>
+            <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Margin="0,5,25,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" Content="Następna strona" Click="NextPageButton_Click"></Button>
+            <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" ></Label>
         </Grid>
 
         <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,0,50,0" VerticalAlignment="Center">
