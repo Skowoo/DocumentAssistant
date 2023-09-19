@@ -119,7 +119,7 @@ namespace WpfApp
 
         private void ResetView()
         {
-            DocGrid.Visibility = Visibility.Visible;
+            DocumentFullGrid.Visibility = Visibility.Visible;
             MainControlButtonsGrid.Visibility = Visibility.Visible;
 
             AssignUserMainMenu_ComboBox.Visibility = Visibility.Collapsed;
@@ -315,7 +315,7 @@ namespace WpfApp
 
         private void AddDocumentBtn_Click(object sender, RoutedEventArgs e)
         {
-            DocGrid.Visibility = Visibility.Hidden;
+            DocumentFullGrid.Visibility = Visibility.Hidden;
             MainControlButtonsGrid.Visibility = Visibility.Hidden;
             AddDocumentGrid.Visibility = Visibility.Visible;
         }
@@ -512,7 +512,7 @@ namespace WpfApp
         {
             if (selectedDocument is null) return;
 
-            DocGrid.Visibility = Visibility.Hidden;
+            DocumentFullGrid.Visibility = Visibility.Hidden;
             MainControlButtonsGrid.Visibility = Visibility.Hidden;
             EditDocGrid.Visibility = Visibility.Visible;
 
