@@ -281,12 +281,16 @@ namespace WpfApp
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
             documentViewsList.NextPage();
+            UpdateDocumentsListPageNumberText();
         }
 
         private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
         {
             documentViewsList.PreviousPage();
+            UpdateDocumentsListPageNumberText();
         }
+
+        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {documentViewsList.CurrentPage} z {documentViewsList.TotalPages}";
 
         #region Menu Bar controls
 

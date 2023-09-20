@@ -7,34 +7,35 @@ namespace WpfApp.Classes
 {
     public class PaginatedObservableCollection<T> : ObservableCollection<T>
     {
-        public ObservableCollection<T> PageView { get; private set; }
+        public ObservableCollection<T> PageView = new();
 
-        public int TotalPages { get; private set; }
+        public int TotalPages = 5;
 
         public int CurrentPage { get; private set; }
+
+        public int pageSize = 30;
 
         public bool NextPageAvailable => CurrentPage < TotalPages;
 
         public bool PreviousPageAvailable => CurrentPage > 1;
 
-        private int pageSize;
+        //public PaginatedObservableCollection(IList<T> values = null, int pageSize = 30)
+        //{
+        //    PageView = new ObservableCollection<T>();
+        //    CurrentPage = 1;
 
-        public PaginatedObservableCollection(IList<T> values = null, int pageSize = 30)
-        {
-            PageView = new ObservableCollection<T>();
-            if (values is null)
-            {
-                TotalPages = 1;
-                this.pageSize = pageSize;
-                return;
-            }
+        //    if (values is null)
+        //    {
+        //        TotalPages = 1;
+        //        this.pageSize = pageSize;
+        //        return;
+        //    }
 
-            foreach (T item in values)
-                this.Add(item);
-            this.pageSize = pageSize;
-            TotalPages = (int)Math.Ceiling(values.Count / (double)pageSize);
-            CurrentPage = 1;
-        }
+        //    foreach (T item in values)
+        //        this.Add(item);
+        //    this.pageSize = pageSize;
+        //    TotalPages = (int)Math.Ceiling(values.Count / (double)pageSize);
+        //}
 
         public void NextPage()
         {
@@ -45,7 +46,7 @@ namespace WpfApp.Classes
 
         public void PreviousPage()
         {
-            if (!NextPageAvailable) return;
+            if (!PreviousPageAvailable) return;
             CurrentPage--;
             UpdatePageCollection();
         }
@@ -56,7 +57,7 @@ namespace WpfApp.Classes
                                       .Take(pageSize)
                                       .ToList();
             PageView.Clear();
-            itemsOnPage.ForEach(item => PageView.Add(item));
+            PageView = new ObservableCollection<T>(itemsOnPage);
         }
     }
 }
