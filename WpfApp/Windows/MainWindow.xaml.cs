@@ -10,7 +10,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WpfApp.Classes;
 using WpfApp.Windows;
 
 namespace WpfApp
@@ -22,8 +21,13 @@ namespace WpfApp
     {
         #region Properties
 
+        private int currentPage = 1;
+        private int pageSize = 30;
+        private int totalPages;
+        private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
+
         public static List<Document> documentsList = new();
-        public static PaginatedObservableCollection<DocumentViewModel> documentViewsList = new();
+        //public static ObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
@@ -97,7 +101,7 @@ namespace WpfApp
         {
             //Assign item sources
             //Main view
-            DocGrid.ItemsSource = documentViewsList.PageView;
+            DocGrid.ItemsSource = documentViewModelsPage;
             AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
 
             //New document grid
@@ -180,10 +184,28 @@ namespace WpfApp
         private void UpdateAllLists()
         {
             UpdateDocumentsList();
+            UpdateMainPaginatedList();
             UpdateUsersList();
             UpdateCustomersList();
             UpdateDocTypesList();
             UpdateLanguagesList();
+        }
+
+        private void UpdateMainPaginatedList()
+        {
+            documentViewModelsPage.Clear();
+            List<Document> downloadedDocuments = new();
+
+            using (MainContext context = new MainContext())
+                downloadedDocuments = context.Documents
+                    .Skip((currentPage - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+            foreach (Document item in downloadedDocuments)
+                documentViewModelsPage.Add(new DocumentViewModel(item));
+            
+            UpdateDocumentsListPageNumberText();
         }
 
         private void UpdateDocumentsList()
@@ -193,12 +215,13 @@ namespace WpfApp
             using (MainContext context = new MainContext())
             {
                 documentsList = context.Documents.ToList();
+                totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
             }
 
-            documentViewsList.Clear();
+            //documentViewsList.Clear();
 
-            foreach (var document in documentsList)
-                documentViewsList.Add(new DocumentViewModel(document));
+            //foreach (var document in documentsList)
+            //    documentViewsList.Add(new DocumentViewModel(document));
         }
 
         private void UpdateUsersList()
@@ -280,17 +303,21 @@ namespace WpfApp
 
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-            documentViewsList.NextPage();
+            if (currentPage >= totalPages) return;
+            currentPage++;
+            UpdateMainPaginatedList();
             UpdateDocumentsListPageNumberText();
         }
 
         private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
         {
-            documentViewsList.PreviousPage();
+            if (currentPage <= 1) return;
+            currentPage--;
+            UpdateMainPaginatedList();
             UpdateDocumentsListPageNumberText();
         }
 
-        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {documentViewsList.CurrentPage} z {documentViewsList.TotalPages}";
+        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {currentPage} z {totalPages}";
 
         #region Menu Bar controls
 
