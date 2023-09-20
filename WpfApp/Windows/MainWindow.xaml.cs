@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp.Classes;
 using WpfApp.Windows;
 
 namespace WpfApp
@@ -22,7 +23,7 @@ namespace WpfApp
         #region Properties
 
         public static List<Document> documentsList = new();
-        public static ObservableCollection<DocumentViewModel> documentViewsList = new();
+        public static PaginatedObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
@@ -96,7 +97,7 @@ namespace WpfApp
         {
             //Assign item sources
             //Main view
-            DocGrid.ItemsSource = documentViewsList;
+            DocGrid.ItemsSource = documentViewsList.PageView;
             AssignUserMainMenu_ComboBox.ItemsSource = userViewModelsList;
 
             //New document grid
@@ -277,16 +278,15 @@ namespace WpfApp
             }
         }
 
-        private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
-
+            documentViewsList.NextPage();
         }
 
+        private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            documentViewsList.PreviousPage();
+        }
 
         #region Menu Bar controls
 

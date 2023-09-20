@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace WpfApp.Classes
 {
-    internal class PaginatedObservableCollection<T> : ObservableCollection<T>
+    public class PaginatedObservableCollection<T> : ObservableCollection<T>
     {
         public ObservableCollection<T> PageView { get; private set; }
 
@@ -19,8 +19,16 @@ namespace WpfApp.Classes
 
         private int pageSize;
 
-        public PaginatedObservableCollection(IList<T> values, int pageSize)
+        public PaginatedObservableCollection(IList<T> values = null, int pageSize = 30)
         {
+            PageView = new ObservableCollection<T>();
+            if (values is null)
+            {
+                TotalPages = 1;
+                this.pageSize = pageSize;
+                return;
+            }
+
             foreach (T item in values)
                 this.Add(item);
             this.pageSize = pageSize;
@@ -30,22 +38,25 @@ namespace WpfApp.Classes
 
         public void NextPage()
         {
-            if (!NextPageAvailable) throw new ArgumentOutOfRangeException("Next page does not exist!");
+            if (!NextPageAvailable) return;
             CurrentPage++;
-            List<T> itemsOnPage = this.Skip((CurrentPage - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-            PageView = new ObservableCollection<T>(itemsOnPage);
+            UpdatePageCollection();
         }
 
         public void PreviousPage()
         {
-            if (!NextPageAvailable) throw new ArgumentOutOfRangeException("Previous page does not exist!");
+            if (!NextPageAvailable) return;
             CurrentPage--;
+            UpdatePageCollection();
+        }
+
+        private void UpdatePageCollection()
+        {
             List<T> itemsOnPage = this.Skip((CurrentPage - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-            PageView = new ObservableCollection<T>(itemsOnPage);
+                                      .Take(pageSize)
+                                      .ToList();
+            PageView.Clear();
+            itemsOnPage.ForEach(item => PageView.Add(item));
         }
     }
 }
