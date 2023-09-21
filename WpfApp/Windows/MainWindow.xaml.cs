@@ -176,6 +176,8 @@ namespace WpfApp
             ConfirmNewLanguage_Button.Visibility = Visibility.Visible;
         }
 
+        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {currentPage} z {totalPages}";
+
         #region Updating of elements lists
 
         private void UpdateAllLists()
@@ -279,6 +281,29 @@ namespace WpfApp
             }
         }
 
+        private void DocGridSortingChanged(object sender, DataGridSortingEventArgs e)
+        {
+            documentViewModelsPage.Clear();
+
+            List<Document> downloadedDocuments = new();
+
+            using (MainContext context = new MainContext())
+            {
+                totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
+
+                downloadedDocuments = context.Documents
+                    .OrderBy(s => e)
+                    .Skip((currentPage - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
+
+            foreach (Document item in downloadedDocuments)
+                documentViewModelsPage.Add(new DocumentViewModel(item));
+
+            UpdateDocumentsListPageNumberText();
+        }
+
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {
             if (currentPage >= totalPages) return;
@@ -294,8 +319,6 @@ namespace WpfApp
             UpdateMainPaginatedList();
             UpdateDocumentsListPageNumberText();
         }
-
-        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {currentPage} z {totalPages}";
 
         #region Menu Bar controls
 
