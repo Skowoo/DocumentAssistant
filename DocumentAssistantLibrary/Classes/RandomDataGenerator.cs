@@ -5,7 +5,7 @@ namespace DocumentAssistantLibrary.Classes
     /// <summary>
     /// Method generates random documents to present funcionality of application
     /// </summary>
-    public static class RandomDocGenerator
+    public static class RandomDataGenerator
     {
         /// <summary>
         /// Method generates random documents. If there are less than 5 customers or document types in database, method will create additional customers and types to reach this number.
@@ -18,13 +18,20 @@ namespace DocumentAssistantLibrary.Classes
             CheckAndAddCustomers();
             CheckAndAddDocTypes();
 
+            int documentNumber;
+
+            using (MainContext context = new MainContext())
+                documentNumber = context.Documents.Count() + 1;
+
+            List<Document> generatedDocs = new List<Document>();
+
             for (int i = 0; i < numberOfDocs; i++)
             {
                 int langID = rnd.Next(1, 4);
 
                 Document tempDoc = new Document
                 {
-                    Name = $"ExampleDoc{i + 1}",
+                    Name = $"ExampleDoc{documentNumber}",
                     SignsSize = rnd.Next(100, 10000),
                     TimeAdded = DateTime.Now,
                     Deadline = DateTime.Now.AddDays(rnd.Next(2, 30)),
@@ -35,11 +42,14 @@ namespace DocumentAssistantLibrary.Classes
                     TargetLanguageID = langID + 1
                 };
 
-                using (MainContext context = new MainContext())
-                {
-                    context.Documents.Add(tempDoc);
-                    context.SaveChanges();
-                }
+                generatedDocs.Add(tempDoc);
+                documentNumber++;
+            }
+
+            using (MainContext context = new MainContext())
+            {
+                context.Documents.AddRange(generatedDocs);
+                context.SaveChanges();
             }
         }
 
@@ -47,9 +57,7 @@ namespace DocumentAssistantLibrary.Classes
         {
             int customersCount = 0;
             using (MainContext context = new MainContext())
-            {
                 customersCount = context.Customers.Count();
-            }
 
             if (customersCount >= 5) return;
 
@@ -67,9 +75,7 @@ namespace DocumentAssistantLibrary.Classes
         {
             int typesCount = 0;
             using (MainContext context = new MainContext())
-            {
                 typesCount = context.DocumentTypes.Count();
-            }
 
             if (typesCount >= 5) return;
 

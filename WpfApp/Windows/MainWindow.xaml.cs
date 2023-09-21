@@ -22,7 +22,7 @@ namespace WpfApp
         #region Properties
 
         private int currentPage = 1;
-        private int pageSize = 30;
+        private int pageSize = 50;
         private int totalPages;
         private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
 
@@ -314,11 +314,13 @@ namespace WpfApp
 
         private void GenerateRandomDocs_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult createExampleDocs = MessageBox.Show("Zamierzasz wygenerować 100 przykładowych dokumentów.\nKontynuować?",
+            int numberOfDocs = 1000;
+
+            MessageBoxResult createExampleDocs = MessageBox.Show($"Zamierzasz wygenerować {numberOfDocs} przykładowych dokumentów.\nKontynuować?",
                                                                 "Generowanie losowych dokumentów", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (createExampleDocs == MessageBoxResult.Yes)
-                RandomDocGenerator.GenerateExampleDocuments(100);
+                RandomDataGenerator.GenerateExampleDocuments(numberOfDocs);
 
             UpdateAllLists();
         }
