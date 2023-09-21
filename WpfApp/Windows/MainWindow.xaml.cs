@@ -26,8 +26,6 @@ namespace WpfApp
         private int totalPages;
         private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
 
-        public static List<Document> documentsList = new();
-
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
 
@@ -182,7 +180,6 @@ namespace WpfApp
 
         private void UpdateAllLists()
         {
-            UpdateDocumentsList();
             UpdateMainPaginatedList();
             UpdateUsersList();
             UpdateCustomersList();
@@ -197,26 +194,19 @@ namespace WpfApp
             List<Document> downloadedDocuments = new();
 
             using (MainContext context = new MainContext())
+            {
+                totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
+
                 downloadedDocuments = context.Documents
                     .Skip((currentPage - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
+            }
 
             foreach (Document item in downloadedDocuments)
                 documentViewModelsPage.Add(new DocumentViewModel(item));
             
             UpdateDocumentsListPageNumberText();
-        }
-
-        private void UpdateDocumentsList()
-        {
-            documentsList.Clear();
-
-            using (MainContext context = new MainContext())
-            {
-                documentsList = context.Documents.ToList();
-                totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
-            }
         }
 
         private void UpdateUsersList()
@@ -434,7 +424,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateDocumentsList();
+            UpdateMainPaginatedList();
             ResetView();
         }
 
@@ -600,7 +590,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateDocumentsList();
+            UpdateMainPaginatedList();
             ResetView();
         }
 
@@ -623,7 +613,7 @@ namespace WpfApp
                     context.SaveChanges();
                 }
 
-                UpdateDocumentsList();
+                UpdateMainPaginatedList();
             }
             else return;
         }
@@ -643,7 +633,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateDocumentsList();
+            UpdateMainPaginatedList();
         }
 
         private void AssignDocumentBtn_Click(object sender, RoutedEventArgs e)
@@ -670,7 +660,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateDocumentsList();
+            UpdateMainPaginatedList();
         }
 
         private void ConfirmDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -689,7 +679,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateDocumentsList();
+            UpdateMainPaginatedList();
         }
 
         #endregion

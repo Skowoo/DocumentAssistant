@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using DocumentAssistantLibrary;
+using DocumentAssistantLibrary.Classes;
 using DocumentAssistantLibrary.Models;
 using DocumentAssistantLibrary.Models.ViewModels;
-using DocumentAssistantLibrary.Classes;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 
 namespace WpfApp.Windows
 {
@@ -57,8 +48,8 @@ namespace WpfApp.Windows
         {
             List<Document> queriedDocuments = new();
 
-            foreach (var doc in MainWindow.documentsList)
-                queriedDocuments.Add(doc);
+            using (MainContext context = new MainContext())
+                queriedDocuments = context.Documents.ToList();
 
             if (TranslatorCustomBox.SelectedItem is not null)
             {
