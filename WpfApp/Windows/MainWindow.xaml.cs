@@ -27,7 +27,6 @@ namespace WpfApp
         private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
 
         public static List<Document> documentsList = new();
-        //public static ObservableCollection<DocumentViewModel> documentViewsList = new();
 
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
@@ -194,6 +193,7 @@ namespace WpfApp
         private void UpdateMainPaginatedList()
         {
             documentViewModelsPage.Clear();
+
             List<Document> downloadedDocuments = new();
 
             using (MainContext context = new MainContext())
@@ -217,11 +217,6 @@ namespace WpfApp
                 documentsList = context.Documents.ToList();
                 totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
             }
-
-            //documentViewsList.Clear();
-
-            //foreach (var document in documentsList)
-            //    documentViewsList.Add(new DocumentViewModel(document));
         }
 
         private void UpdateUsersList()
@@ -229,9 +224,8 @@ namespace WpfApp
             usersList.Clear();
 
             using (MainContext context = new MainContext())
-            {
                 usersList = context.Users.ToList();
-            }
+
             userViewModelsList.Clear();
 
             foreach (var user in usersList)
@@ -243,9 +237,7 @@ namespace WpfApp
             customersList.Clear();
 
             using (MainContext context = new MainContext())
-            {
-                customersList = context.Customers.ToList();
-            }
+                customersList = context.Customers.ToList();           
 
             customerViewModelsList.Clear();
 
@@ -258,9 +250,7 @@ namespace WpfApp
             languagesList.Clear();
 
             using (MainContext context = new MainContext())
-            {
                 languagesList = context.Languages.ToList();
-            }
 
             languagesViewModelsList.Clear();
 
@@ -273,9 +263,7 @@ namespace WpfApp
             documentTypesList.Clear();
 
             using (MainContext context = new MainContext())
-            {
                 documentTypesList = context.DocumentTypes.ToList();
-            }
 
             documentTypeViewModelsList.Clear();
 
