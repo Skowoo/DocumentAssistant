@@ -291,8 +291,48 @@ namespace WpfApp
             {
                 totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
 
-                downloadedDocuments = context.Documents
-                    .OrderBy(s => e)
+                var sortedQuery = context.Documents.OrderBy(s => s.DocumentID);
+
+                switch (e.Column.DisplayIndex)
+                {
+                    case 0:
+                        sortedQuery = context.Documents.OrderBy(s => s.Name);
+                        break;
+                    case 1:
+                        sortedQuery = context.Documents.OrderBy(s => s.OriginalLanguage.LanguageName);
+                        break;
+                    case 2:
+                        sortedQuery = context.Documents.OrderBy(s => s.TargetLanguage.LanguageName);
+                        break;
+                    case 3:
+                        sortedQuery = context.Documents.OrderBy(s => s.DocumentTypes.TypeName);
+                        break;
+                    case 4:
+                        sortedQuery = context.Documents.OrderBy(s => s.SignsSize);
+                        break;
+                    case 5:
+                        sortedQuery = context.Documents.OrderBy(s => s.Customers.CustomerName);
+                        break;
+                    case 6:
+                        sortedQuery = context.Documents.OrderBy(s => s.TimeAdded);
+                        break;
+                    case 7:
+                        sortedQuery = context.Documents.OrderBy(s => s.Deadline);
+                        break;
+                    case 8:
+                        sortedQuery = context.Documents.OrderBy(s => s.Users.Login);
+                        break;
+                    case 9:
+                        sortedQuery = context.Documents.OrderBy(s => s.TimeDone);
+                        break;
+                    case 10:
+                        sortedQuery = context.Documents.OrderBy(s => s.IsConfirmed);
+                        break;
+                    default:
+                        goto case 0;
+                }
+
+                downloadedDocuments = sortedQuery
                     .Skip((currentPage - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
