@@ -25,6 +25,7 @@ namespace WpfApp
         private int pageSize = 50;
         private int totalPages;
         private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
+        private DataGridSortingEventArgs lastSorting;
 
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
@@ -182,33 +183,11 @@ namespace WpfApp
 
         private void UpdateAllLists()
         {
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
             UpdateUsersList();
             UpdateCustomersList();
             UpdateDocTypesList();
             UpdateLanguagesList();
-        }
-
-        private void UpdateMainPaginatedList()
-        {
-            documentViewModelsPage.Clear();
-
-            List<Document> downloadedDocuments = new();
-
-            using (MainContext context = new MainContext())
-            {
-                totalPages = (int)Math.Ceiling(context.Documents.Count() / (double)pageSize);
-
-                downloadedDocuments = context.Documents
-                    .Skip((currentPage - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-            }
-
-            foreach (Document item in downloadedDocuments)
-                documentViewModelsPage.Add(new DocumentViewModel(item));
-            
-            UpdateDocumentsListPageNumberText();
         }
 
         private void UpdateUsersList()
@@ -281,8 +260,13 @@ namespace WpfApp
             }
         }
 
-        private void DocGridSortingChanged(object sender, DataGridSortingEventArgs e)
+        private void DocGridSortingChanged(object? sender = null, DataGridSortingEventArgs? e = null)
         {
+            if (e is null)
+                e = lastSorting;
+            else
+                lastSorting = e;
+
             documentViewModelsPage.Clear();
 
             List<Document> downloadedDocuments = new();
@@ -293,70 +277,71 @@ namespace WpfApp
 
                 var sortedQuery = context.Documents.OrderBy(s => s.DocumentID);
 
+                if (e is not null)
                 switch (e.Column.DisplayIndex)
                 {
                     case 0:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.Name);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.Name);
                         break;
                     case 1:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.Name);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.Name);
                         break;
                     case 2:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.TargetLanguage.LanguageName);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.TargetLanguage.LanguageName);
                         break;
                     case 3:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.DocumentTypes.TypeName);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.DocumentTypes.TypeName);
                         break;
                     case 4:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.SignsSize);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.SignsSize);
                         break;
                     case 5:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.Customers.CustomerName);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.Customers.CustomerName);
                         break;
                     case 6:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.TimeAdded);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.TimeAdded);
                         break;
                     case 7:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.Deadline);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.Deadline);
                         break;
                     case 8:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.Users.Login);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.Users.Login);
                         break;
                     case 9:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.TimeDone);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.TimeDone);
                         break;
                     case 10:
-                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Ascending)
+                        if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
                             sortedQuery = context.Documents.OrderByDescending(s => s.IsConfirmed);
                         else
                             sortedQuery = context.Documents.OrderBy(s => s.IsConfirmed);
@@ -381,7 +366,7 @@ namespace WpfApp
         {
             if (currentPage >= totalPages) return;
             currentPage++;
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
             UpdateDocumentsListPageNumberText();
         }
 
@@ -389,7 +374,7 @@ namespace WpfApp
         {
             if (currentPage <= 1) return;
             currentPage--;
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
             UpdateDocumentsListPageNumberText();
         }
 
@@ -522,7 +507,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
             ResetView();
         }
 
@@ -688,7 +673,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
             ResetView();
         }
 
@@ -711,7 +696,7 @@ namespace WpfApp
                     context.SaveChanges();
                 }
 
-                UpdateMainPaginatedList();
+                DocGridSortingChanged();
             }
             else return;
         }
@@ -731,7 +716,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
         }
 
         private void AssignDocumentBtn_Click(object sender, RoutedEventArgs e)
@@ -758,7 +743,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
         }
 
         private void ConfirmDoneBtn_Click(object sender, RoutedEventArgs e)
@@ -777,7 +762,7 @@ namespace WpfApp
                 context.SaveChanges();
             }
 
-            UpdateMainPaginatedList();
+            DocGridSortingChanged();
         }
 
         #endregion
