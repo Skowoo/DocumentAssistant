@@ -90,7 +90,7 @@
         </Menu>
 
         <Grid Name="DocumentFullGrid" Margin="0,20,300,0">
-            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged">
+            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="Nazwa dokumentu" Width="*"/>
                     <DataGridTextColumn x:Name="docOriginalLangColumn" Binding="{Binding OriginalLanguage}" Header="Język dokumentu" Width="SizeToHeader"/>

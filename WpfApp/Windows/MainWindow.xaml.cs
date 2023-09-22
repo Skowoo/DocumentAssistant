@@ -265,7 +265,15 @@ namespace WpfApp
             if (e is null)
                 e = lastSorting;
             else
+            {
+                if (e.Column.SortDirection is null)
+                {
+                    e.Column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
+                    MessageBox.Show("Sort order NULL");
+                }
                 lastSorting = e;
+                currentPage = 1;
+            }
 
             documentViewModelsPage.Clear();
 
@@ -306,9 +314,15 @@ namespace WpfApp
                             break;
                         case 4:
                             if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
-                                sortedQuery = context.Documents.OrderByDescending(s => s.SignsSize);
-                            else
+                            {
+                                MessageBox.Show($"{e.Column.Header} {e.Column.SortDirection}");
                                 sortedQuery = context.Documents.OrderBy(s => s.SignsSize);
+                            }
+                            else
+                            {
+                                sortedQuery = context.Documents.OrderByDescending(s => s.SignsSize);
+                                MessageBox.Show($"{e.Column.Header} {e.Column.SortDirection}");
+                            }
                             break;
                         case 5:
                             if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
