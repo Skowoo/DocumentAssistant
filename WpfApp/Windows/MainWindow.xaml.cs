@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -266,11 +267,6 @@ namespace WpfApp
                 e = lastSorting;
             else
             {
-                if (e.Column.SortDirection is null)
-                {
-                    e.Column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
-                    MessageBox.Show("Sort order NULL");
-                }
                 lastSorting = e;
                 currentPage = 1;
             }
@@ -285,77 +281,72 @@ namespace WpfApp
 
                 var sortedQuery = context.Documents.OrderBy(s => s.DocumentID);
 
-                if (e is not null)
+                if (lastSorting is not null)
+                {
                     switch (e.Column.DisplayIndex)
                     {
                         case 0:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.Name);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.Name);
                             break;
                         case 1:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.OriginalLanguage.LanguageName);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.OriginalLanguage.LanguageName);
                             break;
                         case 2:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.TargetLanguage.LanguageName);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.TargetLanguage.LanguageName);
                             break;
                         case 3:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.DocumentTypes.TypeName);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.DocumentTypes.TypeName);
                             break;
                         case 4:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
-                            {
-                                MessageBox.Show($"{e.Column.Header} {e.Column.SortDirection}");
-                                sortedQuery = context.Documents.OrderBy(s => s.SignsSize);
-                            }
-                            else
-                            {
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.SignsSize);
-                                MessageBox.Show($"{e.Column.Header} {e.Column.SortDirection}");
-                            }
+                            else
+                                sortedQuery = context.Documents.OrderBy(s => s.SignsSize);
                             break;
                         case 5:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.Customers.CustomerName);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.Customers.CustomerName);
                             break;
                         case 6:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.TimeAdded);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.TimeAdded);
                             break;
                         case 7:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.Deadline);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.Deadline);
                             break;
                         case 8:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.Users.Login);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.Users.Login);
                             break;
                         case 9:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.TimeDone);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.TimeDone);
                             break;
                         case 10:
-                            if (e.Column.SortDirection == System.ComponentModel.ListSortDirection.Descending)
+                            if (lastSorting.Column.SortDirection == ListSortDirection.Descending)
                                 sortedQuery = context.Documents.OrderByDescending(s => s.IsConfirmed);
                             else
                                 sortedQuery = context.Documents.OrderBy(s => s.IsConfirmed);
@@ -363,6 +354,7 @@ namespace WpfApp
                         default:
                             break;
                     }
+                }
 
                 downloadedDocuments = sortedQuery
                     .Skip((currentPage - 1) * pageSize)
