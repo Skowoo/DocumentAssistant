@@ -23,10 +23,17 @@ namespace WpfApp
         #region Properties
 
         private int currentPage = 1;
+
         private int pageSize = 50;
+
         private int totalPages;
+
         private ObservableCollection<DocumentViewModel> documentViewModelsPage = new();
-        private DataGridSortingEventArgs lastSorting;
+
+        private DataGridSortingEventArgs? lastSorting;
+
+        DocumentViewModel? selectedDocument;
+
 
         List<User> usersList = new();
         public static ObservableCollection<UserViewModel> userViewModelsList = new();
@@ -39,8 +46,6 @@ namespace WpfApp
 
         List<Language> languagesList = new();
         public static ObservableCollection<LanguageViewModel> languagesViewModelsList = new();
-
-        DocumentViewModel? selectedDocument;
 
         User loggedUser;
 
@@ -293,6 +298,7 @@ namespace WpfApp
 
                 if (lastSorting is not null)
                 {
+#pragma warning disable CS8602 // Dereference of a possibly null reference - null can be sorted.
                     switch (lastSorting.Column.DisplayIndex)
                     {
                         case 0:
@@ -365,6 +371,7 @@ namespace WpfApp
                             break;
                     }
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                 downloadedDocuments = sortedQuery
                     .Skip((currentPage - 1) * pageSize)
@@ -499,6 +506,8 @@ namespace WpfApp
                 IsConfirmed = false
             };
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference - object existence checked.
+
             var tempCustomer = NewDocCustomer_ComboBox.SelectedItem as CustomerViewModel;
             newDocument.CustomerID = tempCustomer.CustomerID;
 
@@ -516,6 +525,8 @@ namespace WpfApp
                 var tempUser = NewDocUser_ComboBox.SelectedItem as UserViewModel;
                 newDocument.UserID = tempUser.UserID;
             }
+
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             using (MainContext context = new MainContext())
             {
@@ -668,6 +679,7 @@ namespace WpfApp
 
             using (MainContext context = new MainContext())
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference - variables can be null
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
                 editedDocument.Name = EditDocName_TextBox.Text.Trim();
                 editedDocument.SignsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
@@ -676,6 +688,8 @@ namespace WpfApp
                 editedDocument.IsConfirmed = (bool)EditDocGridConfirmed_CheckBox.IsChecked;
                 editedDocument.OriginalLanguageID = tempSelectedOriginalLang.LanguageID;
                 editedDocument.TargetLanguageID = tempSelectedTargetLang.LanguageID;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
 
                 if (EditDocDeadlineCallendar.SelectedDate is not null)
                     editedDocument.Deadline = (DateTime)EditDocDeadlineCallendar.SelectedDate;
