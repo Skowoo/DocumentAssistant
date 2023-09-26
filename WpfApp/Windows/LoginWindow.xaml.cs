@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp.Resources;
 
 namespace WpfApp.Windows
 {
@@ -34,7 +35,7 @@ namespace WpfApp.Windows
             }
             catch
             {
-                MessageBox.Show("Nie odnaleziono loginu w bazie.");
+                MessageBox.Show(strings.LoginNotFound);
                 LoginTextBox.Text = "";
                 PasswordBox.Password = "";
                 return;
@@ -42,7 +43,7 @@ namespace WpfApp.Windows
             var password = PassGenerator.ComputeHash(PasswordBox.Password, foundUser.Salt);
 
             if (password == foundUser.Password && foundUser.IsActive == true) GrantAccess(foundUser);
-            else MessageBox.Show("Nieprawidłowe dane logowania. Sprawdź login i hasło");
+            else MessageBox.Show(strings.LoginDataNotCorrect);
         }
 
         private void GrantAccess(User loggedUser)
@@ -55,7 +56,7 @@ namespace WpfApp.Windows
             }
             catch
             {
-                MessageBox.Show("Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia");
+                MessageBox.Show(strings.LoginFailed);
             }
         }
 
@@ -82,8 +83,7 @@ namespace WpfApp.Windows
 
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
             if (!context.Database.CanConnect())
-                newDbCreateWindowDecision = MessageBox.Show("Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'tak' aby utworzyć nową bazę danych.",
-                                                            "Brak połączenia z bazą danych!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                newDbCreateWindowDecision = MessageBox.Show(strings.NoDbBoxText, strings.NoDbBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
             bool dbCreated = false;
 
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
@@ -91,9 +91,9 @@ namespace WpfApp.Windows
                 dbCreated = DbCreator.CreateNewDb();
 
                 if (dbCreated)
-                    MessageBox.Show("Utworzono nową bazę danych z kontem administratora. \nLogin: Admin \nHasło: Admin  \nMożesz się zalogować z wykorzystaniem powyższych danych.");
+                    MessageBox.Show(strings.DbCreatedBoxText);
                 else
-                    MessageBox.Show("Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!");
+                    MessageBox.Show(strings.DbNotCreatedBoxText);
             }
         }
 

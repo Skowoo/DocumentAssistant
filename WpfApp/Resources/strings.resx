@@ -117,16 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DbCreatedBoxText" xml:space="preserve">
+    <value>Utworzono nową bazę danych z kontem administratora.   
+Login: Admin 
+Hasło: Admin
+Możesz się zalogować z wykorzystaniem powyższych danych.</value>
+  </data>
+  <data name="DbNotCreatedBoxText" xml:space="preserve">
+    <value>Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login:</value>
   </data>
+  <data name="LoginDataNotCorrect" xml:space="preserve">
+    <value>Nieprawidłowe dane logowania. Sprawdź login i hasło</value>
+  </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia</value>
+  </data>
+  <data name="LoginNotFound" xml:space="preserve">
+    <value>Nie odnaleziono loginu w bazie.</value>
+  </data>
   <data name="LoginVerb" xml:space="preserve">
-    <value>Log in</value>
+    <value>Zaloguj</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Log out</value>
+    <value>Wyloguj</value>
+  </data>
+  <data name="NoDbBoxText" xml:space="preserve">
+    <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
+  </data>
+  <data name="NoDbBoxTitle" xml:space="preserve">
+    <value>Brak połączenia z bazą danych!</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password:</value>
+    <value>Hasło:</value>
   </data>
 </root>

@@ -61,6 +61,27 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utworzono nową bazę danych z kontem administratora.   
+        ///Login: Admin 
+        ///Hasło: Admin
+        ///Możesz się zalogować z wykorzystaniem powyższych danych..
+        /// </summary>
+        public static string DbCreatedBoxText {
+            get {
+                return ResourceManager.GetString("DbCreatedBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!.
+        /// </summary>
+        public static string DbNotCreatedBoxText {
+            get {
+                return ResourceManager.GetString("DbNotCreatedBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login:.
         /// </summary>
         public static string Login {
@@ -70,7 +91,34 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in.
+        ///   Looks up a localized string similar to Nieprawidłowe dane logowania. Sprawdź login i hasło.
+        /// </summary>
+        public static string LoginDataNotCorrect {
+            get {
+                return ResourceManager.GetString("LoginDataNotCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia.
+        /// </summary>
+        public static string LoginFailed {
+            get {
+                return ResourceManager.GetString("LoginFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie odnaleziono loginu w bazie..
+        /// </summary>
+        public static string LoginNotFound {
+            get {
+                return ResourceManager.GetString("LoginNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zaloguj.
         /// </summary>
         public static string LoginVerb {
             get {
@@ -79,7 +127,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log out.
+        ///   Looks up a localized string similar to Wyloguj.
         /// </summary>
         public static string Logout {
             get {
@@ -88,7 +136,25 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password:.
+        ///   Looks up a localized string similar to Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz &apos;Tak&apos; aby utworzyć nową bazę danych..
+        /// </summary>
+        public static string NoDbBoxText {
+            get {
+                return ResourceManager.GetString("NoDbBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brak połączenia z bazą danych!.
+        /// </summary>
+        public static string NoDbBoxTitle {
+            get {
+                return ResourceManager.GetString("NoDbBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hasło:.
         /// </summary>
         public static string Password {
             get {
