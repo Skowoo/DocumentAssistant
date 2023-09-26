@@ -61,6 +61,78 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktywuj użytkownika.
+        /// </summary>
+        public static string ActivateUser {
+            get {
+                return ResourceManager.GetString("ActivateUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj nowego użytkownika.
+        /// </summary>
+        public static string AddNewUser {
+            get {
+                return ResourceManager.GetString("AddNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anuluj.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmień login.
+        /// </summary>
+        public static string ChangeLogin {
+            get {
+                return ResourceManager.GetString("ChangeLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmień hasło.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmień dane osobowe.
+        /// </summary>
+        public static string ChangePersonalData {
+            get {
+                return ResourceManager.GetString("ChangePersonalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmień rangę.
+        /// </summary>
+        public static string ChangeRank {
+            get {
+                return ResourceManager.GetString("ChangeRank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybierz rolę:.
+        /// </summary>
+        public static string ChooseRoleColon {
+            get {
+                return ResourceManager.GetString("ChooseRoleColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyczyść.
         /// </summary>
         public static string Clear {
@@ -75,6 +147,15 @@ namespace WpfApp.Resources {
         public static string Client {
             get {
                 return ResourceManager.GetString("Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zatwierdź.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         
@@ -100,6 +181,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zdezaktywuj użytkownika.
+        /// </summary>
+        public static string DeactivateUser {
+            get {
+                return ResourceManager.GetString("DeactivateUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Typ dokumentu.
         /// </summary>
         public static string DocType {
@@ -109,11 +199,56 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login:.
+        ///   Looks up a localized string similar to Podaj nowy login:.
+        /// </summary>
+        public static string EnterNewLoginColon {
+            get {
+                return ResourceManager.GetString("EnterNewLoginColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wprowadź nowe hasło:.
+        /// </summary>
+        public static string EnterNewPasswordColon {
+            get {
+                return ResourceManager.GetString("EnterNewPasswordColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imię.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imię:.
+        /// </summary>
+        public static string FirstNameColon {
+            get {
+                return ResourceManager.GetString("FirstNameColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login:.
+        /// </summary>
+        public static string LoginColon {
+            get {
+                return ResourceManager.GetString("LoginColon", resourceCulture);
             }
         }
         
@@ -163,6 +298,24 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zarządzaj użytkownikiem:.
+        /// </summary>
+        public static string ManageUserColon {
+            get {
+                return ResourceManager.GetString("ManageUserColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowy użytkownik:.
+        /// </summary>
+        public static string NewUserColon {
+            get {
+                return ResourceManager.GetString("NewUserColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz &apos;Tak&apos; aby utworzyć nową bazę danych..
         /// </summary>
         public static string NoDbBoxText {
@@ -183,9 +336,27 @@ namespace WpfApp.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Hasło:.
         /// </summary>
-        public static string Password {
+        public static string PasswordColon {
             get {
-                return ResourceManager.GetString("Password", resourceCulture);
+                return ResourceManager.GetString("PasswordColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranga.
+        /// </summary>
+        public static string Rank {
+            get {
+                return ResourceManager.GetString("Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranga:.
+        /// </summary>
+        public static string RankColon {
+            get {
+                return ResourceManager.GetString("RankColon", resourceCulture);
             }
         }
         
@@ -204,6 +375,33 @@ namespace WpfApp.Resources {
         public static string SourceLang {
             get {
                 return ResourceManager.GetString("SourceLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwisko.
+        /// </summary>
+        public static string Surname {
+            get {
+                return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwisko:.
+        /// </summary>
+        public static string SurnameColon {
+            get {
+                return ResourceManager.GetString("SurnameColon", resourceCulture);
             }
         }
         

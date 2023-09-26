@@ -117,11 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivateUser" xml:space="preserve">
+    <value>Aktywuj użytkownika</value>
+  </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Dodaj nowego użytkownika</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="ChangeLogin" xml:space="preserve">
+    <value>Zmień login</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
+  <data name="ChangePersonalData" xml:space="preserve">
+    <value>Zmień dane osobowe</value>
+  </data>
+  <data name="ChangeRank" xml:space="preserve">
+    <value>Zmień rangę</value>
+  </data>
+  <data name="ChooseRoleColon" xml:space="preserve">
+    <value>Wybierz rolę:</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Wyczyść</value>
   </data>
   <data name="Client" xml:space="preserve">
     <value>Klient</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Zatwierdź</value>
   </data>
   <data name="DbCreatedBoxText" xml:space="preserve">
     <value>Utworzono nową bazę danych z kontem administratora.   
@@ -132,10 +159,28 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="DbNotCreatedBoxText" xml:space="preserve">
     <value>Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!</value>
   </data>
+  <data name="DeactivateUser" xml:space="preserve">
+    <value>Zdezaktywuj użytkownika</value>
+  </data>
   <data name="DocType" xml:space="preserve">
     <value>Typ dokumentu</value>
   </data>
+  <data name="EnterNewLoginColon" xml:space="preserve">
+    <value>Podaj nowy login:</value>
+  </data>
+  <data name="EnterNewPasswordColon" xml:space="preserve">
+    <value>Wprowadź nowe hasło:</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="FirstNameColon" xml:space="preserve">
+    <value>Imię:</value>
+  </data>
   <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginColon" xml:space="preserve">
     <value>Login:</value>
   </data>
   <data name="LoginDataNotCorrect" xml:space="preserve">
@@ -153,14 +198,26 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="Logout" xml:space="preserve">
     <value>Wyloguj</value>
   </data>
+  <data name="ManageUserColon" xml:space="preserve">
+    <value>Zarządzaj użytkownikiem:</value>
+  </data>
+  <data name="NewUserColon" xml:space="preserve">
+    <value>Nowy użytkownik:</value>
+  </data>
   <data name="NoDbBoxText" xml:space="preserve">
     <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
   </data>
   <data name="NoDbBoxTitle" xml:space="preserve">
     <value>Brak połączenia z bazą danych!</value>
   </data>
-  <data name="Password" xml:space="preserve">
+  <data name="PasswordColon" xml:space="preserve">
     <value>Hasło:</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Ranga</value>
+  </data>
+  <data name="RankColon" xml:space="preserve">
+    <value>Ranga:</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Wyszukaj</value>
@@ -168,10 +225,20 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="SourceLang" xml:space="preserve">
     <value>Język źródłowy</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="SurnameColon" xml:space="preserve">
+    <value>Nazwisko:</value>
+  </data>
   <data name="TargetLang" xml:space="preserve">
     <value>Język docelowy</value>
   </data>
   <data name="Translator" xml:space="preserve">
     <value>Tłumacz</value>
+    <comment>Noun</comment>
   </data>
 </root>
