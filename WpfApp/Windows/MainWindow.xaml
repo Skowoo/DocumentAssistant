@@ -82,7 +82,7 @@
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
 
         <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
-            <MenuItem Header="Opcje..." Height="20">
+            <MenuItem Header="{x:Static CC:strings.Settings}" Height="20">
                 <MenuItem Name="Menu_ManageUsers" Header="{x:Static CC:strings.ManageUsers}" Click="Menu_ManageUsers_Click" IsEnabled="False"/>
                 <MenuItem Name="Menu_ShowStatistics" Header="{x:Static CC:strings.OpenStatisticsWindow}" Click="Menu_ShowStatistics_Click" IsEnabled="False"/>
                 <MenuItem Name="GenerateRandomDocs" Header="{x:Static CC:strings.GenerateRandomFiles}" Click="GenerateRandomDocs_Click" Visibility="Hidden" />

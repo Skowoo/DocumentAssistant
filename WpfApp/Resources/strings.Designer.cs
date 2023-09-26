@@ -61,7 +61,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktywuj użytkownika.
+        ///   Looks up a localized string similar to Activate User.
         /// </summary>
         public static string ActivateUser {
             get {
@@ -70,7 +70,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dodaj.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
             get {
@@ -79,7 +79,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data dodania.
+        ///   Looks up a localized string similar to Date added.
         /// </summary>
         public static string AddDate {
             get {
@@ -88,7 +88,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dodaj dokument.
+        ///   Looks up a localized string similar to Add document.
         /// </summary>
         public static string AddDoc {
             get {
@@ -97,7 +97,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dodaj nowego użytkownika.
+        ///   Looks up a localized string similar to Add new user.
         /// </summary>
         public static string AddNewUser {
             get {
@@ -106,7 +106,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Przypisz.
+        ///   Looks up a localized string similar to Assign.
         /// </summary>
         public static string Assign {
             get {
@@ -115,7 +115,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Przydziel dokument.
+        ///   Looks up a localized string similar to Assign document.
         /// </summary>
         public static string AssignDoc {
             get {
@@ -124,7 +124,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Przypisany użytkownik.
+        ///   Looks up a localized string similar to Assigned user.
         /// </summary>
         public static string AssignedUser {
             get {
@@ -133,7 +133,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anuluj.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
             get {
@@ -142,7 +142,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anuluj zatwierdzenie.
+        ///   Looks up a localized string similar to Cancel confirmation.
         /// </summary>
         public static string CancelConfirm {
             get {
@@ -151,7 +151,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmień login.
+        ///   Looks up a localized string similar to Change login.
         /// </summary>
         public static string ChangeLogin {
             get {
@@ -160,7 +160,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmień hasło.
+        ///   Looks up a localized string similar to Change password.
         /// </summary>
         public static string ChangePassword {
             get {
@@ -169,7 +169,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmień dane osobowe.
+        ///   Looks up a localized string similar to Change personal data.
         /// </summary>
         public static string ChangePersonalData {
             get {
@@ -178,7 +178,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmień rangę.
+        ///   Looks up a localized string similar to Change rank.
         /// </summary>
         public static string ChangeRank {
             get {
@@ -187,7 +187,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmiana hasła użytkownika:.
+        ///   Looks up a localized string similar to Change password:.
         /// </summary>
         public static string ChangingPasswordColon {
             get {
@@ -196,7 +196,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmiana danych osobowych:.
+        ///   Looks up a localized string similar to Change personal data:.
         /// </summary>
         public static string ChangingPersonalDataColon {
             get {
@@ -205,7 +205,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmiana loginu użytkownika:.
+        ///   Looks up a localized string similar to Change login:.
         /// </summary>
         public static string ChangingUserLoginColon {
             get {
@@ -214,7 +214,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zmiana roli użytkownika:.
+        ///   Looks up a localized string similar to Change role:.
         /// </summary>
         public static string ChangingUserRoleColon {
             get {
@@ -223,7 +223,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wybierz rolę:.
+        ///   Looks up a localized string similar to Choose role:.
         /// </summary>
         public static string ChooseRoleColon {
             get {
@@ -232,7 +232,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wyczyść.
+        ///   Looks up a localized string similar to Clear.
         /// </summary>
         public static string Clear {
             get {
@@ -241,7 +241,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Klient.
+        ///   Looks up a localized string similar to Customer.
         /// </summary>
         public static string Client {
             get {
@@ -250,7 +250,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimalna długość nazwy klienta to trzy znaki!.
+        ///   Looks up a localized string similar to Customer name too short!.
         /// </summary>
         public static string ClientNameLengthWarning {
             get {
@@ -259,7 +259,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zatwierdź.
+        ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string Confirm {
             get {
@@ -268,7 +268,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zatwierdź dokument.
+        ///   Looks up a localized string similar to Confirm document.
         /// </summary>
         public static string ConfirmDocument {
             get {
@@ -277,7 +277,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zatwierdź wykonanie.
+        ///   Looks up a localized string similar to Confirm done.
         /// </summary>
         public static string ConfirmDone {
             get {
@@ -286,7 +286,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zatwierdzony.
+        ///   Looks up a localized string similar to Confirmed.
         /// </summary>
         public static string Confirmed {
             get {
@@ -295,7 +295,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zatw..
+        ///   Looks up a localized string similar to Conf..
         /// </summary>
         public static string ConfirmedShort {
             get {
@@ -304,7 +304,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontynuować?.
+        ///   Looks up a localized string similar to Continue?.
         /// </summary>
         public static string ContinueQuestion {
             get {
@@ -313,10 +313,10 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Utworzono nową bazę danych z kontem administratora.   
+        ///   Looks up a localized string similar to New database created!
         ///Login: Admin 
         ///Hasło: Admin
-        ///Możesz się zalogować z wykorzystaniem powyższych danych..
+        ///Please use credentials above to log in..
         /// </summary>
         public static string DbCreatedBoxText {
             get {
@@ -325,7 +325,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!.
+        ///   Looks up a localized string similar to Database creation failed!.
         /// </summary>
         public static string DbNotCreatedBoxText {
             get {
@@ -334,7 +334,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zdezaktywuj użytkownika.
+        ///   Looks up a localized string similar to Deactivate user.
         /// </summary>
         public static string DeactivateUser {
             get {
@@ -343,7 +343,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Termin wykonania.
+        ///   Looks up a localized string similar to Deadline.
         /// </summary>
         public static string Deadline {
             get {
@@ -352,7 +352,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kasowanie dokumentu.
+        ///   Looks up a localized string similar to Delete document.
         /// </summary>
         public static string DeleteBoxTitle {
             get {
@@ -361,7 +361,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usuń dokument.
+        ///   Looks up a localized string similar to Delete document.
         /// </summary>
         public static string DeleteDoc {
             get {
@@ -370,8 +370,8 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
-        ///Kontynuować?.
+        ///   Looks up a localized string similar to You intend to permanently delete data from the database. This operation is irreversible and may disturb the integrity of the remaining data!
+        ///Continue?.
         /// </summary>
         public static string DeleteWarning {
             get {
@@ -380,7 +380,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dokument.
+        ///   Looks up a localized string similar to Document.
         /// </summary>
         public static string Doc {
             get {
@@ -389,7 +389,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazwa dokumentu.
+        ///   Looks up a localized string similar to Document name.
         /// </summary>
         public static string DocName {
             get {
@@ -398,7 +398,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazwa dokumentu musi mieć conajmniej 3 znaki!.
+        ///   Looks up a localized string similar to Document name too short!.
         /// </summary>
         public static string DocNameLengthWarning {
             get {
@@ -407,7 +407,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Języki źródłowy i docelowy są takie same!.
+        ///   Looks up a localized string similar to Source and target languages are the same!.
         /// </summary>
         public static string DocSameLanguagesWarning {
             get {
@@ -416,7 +416,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podano niepoprawny rozmiar dokumentu!.
+        ///   Looks up a localized string similar to Document size NOK!.
         /// </summary>
         public static string DocSizeWarning {
             get {
@@ -425,7 +425,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Typ dokumentu.
+        ///   Looks up a localized string similar to Document type.
         /// </summary>
         public static string DocType {
             get {
@@ -434,7 +434,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimalne długośc typu dokumentu to dwa znaki!.
+        ///   Looks up a localized string similar to Dodument Type name too short!.
         /// </summary>
         public static string DocTypeLengthWarning {
             get {
@@ -443,7 +443,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data wykonania.
+        ///   Looks up a localized string similar to Date done.
         /// </summary>
         public static string DoneDate {
             get {
@@ -452,7 +452,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edytuj dokument.
+        ///   Looks up a localized string similar to Edit document.
         /// </summary>
         public static string EditDoc {
             get {
@@ -461,7 +461,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podaj nowy login:.
+        ///   Looks up a localized string similar to Insert new login:.
         /// </summary>
         public static string EnterNewLoginColon {
             get {
@@ -470,7 +470,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wprowadź nowe hasło:.
+        ///   Looks up a localized string similar to Insert new password:.
         /// </summary>
         public static string EnterNewPasswordColon {
             get {
@@ -479,7 +479,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Imię.
+        ///   Looks up a localized string similar to First name.
         /// </summary>
         public static string FirstName {
             get {
@@ -488,7 +488,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Imię:.
+        ///   Looks up a localized string similar to First name:.
         /// </summary>
         public static string FirstNameColon {
             get {
@@ -497,7 +497,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zostaną wygenerowane przykłądowe dokumenty w liczbie: .
+        ///   Looks up a localized string similar to Random documents will be created in quantity of: .
         /// </summary>
         public static string GenerateRandomDocs {
             get {
@@ -506,7 +506,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generowanie losowych dokumentów.
+        ///   Looks up a localized string similar to Create random documents.
         /// </summary>
         public static string GenerateRandomDocsBoxTitle {
             get {
@@ -515,7 +515,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wygeneruj przykładowe dokumenty.
+        ///   Looks up a localized string similar to Create random documents.
         /// </summary>
         public static string GenerateRandomFiles {
             get {
@@ -524,7 +524,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimalna długość nazwy języka to 3 znaki!.
+        ///   Looks up a localized string similar to Language name too short!.
         /// </summary>
         public static string LanguageNameLengthWarning {
             get {
@@ -542,7 +542,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login..
+        ///   Looks up a localized string similar to Login already exists in database! Please choose different login..
         /// </summary>
         public static string LoginAlreadyExistsWarning {
             get {
@@ -560,7 +560,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nieprawidłowe dane logowania. Sprawdź login i hasło.
+        ///   Looks up a localized string similar to Login data not correct. Check login and password.
         /// </summary>
         public static string LoginDataNotCorrect {
             get {
@@ -569,7 +569,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia.
+        ///   Looks up a localized string similar to Login process failed! Check your permissions.
         /// </summary>
         public static string LoginFailed {
             get {
@@ -578,7 +578,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login musi składać się z conajmniej dwóch znaków!.
+        ///   Looks up a localized string similar to Login too short!.
         /// </summary>
         public static string LoginMinLengthWarning {
             get {
@@ -587,7 +587,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie odnaleziono loginu w bazie..
+        ///   Looks up a localized string similar to Login not found!.
         /// </summary>
         public static string LoginNotFound {
             get {
@@ -596,16 +596,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login zbyt krótki!.
-        /// </summary>
-        public static string LoginTooShortWarning {
-            get {
-                return ResourceManager.GetString("LoginTooShortWarning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Zaloguj.
+        ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string LoginVerb {
             get {
@@ -614,7 +605,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wyloguj.
+        ///   Looks up a localized string similar to Log out.
         /// </summary>
         public static string Logout {
             get {
@@ -623,7 +614,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zarządzaj użytkownikiem:.
+        ///   Looks up a localized string similar to Manage user:.
         /// </summary>
         public static string ManageUserColon {
             get {
@@ -632,7 +623,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zarządzaj użytkownikami.
+        ///   Looks up a localized string similar to Manage users.
         /// </summary>
         public static string ManageUsers {
             get {
@@ -641,7 +632,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oznacz jako wykonany.
+        ///   Looks up a localized string similar to Mark as done.
         /// </summary>
         public static string MarkAsDone {
             get {
@@ -650,7 +641,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazwa.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
             get {
@@ -659,7 +650,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!.
+        ///   Looks up a localized string similar to First name or last name too short!.
         /// </summary>
         public static string NamesMinLengthWarning {
             get {
@@ -668,7 +659,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nowy klient.
+        ///   Looks up a localized string similar to New customer.
         /// </summary>
         public static string NewClient {
             get {
@@ -677,7 +668,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nowy typ dokumetu.
+        ///   Looks up a localized string similar to New document type.
         /// </summary>
         public static string NewDocType {
             get {
@@ -686,7 +677,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nowy język.
+        ///   Looks up a localized string similar to New language.
         /// </summary>
         public static string NewLanguage {
             get {
@@ -695,7 +686,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nowy użytkownik:.
+        ///   Looks up a localized string similar to New User:.
         /// </summary>
         public static string NewUserColon {
             get {
@@ -704,7 +695,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Następna strona.
+        ///   Looks up a localized string similar to Next page.
         /// </summary>
         public static string NextPage {
             get {
@@ -713,7 +704,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie przypisano zleceniodawcy do dokumentu!.
+        ///   Looks up a localized string similar to Customer was not selected!.
         /// </summary>
         public static string NoClientWarning {
             get {
@@ -722,7 +713,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz &apos;Tak&apos; aby utworzyć nową bazę danych..
+        ///   Looks up a localized string similar to Database not found! If it&apos;s first start-up select &quot;Yes&quot; to create new database.
         /// </summary>
         public static string NoDbBoxText {
             get {
@@ -731,7 +722,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brak połączenia z bazą danych!.
+        ///   Looks up a localized string similar to No connection with database!.
         /// </summary>
         public static string NoDbBoxTitle {
             get {
@@ -740,7 +731,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wybrano terminu wykonania dokumentu!.
+        ///   Looks up a localized string similar to Deadline not selected!.
         /// </summary>
         public static string NoDeadlineWarning {
             get {
@@ -749,7 +740,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wybrano typu dokumentu!.
+        ///   Looks up a localized string similar to Document type not selected!.
         /// </summary>
         public static string NoDocTypeWarning {
             get {
@@ -758,7 +749,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wybrano roli!.
+        ///   Looks up a localized string similar to Role not selected!.
         /// </summary>
         public static string NoRoleChosenWarning {
             get {
@@ -767,7 +758,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wybrano języka źródłowego dokumentu!.
+        ///   Looks up a localized string similar to Source language is not selected!.
         /// </summary>
         public static string NoSourceLangWarning {
             get {
@@ -776,7 +767,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wybrano języka docelowego dokumentu!.
+        ///   Looks up a localized string similar to Target language is not selected!.
         /// </summary>
         public static string NoTargetLangWarning {
             get {
@@ -785,7 +776,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wyświetl statystyki.
+        ///   Looks up a localized string similar to Show statistics.
         /// </summary>
         public static string OpenStatisticsWindow {
             get {
@@ -794,7 +785,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strona.
+        ///   Looks up a localized string similar to Page.
         /// </summary>
         public static string Page {
             get {
@@ -803,7 +794,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hasło:.
+        ///   Looks up a localized string similar to Password:.
         /// </summary>
         public static string PasswordColon {
             get {
@@ -812,7 +803,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hasła nie są jednakowe!.
+        ///   Looks up a localized string similar to Passwords are not the same!.
         /// </summary>
         public static string PasswordsNotSameWarning {
             get {
@@ -821,7 +812,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hasło za krótkie! minimalny rozmiar to 4 znaki.
+        ///   Looks up a localized string similar to Password too short!.
         /// </summary>
         public static string PasswordTooShortWarning {
             get {
@@ -830,7 +821,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poprzednia strona.
+        ///   Looks up a localized string similar to Previous page.
         /// </summary>
         public static string PreviousPage {
             get {
@@ -839,7 +830,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ranga.
+        ///   Looks up a localized string similar to Rank.
         /// </summary>
         public static string Rank {
             get {
@@ -848,7 +839,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ranga:.
+        ///   Looks up a localized string similar to Rank:.
         /// </summary>
         public static string RankColon {
             get {
@@ -857,7 +848,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odpowiedzialny.
+        ///   Looks up a localized string similar to Responsible.
         /// </summary>
         public static string Responsible {
             get {
@@ -866,7 +857,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wyszukaj.
+        ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
             get {
@@ -875,7 +866,16 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rozmiar.
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
         /// </summary>
         public static string Size {
             get {
@@ -884,7 +884,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Język źródłowy.
+        ///   Looks up a localized string similar to Source language.
         /// </summary>
         public static string SourceLang {
             get {
@@ -902,7 +902,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazwisko.
+        ///   Looks up a localized string similar to Last name.
         /// </summary>
         public static string Surname {
             get {
@@ -911,7 +911,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazwisko:.
+        ///   Looks up a localized string similar to Last name:.
         /// </summary>
         public static string SurnameColon {
             get {
@@ -920,7 +920,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Język docelowy.
+        ///   Looks up a localized string similar to Target language.
         /// </summary>
         public static string TargetLang {
             get {
@@ -929,7 +929,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tłumacz.
+        ///   Looks up a localized string similar to Translator.
         /// </summary>
         public static string Translator {
             get {
@@ -938,7 +938,7 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nieprawidłowy poziom użytkownika!.
+        ///   Looks up a localized string similar to User rank NOK!.
         /// </summary>
         public static string UserLevelWarning {
             get {

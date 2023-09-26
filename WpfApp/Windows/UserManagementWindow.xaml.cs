@@ -246,7 +246,7 @@ namespace WpfApp.Windows
 
             if (LoginTextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show(strings.LoginTooShortWarning);
+                MessageBox.Show(strings.LoginMinLengthWarning);
                 return;
             }
 
