@@ -61,6 +61,24 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wyczyść.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Klient.
+        /// </summary>
+        public static string Client {
+            get {
+                return ResourceManager.GetString("Client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utworzono nową bazę danych z kontem administratora.   
         ///Login: Admin 
         ///Hasło: Admin
@@ -78,6 +96,15 @@ namespace WpfApp.Resources {
         public static string DbNotCreatedBoxText {
             get {
                 return ResourceManager.GetString("DbNotCreatedBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Typ dokumentu.
+        /// </summary>
+        public static string DocType {
+            get {
+                return ResourceManager.GetString("DocType", resourceCulture);
             }
         }
         
@@ -159,6 +186,42 @@ namespace WpfApp.Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyszukaj.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Język źródłowy.
+        /// </summary>
+        public static string SourceLang {
+            get {
+                return ResourceManager.GetString("SourceLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Język docelowy.
+        /// </summary>
+        public static string TargetLang {
+            get {
+                return ResourceManager.GetString("TargetLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tłumacz.
+        /// </summary>
+        public static string Translator {
+            get {
+                return ResourceManager.GetString("Translator", resourceCulture);
             }
         }
     }
