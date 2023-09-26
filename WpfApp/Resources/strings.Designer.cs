@@ -70,11 +70,65 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data dodania.
+        /// </summary>
+        public static string AddDate {
+            get {
+                return ResourceManager.GetString("AddDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj dokument.
+        /// </summary>
+        public static string AddDoc {
+            get {
+                return ResourceManager.GetString("AddDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodaj nowego użytkownika.
         /// </summary>
         public static string AddNewUser {
             get {
                 return ResourceManager.GetString("AddNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przypisz.
+        /// </summary>
+        public static string Assign {
+            get {
+                return ResourceManager.GetString("Assign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przydziel dokument.
+        /// </summary>
+        public static string AssignDoc {
+            get {
+                return ResourceManager.GetString("AssignDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przypisany użytkownik.
+        /// </summary>
+        public static string AssignedUser {
+            get {
+                return ResourceManager.GetString("AssignedUser", resourceCulture);
             }
         }
         
@@ -196,6 +250,33 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zatwierdź wykonanie.
+        /// </summary>
+        public static string ConfirmDone {
+            get {
+                return ResourceManager.GetString("ConfirmDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zatwierdzony.
+        /// </summary>
+        public static string Confirmed {
+            get {
+                return ResourceManager.GetString("Confirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zatw..
+        /// </summary>
+        public static string ConfirmedShort {
+            get {
+                return ResourceManager.GetString("ConfirmedShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utworzono nową bazę danych z kontem administratora.   
         ///Login: Admin 
         ///Hasło: Admin
@@ -226,11 +307,56 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Termin wykonania.
+        /// </summary>
+        public static string Deadline {
+            get {
+                return ResourceManager.GetString("Deadline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuń dokument.
+        /// </summary>
+        public static string DeleteDoc {
+            get {
+                return ResourceManager.GetString("DeleteDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa dokumentu.
+        /// </summary>
+        public static string DocName {
+            get {
+                return ResourceManager.GetString("DocName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Typ dokumentu.
         /// </summary>
         public static string DocType {
             get {
                 return ResourceManager.GetString("DocType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data wykonania.
+        /// </summary>
+        public static string DoneDate {
+            get {
+                return ResourceManager.GetString("DoneDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edytuj dokument.
+        /// </summary>
+        public static string EditDoc {
+            get {
+                return ResourceManager.GetString("EditDoc", resourceCulture);
             }
         }
         
@@ -267,6 +393,15 @@ namespace WpfApp.Resources {
         public static string FirstNameColon {
             get {
                 return ResourceManager.GetString("FirstNameColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wygeneruj przykładowe dokumenty.
+        /// </summary>
+        public static string GenerateRandomFiles {
+            get {
+                return ResourceManager.GetString("GenerateRandomFiles", resourceCulture);
             }
         }
         
@@ -370,6 +505,33 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zarządzaj użytkownikami.
+        /// </summary>
+        public static string ManageUsers {
+            get {
+                return ResourceManager.GetString("ManageUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oznacz jako wykonany.
+        /// </summary>
+        public static string MarkAsDone {
+            get {
+                return ResourceManager.GetString("MarkAsDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!.
         /// </summary>
         public static string NamesMinLengthWarning {
@@ -379,11 +541,47 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nowy klient.
+        /// </summary>
+        public static string NewClient {
+            get {
+                return ResourceManager.GetString("NewClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowy typ dokumetu.
+        /// </summary>
+        public static string NewDocType {
+            get {
+                return ResourceManager.GetString("NewDocType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowy język.
+        /// </summary>
+        public static string NewLanguage {
+            get {
+                return ResourceManager.GetString("NewLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nowy użytkownik:.
         /// </summary>
         public static string NewUserColon {
             get {
                 return ResourceManager.GetString("NewUserColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Następna strona.
+        /// </summary>
+        public static string NextPage {
+            get {
+                return ResourceManager.GetString("NextPage", resourceCulture);
             }
         }
         
@@ -415,6 +613,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wyświetl statystyki.
+        /// </summary>
+        public static string OpenStatisticsWindow {
+            get {
+                return ResourceManager.GetString("OpenStatisticsWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hasło:.
         /// </summary>
         public static string PasswordColon {
@@ -442,6 +649,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Poprzednia strona.
+        /// </summary>
+        public static string PreviousPage {
+            get {
+                return ResourceManager.GetString("PreviousPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ranga.
         /// </summary>
         public static string Rank {
@@ -460,11 +676,29 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odpowiedzialny.
+        /// </summary>
+        public static string Responsible {
+            get {
+                return ResourceManager.GetString("Responsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyszukaj.
         /// </summary>
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rozmiar.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
             }
         }
         

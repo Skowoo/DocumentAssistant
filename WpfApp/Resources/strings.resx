@@ -120,8 +120,26 @@
   <data name="ActivateUser" xml:space="preserve">
     <value>Aktywuj użytkownika</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddDate" xml:space="preserve">
+    <value>Data dodania</value>
+  </data>
+  <data name="AddDoc" xml:space="preserve">
+    <value>Dodaj dokument</value>
+  </data>
   <data name="AddNewUser" xml:space="preserve">
     <value>Dodaj nowego użytkownika</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Przypisz</value>
+  </data>
+  <data name="AssignDoc" xml:space="preserve">
+    <value>Przydziel dokument</value>
+  </data>
+  <data name="AssignedUser" xml:space="preserve">
+    <value>Przypisany użytkownik</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
@@ -162,6 +180,15 @@
   <data name="Confirm" xml:space="preserve">
     <value>Zatwierdź</value>
   </data>
+  <data name="ConfirmDone" xml:space="preserve">
+    <value>Zatwierdź wykonanie</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>Zatwierdzony</value>
+  </data>
+  <data name="ConfirmedShort" xml:space="preserve">
+    <value>Zatw.</value>
+  </data>
   <data name="DbCreatedBoxText" xml:space="preserve">
     <value>Utworzono nową bazę danych z kontem administratora.   
 Login: Admin 
@@ -174,8 +201,23 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="DeactivateUser" xml:space="preserve">
     <value>Zdezaktywuj użytkownika</value>
   </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>Termin wykonania</value>
+  </data>
+  <data name="DeleteDoc" xml:space="preserve">
+    <value>Usuń dokument</value>
+  </data>
+  <data name="DocName" xml:space="preserve">
+    <value>Nazwa dokumentu</value>
+  </data>
   <data name="DocType" xml:space="preserve">
     <value>Typ dokumentu</value>
+  </data>
+  <data name="DoneDate" xml:space="preserve">
+    <value>Data wykonania</value>
+  </data>
+  <data name="EditDoc" xml:space="preserve">
+    <value>Edytuj dokument</value>
   </data>
   <data name="EnterNewLoginColon" xml:space="preserve">
     <value>Podaj nowy login:</value>
@@ -188,6 +230,9 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   </data>
   <data name="FirstNameColon" xml:space="preserve">
     <value>Imię:</value>
+  </data>
+  <data name="GenerateRandomFiles" xml:space="preserve">
+    <value>Wygeneruj przykładowe dokumenty</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -222,11 +267,32 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="ManageUserColon" xml:space="preserve">
     <value>Zarządzaj użytkownikiem:</value>
   </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Zarządzaj użytkownikami</value>
+  </data>
+  <data name="MarkAsDone" xml:space="preserve">
+    <value>Oznacz jako wykonany</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
   <data name="NamesMinLengthWarning" xml:space="preserve">
     <value>Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!</value>
   </data>
+  <data name="NewClient" xml:space="preserve">
+    <value>Nowy klient</value>
+  </data>
+  <data name="NewDocType" xml:space="preserve">
+    <value>Nowy typ dokumetu</value>
+  </data>
+  <data name="NewLanguage" xml:space="preserve">
+    <value>Nowy język</value>
+  </data>
   <data name="NewUserColon" xml:space="preserve">
     <value>Nowy użytkownik:</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Następna strona</value>
   </data>
   <data name="NoDbBoxText" xml:space="preserve">
     <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
@@ -237,6 +303,9 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="NoRoleChosenWarning" xml:space="preserve">
     <value>Nie wybrano roli!</value>
   </data>
+  <data name="OpenStatisticsWindow" xml:space="preserve">
+    <value>Wyświetl statystyki</value>
+  </data>
   <data name="PasswordColon" xml:space="preserve">
     <value>Hasło:</value>
   </data>
@@ -246,14 +315,23 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="PasswordTooShortWarning" xml:space="preserve">
     <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
   </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Poprzednia strona</value>
+  </data>
   <data name="Rank" xml:space="preserve">
     <value>Ranga</value>
   </data>
   <data name="RankColon" xml:space="preserve">
     <value>Ranga:</value>
   </data>
+  <data name="Responsible" xml:space="preserve">
+    <value>Odpowiedzialny</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Wyszukaj</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Rozmiar</value>
   </data>
   <data name="SourceLang" xml:space="preserve">
     <value>Język źródłowy</value>
