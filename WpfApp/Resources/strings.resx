@@ -144,6 +144,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
+  <data name="CancelConfirm" xml:space="preserve">
+    <value>Anuluj zatwierdzenie</value>
+  </data>
   <data name="ChangeLogin" xml:space="preserve">
     <value>Zmień login</value>
   </data>
@@ -177,8 +180,14 @@
   <data name="Client" xml:space="preserve">
     <value>Klient</value>
   </data>
+  <data name="ClientNameLengthWarning" xml:space="preserve">
+    <value>Minimalna długość nazwy klienta to trzy znaki!</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Zatwierdź</value>
+  </data>
+  <data name="ConfirmDocument" xml:space="preserve">
+    <value>Zatwierdź dokument</value>
   </data>
   <data name="ConfirmDone" xml:space="preserve">
     <value>Zatwierdź wykonanie</value>
@@ -188,6 +197,9 @@
   </data>
   <data name="ConfirmedShort" xml:space="preserve">
     <value>Zatw.</value>
+  </data>
+  <data name="ContinueQuestion" xml:space="preserve">
+    <value>Kontynuować?</value>
   </data>
   <data name="DbCreatedBoxText" xml:space="preserve">
     <value>Utworzono nową bazę danych z kontem administratora.   
@@ -204,14 +216,36 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="Deadline" xml:space="preserve">
     <value>Termin wykonania</value>
   </data>
+  <data name="DeleteBoxTitle" xml:space="preserve">
+    <value>Kasowanie dokumentu</value>
+  </data>
   <data name="DeleteDoc" xml:space="preserve">
     <value>Usuń dokument</value>
+  </data>
+  <data name="DeleteWarning" xml:space="preserve">
+    <value>Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
+Kontynuować?</value>
+  </data>
+  <data name="Doc" xml:space="preserve">
+    <value>Dokument</value>
   </data>
   <data name="DocName" xml:space="preserve">
     <value>Nazwa dokumentu</value>
   </data>
+  <data name="DocNameLengthWarning" xml:space="preserve">
+    <value>Nazwa dokumentu musi mieć conajmniej 3 znaki!</value>
+  </data>
+  <data name="DocSameLanguagesWarning" xml:space="preserve">
+    <value>Języki źródłowy i docelowy są takie same!</value>
+  </data>
+  <data name="DocSizeWarning" xml:space="preserve">
+    <value>Podano niepoprawny rozmiar dokumentu!</value>
+  </data>
   <data name="DocType" xml:space="preserve">
     <value>Typ dokumentu</value>
+  </data>
+  <data name="DocTypeLengthWarning" xml:space="preserve">
+    <value>Minimalne długośc typu dokumentu to dwa znaki!</value>
   </data>
   <data name="DoneDate" xml:space="preserve">
     <value>Data wykonania</value>
@@ -231,8 +265,17 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="FirstNameColon" xml:space="preserve">
     <value>Imię:</value>
   </data>
+  <data name="GenerateRandomDocs" xml:space="preserve">
+    <value>Zostaną wygenerowane przykłądowe dokumenty w liczbie: </value>
+  </data>
+  <data name="GenerateRandomDocsBoxTitle" xml:space="preserve">
+    <value>Generowanie losowych dokumentów</value>
+  </data>
   <data name="GenerateRandomFiles" xml:space="preserve">
     <value>Wygeneruj przykładowe dokumenty</value>
+  </data>
+  <data name="LanguageNameLengthWarning" xml:space="preserve">
+    <value>Minimalna długość nazwy języka to 3 znaki!</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -294,17 +337,35 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="NextPage" xml:space="preserve">
     <value>Następna strona</value>
   </data>
+  <data name="NoClientWarning" xml:space="preserve">
+    <value>Nie przypisano zleceniodawcy do dokumentu!</value>
+  </data>
   <data name="NoDbBoxText" xml:space="preserve">
     <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
   </data>
   <data name="NoDbBoxTitle" xml:space="preserve">
     <value>Brak połączenia z bazą danych!</value>
   </data>
+  <data name="NoDeadlineWarning" xml:space="preserve">
+    <value>Nie wybrano terminu wykonania dokumentu!</value>
+  </data>
+  <data name="NoDocTypeWarning" xml:space="preserve">
+    <value>Nie wybrano typu dokumentu!</value>
+  </data>
   <data name="NoRoleChosenWarning" xml:space="preserve">
     <value>Nie wybrano roli!</value>
   </data>
+  <data name="NoSourceLangWarning" xml:space="preserve">
+    <value>Nie wybrano języka źródłowego dokumentu!</value>
+  </data>
+  <data name="NoTargetLangWarning" xml:space="preserve">
+    <value>Nie wybrano języka docelowego dokumentu!</value>
+  </data>
   <data name="OpenStatisticsWindow" xml:space="preserve">
     <value>Wyświetl statystyki</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Strona</value>
   </data>
   <data name="PasswordColon" xml:space="preserve">
     <value>Hasło:</value>
@@ -351,5 +412,8 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="Translator" xml:space="preserve">
     <value>Tłumacz</value>
     <comment>Noun</comment>
+  </data>
+  <data name="UserLevelWarning" xml:space="preserve">
+    <value>Nieprawidłowy poziom użytkownika!</value>
   </data>
 </root>

@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp.Windows;
+using WpfApp.Resources;
 
 namespace WpfApp
 {
@@ -95,7 +96,7 @@ namespace WpfApp
                 case 5:
                     return;
                 default:
-                    MessageBox.Show("Nieprawidłowy poziom użytkownika!");
+                    MessageBox.Show(strings.UserLevelWarning);
                     this.Close();
                     return;
             }
@@ -183,7 +184,7 @@ namespace WpfApp
             ConfirmNewLanguage_Button.Visibility = Visibility.Visible;
         }
 
-        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"Strona {currentPage} z {totalPages}";
+        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"{strings.Page} {currentPage} z {totalPages}";
 
         #region Updating of elements lists
 
@@ -260,9 +261,9 @@ namespace WpfApp
             if (selectedDocument is not null)
             {
                 if (selectedDocument.IsConfirmed)
-                    ConfirmDoneBtn.Content = "Anuluj zatwierdzenie";
+                    ConfirmDoneBtn.Content = strings.CancelConfirm;
                 else
-                    ConfirmDoneBtn.Content = "Zatwierdź dokument";
+                    ConfirmDoneBtn.Content = strings.ConfirmDocument;
             }
         }
 
@@ -420,8 +421,8 @@ namespace WpfApp
         {
             int numberOfDocs = 1000;
 
-            MessageBoxResult createExampleDocs = MessageBox.Show($"Zamierzasz wygenerować {numberOfDocs} przykładowych dokumentów.\nKontynuować?",
-                                                                "Generowanie losowych dokumentów", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult createExampleDocs = MessageBox.Show($"{strings.GenerateRandomDocs} {numberOfDocs}\n{strings.ContinueQuestion}", 
+                                                                    strings.GenerateRandomDocsBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (createExampleDocs == MessageBoxResult.Yes)
                 RandomDataGenerator.GenerateExampleDocuments(numberOfDocs);
@@ -450,50 +451,50 @@ namespace WpfApp
         {
             if (NewDocName_TextBox.Text.Trim().Length < 3)
             {
-                MessageBox.Show("Nazwa dokumentu musi mieć conajmniej 3 znaki!");
+                MessageBox.Show(strings.DocNameLengthWarning);
                 return;
             }
 
             bool sizeParsed = Int32.TryParse(NewDocSize_TextBox.Text, out int docSize);
             if (!sizeParsed)
             {
-                MessageBox.Show("Podano niepoprawny rozmiar dokumentu!");
+                MessageBox.Show(strings.DocSizeWarning);
                 return;
             }
 
             if (NewDocType_ComboBox.SelectedItem is null)
             {
-                MessageBox.Show("Nie wybrano typu dokumentu!");
+                MessageBox.Show(strings.NoDocTypeWarning);
                 return;
             }
 
             if (NewDocCustomer_ComboBox.SelectedItem is null)
             {
-                MessageBox.Show("Nie przypisano zleceniodawcy do dokumentu!");
+                MessageBox.Show(strings.NoClientWarning);
                 return;
             }
 
             if (DeadlineCallendar.SelectedDate is null)
             {
-                MessageBox.Show("Nie wybrano terminu wykonania dokumentu!");
+                MessageBox.Show(strings.NoDeadlineWarning);
                 return;
             }
 
             if (NewDocOriginalLang_ComboBox.SelectedItem is null)
             {
-                MessageBox.Show("Nie wybrano języka źródłowego dokumentu!");
+                MessageBox.Show(strings.NoSourceLangWarning);
                 return;
             }
 
             if (NewDocTargetLang_ComboBox.SelectedItem is null)
             {
-                MessageBox.Show("Nie wybrano języka docelowego dokumentu!");
+                MessageBox.Show(strings.NoTargetLangWarning);
                 return;
             }
 
             if (NewDocTargetLang_ComboBox.SelectedItem == NewDocOriginalLang_ComboBox.SelectedItem)
             {
-                MessageBox.Show("Języki źródłowy i docelowy są takie same!");
+                MessageBox.Show(strings.DocSameLanguagesWarning);
                 return;
             }
 
@@ -551,7 +552,7 @@ namespace WpfApp
         {
             if (NewType_TextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show("Minimalne długośc typu dokumentu to dwa znaki!");
+                MessageBox.Show(strings.DocTypeLengthWarning);
                 return;
             }
 
@@ -582,7 +583,7 @@ namespace WpfApp
         {
             if (NewCustomer_TextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show("Minimalna długość nazwy klienta to trzy znaki!");
+                MessageBox.Show(strings.ClientNameLengthWarning);
                 return;
             }
 
@@ -613,7 +614,7 @@ namespace WpfApp
         {
             if (NewLanguage_TextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show("Minimalna długość nazwy języka to 3 znaki!");
+                MessageBox.Show(strings.LanguageNameLengthWarning);
                 return;
             }
 
@@ -715,8 +716,7 @@ namespace WpfApp
         {
             if (selectedDocument is null) return;
 
-            MessageBoxResult deleteDocument = MessageBox.Show("Zamierzasz trwale usunąć dokument z bazy danych. Operacja ta jest nieodwracalna i może zaburzyć integralność danych!\nKontynuować?",
-                                                                "Kasowanie dokumentu", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult deleteDocument = MessageBox.Show(strings.DeleteWarning, strings.DeleteBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (deleteDocument == MessageBoxResult.Yes)
             {

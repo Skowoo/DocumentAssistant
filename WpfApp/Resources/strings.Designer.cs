@@ -142,6 +142,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anuluj zatwierdzenie.
+        /// </summary>
+        public static string CancelConfirm {
+            get {
+                return ResourceManager.GetString("CancelConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zmień login.
         /// </summary>
         public static string ChangeLogin {
@@ -241,11 +250,29 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimalna długość nazwy klienta to trzy znaki!.
+        /// </summary>
+        public static string ClientNameLengthWarning {
+            get {
+                return ResourceManager.GetString("ClientNameLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zatwierdź.
         /// </summary>
         public static string Confirm {
             get {
                 return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zatwierdź dokument.
+        /// </summary>
+        public static string ConfirmDocument {
+            get {
+                return ResourceManager.GetString("ConfirmDocument", resourceCulture);
             }
         }
         
@@ -273,6 +300,15 @@ namespace WpfApp.Resources {
         public static string ConfirmedShort {
             get {
                 return ResourceManager.GetString("ConfirmedShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontynuować?.
+        /// </summary>
+        public static string ContinueQuestion {
+            get {
+                return ResourceManager.GetString("ContinueQuestion", resourceCulture);
             }
         }
         
@@ -316,11 +352,39 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kasowanie dokumentu.
+        /// </summary>
+        public static string DeleteBoxTitle {
+            get {
+                return ResourceManager.GetString("DeleteBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuń dokument.
         /// </summary>
         public static string DeleteDoc {
             get {
                 return ResourceManager.GetString("DeleteDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
+        ///Kontynuować?.
+        /// </summary>
+        public static string DeleteWarning {
+            get {
+                return ResourceManager.GetString("DeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dokument.
+        /// </summary>
+        public static string Doc {
+            get {
+                return ResourceManager.GetString("Doc", resourceCulture);
             }
         }
         
@@ -334,11 +398,47 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nazwa dokumentu musi mieć conajmniej 3 znaki!.
+        /// </summary>
+        public static string DocNameLengthWarning {
+            get {
+                return ResourceManager.GetString("DocNameLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Języki źródłowy i docelowy są takie same!.
+        /// </summary>
+        public static string DocSameLanguagesWarning {
+            get {
+                return ResourceManager.GetString("DocSameLanguagesWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podano niepoprawny rozmiar dokumentu!.
+        /// </summary>
+        public static string DocSizeWarning {
+            get {
+                return ResourceManager.GetString("DocSizeWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Typ dokumentu.
         /// </summary>
         public static string DocType {
             get {
                 return ResourceManager.GetString("DocType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimalne długośc typu dokumentu to dwa znaki!.
+        /// </summary>
+        public static string DocTypeLengthWarning {
+            get {
+                return ResourceManager.GetString("DocTypeLengthWarning", resourceCulture);
             }
         }
         
@@ -397,11 +497,38 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zostaną wygenerowane przykłądowe dokumenty w liczbie: .
+        /// </summary>
+        public static string GenerateRandomDocs {
+            get {
+                return ResourceManager.GetString("GenerateRandomDocs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generowanie losowych dokumentów.
+        /// </summary>
+        public static string GenerateRandomDocsBoxTitle {
+            get {
+                return ResourceManager.GetString("GenerateRandomDocsBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wygeneruj przykładowe dokumenty.
         /// </summary>
         public static string GenerateRandomFiles {
             get {
                 return ResourceManager.GetString("GenerateRandomFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimalna długość nazwy języka to 3 znaki!.
+        /// </summary>
+        public static string LanguageNameLengthWarning {
+            get {
+                return ResourceManager.GetString("LanguageNameLengthWarning", resourceCulture);
             }
         }
         
@@ -586,6 +713,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie przypisano zleceniodawcy do dokumentu!.
+        /// </summary>
+        public static string NoClientWarning {
+            get {
+                return ResourceManager.GetString("NoClientWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz &apos;Tak&apos; aby utworzyć nową bazę danych..
         /// </summary>
         public static string NoDbBoxText {
@@ -604,6 +740,24 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano terminu wykonania dokumentu!.
+        /// </summary>
+        public static string NoDeadlineWarning {
+            get {
+                return ResourceManager.GetString("NoDeadlineWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano typu dokumentu!.
+        /// </summary>
+        public static string NoDocTypeWarning {
+            get {
+                return ResourceManager.GetString("NoDocTypeWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie wybrano roli!.
         /// </summary>
         public static string NoRoleChosenWarning {
@@ -613,11 +767,38 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano języka źródłowego dokumentu!.
+        /// </summary>
+        public static string NoSourceLangWarning {
+            get {
+                return ResourceManager.GetString("NoSourceLangWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano języka docelowego dokumentu!.
+        /// </summary>
+        public static string NoTargetLangWarning {
+            get {
+                return ResourceManager.GetString("NoTargetLangWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyświetl statystyki.
         /// </summary>
         public static string OpenStatisticsWindow {
             get {
                 return ResourceManager.GetString("OpenStatisticsWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strona.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
             }
         }
         
@@ -753,6 +934,15 @@ namespace WpfApp.Resources {
         public static string Translator {
             get {
                 return ResourceManager.GetString("Translator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nieprawidłowy poziom użytkownika!.
+        /// </summary>
+        public static string UserLevelWarning {
+            get {
+                return ResourceManager.GetString("UserLevelWarning", resourceCulture);
             }
         }
     }
