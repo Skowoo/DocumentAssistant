@@ -124,6 +124,42 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zmiana hasła użytkownika:.
+        /// </summary>
+        public static string ChangingPasswordColon {
+            get {
+                return ResourceManager.GetString("ChangingPasswordColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmiana danych osobowych:.
+        /// </summary>
+        public static string ChangingPersonalDataColon {
+            get {
+                return ResourceManager.GetString("ChangingPersonalDataColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmiana loginu użytkownika:.
+        /// </summary>
+        public static string ChangingUserLoginColon {
+            get {
+                return ResourceManager.GetString("ChangingUserLoginColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmiana roli użytkownika:.
+        /// </summary>
+        public static string ChangingUserRoleColon {
+            get {
+                return ResourceManager.GetString("ChangingUserRoleColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wybierz rolę:.
         /// </summary>
         public static string ChooseRoleColon {
@@ -244,6 +280,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login..
+        /// </summary>
+        public static string LoginAlreadyExistsWarning {
+            get {
+                return ResourceManager.GetString("LoginAlreadyExistsWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login:.
         /// </summary>
         public static string LoginColon {
@@ -271,11 +316,29 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login musi składać się z conajmniej dwóch znaków!.
+        /// </summary>
+        public static string LoginMinLengthWarning {
+            get {
+                return ResourceManager.GetString("LoginMinLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie odnaleziono loginu w bazie..
         /// </summary>
         public static string LoginNotFound {
             get {
                 return ResourceManager.GetString("LoginNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login zbyt krótki!.
+        /// </summary>
+        public static string LoginTooShortWarning {
+            get {
+                return ResourceManager.GetString("LoginTooShortWarning", resourceCulture);
             }
         }
         
@@ -307,6 +370,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!.
+        /// </summary>
+        public static string NamesMinLengthWarning {
+            get {
+                return ResourceManager.GetString("NamesMinLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nowy użytkownik:.
         /// </summary>
         public static string NewUserColon {
@@ -334,11 +406,38 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie wybrano roli!.
+        /// </summary>
+        public static string NoRoleChosenWarning {
+            get {
+                return ResourceManager.GetString("NoRoleChosenWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hasło:.
         /// </summary>
         public static string PasswordColon {
             get {
                 return ResourceManager.GetString("PasswordColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hasła nie są jednakowe!.
+        /// </summary>
+        public static string PasswordsNotSameWarning {
+            get {
+                return ResourceManager.GetString("PasswordsNotSameWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hasło za krótkie! minimalny rozmiar to 4 znaki.
+        /// </summary>
+        public static string PasswordTooShortWarning {
+            get {
+                return ResourceManager.GetString("PasswordTooShortWarning", resourceCulture);
             }
         }
         

@@ -138,6 +138,18 @@
   <data name="ChangeRank" xml:space="preserve">
     <value>Zmień rangę</value>
   </data>
+  <data name="ChangingPasswordColon" xml:space="preserve">
+    <value>Zmiana hasła użytkownika:</value>
+  </data>
+  <data name="ChangingPersonalDataColon" xml:space="preserve">
+    <value>Zmiana danych osobowych:</value>
+  </data>
+  <data name="ChangingUserLoginColon" xml:space="preserve">
+    <value>Zmiana loginu użytkownika:</value>
+  </data>
+  <data name="ChangingUserRoleColon" xml:space="preserve">
+    <value>Zmiana roli użytkownika:</value>
+  </data>
   <data name="ChooseRoleColon" xml:space="preserve">
     <value>Wybierz rolę:</value>
   </data>
@@ -180,6 +192,9 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="LoginAlreadyExistsWarning" xml:space="preserve">
+    <value>Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.</value>
+  </data>
   <data name="LoginColon" xml:space="preserve">
     <value>Login:</value>
   </data>
@@ -189,8 +204,14 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="LoginFailed" xml:space="preserve">
     <value>Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia</value>
   </data>
+  <data name="LoginMinLengthWarning" xml:space="preserve">
+    <value>Login musi składać się z conajmniej dwóch znaków!</value>
+  </data>
   <data name="LoginNotFound" xml:space="preserve">
     <value>Nie odnaleziono loginu w bazie.</value>
+  </data>
+  <data name="LoginTooShortWarning" xml:space="preserve">
+    <value>Login zbyt krótki!</value>
   </data>
   <data name="LoginVerb" xml:space="preserve">
     <value>Zaloguj</value>
@@ -201,6 +222,9 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="ManageUserColon" xml:space="preserve">
     <value>Zarządzaj użytkownikiem:</value>
   </data>
+  <data name="NamesMinLengthWarning" xml:space="preserve">
+    <value>Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!</value>
+  </data>
   <data name="NewUserColon" xml:space="preserve">
     <value>Nowy użytkownik:</value>
   </data>
@@ -210,8 +234,17 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
   <data name="NoDbBoxTitle" xml:space="preserve">
     <value>Brak połączenia z bazą danych!</value>
   </data>
+  <data name="NoRoleChosenWarning" xml:space="preserve">
+    <value>Nie wybrano roli!</value>
+  </data>
   <data name="PasswordColon" xml:space="preserve">
     <value>Hasło:</value>
+  </data>
+  <data name="PasswordsNotSameWarning" xml:space="preserve">
+    <value>Hasła nie są jednakowe!</value>
+  </data>
+  <data name="PasswordTooShortWarning" xml:space="preserve">
+    <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
   </data>
   <data name="Rank" xml:space="preserve">
     <value>Ranga</value>

@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using WpfApp.Resources;
 
 namespace WpfApp.Windows
 {
@@ -43,9 +44,9 @@ namespace WpfApp.Windows
                 AddUserButton.Visibility = Visibility.Hidden;
 
                 if (selectedUserView.IsActive)
-                    ActivateUserButton.Content = "Zdezaktywuj użytkownika";
+                    ActivateUserButton.Content = strings.DeactivateUser;
                 else
-                    ActivateUserButton.Content = "Aktywuj użytkownika";
+                    ActivateUserButton.Content = strings.ActivateUser;
             }
         }
 
@@ -53,7 +54,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Visible;
-            LoginChangeDescription.Text = $"Zmiana loginu użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            LoginChangeDescription.Text = $"{strings.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewLoginTextBox.Text = selectedUserView.Login;
         }
 
@@ -61,7 +62,7 @@ namespace WpfApp.Windows
         {
             if (NewLoginTextBox.Text.Length < 2)
             {
-                MessageBox.Show("Login musi składać się z conajmniej dwóch znaków!");
+                MessageBox.Show(strings.LoginMinLengthWarning);
                 return;
             }
 
@@ -71,7 +72,7 @@ namespace WpfApp.Windows
                 {
                     if (context.Users.Where(x => x.Login == NewLoginTextBox.Text.Trim()).Any())
                     {
-                        MessageBox.Show("Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.");
+                        MessageBox.Show(strings.LoginAlreadyExistsWarning);
                         return;
                     }
                     else
@@ -90,7 +91,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeNamesGrid.Visibility = Visibility.Visible;
-            NamesChangeDescription.Text = $"Zmiana danych osobowych: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            NamesChangeDescription.Text = $"{strings.ChangingPersonalDataColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewFirstNameTextBox.Text = selectedUserView.FirstName;
             NewLastNameTextBox.Text = selectedUserView.LastName;
         }
@@ -99,7 +100,7 @@ namespace WpfApp.Windows
         {
             if (NewFirstNameTextBox.Text.Length < 2 || NewLastNameTextBox.Text.Length < 2)
             {
-                MessageBox.Show("Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!");
+                MessageBox.Show(strings.NamesMinLengthWarning);
                 return;
             }
 
@@ -121,19 +122,19 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Visible;
-            PasswordChangeDescription.Text = $"Zmiana hasła użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            PasswordChangeDescription.Text = $"{strings.ChangingPasswordColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
         }
 
         private void ConfirmPasswordChangeButton_Click(object sender, RoutedEventArgs e)
         {
             if (NewPasswordBox.Password != ConfirmPasswordBox.Password)
             {
-                MessageBox.Show("Hasła nie są jednakowe!");
+                MessageBox.Show(strings.PasswordsNotSameWarning);
                 return;
             }
             if (NewPasswordBox.Password.Length < 4)
             {
-                MessageBox.Show("Hasło za krótkie! minimalny rozmiar to 4 znaki");
+                MessageBox.Show(strings.PasswordTooShortWarning);
                 return;
             }
 
@@ -157,7 +158,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeRoleGrid.Visibility = Visibility.Visible;
-            RoleChangeDescription.Text = $"Zmiana roli użytkownika: \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            RoleChangeDescription.Text = $"{strings.ChangingUserRoleColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             List<Role> tempRolesList;
             using (MainContext context = new MainContext())
             {
@@ -227,31 +228,31 @@ namespace WpfApp.Windows
         {
             if (FirstPasswordBox.Password != SecondPasswordBox.Password)
             {
-                MessageBox.Show("Hasła w okienkach nie są jednakowe!");
+                MessageBox.Show(strings.PasswordsNotSameWarning);
                 return;
             }
 
             if (FirstPasswordBox.Password.Length < 4)
             {
-                MessageBox.Show("Hasło za krótkie! minimalny rozmiar to 4 znaki");
+                MessageBox.Show(strings.PasswordTooShortWarning);
                 return;
             }
 
             if (RoleComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Nie wybrano roli dla nowego użytkownika!");
+                MessageBox.Show(strings.NoRoleChosenWarning);
                 return;
             }
 
             if (LoginTextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show("Login musi składać się z conajmniej dwóch znaków!");
+                MessageBox.Show(strings.LoginTooShortWarning);
                 return;
             }
 
             if (FirstNameTextBox.Text.Trim().Length < 2 || LastNameTextBox.Text.Length < 2)
             {
-                MessageBox.Show("Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!");
+                MessageBox.Show(strings.NamesMinLengthWarning);
                 return;
             }
 
@@ -274,7 +275,7 @@ namespace WpfApp.Windows
                 {
                     if (context.Users.Where(x => x.Login == newUser.Login).Any())
                     {
-                        MessageBox.Show("Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.");
+                        MessageBox.Show(strings.LoginAlreadyExistsWarning);
                         return;
                     }
                     else
