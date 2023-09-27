@@ -8,7 +8,16 @@
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
-        Title="LoginWindow" Height="360" Width="350">
+        Title="LoginWindow" Height="380" Width="350">
+
+    <Window.Resources>
+        <Style x:Key="FlagButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid Background="BlanchedAlmond">
         <Grid HorizontalAlignment="Center" Height="210" VerticalAlignment="Top" Margin="0,55,0,0">
             <Grid.ColumnDefinitions>
@@ -21,12 +30,14 @@
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="2.028,5.804" Height="25" Width="220" FontSize="18" Grid.ColumnSpan="2" Text="{x:Static CC:Strings.LoginColon}"></TextBlock>
             <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalContentAlignment="Center" KeyDown="PasswordBox_KeyDown" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="220" Height="40" Grid.ColumnSpan="2" Background="#FFFFF4E3" FontSize="18"/>
         </Grid>
+        
         <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="DocumentAssistant" VerticalAlignment="Top" Width="330" Height="40" FontSize="24" FontWeight="Bold" FontStyle="Italic" Foreground="#FF796953"/>
-        <Grid x:Name="LanguageSelectionGrid" Width="120" Height="40" Margin="0,260,0,0">
-            <Button Name="SelectLanguageEng" HorizontalAlignment="Left" Click="SelectLanguageEng_Click">
+        
+        <Grid x:Name="LanguageSelectionGrid" VerticalAlignment="Bottom" Width="180" Height="60" Margin="0,0,0,10">
+            <Button Name="SelectLanguageEng" HorizontalAlignment="Left" Click="SelectLanguageEng_Click" Style="{StaticResource FlagButton}">
                 <Image Source="/Resources/Images/flag_eng.png"/>
             </Button>
-            <Button Name="SelectLanguagePol" HorizontalAlignment="Right" Click="SelectLanguagePol_Click">
+            <Button Name="SelectLanguagePol" HorizontalAlignment="Right" Click="SelectLanguagePol_Click" Style="{StaticResource FlagButton}">
                 <Image Source="/Resources/Images/flag_pol.png"/>
             </Button>
         </Grid>
