@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\flag_eng.png" />
+    <None Remove="Resources\Images\flag_pol.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="DAicon.ico" />
   </ItemGroup>
 
@@ -23,6 +28,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DocumentAssistantLibrary\DocumentAssistantLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\flag_eng.png" />
+    <Resource Include="Resources\Images\flag_pol.png" />
   </ItemGroup>
 
   <ItemGroup>
