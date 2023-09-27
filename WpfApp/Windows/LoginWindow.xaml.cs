@@ -2,6 +2,7 @@
 using DocumentAssistantLibrary.Classes;
 using DocumentAssistantLibrary.Models;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,18 @@ namespace WpfApp.Windows
         }
 
         #region Controls
+
+        private void SelectLanguageEng_Click(object sender, RoutedEventArgs e)
+        {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-EN");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-EN");
+        }
+
+        private void SelectLanguagePol_Click(object sender, RoutedEventArgs e)
+        {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pl-PL");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pl-PL");
+        }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
