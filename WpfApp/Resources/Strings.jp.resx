@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivateUser" xml:space="preserve">
+    <value>ユーザー起動</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="AddDate" xml:space="preserve">
+    <value>追加日付</value>
+  </data>
+  <data name="AddDoc" xml:space="preserve">
+    <value>書類追加</value>
+  </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>新ユーザー追加</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>割り当てる</value>
+  </data>
+  <data name="AssignDoc" xml:space="preserve">
+    <value>書類を割り当てる</value>
+  </data>
+  <data name="AssignedUser" xml:space="preserve">
+    <value>対象ユーザー</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="CancelConfirm" xml:space="preserve">
+    <value>承認キャンセル</value>
+  </data>
+  <data name="ChangeLogin" xml:space="preserve">
+    <value>ログイン変更</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>パスワード変更</value>
+  </data>
+  <data name="ChangePersonalData" xml:space="preserve">
+    <value>個人情報変更</value>
+  </data>
+  <data name="ChangeRank" xml:space="preserve">
+    <value>ランク変更</value>
+  </data>
+  <data name="ChangingPasswordColon" xml:space="preserve">
+    <value>ユーザーパスワード変更：</value>
+  </data>
+  <data name="ChangingPersonalDataColon" xml:space="preserve">
+    <value>個人情報変更：</value>
+  </data>
+  <data name="ChangingUserLoginColon" xml:space="preserve">
+    <value>ユーザーログイン変更：</value>
+  </data>
+  <data name="ChangingUserRoleColon" xml:space="preserve">
+    <value>ユーザー役割変更：</value>
+  </data>
+  <data name="ChooseRoleColon" xml:space="preserve">
+    <value>役割選択：</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>依頼者</value>
+  </data>
+  <data name="ClientNameLengthWarning" xml:space="preserve">
+    <value>Minimalna długość nazwy klienta to trzy znaki!</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="ConfirmDocument" xml:space="preserve">
+    <value>書類承認</value>
+  </data>
+  <data name="ConfirmDone" xml:space="preserve">
+    <value>完了承認</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>承認済</value>
+  </data>
+  <data name="ConfirmedShort" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="ContinueQuestion" xml:space="preserve">
+    <value>Kontynuować?</value>
+  </data>
+  <data name="DbCreatedBoxText" xml:space="preserve">
+    <value>Utworzono nową bazę danych z kontem administratora.   
+Login: Admin 
+Hasło: Admin
+Możesz się zalogować z wykorzystaniem powyższych danych.</value>
+  </data>
+  <data name="DbNotCreatedBoxText" xml:space="preserve">
+    <value>Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!</value>
+  </data>
+  <data name="DeactivateUser" xml:space="preserve">
+    <value>Zdezaktywuj użytkownika</value>
+  </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>Termin wykonania</value>
+  </data>
+  <data name="DeleteBoxTitle" xml:space="preserve">
+    <value>Kasowanie dokumentu</value>
+  </data>
+  <data name="DeleteDoc" xml:space="preserve">
+    <value>書類解除</value>
+  </data>
+  <data name="DeleteWarning" xml:space="preserve">
+    <value>Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
+Kontynuować?</value>
+  </data>
+  <data name="Doc" xml:space="preserve">
+    <value>書類</value>
+  </data>
+  <data name="DocName" xml:space="preserve">
+    <value>書類名</value>
+  </data>
+  <data name="DocNameLengthWarning" xml:space="preserve">
+    <value>Nazwa dokumentu musi mieć conajmniej 3 znaki!</value>
+  </data>
+  <data name="DocSameLanguagesWarning" xml:space="preserve">
+    <value>Języki źródłowy i docelowy są takie same!</value>
+  </data>
+  <data name="DocSizeWarning" xml:space="preserve">
+    <value>Podano niepoprawny rozmiar dokumentu!</value>
+  </data>
+  <data name="DocType" xml:space="preserve">
+    <value>Typ dokumentu</value>
+  </data>
+  <data name="DocTypeLengthWarning" xml:space="preserve">
+    <value>Minimalne długośc typu dokumentu to dwa znaki!</value>
+  </data>
+  <data name="DoneDate" xml:space="preserve">
+    <value>Data wykonania</value>
+  </data>
+  <data name="EditDoc" xml:space="preserve">
+    <value>Edytuj dokument</value>
+  </data>
+  <data name="EnterNewLoginColon" xml:space="preserve">
+    <value>Podaj nowy login:</value>
+  </data>
+  <data name="EnterNewPasswordColon" xml:space="preserve">
+    <value>Wprowadź nowe hasło:</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="FirstNameColon" xml:space="preserve">
+    <value>Imię:</value>
+  </data>
+  <data name="GenerateRandomDocs" xml:space="preserve">
+    <value>Zostaną wygenerowane przykłądowe dokumenty w liczbie: </value>
+  </data>
+  <data name="GenerateRandomDocsBoxTitle" xml:space="preserve">
+    <value>Generowanie losowych dokumentów</value>
+  </data>
+  <data name="GenerateRandomFiles" xml:space="preserve">
+    <value>Wygeneruj przykładowe dokumenty</value>
+  </data>
+  <data name="LanguageNameLengthWarning" xml:space="preserve">
+    <value>Minimalna długość nazwy języka to 3 znaki!</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginAlreadyExistsWarning" xml:space="preserve">
+    <value>Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.</value>
+  </data>
+  <data name="LoginColon" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="LoginDataNotCorrect" xml:space="preserve">
+    <value>Nieprawidłowe dane logowania. Sprawdź login i hasło</value>
+  </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia</value>
+  </data>
+  <data name="LoginMinLengthWarning" xml:space="preserve">
+    <value>Login musi składać się z conajmniej dwóch znaków!</value>
+  </data>
+  <data name="LoginNotFound" xml:space="preserve">
+    <value>Nie odnaleziono loginu w bazie.</value>
+  </data>
+  <data name="LoginTooShortWarning" xml:space="preserve">
+    <value>Login zbyt krótki!</value>
+  </data>
+  <data name="LoginVerb" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="ManageUserColon" xml:space="preserve">
+    <value>Zarządzaj użytkownikiem:</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Zarządzaj użytkownikami</value>
+  </data>
+  <data name="MarkAsDone" xml:space="preserve">
+    <value>Oznacz jako wykonany</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NamesMinLengthWarning" xml:space="preserve">
+    <value>Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!</value>
+  </data>
+  <data name="NewClient" xml:space="preserve">
+    <value>Nowy klient</value>
+  </data>
+  <data name="NewDocType" xml:space="preserve">
+    <value>Nowy typ dokumetu</value>
+  </data>
+  <data name="NewLanguage" xml:space="preserve">
+    <value>Nowy język</value>
+  </data>
+  <data name="NewUserColon" xml:space="preserve">
+    <value>Nowy użytkownik:</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Następna strona</value>
+  </data>
+  <data name="NoClientWarning" xml:space="preserve">
+    <value>Nie przypisano zleceniodawcy do dokumentu!</value>
+  </data>
+  <data name="NoDbBoxText" xml:space="preserve">
+    <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
+  </data>
+  <data name="NoDbBoxTitle" xml:space="preserve">
+    <value>Brak połączenia z bazą danych!</value>
+  </data>
+  <data name="NoDeadlineWarning" xml:space="preserve">
+    <value>Nie wybrano terminu wykonania dokumentu!</value>
+  </data>
+  <data name="NoDocTypeWarning" xml:space="preserve">
+    <value>Nie wybrano typu dokumentu!</value>
+  </data>
+  <data name="NoRoleChosenWarning" xml:space="preserve">
+    <value>Nie wybrano roli!</value>
+  </data>
+  <data name="NoSourceLangWarning" xml:space="preserve">
+    <value>Nie wybrano języka źródłowego dokumentu!</value>
+  </data>
+  <data name="NoTargetLangWarning" xml:space="preserve">
+    <value>Nie wybrano języka docelowego dokumentu!</value>
+  </data>
+  <data name="OpenStatisticsWindow" xml:space="preserve">
+    <value>Wyświetl statystyki</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>ページ</value>
+  </data>
+  <data name="PasswordColon" xml:space="preserve">
+    <value>パスワード：</value>
+  </data>
+  <data name="PasswordsNotSameWarning" xml:space="preserve">
+    <value>パスワードが一致しない！</value>
+  </data>
+  <data name="PasswordTooShortWarning" xml:space="preserve">
+    <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Poprzednia strona</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>ランク</value>
+  </data>
+  <data name="RankColon" xml:space="preserve">
+    <value>ランク：</value>
+  </data>
+  <data name="Responsible" xml:space="preserve">
+    <value>担当</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="SourceLang" xml:space="preserve">
+    <value>原語</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>名字</value>
+  </data>
+  <data name="SurnameColon" xml:space="preserve">
+    <value>名字：</value>
+  </data>
+  <data name="TargetLang" xml:space="preserve">
+    <value>対象言語</value>
+  </data>
+  <data name="Translator" xml:space="preserve">
+    <value>翻訳者</value>
+    <comment>Noun</comment>
+  </data>
+  <data name="UserLevelWarning" xml:space="preserve">
+    <value>Nieprawidłowy poziom użytkownika!</value>
+  </data>
+</root>
