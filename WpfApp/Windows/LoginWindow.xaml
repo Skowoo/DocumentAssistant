@@ -15,10 +15,10 @@
                 <ColumnDefinition Width="37*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="LoginButton" Content="{x:Static CC:strings.LoginVerb}" VerticalAlignment="Top" Height="50" Click="LoginButton_Click" FontWeight="Bold" FontSize="16" Margin="0,159,0,0" Grid.ColumnSpan="2" Background="#FFFFBB56" BorderBrush="#FFFDC97B"/>
+            <Button x:Name="LoginButton" Content="{x:Static CC:Strings.LoginVerb}" VerticalAlignment="Top" Height="50" Click="LoginButton_Click" FontWeight="Bold" FontSize="16" Margin="0,159,0,0" Grid.ColumnSpan="2" Background="#FFFFBB56" BorderBrush="#FFFDC97B"/>
             <TextBox x:Name="LoginTextBox" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Height="40" Margin="0,30,0,0" Grid.ColumnSpan="2" Background="#FFFFF4E3" FontSize="18"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="0,75,0,0" Height="24" Width="220" FontSize="18" Grid.ColumnSpan="2" Text="{x:Static CC:strings.PasswordColon}"></TextBlock>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="2.028,5.804" Height="25" Width="220" FontSize="18" Grid.ColumnSpan="2" Text="{x:Static CC:strings.LoginColon}"></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="0,75,0,0" Height="24" Width="220" FontSize="18" Grid.ColumnSpan="2" Text="{x:Static CC:Strings.PasswordColon}"></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="2.028,5.804" Height="25" Width="220" FontSize="18" Grid.ColumnSpan="2" Text="{x:Static CC:Strings.LoginColon}"></TextBlock>
             <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalContentAlignment="Center" KeyDown="PasswordBox_KeyDown" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="220" Height="40" Grid.ColumnSpan="2" Background="#FFFFF4E3" FontSize="18"/>
         </Grid>
         <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="DocumentAssistant" VerticalAlignment="Top" Width="330" Height="40" FontSize="24" FontWeight="Bold" FontStyle="Italic" Foreground="#FF796953"/>
