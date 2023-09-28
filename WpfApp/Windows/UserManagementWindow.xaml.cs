@@ -44,9 +44,9 @@ namespace WpfApp.Windows
                 AddUserButton.Visibility = Visibility.Hidden;
 
                 if (selectedUserView.IsActive)
-                    ActivateUserButton.Content = Strings.DeactivateUser;
+                    ActivateUserButton.Content = Text.DeactivateUser;
                 else
-                    ActivateUserButton.Content = Strings.ActivateUser;
+                    ActivateUserButton.Content = Text.ActivateUser;
             }
         }
 
@@ -54,7 +54,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Visible;
-            LoginChangeDescription.Text = $"{Strings.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            LoginChangeDescription.Text = $"{Text.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewLoginTextBox.Text = selectedUserView.Login;
         }
 
@@ -62,7 +62,7 @@ namespace WpfApp.Windows
         {
             if (NewLoginTextBox.Text.Length < 2)
             {
-                MessageBox.Show(Strings.LoginMinLengthWarning);
+                MessageBox.Show(Text.LoginMinLengthWarning);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace WpfApp.Windows
                 {
                     if (context.Users.Where(x => x.Login == NewLoginTextBox.Text.Trim()).Any())
                     {
-                        MessageBox.Show(Strings.LoginAlreadyExistsWarning);
+                        MessageBox.Show(Text.LoginAlreadyExistsWarning);
                         return;
                     }
                     else
@@ -91,7 +91,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeNamesGrid.Visibility = Visibility.Visible;
-            NamesChangeDescription.Text = $"{Strings.ChangingPersonalDataColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            NamesChangeDescription.Text = $"{Text.ChangingPersonalDataColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewFirstNameTextBox.Text = selectedUserView.FirstName;
             NewLastNameTextBox.Text = selectedUserView.LastName;
         }
@@ -100,7 +100,7 @@ namespace WpfApp.Windows
         {
             if (NewFirstNameTextBox.Text.Length < 2 || NewLastNameTextBox.Text.Length < 2)
             {
-                MessageBox.Show(Strings.NamesMinLengthWarning);
+                MessageBox.Show(Text.NamesMinLengthWarning);
                 return;
             }
 
@@ -122,19 +122,19 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Visible;
-            PasswordChangeDescription.Text = $"{Strings.ChangingPasswordColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            PasswordChangeDescription.Text = $"{Text.ChangingPasswordColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
         }
 
         private void ConfirmPasswordChangeButton_Click(object sender, RoutedEventArgs e)
         {
             if (NewPasswordBox.Password != ConfirmPasswordBox.Password)
             {
-                MessageBox.Show(Strings.PasswordsNotSameWarning);
+                MessageBox.Show(Text.PasswordsNotSameWarning);
                 return;
             }
             if (NewPasswordBox.Password.Length < 4)
             {
-                MessageBox.Show(Strings.PasswordTooShortWarning);
+                MessageBox.Show(Text.PasswordTooShortWarning);
                 return;
             }
 
@@ -158,7 +158,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeRoleGrid.Visibility = Visibility.Visible;
-            RoleChangeDescription.Text = $"{Strings.ChangingUserRoleColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            RoleChangeDescription.Text = $"{Text.ChangingUserRoleColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             List<Role> tempRolesList;
             using (MainContext context = new MainContext())
             {
@@ -228,31 +228,31 @@ namespace WpfApp.Windows
         {
             if (FirstPasswordBox.Password != SecondPasswordBox.Password)
             {
-                MessageBox.Show(Strings.PasswordsNotSameWarning);
+                MessageBox.Show(Text.PasswordsNotSameWarning);
                 return;
             }
 
             if (FirstPasswordBox.Password.Length < 4)
             {
-                MessageBox.Show(Strings.PasswordTooShortWarning);
+                MessageBox.Show(Text.PasswordTooShortWarning);
                 return;
             }
 
             if (RoleComboBox.SelectedItem == null)
             {
-                MessageBox.Show(Strings.NoRoleChosenWarning);
+                MessageBox.Show(Text.NoRoleChosenWarning);
                 return;
             }
 
             if (LoginTextBox.Text.Trim().Length < 2)
             {
-                MessageBox.Show(Strings.LoginMinLengthWarning);
+                MessageBox.Show(Text.LoginMinLengthWarning);
                 return;
             }
 
             if (FirstNameTextBox.Text.Trim().Length < 2 || LastNameTextBox.Text.Length < 2)
             {
-                MessageBox.Show(Strings.NamesMinLengthWarning);
+                MessageBox.Show(Text.NamesMinLengthWarning);
                 return;
             }
 
@@ -275,7 +275,7 @@ namespace WpfApp.Windows
                 {
                     if (context.Users.Where(x => x.Login == newUser.Login).Any())
                     {
-                        MessageBox.Show(Strings.LoginAlreadyExistsWarning);
+                        MessageBox.Show(Text.LoginAlreadyExistsWarning);
                         return;
                     }
                     else

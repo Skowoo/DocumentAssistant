@@ -43,7 +43,7 @@
             <Setter Property="BorderBrush" Value="#FFFDC97B"/>
             <Setter Property="FontSize" Value="10"/>
             <Setter Property="Margin" Value="20,1,20,1"/>
-            <Setter Property="Content" Value="{x:Static CC:Strings.Clear}"/>
+            <Setter Property="Content" Value="{x:Static CC:Text.Clear}"/>
         </Style>
 
     </Window.Resources>
@@ -63,27 +63,27 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Label Style="{StaticResource Label}" Content="{x:Static CC:Strings.Translator}" Grid.Row="0" Grid.Column="0"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.Translator}" Grid.Row="0" Grid.Column="0"/>
             <ComboBox Name="TranslatorCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="0" Grid.Row="1"/>
             <Button Name="ClearTranslatorBtn" Grid.Column="0" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearTranslatorBtn_Click"/>
 
-            <Label Style="{StaticResource Label}" Content="{x:Static CC:Strings.Client}" Grid.Row="0" Grid.Column="1"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.Client}" Grid.Row="0" Grid.Column="1"/>
             <ComboBox Name="CustomerCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="1" Grid.Row="1"/>
             <Button Name="ClearCustomerBtn" Grid.Column="1" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearCustomerBtn_Click"/>
 
-            <Label Style="{StaticResource Label}" Content="{x:Static CC:Strings.DocType}" Grid.Row="0" Grid.Column="2"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.DocType}" Grid.Row="0" Grid.Column="2"/>
             <ComboBox Name="DocTypeCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="2" Grid.Row="1"/>
             <Button Name="ClearDocTypeBtn" Grid.Column="2" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearDocTypeBtn_Click"/>
 
-            <Label Style="{StaticResource Label}" Content="{x:Static CC:Strings.SourceLang}" Grid.Row="0" Grid.Column="3"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.SourceLang}" Grid.Row="0" Grid.Column="3"/>
             <ComboBox Name="OriginLangCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="3" Grid.Row="1"/>
             <Button Name="ClearOriginLangBtn" Grid.Column="3" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearOriginLangBtn_Click"/>
 
-            <Label Style="{StaticResource Label}" Content="{x:Static CC:Strings.TargetLang}" Grid.Row="0" Grid.Column="4"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.TargetLang}" Grid.Row="0" Grid.Column="4"/>
             <ComboBox Name="TargetLangCustomBox" Style="{StaticResource CustomBoxStyle}" Grid.Column="4" Grid.Row="1"/>
             <Button Name="ClearTargetLangBtn" Grid.Column="4" Grid.Row="2" Style="{StaticResource ClearButton}" Click="ClearTargetLangBtn_Click"/>
 
-            <Button Name="ConfirmQueryButton" Content="{x:Static CC:Strings.Search}" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource MainButton}" VerticalAlignment="Bottom" Height="30" Click="ConfirmQueryButton_Click" />
+            <Button Name="ConfirmQueryButton" Content="{x:Static CC:Text.Search}" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource MainButton}" VerticalAlignment="Bottom" Height="30" Click="ConfirmQueryButton_Click" />
         </Grid>
 
         <ScrollViewer Name="StaticsView" Margin="0,140,0,0">

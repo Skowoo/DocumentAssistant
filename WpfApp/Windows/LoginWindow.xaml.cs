@@ -76,7 +76,7 @@ namespace WpfApp.Windows
             }
             catch
             {
-                MessageBox.Show(Strings.LoginNotFound);
+                MessageBox.Show(Text.LoginNotFound);
                 LoginTextBox.Text = "";
                 PasswordBox.Password = "";
                 return;
@@ -84,7 +84,7 @@ namespace WpfApp.Windows
             var password = PassGenerator.ComputeHash(PasswordBox.Password, foundUser.Salt);
 
             if (password == foundUser.Password && foundUser.IsActive == true) GrantAccess(foundUser);
-            else MessageBox.Show(Strings.LoginDataNotCorrect);
+            else MessageBox.Show(Text.LoginDataNotCorrect);
         }
 
         private void GrantAccess(User loggedUser)
@@ -97,7 +97,7 @@ namespace WpfApp.Windows
             }
             catch
             {
-                MessageBox.Show(Strings.LoginFailed);
+                MessageBox.Show(Text.LoginFailed);
             }
         }
 
@@ -124,7 +124,7 @@ namespace WpfApp.Windows
 
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
             if (!context.Database.CanConnect())
-                newDbCreateWindowDecision = MessageBox.Show(Strings.NoDbBoxText, Strings.NoDbBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
             bool dbCreated = false;
 
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
@@ -132,9 +132,9 @@ namespace WpfApp.Windows
                 dbCreated = DbCreator.CreateNewDb();
 
                 if (dbCreated)
-                    MessageBox.Show(Strings.DbCreatedBoxText);
+                    MessageBox.Show(Text.DbCreatedBoxText);
                 else
-                    MessageBox.Show(Strings.DbNotCreatedBoxText);
+                    MessageBox.Show(Text.DbNotCreatedBoxText);
             }
         }
 
