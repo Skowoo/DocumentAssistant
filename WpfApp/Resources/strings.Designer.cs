@@ -151,6 +151,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change language:.
+        /// </summary>
+        public static string ChangeLanguageColon {
+            get {
+                return ResourceManager.GetString("ChangeLanguageColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change login.
         /// </summary>
         public static string ChangeLogin {

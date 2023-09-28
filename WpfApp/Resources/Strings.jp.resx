@@ -147,6 +147,9 @@
   <data name="CancelConfirm" xml:space="preserve">
     <value>承認キャンセル</value>
   </data>
+  <data name="ChangeLanguageColon" xml:space="preserve">
+    <value>Zmień język:</value>
+  </data>
   <data name="ChangeLogin" xml:space="preserve">
     <value>ログイン変更</value>
   </data>

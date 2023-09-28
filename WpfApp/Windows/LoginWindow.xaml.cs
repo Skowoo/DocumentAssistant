@@ -28,14 +28,17 @@ namespace WpfApp.Windows
 
         private void SelectLanguageEng_Click(object sender, RoutedEventArgs e)
         {
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-EN");
-            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-EN");
+
         }
 
         private void SelectLanguagePol_Click(object sender, RoutedEventArgs e)
         {
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pl-PL");
-            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pl-PL");
+
+        }
+
+        private void SelectLanguageJap_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)

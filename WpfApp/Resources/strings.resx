@@ -147,6 +147,9 @@
   <data name="CancelConfirm" xml:space="preserve">
     <value>Cancel confirmation</value>
   </data>
+  <data name="ChangeLanguageColon" xml:space="preserve">
+    <value>Change language:</value>
+  </data>
   <data name="ChangeLogin" xml:space="preserve">
     <value>Change login</value>
   </data>
