@@ -18,8 +18,20 @@ namespace WpfApp.Windows
     {
         MainContext context;
 
-        public LoginWindow()
+        CultureInfo culture;
+
+        public LoginWindow() : this(null) { }
+        public LoginWindow(CultureInfo? culture = null)
         {
+            if (culture != null)
+            {
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                this.culture = culture;
+            }
+            else
+                this.culture = CultureInfo.CurrentCulture;
+                
             InitializeComponent();
             CheckDb();
         }
@@ -28,17 +40,26 @@ namespace WpfApp.Windows
 
         private void SelectLanguageEng_Click(object sender, RoutedEventArgs e)
         {
-
+            culture = new CultureInfo("en-EN");
+            var newWindow = new LoginWindow(culture);
+            newWindow.Show();
+            this.Close();
         }
 
         private void SelectLanguagePol_Click(object sender, RoutedEventArgs e)
         {
-
+            culture = new CultureInfo("pl-PL");
+            var newWindow = new LoginWindow(culture);
+            newWindow.Show();
+            this.Close();
         }
 
         private void SelectLanguageJap_Click(object sender, RoutedEventArgs e)
         {
-
+            culture = new CultureInfo("jp-JP");
+            var newWindow = new LoginWindow(culture);
+            newWindow.Show();
+            this.Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
