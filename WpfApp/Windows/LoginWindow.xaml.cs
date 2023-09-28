@@ -31,9 +31,13 @@ namespace WpfApp.Windows
             }
             else
                 this.culture = CultureInfo.CurrentCulture;
-                
+
+            CultureInfo.CurrentCulture = this.culture;
+            CultureInfo.CurrentUICulture = this.culture;
+
             InitializeComponent();
             CheckDb();
+            MessageBox.Show(CultureInfo.CurrentCulture.ToString() + CultureInfo.CurrentUICulture.ToString());
         }
 
         #region Controls
