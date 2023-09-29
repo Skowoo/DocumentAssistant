@@ -148,7 +148,7 @@
     <value>承認キャンセル</value>
   </data>
   <data name="ChangeLanguageColon" xml:space="preserve">
-    <value>Zmień język:</value>
+    <value>原語変更：</value>
   </data>
   <data name="ChangeLogin" xml:space="preserve">
     <value>ログイン変更</value>
@@ -184,7 +184,7 @@
     <value>依頼者</value>
   </data>
   <data name="ClientNameLengthWarning" xml:space="preserve">
-    <value>Minimalna długość nazwy klienta to trzy znaki!</value>
+    <value>依頼者名が短すぎる！（最低：3字）</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>承認</value>
@@ -202,32 +202,31 @@
     <value>承認</value>
   </data>
   <data name="ContinueQuestion" xml:space="preserve">
-    <value>Kontynuować?</value>
+    <value>続行しますか？</value>
   </data>
   <data name="DbCreatedBoxText" xml:space="preserve">
-    <value>Utworzono nową bazę danych z kontem administratora.   
-Login: Admin 
-Hasło: Admin
-Możesz się zalogować z wykorzystaniem powyższych danych.</value>
+    <value>新DB付の管理者アカウントを作成しました。   
+ログイン: Admin 
+パスワード: Admin
+上記の情報でログインできます。</value>
   </data>
   <data name="DbNotCreatedBoxText" xml:space="preserve">
-    <value>Nie udało się utworzyć bazy danych. Sprawdź czy na urządzeniu jest zainstalowane wymagane środowisko!</value>
+    <value>DBの作成ができませんでした。必要な環境がPCにインストールしたを確認してください！</value>
   </data>
   <data name="DeactivateUser" xml:space="preserve">
-    <value>Zdezaktywuj użytkownika</value>
+    <value>ユーザー非アクティブ化</value>
   </data>
   <data name="Deadline" xml:space="preserve">
-    <value>Termin wykonania</value>
+    <value>締切</value>
   </data>
   <data name="DeleteBoxTitle" xml:space="preserve">
-    <value>Kasowanie dokumentu</value>
+    <value>書類削除</value>
   </data>
   <data name="DeleteDoc" xml:space="preserve">
-    <value>書類解除</value>
+    <value>削除</value>
   </data>
   <data name="DeleteWarning" xml:space="preserve">
-    <value>Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
-Kontynuować?</value>
+    <value>DB から永久にデータを削除します。これでデータの整合性が損なわれる可能性があります 。取り戻すことができません。続行しますか？</value>
   </data>
   <data name="Doc" xml:space="preserve">
     <value>書類</value>
@@ -236,61 +235,61 @@ Kontynuować?</value>
     <value>書類名</value>
   </data>
   <data name="DocNameLengthWarning" xml:space="preserve">
-    <value>Nazwa dokumentu musi mieć conajmniej 3 znaki!</value>
+    <value>書類名に最低3字が必至！</value>
   </data>
   <data name="DocSameLanguagesWarning" xml:space="preserve">
-    <value>Języki źródłowy i docelowy są takie same!</value>
+    <value>原語と対象言語が一致している！</value>
   </data>
   <data name="DocSizeWarning" xml:space="preserve">
-    <value>Podano niepoprawny rozmiar dokumentu!</value>
+    <value>書類サイズが正しくない！</value>
   </data>
   <data name="DocType" xml:space="preserve">
-    <value>Typ dokumentu</value>
+    <value>書類タイプ</value>
   </data>
   <data name="DocTypeLengthWarning" xml:space="preserve">
-    <value>Minimalne długośc typu dokumentu to dwa znaki!</value>
+    <value>書類タイプが短すぎる！（最低：2字）</value>
   </data>
   <data name="DoneDate" xml:space="preserve">
-    <value>Data wykonania</value>
+    <value>完了日</value>
   </data>
   <data name="EditDoc" xml:space="preserve">
-    <value>Edytuj dokument</value>
+    <value>書類編集</value>
   </data>
   <data name="EnterNewLoginColon" xml:space="preserve">
-    <value>Podaj nowy login:</value>
+    <value>新ログインを入れてください：</value>
   </data>
   <data name="EnterNewPasswordColon" xml:space="preserve">
-    <value>Wprowadź nowe hasło:</value>
+    <value>新パスワード入れてください：</value>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value>Imię</value>
+    <value>名前</value>
   </data>
   <data name="FirstNameColon" xml:space="preserve">
-    <value>Imię:</value>
+    <value>名前：</value>
   </data>
   <data name="GenerateRandomDocs" xml:space="preserve">
-    <value>Zostaną wygenerowane przykłądowe dokumenty w liczbie: </value>
+    <value>代表的な書類を作り出します。枚数：</value>
   </data>
   <data name="GenerateRandomDocsBoxTitle" xml:space="preserve">
-    <value>Generowanie losowych dokumentów</value>
+    <value>代表的な書類を作り出す</value>
   </data>
   <data name="GenerateRandomFiles" xml:space="preserve">
-    <value>Wygeneruj przykładowe dokumenty</value>
+    <value>書類を作り出す</value>
   </data>
   <data name="LanguageNameLengthWarning" xml:space="preserve">
-    <value>Minimalna długość nazwy języka to 3 znaki!</value>
+    <value>言語名が短すぎる！（最低：3字）</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>ログイン</value>
   </data>
   <data name="LoginAlreadyExistsWarning" xml:space="preserve">
-    <value>Użytkownik o takim loginie już istnieje w bazie danych! Wybierz inny login.</value>
+    <value>DBにこのユーザー名はもう存在しています！他のログインを入れてください。</value>
   </data>
   <data name="LoginColon" xml:space="preserve">
-    <value>Login:</value>
+    <value>ログイン：</value>
   </data>
   <data name="LoginDataNotCorrect" xml:space="preserve">
-    <value>Nieprawidłowe dane logowania. Sprawdź login i hasło</value>
+    <value>ログインデータが正しくないです。ログイン・パスワードを確認してください。</value>
   </data>
   <data name="LoginFailed" xml:space="preserve">
     <value>Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia</value>
@@ -384,7 +383,7 @@ Kontynuować?</value>
     <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>Poprzednia strona</value>
+    <value>前頁</value>
   </data>
   <data name="Rank" xml:space="preserve">
     <value>ランク</value>
