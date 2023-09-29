@@ -361,6 +361,10 @@ Continue?</value>
   <data name="NoTargetLangWarning" xml:space="preserve">
     <value>Target language is not selected!</value>
   </data>
+  <data name="Of" xml:space="preserve">
+    <value>of</value>
+    <comment>x OF x (f.e. page)</comment>
+  </data>
   <data name="OpenStatisticsWindow" xml:space="preserve">
     <value>Show statistics</value>
   </data>

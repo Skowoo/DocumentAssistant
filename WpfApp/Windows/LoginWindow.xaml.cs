@@ -37,7 +37,6 @@ namespace WpfApp.Windows
 
             InitializeComponent();
             CheckDb();
-            MessageBox.Show(CultureInfo.CurrentCulture.ToString() + CultureInfo.CurrentUICulture.ToString());
         }
 
         #region Controls
@@ -60,7 +59,7 @@ namespace WpfApp.Windows
 
         private void SelectLanguageJap_Click(object sender, RoutedEventArgs e)
         {
-            culture = new CultureInfo("jp-JP");
+            culture = new CultureInfo("ja-JP");
             var newWindow = new LoginWindow(culture);
             newWindow.Show();
             this.Close();

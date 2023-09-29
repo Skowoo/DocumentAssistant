@@ -118,88 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivateUser" xml:space="preserve">
-    <value>Aktywuj użytkownika</value>
+    <value>ユーザー起動</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>追加</value>
   </data>
   <data name="AddDate" xml:space="preserve">
-    <value>Data dodania</value>
+    <value>追加日付</value>
   </data>
   <data name="AddDoc" xml:space="preserve">
-    <value>Dodaj dokument</value>
+    <value>書類追加</value>
   </data>
   <data name="AddNewUser" xml:space="preserve">
-    <value>Dodaj nowego użytkownika</value>
+    <value>新ユーザー追加</value>
   </data>
   <data name="Assign" xml:space="preserve">
-    <value>Przypisz</value>
+    <value>割り当てる</value>
   </data>
   <data name="AssignDoc" xml:space="preserve">
-    <value>Przydziel dokument</value>
+    <value>書類を割り当てる</value>
   </data>
   <data name="AssignedUser" xml:space="preserve">
-    <value>Przypisany użytkownik</value>
+    <value>対象ユーザー</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Anuluj</value>
+    <value>キャンセル</value>
   </data>
   <data name="CancelConfirm" xml:space="preserve">
-    <value>Anuluj zatwierdzenie</value>
+    <value>承認キャンセル</value>
   </data>
   <data name="ChangeLanguageColon" xml:space="preserve">
-    <value>Zmiana języka:</value>
+    <value>Zmień język:</value>
   </data>
   <data name="ChangeLogin" xml:space="preserve">
-    <value>Zmień login</value>
+    <value>ログイン変更</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
-    <value>Zmień hasło</value>
+    <value>パスワード変更</value>
   </data>
   <data name="ChangePersonalData" xml:space="preserve">
-    <value>Zmień dane osobowe</value>
+    <value>個人情報変更</value>
   </data>
   <data name="ChangeRank" xml:space="preserve">
-    <value>Zmień rangę</value>
+    <value>ランク変更</value>
   </data>
   <data name="ChangingPasswordColon" xml:space="preserve">
-    <value>Zmiana hasła użytkownika:</value>
+    <value>ユーザーパスワード変更：</value>
   </data>
   <data name="ChangingPersonalDataColon" xml:space="preserve">
-    <value>Zmiana danych osobowych:</value>
+    <value>個人情報変更：</value>
   </data>
   <data name="ChangingUserLoginColon" xml:space="preserve">
-    <value>Zmiana loginu użytkownika:</value>
+    <value>ユーザーログイン変更：</value>
   </data>
   <data name="ChangingUserRoleColon" xml:space="preserve">
-    <value>Zmiana roli użytkownika:</value>
+    <value>ユーザー役割変更：</value>
   </data>
   <data name="ChooseRoleColon" xml:space="preserve">
-    <value>Wybierz rolę:</value>
+    <value>役割選択：</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>Wyczyść</value>
+    <value>クリア</value>
   </data>
   <data name="Client" xml:space="preserve">
-    <value>Klient</value>
+    <value>依頼者</value>
   </data>
   <data name="ClientNameLengthWarning" xml:space="preserve">
     <value>Minimalna długość nazwy klienta to trzy znaki!</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Zatwierdź</value>
+    <value>承認</value>
   </data>
   <data name="ConfirmDocument" xml:space="preserve">
-    <value>Zatwierdź dokument</value>
+    <value>書類承認</value>
   </data>
   <data name="ConfirmDone" xml:space="preserve">
-    <value>Zatwierdź wykonanie</value>
+    <value>完了承認</value>
   </data>
   <data name="Confirmed" xml:space="preserve">
-    <value>Zatwierdzony</value>
+    <value>承認済</value>
   </data>
   <data name="ConfirmedShort" xml:space="preserve">
-    <value>Zatw.</value>
+    <value>承認</value>
   </data>
   <data name="ContinueQuestion" xml:space="preserve">
     <value>Kontynuować?</value>
@@ -223,17 +223,17 @@ Możesz się zalogować z wykorzystaniem powyższych danych.</value>
     <value>Kasowanie dokumentu</value>
   </data>
   <data name="DeleteDoc" xml:space="preserve">
-    <value>Usuń dokument</value>
+    <value>書類解除</value>
   </data>
   <data name="DeleteWarning" xml:space="preserve">
     <value>Zamierzasz trwale usunąć dane z bazy. Operacja ta jest nieodwracalna i może zaburzyć integralność pozostałych danych!
 Kontynuować?</value>
   </data>
   <data name="Doc" xml:space="preserve">
-    <value>Dokument</value>
+    <value>書類</value>
   </data>
   <data name="DocName" xml:space="preserve">
-    <value>Nazwa dokumentu</value>
+    <value>書類名</value>
   </data>
   <data name="DocNameLengthWarning" xml:space="preserve">
     <value>Nazwa dokumentu musi mieć conajmniej 3 znaki!</value>
@@ -320,7 +320,7 @@ Kontynuować?</value>
     <value>Oznacz jako wykonany</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nazwa</value>
+    <value />
   </data>
   <data name="NamesMinLengthWarning" xml:space="preserve">
     <value>Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!</value>
@@ -364,17 +364,21 @@ Kontynuować?</value>
   <data name="NoTargetLangWarning" xml:space="preserve">
     <value>Nie wybrano języka docelowego dokumentu!</value>
   </data>
+  <data name="Of" xml:space="preserve">
+    <value>z</value>
+    <comment>x OF x (f.e. page)</comment>
+  </data>
   <data name="OpenStatisticsWindow" xml:space="preserve">
     <value>Wyświetl statystyki</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Strona</value>
+    <value>ページ</value>
   </data>
   <data name="PasswordColon" xml:space="preserve">
-    <value>Hasło:</value>
+    <value>パスワード：</value>
   </data>
   <data name="PasswordsNotSameWarning" xml:space="preserve">
-    <value>Hasła nie są jednakowe!</value>
+    <value>パスワードが一致しない！</value>
   </data>
   <data name="PasswordTooShortWarning" xml:space="preserve">
     <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
@@ -383,40 +387,40 @@ Kontynuować?</value>
     <value>Poprzednia strona</value>
   </data>
   <data name="Rank" xml:space="preserve">
-    <value>Ranga</value>
+    <value>ランク</value>
   </data>
   <data name="RankColon" xml:space="preserve">
-    <value>Ranga:</value>
+    <value>ランク：</value>
   </data>
   <data name="Responsible" xml:space="preserve">
-    <value>Odpowiedzialny</value>
+    <value>担当</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Wyszukaj</value>
+    <value>検索</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Opcje</value>
+    <value>設定</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>Rozmiar</value>
+    <value>サイズ</value>
   </data>
   <data name="SourceLang" xml:space="preserve">
-    <value>Język źródłowy</value>
+    <value>原語</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>状態</value>
   </data>
   <data name="Surname" xml:space="preserve">
-    <value>Nazwisko</value>
+    <value>名字</value>
   </data>
   <data name="SurnameColon" xml:space="preserve">
-    <value>Nazwisko:</value>
+    <value>名字：</value>
   </data>
   <data name="TargetLang" xml:space="preserve">
-    <value>Język docelowy</value>
+    <value>対象言語</value>
   </data>
   <data name="Translator" xml:space="preserve">
-    <value>Tłumacz</value>
+    <value>翻訳者</value>
     <comment>Noun</comment>
   </data>
   <data name="UserLevelWarning" xml:space="preserve">

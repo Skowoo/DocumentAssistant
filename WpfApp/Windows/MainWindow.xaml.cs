@@ -184,7 +184,7 @@ namespace WpfApp
             ConfirmNewLanguage_Button.Visibility = Visibility.Visible;
         }
 
-        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"{Text.Page} {currentPage} z {totalPages}";
+        private void UpdateDocumentsListPageNumberText() => DocumentsListPageNumber.Content = $"{Text.Page} {currentPage} {Text.Of} {totalPages}";
 
         #region Updating of elements lists
 
