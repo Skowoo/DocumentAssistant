@@ -1,4 +1,5 @@
 ﻿using DocumentAssistantLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DocumentAssistantLibrary.Classes
 {
@@ -15,17 +16,17 @@ namespace DocumentAssistantLibrary.Classes
         {
             try
             {
-                using (var db = new MainContext())
+                using (var context = new MainContext())
                 {
-                    db.Database.EnsureCreated();
+                    context.Database.Migrate();
 
                     var salt = PassGenerator.GenerateSalt();
                     var adminRole = new Role
                     {
                         RoleName = "Admin"
                     };
-                    db.Roles.Add(adminRole);
-                    db.SaveChanges();
+                    context.Roles.Add(adminRole);
+                    context.SaveChanges();
 
                     var adminUser = new User
                     {
@@ -37,21 +38,21 @@ namespace DocumentAssistantLibrary.Classes
                         IsActive = true,
                         RoleID = 1
                     };
-                    db.Users.Add(adminUser);
-                    db.SaveChanges();
+                    context.Users.Add(adminUser);
+                    context.SaveChanges();
 
-                    db.Roles.Add(new Role { RoleName = "Kierownik" });
-                    db.Roles.Add(new Role { RoleName = "Koordynator" });
-                    db.Roles.Add(new Role { RoleName = "Użytkownik" });
-                    db.Roles.Add(new Role { RoleName = "Obserwator" });
+                    context.Roles.Add(new Role { RoleName = "Kierownik" });
+                    context.Roles.Add(new Role { RoleName = "Koordynator" });
+                    context.Roles.Add(new Role { RoleName = "Użytkownik" });
+                    context.Roles.Add(new Role { RoleName = "Obserwator" });
 
-                    db.Languages.Add(new Language { LanguageName = "Polski" });
-                    db.Languages.Add(new Language { LanguageName = "Angielski" });
-                    db.Languages.Add(new Language { LanguageName = "Japoński" });
-                    db.Languages.Add(new Language { LanguageName = "Wietnamski" });
-                    db.Languages.Add(new Language { LanguageName = "Chiński" });
+                    context.Languages.Add(new Language { LanguageName = "Polski" });
+                    context.Languages.Add(new Language { LanguageName = "Angielski" });
+                    context.Languages.Add(new Language { LanguageName = "Japoński" });
+                    context.Languages.Add(new Language { LanguageName = "Wietnamski" });
+                    context.Languages.Add(new Language { LanguageName = "Chiński" });
 
-                    db.SaveChanges();
+                    context.SaveChanges();
 
                     return true;
                 }
