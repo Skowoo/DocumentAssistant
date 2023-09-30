@@ -1,6 +1,7 @@
 ﻿using DocumentAssistantLibrary;
 using DocumentAssistantLibrary.Classes;
 using DocumentAssistantLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -119,24 +120,26 @@ namespace WpfApp.Windows
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                this.Close();
             }
 
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
-            if (!context.Database.CanConnect())
-                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            bool dbCreated = false;
 
+            if (!context.Database.CanConnect())
+                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, 
+                                                            MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
             {
-                dbCreated = DbCreator.CreateNewDb();
-
-                if (dbCreated)
+                if (DbCreator.CreateNewDb())
                     MessageBox.Show(Text.DbCreatedBoxText);
                 else
+                {
                     MessageBox.Show(Text.DbNotCreatedBoxText);
+                    this.Close();
+                }
             }
         }
-
         #endregion
     }
 }
