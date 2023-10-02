@@ -5,6 +5,7 @@ using DocumentAssistantLibrary.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using WpfApp.Resources;
 
 namespace WpfApp.Windows
 {
@@ -81,7 +82,18 @@ namespace WpfApp.Windows
                 queriedDocuments = queriedDocuments.Where(x => x.TargetLanguageID == selectedItem.LanguageID).ToList();
             }
 
-            StatisticsTextBlock.Text = StatisticsCalculator.GenerateStatsString(queriedDocuments);
+            var stats = new Statistics(queriedDocuments);
+
+            if (stats.IsValid)
+            {
+                string? averageDocTranslationTime = stats.AverageTimeToCompleteDoc is null ? Text.NotEnoughTranslatedDocuments : stats.AverageTimeToCompleteDoc.ToString();
+
+                StatisticsTextBlock.Text = $"{Text.NumberOfDocsColon} {stats.DocumentCount}\n" +
+                    $"{Text.AverageDocSizeColon} {stats.AverageDocSize}\n" +
+                    $"{Text.AverageTranslationTimeColon} {averageDocTranslationTime}\n";
+            }
+            else 
+                StatisticsTextBlock.Text = Text.NoDocumentsInQuery;
         }
 
         #endregion

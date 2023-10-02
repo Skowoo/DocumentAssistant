@@ -141,6 +141,12 @@
   <data name="AssignedUser" xml:space="preserve">
     <value>Assigned user</value>
   </data>
+  <data name="AverageDocSizeColon" xml:space="preserve">
+    <value>Average size of document:</value>
+  </data>
+  <data name="AverageTranslationTimeColon" xml:space="preserve">
+    <value>Average translation time:</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -352,6 +358,9 @@ Continue?</value>
   <data name="NoDocTypeWarning" xml:space="preserve">
     <value>Document type not selected!</value>
   </data>
+  <data name="NoDocumentsInQuery" xml:space="preserve">
+    <value>There are no documents meeting the requirements</value>
+  </data>
   <data name="NoRoleChosenWarning" xml:space="preserve">
     <value>Role not selected!</value>
   </data>
@@ -360,6 +369,12 @@ Continue?</value>
   </data>
   <data name="NoTargetLangWarning" xml:space="preserve">
     <value>Target language is not selected!</value>
+  </data>
+  <data name="NotEnoughTranslatedDocuments" xml:space="preserve">
+    <value>Not enough translated documents to calculate</value>
+  </data>
+  <data name="NumberOfDocsColon" xml:space="preserve">
+    <value>Number of documents:</value>
   </data>
   <data name="Of" xml:space="preserve">
     <value>of</value>

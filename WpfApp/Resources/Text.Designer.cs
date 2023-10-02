@@ -133,6 +133,24 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average size of document:.
+        /// </summary>
+        public static string AverageDocSizeColon {
+            get {
+                return ResourceManager.GetString("AverageDocSizeColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average translation time:.
+        /// </summary>
+        public static string AverageTranslationTimeColon {
+            get {
+                return ResourceManager.GetString("AverageTranslationTimeColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -758,6 +776,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no documents meeting the requirements.
+        /// </summary>
+        public static string NoDocumentsInQuery {
+            get {
+                return ResourceManager.GetString("NoDocumentsInQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role not selected!.
         /// </summary>
         public static string NoRoleChosenWarning {
@@ -781,6 +808,24 @@ namespace WpfApp.Resources {
         public static string NoTargetLangWarning {
             get {
                 return ResourceManager.GetString("NoTargetLangWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough translated documents to calculate.
+        /// </summary>
+        public static string NotEnoughTranslatedDocuments {
+            get {
+                return ResourceManager.GetString("NotEnoughTranslatedDocuments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of documents:.
+        /// </summary>
+        public static string NumberOfDocsColon {
+            get {
+                return ResourceManager.GetString("NumberOfDocsColon", resourceCulture);
             }
         }
         

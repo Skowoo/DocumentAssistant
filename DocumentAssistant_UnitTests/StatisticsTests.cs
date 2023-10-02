@@ -87,31 +87,33 @@ namespace DocumentAssistant_UnitTests
         public void OK_Tests()
         {
             var testList = GenerateExampleList();
-            string result = StatisticsCalculator.GenerateStatsString(testList);
+            var testStats = new Statistics(testList);
+
+            Assert.IsTrue(testStats.IsValid == true);
 
             //Counter
-            Assert.IsTrue(result.Contains("10"));
+            Assert.AreEqual(10, testStats.DocumentCount);
 
             //Average days to finish document
-            Assert.IsTrue(result.Contains("31"));
+            Assert.AreEqual(31, testStats.AverageTimeToCompleteDoc);
 
             //Average size of document
-            Assert.IsTrue(result.Contains("1000"));
+            Assert.AreEqual(1000, testStats.AverageDocSize);
         }
 
         [TestMethod]
         public void EmptyTests()
         {
             List<Document> testList = new();
-            string result = StatisticsCalculator.GenerateStatsString(testList);
+            var testStats = new Statistics(testList);
 
-            Assert.IsTrue(result.StartsWith("Brak"));
+            Assert.IsTrue(testStats.IsValid == false);
 
             testList = null;
 
-            result = StatisticsCalculator.GenerateStatsString(testList);
+            testStats = new Statistics(testList);
 
-            Assert.IsTrue(result.StartsWith("Brak"));
+            Assert.IsTrue(testStats.IsValid == false);
         }
     }
 }

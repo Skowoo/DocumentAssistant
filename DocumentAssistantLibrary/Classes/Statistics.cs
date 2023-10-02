@@ -11,7 +11,7 @@ namespace DocumentAssistantLibrary.Classes
             {
                 IsValid = false;
                 DocumentCount = 0;
-                MediumDocSize = 0;
+                AverageDocSize = 0;
                 AverageTimeToCompleteDoc = 0;
                 return;
             }
@@ -19,7 +19,7 @@ namespace DocumentAssistantLibrary.Classes
             IsValid = true;
             AverageTimeToCompleteDoc = CalculateAverageDaysToCompleteDoc(inputList);
             DocumentCount = inputList.Count;
-            MediumDocSize = inputList.Average(x => x.SignsSize) is null ? 0 : (double)inputList.Average(x => x.SignsSize);
+            AverageDocSize = (int)Math.Floor((double)inputList.Average(x => x.SignsSize));
         }
 
         public readonly bool IsValid;
@@ -28,7 +28,7 @@ namespace DocumentAssistantLibrary.Classes
 
         public readonly double? AverageTimeToCompleteDoc;
 
-        public readonly double MediumDocSize;
+        public readonly int AverageDocSize;
 
 
         private static double? CalculateAverageDaysToCompleteDoc(IList<Document> inputList)
@@ -51,7 +51,7 @@ namespace DocumentAssistantLibrary.Classes
                 validDocsCounter++;
             }
             if (validDocsCounter > 0)
-                return Math.Round((double)averageDaysToCompleteDoc, 2);
+                return Math.Round((double)(averageDaysToCompleteDoc / validDocsCounter), 2);
             else
                 return null;
         }
