@@ -10,28 +10,29 @@ namespace DocumentAssistantLibrary.Classes
             if (inputList is null || inputList.Count < 1)
             {
                 IsValid = false;
-                DocumentCount = 0;
-                AverageDocSize = 0;
-                AverageTimeToCompleteDoc = 0;
                 return;
             }
 
             IsValid = true;
-            AverageTimeToCompleteDoc = CalculateAverageDaysToCompleteDoc(inputList);
+            var calculatedTranslations = CalculateAverageDaysToCompleteDoc(inputList);
+            AverageTimeToCompleteDoc = calculatedTranslations.Item1;
+            TranslatedDocumentCount = calculatedTranslations.Item2;
             DocumentCount = inputList.Count;
             AverageDocSize = (int)Math.Floor((double)inputList.Average(x => x.SignsSize));
         }
 
         public readonly bool IsValid;
 
-        public readonly int DocumentCount;
+        public readonly int DocumentCount = 0;
 
-        public readonly double? AverageTimeToCompleteDoc;
+        public readonly int TranslatedDocumentCount = 0;
 
-        public readonly int AverageDocSize;
+        public readonly double? AverageTimeToCompleteDoc = 0;
+
+        public readonly int AverageDocSize = 0;
 
 
-        private static double? CalculateAverageDaysToCompleteDoc(IList<Document> inputList)
+        private static Tuple<double?, int> CalculateAverageDaysToCompleteDoc(IList<Document> inputList)
         {
             int validDocsCounter = 0;
             double? averageDaysToCompleteDoc = null;
@@ -51,9 +52,9 @@ namespace DocumentAssistantLibrary.Classes
                 validDocsCounter++;
             }
             if (validDocsCounter > 0)
-                return Math.Round((double)(averageDaysToCompleteDoc / validDocsCounter), 2);
+                return Tuple.Create((double?)Math.Round((double)averageDaysToCompleteDoc / validDocsCounter, 2), validDocsCounter);
             else
-                return null;
+                return Tuple.Create((double?)null, 0);
         }
     }
 }

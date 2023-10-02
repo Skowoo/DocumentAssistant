@@ -142,11 +142,20 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average translation time:.
+        ///   Looks up a localized string similar to Average translation time (in days):.
         /// </summary>
         public static string AverageTranslationTimeColon {
             get {
                 return ResourceManager.GetString("AverageTranslationTimeColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to calculation based on.
+        /// </summary>
+        public static string CalculationBasedOn {
+            get {
+                return ResourceManager.GetString("CalculationBasedOn", resourceCulture);
             }
         }
         
@@ -466,6 +475,15 @@ namespace WpfApp.Resources {
         public static string DocTypeLengthWarning {
             get {
                 return ResourceManager.GetString("DocTypeLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to documents.
+        /// </summary>
+        public static string Documents {
+            get {
+                return ResourceManager.GetString("Documents", resourceCulture);
             }
         }
         

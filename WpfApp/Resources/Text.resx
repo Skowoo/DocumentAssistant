@@ -145,7 +145,10 @@
     <value>Average size of document:</value>
   </data>
   <data name="AverageTranslationTimeColon" xml:space="preserve">
-    <value>Average translation time:</value>
+    <value>Average translation time (in days):</value>
+  </data>
+  <data name="CalculationBasedOn" xml:space="preserve">
+    <value>calculation based on</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -255,6 +258,9 @@ Continue?</value>
   </data>
   <data name="DocTypeLengthWarning" xml:space="preserve">
     <value>Dodument Type name too short!</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>documents</value>
   </data>
   <data name="DoneDate" xml:space="preserve">
     <value>Date done</value>

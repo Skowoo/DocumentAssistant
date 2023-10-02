@@ -86,7 +86,9 @@ namespace WpfApp.Windows
 
             if (stats.IsValid)
             {
-                string? averageDocTranslationTime = stats.AverageTimeToCompleteDoc is null ? Text.NotEnoughTranslatedDocuments : stats.AverageTimeToCompleteDoc.ToString();
+                string? averageDocTranslationTime = stats.AverageTimeToCompleteDoc is null ? 
+                    Text.NotEnoughTranslatedDocuments : 
+                    $"{stats.AverageTimeToCompleteDoc} ({Text.CalculationBasedOn} {stats.TranslatedDocumentCount} {Text.Documents})";
 
                 StatisticsTextBlock.Text = $"{Text.NumberOfDocsColon} {stats.DocumentCount}\n" +
                     $"{Text.AverageDocSizeColon} {stats.AverageDocSize}\n" +

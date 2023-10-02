@@ -99,6 +99,9 @@ namespace DocumentAssistant_UnitTests
 
             //Average size of document
             Assert.AreEqual(1000, testStats.AverageDocSize);
+
+            //Translated documents
+            Assert.AreEqual(10, testStats.TranslatedDocumentCount);
         }
 
         [TestMethod]

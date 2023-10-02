@@ -141,6 +141,15 @@
   <data name="AssignedUser" xml:space="preserve">
     <value>Przypisany użytkownik</value>
   </data>
+  <data name="AverageDocSizeColon" xml:space="preserve">
+    <value>Średni rozmiar dokumentu:</value>
+  </data>
+  <data name="AverageTranslationTimeColon" xml:space="preserve">
+    <value>Średni czas tłumaczenia (w dniach):</value>
+  </data>
+  <data name="CalculationBasedOn" xml:space="preserve">
+    <value>wyliczono na podstawie</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
@@ -250,6 +259,9 @@ Kontynuować?</value>
   <data name="DocTypeLengthWarning" xml:space="preserve">
     <value>Minimalne długośc typu dokumentu to dwa znaki!</value>
   </data>
+  <data name="Documents" xml:space="preserve">
+    <value>dokumentów</value>
+  </data>
   <data name="DoneDate" xml:space="preserve">
     <value>Data wykonania</value>
   </data>
@@ -355,6 +367,9 @@ Kontynuować?</value>
   <data name="NoDocTypeWarning" xml:space="preserve">
     <value>Nie wybrano typu dokumentu!</value>
   </data>
+  <data name="NoDocumentsInQuery" xml:space="preserve">
+    <value>Brak dokumentów spełniających zaznaczone kryteria</value>
+  </data>
   <data name="NoRoleChosenWarning" xml:space="preserve">
     <value>Nie wybrano roli!</value>
   </data>
@@ -363,6 +378,12 @@ Kontynuować?</value>
   </data>
   <data name="NoTargetLangWarning" xml:space="preserve">
     <value>Nie wybrano języka docelowego dokumentu!</value>
+  </data>
+  <data name="NotEnoughTranslatedDocuments" xml:space="preserve">
+    <value>Brak przetłumaczonych dokumentów spełniających zaznaczone kryteria</value>
+  </data>
+  <data name="NumberOfDocsColon" xml:space="preserve">
+    <value>Ilość dokumentów:</value>
   </data>
   <data name="Of" xml:space="preserve">
     <value>z</value>
