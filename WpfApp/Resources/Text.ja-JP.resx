@@ -124,7 +124,7 @@
     <value>追加</value>
   </data>
   <data name="AddDate" xml:space="preserve">
-    <value>追加日付</value>
+    <value>追加日</value>
   </data>
   <data name="AddDoc" xml:space="preserve">
     <value>書類追加</value>
@@ -136,19 +136,19 @@
     <value>割り当てる</value>
   </data>
   <data name="AssignDoc" xml:space="preserve">
-    <value>書類を割り当てる</value>
+    <value>書類割り当て</value>
   </data>
   <data name="AssignedUser" xml:space="preserve">
     <value>対象ユーザー</value>
   </data>
   <data name="AverageDocSizeColon" xml:space="preserve">
-    <value>Średni rozmiar dokumentu:</value>
+    <value>書類平均サイズ：</value>
   </data>
   <data name="AverageTranslationTimeColon" xml:space="preserve">
-    <value>Średni czas tłumaczenia (w dniach):</value>
+    <value>翻訳平均期間（日）：</value>
   </data>
   <data name="CalculationBasedOn" xml:space="preserve">
-    <value>calculation based on</value>
+    <value>計算の基</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
@@ -157,7 +157,7 @@
     <value>承認キャンセル</value>
   </data>
   <data name="ChangeLanguageColon" xml:space="preserve">
-    <value>原語変更：</value>
+    <value>言語変更：</value>
   </data>
   <data name="ChangeLogin" xml:space="preserve">
     <value>ログイン変更</value>
@@ -217,10 +217,10 @@
     <value>新DB付の管理者アカウントを作成しました。   
 ログイン: Admin 
 パスワード: Admin
-上記の情報でログインできます。</value>
+上記のデータでログイン出来ます。</value>
   </data>
   <data name="DbNotCreatedBoxText" xml:space="preserve">
-    <value>DBの作成ができませんでした。必要な環境がPCにインストールしたを確認してください！</value>
+    <value>DBの作成が出来ませんでした。必要な環境がPCにインストールしたか確認してください！</value>
   </data>
   <data name="DeactivateUser" xml:space="preserve">
     <value>ユーザー非アクティブ化</value>
@@ -235,7 +235,7 @@
     <value>削除</value>
   </data>
   <data name="DeleteWarning" xml:space="preserve">
-    <value>DB から永久にデータを削除します。これでデータの整合性が損なわれる可能性があります 。取り戻すことができません。続行しますか？</value>
+    <value>DB から永久にデータを削除します。これでデータの整合性が損なわれる可能性があります 。取り戻すことが出来ません。続行しますか？</value>
   </data>
   <data name="Doc" xml:space="preserve">
     <value>書類</value>
@@ -247,7 +247,7 @@
     <value>書類名に最低3字が必至！</value>
   </data>
   <data name="DocSameLanguagesWarning" xml:space="preserve">
-    <value>原語と対象言語が一致している！</value>
+    <value>原語と対象言語が同じ！</value>
   </data>
   <data name="DocSizeWarning" xml:space="preserve">
     <value>書類サイズが正しくない！</value>
@@ -259,7 +259,7 @@
     <value>書類タイプが短すぎる！（最低：2字）</value>
   </data>
   <data name="Documents" xml:space="preserve">
-    <value>documents</value>
+    <value>書類</value>
   </data>
   <data name="DoneDate" xml:space="preserve">
     <value>完了日</value>
@@ -268,10 +268,10 @@
     <value>書類編集</value>
   </data>
   <data name="EnterNewLoginColon" xml:space="preserve">
-    <value>新ログインを入れてください：</value>
+    <value>新ログインを入力ください：</value>
   </data>
   <data name="EnterNewPasswordColon" xml:space="preserve">
-    <value>新パスワード入れてください：</value>
+    <value>新パスワードを入力ください：</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>名前</value>
@@ -295,7 +295,7 @@
     <value>ログイン</value>
   </data>
   <data name="LoginAlreadyExistsWarning" xml:space="preserve">
-    <value>DBにこのユーザー名はもう存在しています！他のログインを入れてください。</value>
+    <value>DBにこのユーザー名はもう存在しています！他のログインを入力ください。</value>
   </data>
   <data name="LoginColon" xml:space="preserve">
     <value>ログイン：</value>
@@ -304,92 +304,92 @@
     <value>ログインデータが正しくないです。ログイン・パスワードを確認してください。</value>
   </data>
   <data name="LoginFailed" xml:space="preserve">
-    <value>Proces logowania nie powiódł się. Sprawdź czy posiadasz odpowiednie uprawnienia</value>
+    <value>ログインが出来ませんでした。必要な権限を持つか確認してください。</value>
   </data>
   <data name="LoginMinLengthWarning" xml:space="preserve">
-    <value>Login musi składać się z conajmniej dwóch znaków!</value>
+    <value>ログインが短すぎる！（最低：２字）</value>
   </data>
   <data name="LoginNotFound" xml:space="preserve">
-    <value>Nie odnaleziono loginu w bazie.</value>
+    <value>DBにはログインが存在していません。</value>
   </data>
   <data name="LoginTooShortWarning" xml:space="preserve">
-    <value>Login zbyt krótki!</value>
+    <value>ログインが短すぎる！</value>
   </data>
   <data name="LoginVerb" xml:space="preserve">
-    <value>Zaloguj</value>
+    <value>ログイン</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Wyloguj</value>
+    <value>ログアウト</value>
   </data>
   <data name="ManageUserColon" xml:space="preserve">
-    <value>Zarządzaj użytkownikiem:</value>
+    <value>ユーザー管理：</value>
   </data>
   <data name="ManageUsers" xml:space="preserve">
-    <value>Zarządzaj użytkownikami</value>
+    <value>ユーザー管理</value>
   </data>
   <data name="MarkAsDone" xml:space="preserve">
-    <value>Oznacz jako wykonany</value>
+    <value>完了済</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value />
+    <value>名前</value>
   </data>
   <data name="NamesMinLengthWarning" xml:space="preserve">
-    <value>Imię i Nazwisko muszą składać się z conajmniej dwóch znaków!</value>
+    <value>名前と名字が短すぎる！（最低：2字）</value>
   </data>
   <data name="NewClient" xml:space="preserve">
-    <value>Nowy klient</value>
+    <value>新依頼者</value>
   </data>
   <data name="NewDocType" xml:space="preserve">
-    <value>Nowy typ dokumetu</value>
+    <value>書類新タイプ</value>
   </data>
   <data name="NewLanguage" xml:space="preserve">
-    <value>Nowy język</value>
+    <value>新原語</value>
   </data>
   <data name="NewUserColon" xml:space="preserve">
-    <value>Nowy użytkownik:</value>
+    <value>新ユーザー：</value>
   </data>
   <data name="NextPage" xml:space="preserve">
-    <value>Następna strona</value>
+    <value>次ページ</value>
   </data>
   <data name="NoClientWarning" xml:space="preserve">
-    <value>Nie przypisano zleceniodawcy do dokumentu!</value>
+    <value>依頼者が書類に割り当てられてない！</value>
   </data>
   <data name="NoDbBoxText" xml:space="preserve">
-    <value>Baza danych nie odnaleziona! Jeżeli to pierwsze uruchomienie aplikacji wybierz 'Tak' aby utworzyć nową bazę danych.</value>
+    <value>DBが見つかりませんでした！最初のアプリ起動であれば、「はい」を選んで新DBが作れます。 </value>
   </data>
   <data name="NoDbBoxTitle" xml:space="preserve">
-    <value>Brak połączenia z bazą danych!</value>
+    <value>DBへの接続がない！</value>
   </data>
   <data name="NoDeadlineWarning" xml:space="preserve">
-    <value>Nie wybrano terminu wykonania dokumentu!</value>
+    <value>書類完了日が選ばれてない！</value>
   </data>
   <data name="NoDocTypeWarning" xml:space="preserve">
-    <value>Nie wybrano typu dokumentu!</value>
+    <value>書類タイプが選ばれてない！</value>
   </data>
   <data name="NoDocumentsInQuery" xml:space="preserve">
-    <value>Brak dokumentów spełniających zaznaczone kryteria</value>
+    <value>選択した基準を満たす書類がありません。</value>
   </data>
   <data name="NoRoleChosenWarning" xml:space="preserve">
-    <value>Nie wybrano roli!</value>
+    <value>役割が選ばれてない！</value>
   </data>
   <data name="NoSourceLangWarning" xml:space="preserve">
-    <value>Nie wybrano języka źródłowego dokumentu!</value>
+    <value>書類原語が選ばれてない！</value>
   </data>
   <data name="NoTargetLangWarning" xml:space="preserve">
-    <value>Nie wybrano języka docelowego dokumentu!</value>
+    <value>対象言語が選ばれてない！</value>
   </data>
   <data name="NotEnoughTranslatedDocuments" xml:space="preserve">
-    <value>Brak przetłumaczonych dokumentów spełniających zaznaczone kryteria</value>
+    <value>選択した基準を満たす翻訳済書類がありません。</value>
   </data>
   <data name="NumberOfDocsColon" xml:space="preserve">
-    <value>Ilość dokumentów:</value>
+    <value>書類枚数：</value>
   </data>
   <data name="Of" xml:space="preserve">
-    <value>z</value>
+    <value>／</value>
     <comment>x OF x (f.e. page)</comment>
   </data>
   <data name="OpenStatisticsWindow" xml:space="preserve">
-    <value>Wyświetl statystyki</value>
+    <value>統計表示</value>
   </data>
   <data name="Page" xml:space="preserve">
     <value>ページ</value>
@@ -401,10 +401,10 @@
     <value>パスワードが一致しない！</value>
   </data>
   <data name="PasswordTooShortWarning" xml:space="preserve">
-    <value>Hasło za krótkie! minimalny rozmiar to 4 znaki</value>
+    <value>パスワードが短すぎる！（最低：４字）</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>前頁</value>
+    <value>前ページ</value>
   </data>
   <data name="Rank" xml:space="preserve">
     <value>ランク</value>
@@ -444,6 +444,6 @@
     <comment>Noun</comment>
   </data>
   <data name="UserLevelWarning" xml:space="preserve">
-    <value>Nieprawidłowy poziom użytkownika!</value>
+    <value>ユーザーレベルが正しくない！</value>
   </data>
 </root>

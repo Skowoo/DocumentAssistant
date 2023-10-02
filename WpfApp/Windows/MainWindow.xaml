@@ -152,7 +152,7 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dodaj nowy dokument:" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
+                <Label Content="{x:Static CC:Text.AddDoc}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
 
                 <Label Content="{x:Static CC:Text.Name}"  Grid.Row="1" Style="{StaticResource Label}"/>
                 <TextBox x:Name="NewDocName_TextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"/>
@@ -186,7 +186,7 @@
                 <ComboBox Name="NewDocUser_ComboBox" Grid.Row="8" Style="{StaticResource CustomBoxStyle}"/>
 
                 <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="{x:Static CC:Text.AddDoc}" Style="{StaticResource MainMenuButton}" HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
-                <Button Grid.Row="9" Content="Anuluj" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
+                <Button Grid.Row="9" Content="{x:Static CC:Text.Cancel}" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
 
                 <TextBlock Name="NewDocTypeLabel" Text="{x:Static CC:Text.NewDocType}" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
                 <TextBox Name="NewType_TextBox" Grid.Column="2" Grid.Row="3" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
