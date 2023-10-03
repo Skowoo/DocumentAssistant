@@ -427,6 +427,9 @@
   <data name="SourceLang" xml:space="preserve">
     <value>原語</value>
   </data>
+  <data name="StatisticsWindowTitle" xml:space="preserve">
+    <value>統計</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>状態</value>
   </data>

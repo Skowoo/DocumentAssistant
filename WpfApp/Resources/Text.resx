@@ -132,6 +132,9 @@
   <data name="AddNewUser" xml:space="preserve">
     <value>Add new user</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>DocumentAssistant</value>
+  </data>
   <data name="Assign" xml:space="preserve">
     <value>Assign</value>
   </data>
@@ -424,6 +427,9 @@ Continue?</value>
   </data>
   <data name="SourceLang" xml:space="preserve">
     <value>Source language</value>
+  </data>
+  <data name="StatisticsWindowTitle" xml:space="preserve">
+    <value>Statistics</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

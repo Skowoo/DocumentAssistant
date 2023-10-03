@@ -106,6 +106,15 @@ namespace WpfApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DocumentAssistant.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Assign.
         /// </summary>
         public static string Assign {
@@ -970,6 +979,15 @@ namespace WpfApp.Resources {
         public static string SourceLang {
             get {
                 return ResourceManager.GetString("SourceLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string StatisticsWindowTitle {
+            get {
+                return ResourceManager.GetString("StatisticsWindowTitle", resourceCulture);
             }
         }
         

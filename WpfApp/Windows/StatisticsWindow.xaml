@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:CC="clr-namespace:WpfApp.Resources"
         mc:Ignorable="d"
-        Title="StatisticsWindow" Height="450" Width="800">
+        Title="{x:Static CC:Text.StatisticsWindowTitle}" Height="450" Width="800">
 
     <Window.Resources>
 

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="Zarządzaj użytkownikami" Height="450" Width="800">
+        Title="{x:Static CC:Text.ManageUsers}" Height="450" Width="800">
     <Grid Background="BlanchedAlmond" >
 
         <DataGrid Name="UsersDataGrid" Margin="0,0,300,0" SelectionChanged="UsersDataGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" >

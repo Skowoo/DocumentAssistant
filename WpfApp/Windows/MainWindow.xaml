@@ -6,7 +6,7 @@
         xmlns:CC="clr-namespace:WpfApp.Resources"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="800" Width="1500" MinHeight="500" MinWidth="800">
+        Title="{x:Static CC:Text.AppName}" Height="800" Width="1500" MinHeight="500" MinWidth="800">
 
     <Window.Resources>
 
