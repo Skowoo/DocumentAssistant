@@ -3,4 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfApp"
              StartupUri="Windows/LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="TextColorBrush" Color="#FF796953"/>
+            <SolidColorBrush x:Key="BgColorBrush" Color="BlanchedAlmond"/>
+            <SolidColorBrush x:Key="DarkBgColorBrush" Color="#FF796953"/>
+            <SolidColorBrush x:Key="ButtonBgColorBrush" Color="#FFFFBB56"/>
+            <SolidColorBrush x:Key="ButtonBorderColorBrush" Color="#FFFDC97B"/>
+            <SolidColorBrush x:Key="TextBoxBgBrush" Color="#FFFFF4E3"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
