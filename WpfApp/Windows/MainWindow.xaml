@@ -40,8 +40,8 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Height" Value="50"/>
             <Setter Property="Width" Value="200"/>
-            <Setter Property="Background" Value="#FFFFBB56"/>
-            <Setter Property="BorderBrush" Value="#FFFDC97B"/>
+            <Setter Property="Background" Value="{StaticResource ButtonBgColorBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ButtonBorderColorBrush}"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
@@ -51,8 +51,8 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="80"/>
-            <Setter Property="Background" Value="#FFFFBB56"/>
-            <Setter Property="BorderBrush" Value="#FFFDC97B"/>
+            <Setter Property="Background" Value="{StaticResource ButtonBgColorBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ButtonBorderColorBrush}"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
@@ -60,19 +60,19 @@
         <Style TargetType="DataGridRow">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding UserLogin}" Value="{x:Null}">
-                    <Setter Property="Background" Value="#FFFBFB80" />
+                    <Setter Property="Background" Value="{StaticResource NotAssigned}" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsCloseToDeadline}" Value="true">
-                    <Setter Property="Background" Value="#FFFF7F7F" />
+                    <Setter Property="Background" Value="{StaticResource CloseToDeadline}" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsOverdue}" Value="true">
-                    <Setter Property="Background" Value="#FFF92B2B" />
+                    <Setter Property="Background" Value="{StaticResource Overdue}" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsDone}" Value="true">
-                    <Setter Property="Background" Value="#FFC2FB80" />
+                    <Setter Property="Background" Value="{StaticResource Done}" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsConfirmed}" Value="True">
-                    <Setter Property="Background" Value="#FF2FEC2F" />
+                    <Setter Property="Background" Value="{StaticResource Confirmed}" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -81,7 +81,7 @@
 
     <Grid x:Name="MainGrid" Background="BlanchedAlmond">
 
-        <Menu VerticalAlignment="Top" Background="#FFFFB444" Height="20">
+        <Menu VerticalAlignment="Top" Background="{StaticResource BgColorBrush}" Height="20">
             <MenuItem Header="{x:Static CC:Text.Settings}" Height="20">
                 <MenuItem Name="Menu_ManageUsers" Header="{x:Static CC:Text.ManageUsers}" Click="Menu_ManageUsers_Click" IsEnabled="False"/>
                 <MenuItem Name="Menu_ShowStatistics" Header="{x:Static CC:Text.OpenStatisticsWindow}" Click="Menu_ShowStatistics_Click" IsEnabled="False"/>
@@ -91,7 +91,8 @@
         </Menu>
 
         <Grid Name="DocumentFullGrid" Margin="0,20,300,0">
-            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFDD8A1" SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" >
+            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="{StaticResource DarkBgColorBrush}" 
+                      SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="{x:Static CC:Text.DocName}" Width="*"/>
                     <DataGridTextColumn x:Name="docOriginalLangColumn" Binding="{Binding OriginalLanguage}" Header="{x:Static CC:Text.SourceLang}" Width="SizeToHeader"/>
@@ -107,9 +108,11 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Style="{StaticResource SmallButton}" Name="PreviousPageButton" Margin="25,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" Content="{x:Static CC:Text.PreviousPage}" Click="PreviousPageButton_Click"></Button>
-            <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Margin="0,5,25,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" Content="{x:Static CC:Text.NextPage}" Click="NextPageButton_Click"></Button>
-            <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" ></Label>
+            <Button Style="{StaticResource SmallButton}" Name="PreviousPageButton" Margin="25,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" 
+                    Content="{x:Static CC:Text.PreviousPage}" Click="PreviousPageButton_Click"></Button>
+            <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Margin="0,5,25,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" 
+                    Content="{x:Static CC:Text.NextPage}" Click="NextPageButton_Click"></Button>
+            <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
         </Grid>
 
         <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,0,50,0" VerticalAlignment="Center">
@@ -130,7 +133,8 @@
             <Button Name="ConfirmDoneBtn" Content="{x:Static CC:Text.ConfirmDone}" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click" IsEnabled="False"/>
             <Button Name="AssignDocumentBtn" Content="{x:Static CC:Text.AssignDoc}" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click" IsEnabled="False"/>
             <ComboBox Name="AssignUserMainMenu_ComboBox" Grid.Row="6" Height="30" Margin="0,0,0,10"/>
-            <Button Name="AssignUserMainMenuConfirm_Button" Content="{x:Static CC:Text.Assign}" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" Click="AssignUserMainMenuConfirm_Button_Click" />
+            <Button Name="AssignUserMainMenuConfirm_Button" Content="{x:Static CC:Text.Assign}" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" 
+                    Click="AssignUserMainMenuConfirm_Button_Click" />
         </Grid>
 
         <ScrollViewer Visibility="Hidden" Name="AddDocumentGrid" Margin="0,20,0,0">
@@ -162,21 +166,25 @@
 
                 <Label Content="{x:Static CC:Text.DocType}" Grid.Row="3" Style="{StaticResource Label}" />
                 <ComboBox Name="NewDocType_ComboBox" Grid.Row="3" Style="{StaticResource CustomBoxStyle}"/>
-                <Button Name="NewTypeDocGrid_Button" Content="{x:Static CC:Text.Add}" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewTypeDocGrid_Button_Click"/>
+                <Button Name="NewTypeDocGrid_Button" Content="{x:Static CC:Text.Add}" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallButton}" 
+                        Click="NewTypeDocGrid_Button_Click"/>
 
                 <Label Content="{x:Static CC:Text.Client}" Grid.Row="4" Style="{StaticResource Label}" />
                 <ComboBox Name="NewDocCustomer_ComboBox" Grid.Row="4" Style="{StaticResource CustomBoxStyle}"/>
-                <Button Name="NewCustomerDocGrid_Button" Content="{x:Static CC:Text.Add}" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewCustomerDocGrid_Button_Click"/>
+                <Button Name="NewCustomerDocGrid_Button" Content="{x:Static CC:Text.Add}" Grid.Row="4" Grid.Column="1" Style="{StaticResource SmallButton}" 
+                        Click="NewCustomerDocGrid_Button_Click"/>
 
                 <Label Content="{x:Static CC:Text.SourceLang}" Grid.Row="5" Style="{StaticResource Label}" />
                 <ComboBox Name="NewDocOriginalLang_ComboBox" Grid.Row="5" Style="{StaticResource CustomBoxStyle}"/>
-                <Button Name="NewDocAddLanguage_Button" Content="{x:Static CC:Text.Add}" Grid.Row="5" Grid.Column="1" Style="{StaticResource SmallButton}" Click="NewDocAddLanguage_Button_Click" Margin="0,0,0,5" VerticalAlignment="Bottom"/>
+                <Button Name="NewDocAddLanguage_Button" Content="{x:Static CC:Text.Add}" Grid.Row="5" Grid.Column="1" Style="{StaticResource SmallButton}" 
+                        Click="NewDocAddLanguage_Button_Click" Margin="0,0,0,5" VerticalAlignment="Bottom"/>
 
                 <Label Content="{x:Static CC:Text.TargetLang}" Grid.Row="6" Style="{StaticResource Label}" />
                 <ComboBox Name="NewDocTargetLang_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}"/>
 
                 <Label Content="{x:Static CC:Text.Deadline}" Grid.Row="7" Style="{StaticResource Label}" />
-                <Calendar Name="DeadlineCallendar" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged">
+                <Calendar Name="DeadlineCallendar" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                          SelectedDatesChanged="Callendars_SelectedDatesChanged">
                     <Calendar.BlackoutDates>
                         <CalendarDateRange x:Name="DeadlineCallendarBlackout" Start="01.01.0001"/>
                     </Calendar.BlackoutDates>
@@ -185,20 +193,25 @@
                 <Label Content="{x:Static CC:Text.AssignedUser}" Grid.Row="8" Style="{StaticResource Label}" />
                 <ComboBox Name="NewDocUser_ComboBox" Grid.Row="8" Style="{StaticResource CustomBoxStyle}"/>
 
-                <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="{x:Static CC:Text.AddDoc}" Style="{StaticResource MainMenuButton}" HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
-                <Button Grid.Row="9" Content="{x:Static CC:Text.Cancel}" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" HorizontalAlignment="Right" Margin="0,20,0,0"/>
+                <Button Name="ConfirmNewDocButton" Grid.Row="9" Grid.ColumnSpan="2" Content="{x:Static CC:Text.AddDoc}" Style="{StaticResource MainMenuButton}" 
+                        HorizontalAlignment="Left" Margin="0,20,0,0" Click="ConfirmNewDocButton_Click"/>
+                <Button Grid.Row="9" Content="{x:Static CC:Text.Cancel}" Style="{StaticResource MainMenuButton}"  Grid.ColumnSpan="2" Click="ResetViewButton_Click" 
+                        HorizontalAlignment="Right" Margin="0,20,0,0"/>
 
                 <TextBlock Name="NewDocTypeLabel" Text="{x:Static CC:Text.NewDocType}" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
                 <TextBox Name="NewType_TextBox" Grid.Column="2" Grid.Row="3" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
-                <Button Name="ConfirmNewType_Button" Grid.Column="2" Grid.Row="4" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewType_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
+                <Button Name="ConfirmNewType_Button" Grid.Column="2" Grid.Row="4" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewType_Button_Click" 
+                        Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
 
                 <TextBlock Name="NewCustomerLabel" Text="{x:Static CC:Text.NewClient}" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
                 <TextBox Name="NewCustomer_TextBox" Grid.Column="2" Grid.Row="4" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
-                <Button Name="ConfirmNewCustomer_Button" Grid.Column="2" Grid.Row="5" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewCustomer_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
+                <Button Name="ConfirmNewCustomer_Button" Grid.Column="2" Grid.Row="5" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewCustomer_Button_Click" 
+                        Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
 
                 <TextBlock Name="NewLanguageLabel"  Text="{x:Static CC:Text.NewLanguage}" Grid.Column="2" Grid.Row="4" VerticalAlignment="Bottom" TextAlignment="Center" FontWeight="Bold"/>
                 <TextBox Name="NewLanguage_TextBox" Grid.Column="2" Grid.Row="5" Style="{StaticResource CustTextBox}" HorizontalAlignment="Center" Width="190"/>
-                <Button Name="ConfirmNewLanguage_Button" Grid.Column="2" Grid.Row="6" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewLanguage_Button_Click" Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
+                <Button Name="ConfirmNewLanguage_Button" Grid.Column="2" Grid.Row="6" Content="{x:Static CC:Text.Confirm}" Click="ConfirmNewLanguage_Button_Click" 
+                        Style="{StaticResource SmallButton}" Width="100" VerticalAlignment="Top"/>
             </Grid>
         </ScrollViewer>
 
@@ -242,18 +255,21 @@
             <ComboBox Name="EditDocTargetLang_ComboBox" Grid.Row="7" Style="{StaticResource CustomBoxStyle}"/>
 
             <Label Content="{x:Static CC:Text.Deadline}" Grid.Row="8" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
+            <Calendar Name="EditDocDeadlineCallendar" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                      SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
 
             <Label Content="{x:Static CC:Text.Responsible}" Grid.Row="9" Style="{StaticResource Label}" />
             <ComboBox Name="EditDocUser_ComboBox" Grid.Row="9" Style="{StaticResource CustomBoxStyle}"/>
 
             <Label Content="{x:Static CC:Text.DoneDate}" Grid.Row="10" Style="{StaticResource Label}" />
-            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
+            <Calendar Name="EditDocTimeDoneCallendar" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,65,0" 
+                      SelectedDatesChanged="Callendars_SelectedDatesChanged"/>
 
             <Label Content="{x:Static CC:Text.Confirmed}" Grid.Row="11" Style="{StaticResource Label}" />
             <CheckBox Name="EditDocGridConfirmed_CheckBox" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"/>
 
-            <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="{x:Static CC:Text.Confirm}" Style="{StaticResource MainMenuButton}" Click="ConfirmEditDocButton_Click" HorizontalAlignment="Left" />
+            <Button Name="ConfirmEditDocButton" Grid.Row="12" Content="{x:Static CC:Text.Confirm}" Style="{StaticResource MainMenuButton}" 
+                    Click="ConfirmEditDocButton_Click" HorizontalAlignment="Left" />
             <Button Grid.Row="12" Content="{x:Static CC:Text.Cancel}" Style="{StaticResource MainMenuButton}" Click="ResetViewButton_Click" HorizontalAlignment="Right"/>
         </Grid>
         </ScrollViewer>

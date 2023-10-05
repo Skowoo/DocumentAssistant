@@ -7,10 +7,16 @@
         <ResourceDictionary>
             <SolidColorBrush x:Key="TextColorBrush" Color="#FF796953"/>
             <SolidColorBrush x:Key="BgColorBrush" Color="BlanchedAlmond"/>
-            <SolidColorBrush x:Key="DarkBgColorBrush" Color="#FF796953"/>
+            <SolidColorBrush x:Key="DarkBgColorBrush" Color="#FFFDD8A1"/>
             <SolidColorBrush x:Key="ButtonBgColorBrush" Color="#FFFFBB56"/>
             <SolidColorBrush x:Key="ButtonBorderColorBrush" Color="#FFFDC97B"/>
             <SolidColorBrush x:Key="TextBoxBgBrush" Color="#FFFFF4E3"/>
+            <!--Colors for documents list-->
+            <SolidColorBrush x:Key="Confirmed" Color="#FF2FEC2F"/>
+            <SolidColorBrush x:Key="Done" Color="#FFC2FB80"/>
+            <SolidColorBrush x:Key="NotAssigned" Color="#FFFBFB80"/>
+            <SolidColorBrush x:Key="CloseToDeadline" Color="#FFFF7F7F"/>
+            <SolidColorBrush x:Key="Overdue" Color="#FFF92B2B"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
