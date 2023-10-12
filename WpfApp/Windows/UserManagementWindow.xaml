@@ -33,6 +33,23 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
+        <Style x:Key="Label" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+
     </Window.Resources>
     
     <Grid Background="{StaticResource BgColorBrush}" >
@@ -48,28 +65,25 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Visibility="Hidden" Name="UserUpdateCommandGrid" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Center" Margin="550,0,0,0">
-            <TextBlock Text="{x:Static CC:Text.ManageUserColon}" Height="30" TextAlignment="Center" HorizontalAlignment="Left" Width="200" 
-                       VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Grid Visibility="Hidden" Name="UserUpdateCommandGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="550,0,0,50">
+            <Label Content="{x:Static CC:Text.ManageUserColon}" Style="{StaticResource Label}" VerticalAlignment="Top"/>
             <Button Name="ChangeLoginButton" Content="{x:Static CC:Text.ChangeLogin}" Style="{StaticResource MainMenuButton}" 
-                    Margin="0,0,0,0" Click="ChangeLoginButton_Click"/>
+                    Margin="0,40,0,0" Click="ChangeLoginButton_Click"/>
             <Button Name="ChangePasswordButton" Content="{x:Static CC:Text.ChangePassword}" Style="{StaticResource MainMenuButton}" 
-                    Margin="0,60,0,0" Click="ChangePasswordButton_Click"/>
+                    Margin="0,100,0,0" Click="ChangePasswordButton_Click"/>
             <Button Name="ChangeNamesButton" Content="{x:Static CC:Text.ChangePersonalData}" Style="{StaticResource MainMenuButton}" 
-                    Margin="0,120,0,0" Click="ChangeNamesButton_Click"/>
+                    Margin="0,160,0,0" Click="ChangeNamesButton_Click"/>
             <Button Name="ChangeRankButton" Content="{x:Static CC:Text.ChangeRank}" Style="{StaticResource MainMenuButton}" 
-                    Margin="0,180,0,0" Click="ChangeRankButton_Click"/>
+                    Margin="0,220,0,0" Click="ChangeRankButton_Click"/>
             <Button Name="ActivateUserButton" Content="{x:Static CC:Text.DeactivateUser}" Style="{StaticResource MainMenuButton}" 
-                    Margin="0,240,0,0" Click="ActivateUserButton_Click"/>
+                    Margin="0,280,0,0" Click="ActivateUserButton_Click"/>
         </Grid>
 
-        <Grid Visibility="Hidden" Name="ChangeLoginGrid" HorizontalAlignment="Left" Height="160" VerticalAlignment="Center" Margin="525,0,0,0">
+        <Grid Name="ChangeLoginGrid" HorizontalAlignment="Left" Height="160" VerticalAlignment="Center" Margin="525,0,0,0">
             <TextBlock x:Name="LoginChangeDescription" HorizontalAlignment="Left" Width="250" TextAlignment="Center" Height="50" 
                        TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,61,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" 
-                       VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Text="{x:Static CC:Text.EnterNewLoginColon}"></TextBlock>
-            <TextBox x:Name="NewLoginTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" 
-                     Margin="0,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
+            <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.EnterNewLoginColon}" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <TextBox x:Name="NewLoginTextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,50,0,0"/>
             <Button x:Name="ConfirmLoginChangeButton" Content="{x:Static CC:Text.Confirm}" HorizontalAlignment="Center" Margin="0,125,0,0"
                     VerticalAlignment="Top" Style="{StaticResource SmallButton}" Click="ConfirmLoginChangeButton_Click"/>
         </Grid>
@@ -82,8 +96,8 @@
             <TextBox x:Name="NewFirstNameTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" 
                      Margin="0,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
             <TextBox x:Name="NewLastNameTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" 
-                     Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
-            <Button x:Name="ConfirmNamesChangeButton" Content="{x:Static CC:Text.Confirm}" HorizontalAlignment="Center" Margin="0,187,0,0" 
+                     Margin="0,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30"/>
+            <Button x:Name="ConfirmNamesChangeButton" Content="{x:Static CC:Text.Confirm}" HorizontalAlignment="Center" Margin="0,190,0,0" 
                     VerticalAlignment="Top" Style="{StaticResource SmallButton}" Click="ConfirmNamesChangeButton_Click"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,111,0,0" Width="250" TextAlignment="Center" Height="25" TextWrapping="Wrap" 
                        VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Text="{x:Static CC:Text.SurnameColon}"/>
