@@ -180,6 +180,7 @@ namespace WpfApp.Windows
                 using (MainContext context = new MainContext())
                 {
                     context.Users.Where(x => x.UserID == selectedUserView.UserID).Single().RoleID = selectedRole.RoleID;
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
