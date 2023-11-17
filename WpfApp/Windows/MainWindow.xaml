@@ -32,7 +32,7 @@
 
     </Window.Resources>
 
-    <Grid x:Name="MainGrid" Background="BlanchedAlmond">
+    <Grid x:Name="MainGrid" Background="{StaticResource BgColorBrush}">
 
         <Menu VerticalAlignment="Top" Background="{StaticResource BgColorBrush}" Height="20">
             <MenuItem Header="{x:Static CC:Text.Settings}" Height="20">
