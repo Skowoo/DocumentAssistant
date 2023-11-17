@@ -371,8 +371,8 @@ namespace WpfApp
                         default:
                             break;
                     }
-                }
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+                }
 
                 downloadedDocuments = sortedQuery
                     .Skip((currentPage - 1) * pageSize)
