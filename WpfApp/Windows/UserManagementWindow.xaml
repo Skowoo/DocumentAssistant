@@ -74,9 +74,10 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="PasswordChangeDescription" HorizontalAlignment="Center" Grid.Row="0" TextAlignment="Center" TextWrapping="Wrap" 
                        VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-            <TextBlock Text="{x:Static CC:Text.EnterNewPasswordColon}" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap" FontSize="14" FontWeight="Bold"/>
-            <PasswordBox x:Name="NewPasswordBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="2" Height="30"/>
-            <PasswordBox x:Name="ConfirmPasswordBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="3" Height="30"/>
+            <TextBlock Text="{x:Static CC:Text.EnterNewPasswordColon}" Grid.Row="1" TextAlignment="Center" 
+                       TextWrapping="Wrap" FontSize="14" FontWeight="Bold"/>
+            <PasswordBox x:Name="NewPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="2"/>
+            <PasswordBox x:Name="ConfirmPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="3"/>
             <Button Name="ConfirmPasswordChangeButton" Content="{x:Static CC:Text.Confirm}" Grid.Row="4" 
                     Style="{StaticResource SmallButton}" Click="ConfirmPasswordChangeButton_Click"/>
         </Grid>
@@ -118,11 +119,11 @@
             <Label Content="{x:Static CC:Text.SurnameColon}" Style="{StaticResource Label}" Grid.Row="3"/>
             <TextBox x:Name="LastNameTextBox" Style="{StaticResource CustTextBox}" Grid.Row="3" Grid.Column="1" Width="150"/>
             <Label Content="{x:Static CC:Text.PasswordColon}" Style="{StaticResource Label}" Grid.Row="4"/>
-            <PasswordBox x:Name="FirstPasswordBox" Grid.Row="4" Grid.Column="1" Width="150" Height="30"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <PasswordBox x:Name="FirstPasswordBox" Grid.Row="4" Grid.Column="1" Width="150"
+                         Style="{StaticResource CustPasswordBox}"/>
             <Label Content="{x:Static CC:Text.PasswordColon}" Style="{StaticResource Label}" Grid.Row="5"/>
-            <PasswordBox x:Name="SecondPasswordBox" Grid.Row="5" Grid.Column="1" Width="150" Height="30"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <PasswordBox x:Name="SecondPasswordBox" Grid.Row="5" Grid.Column="1" Width="150"
+                         Style="{StaticResource CustPasswordBox}"/>
             <Label Content="{x:Static CC:Text.RankColon}" Style="{StaticResource Label}" Grid.Row="6"/>
             <ComboBox x:Name="RoleComboBox" HorizontalAlignment="Left" Width="150" Height="30" Grid.Row="6" Grid.Column="1"/>
             <Button x:Name="ConfirmNewUserButton" Content="{x:Static CC:Text.Confirm}" Style="{StaticResource SmallButton}" Click="ConfirmNewUserButton_Click"
