@@ -37,8 +37,8 @@
         </Grid>
 
         <Grid Visibility="Hidden" Name="ChangeLoginGrid" HorizontalAlignment="Left" Height="160" VerticalAlignment="Center" Margin="525,0,0,0">
-            <TextBlock x:Name="LoginChangeDescription" HorizontalAlignment="Left" Width="250" TextAlignment="Center" Height="50" 
-                       TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="LoginChangeDescription" HorizontalAlignment="Left" Style="{StaticResource Label}" HorizontalContentAlignment="Center"
+                   Width="250" Height="60" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
             <Label Style="{StaticResource Label}" Content="{x:Static CC:Text.EnterNewLoginColon}" HorizontalAlignment="Center" Margin="0,0,0,20"/>
             <TextBox x:Name="NewLoginTextBox" Style="{StaticResource CustTextBox}" Width="250" Margin="0,50,0,0"/>
             <Button x:Name="ConfirmLoginChangeButton" Content="{x:Static CC:Text.Confirm}" HorizontalAlignment="Center" Margin="0,130,0,0"
@@ -47,48 +47,50 @@
 
         <Grid Visibility="Hidden" Name="ChangeNamesGrid" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Center" Margin="525,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NamesChangeDescription" HorizontalAlignment="Center" Grid.Row="0" TextAlignment="Center" TextWrapping="Wrap" 
-                    FontSize="14" FontWeight="Bold"/>
-            <Label Content="{x:Static CC:Text.FirstNameColon}" Style="{StaticResource Label}" Grid.Row="1" HorizontalAlignment="Center"/>
-            <TextBox x:Name="NewFirstNameTextBox" Style="{StaticResource CustTextBox}" Grid.Row="2" Width="250"/>
-            <Label Content="{x:Static CC:Text.SurnameColon}" Style="{StaticResource Label}" Grid.Row="3" HorizontalAlignment="Center"/>
-            <TextBox x:Name="NewLastNameTextBox" Style="{StaticResource CustTextBox}" Grid.Row="4" Width="250"/>
-            <Button x:Name="ConfirmNamesChangeButton" Content="{x:Static CC:Text.Confirm}" Grid.Row="5" 
+            <Label Content="{x:Static CC:Text.ChangingPersonalDataColon}" Style="{StaticResource Label}" HorizontalAlignment="Center"/>
+            <Label x:Name="NamesChangeDescription" Grid.Row="1" Style="{StaticResource Label}" HorizontalAlignment="Center" />
+            <Label Content="{x:Static CC:Text.FirstNameColon}" Style="{StaticResource Label}" Grid.Row="2" HorizontalAlignment="Center"/>
+            <TextBox x:Name="NewFirstNameTextBox" Style="{StaticResource CustTextBox}" Grid.Row="3" Width="250"/>
+            <Label Content="{x:Static CC:Text.SurnameColon}" Style="{StaticResource Label}" Grid.Row="4" HorizontalAlignment="Center"/>
+            <TextBox x:Name="NewLastNameTextBox" Style="{StaticResource CustTextBox}" Grid.Row="5" Width="250"/>
+            <Button x:Name="ConfirmNamesChangeButton" Content="{x:Static CC:Text.Confirm}" Grid.Row="6" 
                     Style="{StaticResource SmallButton}" Click="ConfirmNamesChangeButton_Click"/>
         </Grid>
 
         <Grid Visibility="Hidden" Name="ChangePasswordGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Width ="250" Margin="525,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="PasswordChangeDescription" HorizontalAlignment="Center" Grid.Row="0" TextAlignment="Center" TextWrapping="Wrap" 
-                       VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-            <TextBlock Text="{x:Static CC:Text.EnterNewPasswordColon}" Grid.Row="1" TextAlignment="Center" 
-                       TextWrapping="Wrap" FontSize="14" FontWeight="Bold"/>
-            <PasswordBox x:Name="NewPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="2"/>
-            <PasswordBox x:Name="ConfirmPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="3"/>
-            <Button Name="ConfirmPasswordChangeButton" Content="{x:Static CC:Text.Confirm}" Grid.Row="4" 
+            <Label Content="{x:Static CC:Text.ChangingPasswordColon}" Style="{StaticResource Label}" Grid.Row="0" HorizontalAlignment="Center"/>
+            <Label x:Name="PasswordChangeDescription" Style="{StaticResource Label}" Grid.Row="1" HorizontalAlignment="Center"/>
+            <Label Content="{x:Static CC:Text.EnterNewPasswordColon}" Grid.Row="2" Style="{StaticResource Label}"
+                   HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+            <PasswordBox x:Name="NewPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="3"/>
+            <PasswordBox x:Name="ConfirmPasswordBox" Style="{StaticResource CustPasswordBox}" Grid.Row="4"/>
+            <Button Name="ConfirmPasswordChangeButton" Content="{x:Static CC:Text.Confirm}" Grid.Row="5" 
                     Style="{StaticResource SmallButton}" Click="ConfirmPasswordChangeButton_Click"/>
         </Grid>
 
-        <Grid  Name="ChangeRoleGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="525,0,0,0">
-            <TextBlock x:Name="RoleChangeDescription" HorizontalAlignment="Center" Width="250" TextAlignment="Center" Height="50" 
-                       TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,11,0,0"/>
-            <Label Content="{x:Static CC:Text.ChooseRoleColon}" Style="{StaticResource Label}"/>
-            <ComboBox Name="RoleSelectionComboBox" HorizontalAlignment="Right" Margin="0,50,5,0" VerticalAlignment="Top" Width="130"/>
+        <Grid  Name="ChangeRoleGrid" HorizontalAlignment="Left" Width="250" Height="150" VerticalAlignment="Center" Margin="525,0,0,0">
+            <Label Content="{x:Static CC:Text.ChangingUserRoleColon}" Style="{StaticResource Label}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label x:Name="RoleChangeDescription" Style="{StaticResource Label}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0"/>
+            <Label Content="{x:Static CC:Text.ChooseRoleColon}" Style="{StaticResource Label}" Margin="0,0,0,40" VerticalAlignment="Bottom" />
+            <ComboBox Name="RoleSelectionComboBox" HorizontalAlignment="Right" Margin="0,0,5,42" VerticalAlignment="Bottom" Width="130"/>
             <Button Name="ConfirmRoleChangeButton" Content="{x:Static CC:Text.Confirm}" HorizontalAlignment="Center" Margin="0,90,0,0" 
-                    VerticalAlignment="Top" Style="{StaticResource SmallButton}" Click="ConfirmRoleChangeButton_Click"/>
+                    VerticalAlignment="Bottom" Style="{StaticResource SmallButton}" Click="ConfirmRoleChangeButton_Click"/>
         </Grid>
 
         <Button Name="CancelButton" Content="{x:Static CC:Text.Cancel}" HorizontalAlignment="Left" Margin="610,370,0,0" VerticalAlignment="Top" 

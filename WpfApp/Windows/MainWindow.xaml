@@ -109,7 +109,8 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Content="{x:Static CC:Text.AddDoc}" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28" />
+                <Label Content="{x:Static CC:Text.AddDoc}" Style="{StaticResource Label}" Grid.ColumnSpan="3" 
+                       HorizontalAlignment="Center" Height="auto" FontWeight="Bold"  FontSize="28" />
 
                 <Label Content="{x:Static CC:Text.Name}"  Grid.Row="1" Style="{StaticResource Label}"/>
                 <TextBox x:Name="NewDocName_TextBox" Grid.Row="1" Style="{StaticResource CustTextBox}"/>
@@ -186,8 +187,10 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Content="{x:Static CC:Text.EditDoc}" Grid.Row="0" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="28"/>
-            <Label Name="EditDocTitleLabel" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <Label Content="{x:Static CC:Text.EditDoc}" Style="{StaticResource Label}" Grid.Row="0"
+                       HorizontalAlignment="Center" Height="auto" FontWeight="Bold"  FontSize="28"/>
+                <Label Name="EditDocTitleLabel" Grid.Row="1" Style="{StaticResource Label}"
+                       HorizontalAlignment="Center" Height="auto" FontWeight="Bold"  FontSize="18"/>
 
             <Label Content="{x:Static CC:Text.Name}"  Grid.Row="2" Style="{StaticResource Label}"/>
             <TextBox x:Name="EditDocName_TextBox" Grid.Row="2" Style="{StaticResource CustTextBox}"/>

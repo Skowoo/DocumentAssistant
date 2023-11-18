@@ -54,7 +54,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Visible;
-            LoginChangeDescription.Text = $"{Text.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            LoginChangeDescription.Content = $"{Text.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewLoginTextBox.Text = selectedUserView.Login;
         }
 
@@ -91,7 +91,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeNamesGrid.Visibility = Visibility.Visible;
-            NamesChangeDescription.Text = $"{Text.ChangingPersonalDataColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            NamesChangeDescription.Content = $"{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewFirstNameTextBox.Text = selectedUserView.FirstName;
             NewLastNameTextBox.Text = selectedUserView.LastName;
         }
@@ -122,7 +122,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangePasswordGrid.Visibility = Visibility.Visible;
-            PasswordChangeDescription.Text = $"{Text.ChangingPasswordColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            PasswordChangeDescription.Content = $"{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
         }
 
         private void ConfirmPasswordChangeButton_Click(object sender, RoutedEventArgs e)
@@ -158,7 +158,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeRoleGrid.Visibility = Visibility.Visible;
-            RoleChangeDescription.Text = $"{Text.ChangingUserRoleColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            RoleChangeDescription.Content = $"{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             List<Role> tempRolesList;
             using (MainContext context = new MainContext())
             {
