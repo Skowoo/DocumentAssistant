@@ -54,7 +54,7 @@ namespace WpfApp.Windows
         {
             UserUpdateCommandGrid.Visibility = Visibility.Hidden;
             ChangeLoginGrid.Visibility = Visibility.Visible;
-            LoginChangeDescription.Content = $"{Text.ChangingUserLoginColon} \n{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
+            LoginChangeDescription.Content = $"{selectedUserView.Login} - {selectedUserView.FirstName} {selectedUserView.LastName} (ID: {selectedUserView.UserID})";
             NewLoginTextBox.Text = selectedUserView.Login;
         }
 
