@@ -43,7 +43,12 @@
             </MenuItem>
         </Menu>
 
-        <Grid Name="DocumentFullGrid" Margin="0,20,300,0">
+        <Grid Name="DocumentFullGrid" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
             <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="{StaticResource DarkBgColorBrush}" 
                       SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" >
                 <DataGrid.Columns>
@@ -66,28 +71,30 @@
             <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Margin="0,5,25,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" 
                     Content="{x:Static CC:Text.NextPage}" Click="NextPageButton_Click"></Button>
             <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
-        </Grid>
 
-        <Grid Visibility="Hidden" Name="MainControlButtonsGrid" HorizontalAlignment="Right" Height="auto" Margin="0,0,50,0" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Button Name="AddDocumentBtn" Content="{x:Static CC:Text.AddDoc}" Grid.Row="0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click" IsEnabled="False"/>
-            <Button Name="EditDocBtn" Content="{x:Static CC:Text.EditDoc}" Grid.Row="1" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click" IsEnabled="False"/>
-            <Button Name="DeleteDocBtn" Content="{x:Static CC:Text.DeleteDoc}" Grid.Row="2" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click" IsEnabled="False"/>
-            <Button Name="MarkAsDoneBtn" Content="{x:Static CC:Text.MarkAsDone}" Grid.Row="3" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click" IsEnabled="False"/>
-            <Button Name="ConfirmDoneBtn" Content="{x:Static CC:Text.ConfirmDone}" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click" IsEnabled="False"/>
-            <Button Name="AssignDocumentBtn" Content="{x:Static CC:Text.AssignDoc}" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click" IsEnabled="False"/>
-            <ComboBox Name="AssignUserMainMenu_ComboBox" Grid.Row="6" Height="30" Margin="0,0,0,10"/>
-            <Button Name="AssignUserMainMenuConfirm_Button" Content="{x:Static CC:Text.Assign}" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" 
+            <Grid Grid.Column="1" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Name="AddDocumentBtn" Content="{x:Static CC:Text.AddDoc}" Grid.Row="0" Style="{StaticResource MainMenuButton}" Click="AddDocumentBtn_Click" IsEnabled="False"/>
+                <Button Name="EditDocBtn" Content="{x:Static CC:Text.EditDoc}" Grid.Row="1" Style="{StaticResource MainMenuButton}" Click="EditDocBtn_Click" IsEnabled="False"/>
+                <Button Name="DeleteDocBtn" Content="{x:Static CC:Text.DeleteDoc}" Grid.Row="2" Style="{StaticResource MainMenuButton}" Click="DeleteDocBtn_Click" IsEnabled="False"/>
+                <Button Name="MarkAsDoneBtn" Content="{x:Static CC:Text.MarkAsDone}" Grid.Row="3" Style="{StaticResource MainMenuButton}" Click="MarkAsDoneBtn_Click" IsEnabled="False"/>
+                <Button Name="ConfirmDoneBtn" Content="{x:Static CC:Text.ConfirmDone}" Grid.Row="4" Style="{StaticResource MainMenuButton}" Click="ConfirmDoneBtn_Click" IsEnabled="False"/>
+                <Button Name="AssignDocumentBtn" Content="{x:Static CC:Text.AssignDoc}" Grid.Row="5" Style="{StaticResource MainMenuButton}" Click="AssignDocumentBtn_Click" IsEnabled="False"/>
+                <ComboBox Name="AssignUserMainMenu_ComboBox" Grid.Row="6" Style="{StaticResource CustomBoxStyle}" Width="200" HorizontalAlignment="Center" />
+                <Button Name="AssignUserMainMenuConfirm_Button" Content="{x:Static CC:Text.Assign}" Grid.Row="7" Style="{StaticResource MainMenuButton}" Height="30" 
                     Click="AssignUserMainMenuConfirm_Button_Click" />
+
+            </Grid>
         </Grid>
 
         <ScrollViewer Visibility="Hidden" Name="AddDocumentGrid" Margin="0,20,0,0">
