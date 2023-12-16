@@ -1,7 +1,6 @@
 ﻿using DocumentAssistantLibrary;
 using DocumentAssistantLibrary.Classes;
 using DocumentAssistantLibrary.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace WpfApp.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
-        MainContext context;
+        MainContext? context;
 
         CultureInfo culture;
 
@@ -72,7 +71,7 @@ namespace WpfApp.Windows
 
             try
             {
-                foundUser = (from c in context.Users where c.Login == LoginTextBox.Text select c).Single();
+                foundUser = (from c in context!.Users where c.Login == LoginTextBox.Text select c).Single();
             }
             catch
             {
@@ -125,7 +124,7 @@ namespace WpfApp.Windows
 
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
 
-            if (!context.Database.CanConnect())
+            if (!context!.Database.CanConnect())
                 newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, 
                                                             MessageBoxButton.YesNo, MessageBoxImage.Warning);
             
@@ -138,6 +137,10 @@ namespace WpfApp.Windows
                     MessageBox.Show(Text.DbNotCreatedBoxText);
                     this.Close();
                 }
+            }
+            else
+            {
+                this.Close();
             }
         }
         #endregion
