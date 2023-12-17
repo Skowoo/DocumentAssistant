@@ -3,7 +3,7 @@
 
 namespace DocumentAssistantLibrary.Classes
 {
-    public readonly struct Statistics 
+    public readonly struct Statistics
     {
         public Statistics(IList<Document> inputList)
         {

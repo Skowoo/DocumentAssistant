@@ -125,9 +125,9 @@ namespace WpfApp.Windows
             MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
 
             if (!context!.Database.CanConnect())
-                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, 
+                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle,
                                                             MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            
+
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
             {
                 if (DbCreator.CreateNewDb())

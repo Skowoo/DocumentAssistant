@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WpfApp.Windows;
 using WpfApp.Resources;
+using WpfApp.Windows;
 
 namespace WpfApp
 {
@@ -177,7 +177,7 @@ namespace WpfApp
         }
 
         private void ShowNewLanguageGrid()
-        {            
+        {
             NewLanguageLabel.Visibility = Visibility.Visible;
             NewLanguage_TextBox.Visibility = Visibility.Visible;
             ConfirmNewLanguage_Button.Visibility = Visibility.Visible;
@@ -214,7 +214,7 @@ namespace WpfApp
             customersList.Clear();
 
             using (MainContext context = new MainContext())
-                customersList = context.Customers.ToList();           
+                customersList = context.Customers.ToList();
 
             customerViewModelsList.Clear();
 
@@ -420,7 +420,7 @@ namespace WpfApp
         {
             int numberOfDocs = 1000;
 
-            MessageBoxResult createExampleDocs = MessageBox.Show($"{Text.GenerateRandomDocs} {numberOfDocs}\n{Text.ContinueQuestion}", 
+            MessageBoxResult createExampleDocs = MessageBox.Show($"{Text.GenerateRandomDocs} {numberOfDocs}\n{Text.ContinueQuestion}",
                                                                     Text.GenerateRandomDocsBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (createExampleDocs == MessageBoxResult.Yes)
