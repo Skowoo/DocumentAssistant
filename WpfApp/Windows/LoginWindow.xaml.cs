@@ -122,11 +122,12 @@ namespace WpfApp.Windows
                 this.Close();
             }
 
-            MessageBoxResult newDbCreateWindowDecision = MessageBoxResult.None;
+            MessageBoxResult? newDbCreateWindowDecision;
 
             if (!context!.Database.CanConnect())
-                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle,
-                                                            MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                newDbCreateWindowDecision = MessageBox.Show(Text.NoDbBoxText, Text.NoDbBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            else 
+                return;
 
             if (newDbCreateWindowDecision == MessageBoxResult.Yes)
             {
@@ -138,7 +139,7 @@ namespace WpfApp.Windows
                     this.Close();
                 }
             }
-            else
+            else if (newDbCreateWindowDecision == MessageBoxResult.No || newDbCreateWindowDecision == MessageBoxResult.None)
             {
                 this.Close();
             }

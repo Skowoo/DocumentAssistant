@@ -5,7 +5,7 @@
              StartupUri="Windows/LoginWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="TextColorBrush" Color="#FF796953"/>
+            <SolidColorBrush x:Key="TextColorBrush" Color="#FF460000"/>
             <SolidColorBrush x:Key="BgColorBrush" Color="BlanchedAlmond"/>
             <SolidColorBrush x:Key="DarkBgColorBrush" Color="#FFFDD8A1"/>
             <SolidColorBrush x:Key="ButtonBgColorBrush" Color="#FFFFBB56"/>
