@@ -16,7 +16,7 @@
             if (input.SignsSize is not null)
                 signsSize = (int)input.SignsSize;
 
-            Name = input.Name;
+            Name = input.Name ??= string.Empty;
 
             if (input.TimeAdded is not null)
                 TimeAdded = (DateTime)input.TimeAdded;
@@ -147,12 +147,12 @@
         /// <summary>
         /// Name of original language of document
         /// </summary>
-        public string OriginalLanguage { get; init; }
+        public string? OriginalLanguage { get; init; }
 
         /// <summary>
         /// Name of target language of document
         /// </summary>
-        public string TargetLanguage { get; init; }
+        public string? TargetLanguage { get; init; }
 
         /// <summary>
         /// Boolean value of document is done - based on existence of TimeDone date.

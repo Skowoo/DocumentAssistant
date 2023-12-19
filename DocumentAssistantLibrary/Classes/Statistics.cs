@@ -18,7 +18,7 @@ namespace DocumentAssistantLibrary.Classes
             AverageTimeToCompleteDoc = calculatedTranslations.Item1;
             TranslatedDocumentCount = calculatedTranslations.Item2;
             DocumentCount = inputList.Count;
-            AverageDocSize = (int)Math.Floor((double)inputList.Average(x => x.SignsSize));
+            AverageDocSize = (int)Math.Floor((double)inputList.Average(x => x.SignsSize)!);
         }
 
         public readonly bool IsValid;
@@ -51,7 +51,7 @@ namespace DocumentAssistantLibrary.Classes
 
                 validDocsCounter++;
             }
-            if (validDocsCounter > 0)
+            if (validDocsCounter > 0 && averageDaysToCompleteDoc is not null)
                 return Tuple.Create((double?)Math.Round((double)averageDaysToCompleteDoc / validDocsCounter, 2), validDocsCounter);
             else
                 return Tuple.Create((double?)null, 0);
