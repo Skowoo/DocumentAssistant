@@ -9,12 +9,7 @@ namespace DocumentAssistantLibrary
     public class MainContext : DbContext
     {
         private static DbContextOptionsBuilder<MainContext> defaultOptions => new DbContextOptionsBuilder<MainContext>()
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;",
-                options => options.EnableRetryOnFailure(
-                    maxRetryCount: 3,
-                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null)
-                    );
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DocumentAssistantDB;TrustServerCertificate=True;");
 
         /// <summary>
         /// Parameterless constructor - uses defaultOptions specified inside MainContext class

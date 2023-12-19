@@ -19,6 +19,6 @@ namespace DocumentAssistantLibrary.Models
         /// Customer's name
         /// </summary>
         [Required]
-        public string TypeName { get; set; }
+        public string TypeName { get; set; } = default!;
     }
 }

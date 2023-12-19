@@ -19,19 +19,19 @@ namespace DocumentAssistantLibrary.Models
         /// Language name
         /// </summary>
         [Required]
-        public string LanguageName { get; set; }
+        public string LanguageName { get; set; } = default!;
 
         /// <summary>
         /// Collection of Documents on which language was marked as original
         /// </summary>
         //Inversed properties
         [InverseProperty("OriginalLanguage")]
-        public ICollection<Document> OriginalDocuments { get; set; }
+        public ICollection<Document>? OriginalDocuments { get; set; }
 
         /// <summary>
         /// Collection of Documents on which language was marked as target
         /// </summary>
         [InverseProperty("TargetLanguage")]
-        public ICollection<Document> TargetDocuments { get; set; }
+        public ICollection<Document>? TargetDocuments { get; set; }
     }
 }

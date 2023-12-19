@@ -19,31 +19,31 @@ namespace DocumentAssistantLibrary.Models
         /// User's first name
         /// </summary>
         [Required]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = default!;
 
         /// <summary>
         /// User's last name
         /// </summary>
         [Required]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = default!;
 
         /// <summary>
         /// User's login
         /// </summary>
         [Required]
-        public string Login { get; set; }
+        public string Login { get; set; } = default!;
 
         /// <summary>
         /// User's password
         /// </summary>
         [Required]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         /// <summary>
         /// Salt for User's password
         /// </summary>
         [Required]
-        public string Salt { get; set; }
+        public string Salt { get; set; } = default!;
 
         /// <summary>
         /// Boolean IsActive - true if user is activated and can log in
@@ -58,6 +58,6 @@ namespace DocumentAssistantLibrary.Models
         [Display(Name = "Role")]
         public virtual int RoleID { get; set; }
         [ForeignKey("RoleID")]
-        public virtual Role Roles { get; set; }
+        public virtual Role? Roles { get; set; }
     }
 }

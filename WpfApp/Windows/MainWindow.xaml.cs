@@ -677,13 +677,15 @@ namespace WpfApp
 
             using (MainContext context = new MainContext())
             {
+                bool sizeParsed = Int32.TryParse(EditDocSize_TextBox.Text.Trim(), out int documentSize);
 #pragma warning disable CS8602 // Dereference of a possibly null reference - variables can be null
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
                 editedDocument.Name = EditDocName_TextBox.Text.Trim();
-                editedDocument.SignsSize = Int32.Parse(EditDocSize_TextBox.Text.Trim());
+                if (sizeParsed)
+                    editedDocument.SignsSize = documentSize;
                 editedDocument.CustomerID = tempSelectedDocCustomer.CustomerID;
                 editedDocument.TypeID = tempSelectedDocType.TypeID;
-                editedDocument.IsConfirmed = (bool)EditDocGridConfirmed_CheckBox.IsChecked;
+                editedDocument.IsConfirmed = EditDocGridConfirmed_CheckBox.IsChecked;
                 editedDocument.OriginalLanguageID = tempSelectedOriginalLang.LanguageID;
                 editedDocument.TargetLanguageID = tempSelectedTargetLang.LanguageID;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
@@ -766,7 +768,7 @@ namespace WpfApp
             {
                 var selectedUser = AssignUserMainMenu_ComboBox.SelectedItem as UserViewModel;
                 var editedDocument = context.Documents.Where(x => x.DocumentID == selectedDocument.DocumentID).Single();
-                editedDocument.UserID = selectedUser.UserID;
+                editedDocument.UserID = selectedUser!.UserID;
                 context.SaveChanges();
             }
 
