@@ -34,8 +34,13 @@
 
     <Grid x:Name="MainGrid" Background="{StaticResource BgColorBrush}">
 
-        <Menu VerticalAlignment="Top" Background="{StaticResource BgColorBrush}" Height="20">
-            <MenuItem Header="{x:Static CC:Text.Settings}" Height="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu VerticalAlignment="Top" Background="{StaticResource BgColorBrush}">
+            <MenuItem Header="{x:Static CC:Text.Settings}">
                 <MenuItem Name="Menu_ManageUsers" Header="{x:Static CC:Text.ManageUsers}" Click="Menu_ManageUsers_Click" IsEnabled="False"/>
                 <MenuItem Name="Menu_ShowStatistics" Header="{x:Static CC:Text.OpenStatisticsWindow}" Click="Menu_ShowStatistics_Click" IsEnabled="False"/>
                 <MenuItem Name="GenerateRandomDocs" Header="{x:Static CC:Text.GenerateRandomFiles}" Click="GenerateRandomDocs_Click" Visibility="Hidden" />
@@ -43,14 +48,28 @@
             </MenuItem>
         </Menu>
 
-        <Grid Name="DocumentFullGrid" Margin="0,20,0,0">
+        <Grid Name="DocumentFullGrid" Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
 
-            <DataGrid Name="DocGrid" Margin="0,20,0,40" AutoGenerateColumns="False" IsReadOnly="True" Background="{StaticResource DarkBgColorBrush}" 
-                      SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" >
+            <DataGrid Name="DocGrid" AutoGenerateColumns="False" IsReadOnly="True" Background="{StaticResource DarkBgColorBrush}" 
+                      SelectionChanged="DocGrid_SelectionChanged" Sorting="DocGridSortingChanged" Grid.ColumnSpan="7" >
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="docNameColumn" Binding="{Binding Name}" Header="{x:Static CC:Text.DocName}" Width="*"/>
                     <DataGridTextColumn x:Name="docOriginalLangColumn" Binding="{Binding OriginalLanguage}" Header="{x:Static CC:Text.SourceLang}" Width="SizeToHeader"/>
@@ -66,13 +85,13 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Style="{StaticResource SmallButton}" Name="PreviousPageButton" Margin="25,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" 
-                    Content="{x:Static CC:Text.PreviousPage}" Click="PreviousPageButton_Click"></Button>
-            <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Margin="0,5,25,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" 
-                    Content="{x:Static CC:Text.NextPage}" Click="NextPageButton_Click"></Button>
-            <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            <Button Style="{StaticResource SmallButton}" Name="PreviousPageButton" Grid.Column="1" Grid.Row="2" Width="150"
+                    Content="{x:Static CC:Text.PreviousPage}" Click="PreviousPageButton_Click"/>
+            <Button Style="{StaticResource SmallButton}" Name="NextPageButton" Grid.Column="5" Grid.Row="2" Width="150"
+                    Content="{x:Static CC:Text.NextPage}" Click="NextPageButton_Click"/>
+            <Label Style="{StaticResource Label}" Name="DocumentsListPageNumber" Content="Strona X z Z" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"/>
 
-            <Grid Grid.Column="1" VerticalAlignment="Center">
+            <Grid Grid.Column="8" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
@@ -97,7 +116,7 @@
             </Grid>
         </Grid>
 
-        <ScrollViewer Visibility="Hidden" Name="AddDocumentGrid" Margin="0,20,0,0">
+        <ScrollViewer Visibility="Hidden" Name="AddDocumentGrid" Grid.Row="1">
             <Grid Name="AddDocumentInternaGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="500"/>
@@ -176,7 +195,7 @@
             </Grid>
         </ScrollViewer>
 
-        <ScrollViewer Visibility="Hidden" Name="EditDocGrid" Margin="0,20,0,0">
+        <ScrollViewer Visibility="Hidden" Name="EditDocGrid" Grid.Row="1">
         <Grid Width="500" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
